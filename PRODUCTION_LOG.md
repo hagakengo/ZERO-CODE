@@ -44,6 +44,51 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — D1 TEST A CapCut Trial 06
+
+**Status:** TEST / GLOW PULSE PASS / SHOT CANDIDATE
+
+**Tool / Model:**  
+CapCut Image-to-Video / trial generation
+
+**Asset / Version:**  
+- hooded 9:16 backpack reference candidate
+- D1 v1.1 Production Master Candidate
+
+**Goal:**  
+Test whether the existing cyan core can gently pulse without changing the D1 emblem shape, while preserving the stable close-up composition from Trial 05.
+
+**What we tried:**  
+Generated a 5-second vertical clip from the same hooded backpack reference. The prompt allowed only the central cyan core to pulse softly once while keeping the protagonist still, the backpack fixed, and the D1 emblem unchanged.
+
+**Result:**  
+Glow pulse pass. The central cyan light became stronger and more visually alive while the hooded silhouette, backpack position, and overall D1 emblem remained stable across sampled frames.
+
+**What worked:**  
+- Central cyan core pulsed in a visually useful way.
+- D1 remained attached to the backpack.
+- Protagonist stayed rear-facing and still.
+- Backpack stayed centered.
+- Rainy futuristic city atmosphere remained consistent.
+- The shot feels closer to a usable ZERO CODE activation / emblem-life moment.
+
+**What failed / needs improvement:**  
+- D1 is still not a perfect geometric match to the official D1 v1.1 specification sheet.
+- Fine lower-right fractured details remain simplified by generation.
+- Stronger glow can partially obscure fine emblem geometry.
+- Still classified as TEST footage, not MASTER footage.
+
+**Change:**  
+Keep Trial 06 as the current best glow-pulse shot candidate. Future glow tests should avoid increasing brightness too far, because the light can hide the broken details that define D1.
+
+**Why:**  
+Trial 06 proves that controlled emblem energy can add story value without immediately causing major redesign. The cyan core can behave like an activation signal while preserving the broader D1 identity.
+
+**Next action:**  
+Run one stricter comparison if needed: reduce the glow intensity slightly while keeping the same close-up composition, or move on to a different TEST B full-body/distance framing.
+
+---
+
 ## 2026-10-07 — D1 TEST A CapCut Trial 05
 
 **Status:** TEST / CLOSE-UP PASS / D1 READABILITY IMPROVED
