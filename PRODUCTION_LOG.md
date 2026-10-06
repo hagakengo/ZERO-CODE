@@ -44,6 +44,43 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — Teaser 00 v0.2 public candidate export
+
+**Status:** PUBLIC CANDIDATE / EXPORT COMPLETE / AWAITING PRODUCER REVIEW
+
+**Tool / Model:**  
+Codex editing with FFmpeg, Pillow HUD typography, original synthesized electronic sound design.
+
+**Asset / Version:**  
+`ZERO_CODE_TEASER00_v0.2.mp4` — 20.000 seconds, 1080 × 1920 (9:16), 24 fps, 480 video frames, H.264 / AAC, 11,794,971 bytes. Delivered locally; video binary not uploaded to GitHub.
+
+**Preservation:**  
+v0.1 retained byte-for-byte as FIRST EXPORT archive. Archive SHA-256 matches the prior logged original: `37b159d9424bb723c3eeb1f730c939ab0dff8d6f961a8fbef7874ee9a4c97063`.
+
+**Changes / Timeline:**  
+- 0–0.5 s: SYSTEM ONLINE... over visible Trial 05; D1 is visible from the first frame.
+- 0.5–4.5 s: Trial 05, enlarged two-line ZERO CODE / DETECTED.
+- 4.5–8.5 s: Trial 07 activation, PLAYER / REGISTERED.
+- 8.5–12.5 s: darkened moving Trial 07, PLAYER STATUS / LV.01 / FOLLOWERS 0 / 1000 / TOTAL REVENUE ¥0.
+- 12.5–17.5 s: darkened moving Trial 05, MISSION 01, circular cyan objective graphic, oversized ¥1, 最初の1円を生み出せ。 / EARN YOUR FIRST ¥1.; strongest low-frequency impact.
+- 17.5–17.9167 s: 10-frame dark and silent pause.
+- 17.9167–20 s: CONTINUE...? with electronic cue.
+- Short HUD fades, electronic pulse bed and transition cues.
+
+**Verification:**  
+Full output decoded without errors. Resolution, frame count, frame rate and duration verified. Representative output frames checked for framing and Japanese/English text rendering.
+
+**Limitations:**  
+Source detail remains limited to the original 704 × 1248 and 480 × 864 footage. D1 is still candidate footage, not MASTER. Sound is synthesized; phone speaker/headphone listening review is pending.
+
+**Next action:**  
+Producer playback review before v1.0 selection or public release. This export does not constitute publication or canon approval.
+
+**SHA-256:**  
+`1bcb23cbfbf948764969a1983b6a722636dd7bc00da67b6ef4928cec2fc1550f`
+
+---
+
 ## 2026-10-07 — Teaser 00 v0.1 first complete MP4 export
 
 **Status:** CANDIDATE / EXPORT COMPLETE / AWAITING PRODUCER REVIEW
