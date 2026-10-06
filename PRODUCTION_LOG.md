@@ -44,6 +44,51 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — D1 TEST A CapCut Trial 02
+
+**Status:** TEST / STRONG PARTIAL PASS
+
+**Tool / Model:**  
+CapCut Image-to-Video / free trial generation
+
+**Asset / Version:**  
+- hooded 9:16 backpack reference candidate
+- D1 v1.1 Production Master Candidate
+
+**Goal:**  
+Retry D1 TEST A with a proper 9:16 hooded protagonist reference to fix Trial 01’s black-bar / horizontal framing problem while checking whether D1 remains stable in motion.
+
+**What we tried:**  
+Generated a 5-second 9:16 image-to-video shot from a hooded rear-view backpack reference. The prompt instructed CapCut to keep the same hooded protagonist, backpack, and D1 emblem, with minimal motion and slow push-in only.
+
+**Result:**  
+Strong partial pass. The video stayed in true vertical 9:16 framing, with no major black bars. The hooded protagonist remained rear-facing and mostly still. D1 stayed attached to the backpack and remained recognizable across sampled frames.
+
+**What worked:**  
+- 9:16 composition problem was solved.
+- Hooded protagonist matched the intended no-face direction much better than the hair-visible reference.
+- D1 remained visibly attached to the backpack.
+- The broken zero, diagonal A-like axis, and central cyan core remained recognizable.
+- Motion was controlled and did not cause major character or camera drift.
+- This is a usable preflight result for validating the D1 shooting workflow.
+
+**What failed / needs improvement:**  
+- D1 fine details are still not identical to the D1 v1.1 specification sheet.
+- Lower-right fractured details remain softened / simplified by generation.
+- This is still not final MASTER footage.
+- The Trial 02 reference image itself should remain a TEST reference, not the protagonist Character Master.
+
+**Change:**  
+Keep the hooded 9:16 reference direction for future Trial A-style tests, but use the official D1 v1.1 reference/spec sheet as an additional comparison when judging emblem fidelity.
+
+**Why:**  
+Trial 02 proves that the main failure in Trial 01 was framing/canvas setup, not D1 itself. D1 is video-tolerant enough to continue toward Flow / Veo testing.
+
+**Next action:**  
+Run one more low-cost comparison only if useful: either an “almost still” version from the same 9:16 image, or a close-up-only version focused tighter on the backpack. Preserve Flow / Veo credits for the final controlled TEST A.
+
+---
+
 ## 2026-10-07 — D1 TEST A CapCut Trial 01
 
 **Status:** TEST / PARTIAL PASS
