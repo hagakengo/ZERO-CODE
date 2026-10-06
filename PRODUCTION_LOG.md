@@ -44,6 +44,38 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — Teaser 00 v1.0 public export
+
+**Status:** PUBLIC EXPORT COMPLETE
+
+**Tool / Model:**  
+Codex editing with FFmpeg.
+
+**Asset / Version:**  
+`ZERO_CODE_TEASER00_v1.0_PUBLIC.mp4` — 19.833333 seconds, 1080 × 1920 (9:16), 24 fps, 476 frames, H.264 / AAC stereo, 12,040,011 bytes. Delivered locally; video binary not uploaded to GitHub.
+
+**Goal:**  
+Polish the approved v0.2 direction with minor changes only.
+
+**Changes:**  
+- Preserved D1/protagonist visibility from frame one. Shortened SYSTEM ONLINE from 0.5 to 0.375 seconds.
+- Shortened ZERO CODE DETECTED. from 4 to 3.666667 seconds.
+- Slightly lifted PLAYER STATUS only (gamma 1.12, brightness +0.008).
+- Preserved all five seconds of MISSION 01 / ¥1, its imagery, timing within the shot, and synchronized impact.
+- Preserved CONTINUE...? and the preceding pause. Appended seven pure-black frames (0.291667 seconds), with silence.
+- Trimmed existing audio with the picture to preserve cue alignment; applied tiny outgoing audio fades at the two cuts.
+
+**Verification:**  
+Full file decoded without errors. Resolution, frame rate, 476-frame count, and matching audio/video durations verified. Representative frames visually checked, including first-frame D1, STATUS readability, MISSION, CONTINUE and final black.
+
+**Limitations / Next action:**  
+Phone speaker/headphone listening review remains for the producer. Existing source footage detail and emblem geometry are unchanged. This records the public-ready export; no social-platform publication was performed.
+
+**SHA-256:**  
+`7d97d99ac7ab43f8eb4d5c4730498812a9d329b23d439b3529085e3ba8a5a6bc`
+
+---
+
 ## 2026-10-07 — Teaser 00 v0.2 public candidate export
 
 **Status:** PUBLIC CANDIDATE / EXPORT COMPLETE / AWAITING PRODUCER REVIEW
