@@ -44,6 +44,45 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — Teaser 00 v0.1 first complete MP4 export
+
+**Status:** CANDIDATE / EXPORT COMPLETE / AWAITING PRODUCER REVIEW
+
+**Tool / Model:**  
+Codex editing with FFmpeg, Pillow HUD overlays, and original synthesized electronic sound effects.
+
+**Asset / Version:**  
+`ZERO_CODE_TEASER00_v0.1.mp4` — 20.000 seconds, 1080 × 1920 (9:16), 24 fps, H.264 video / AAC audio. File size: 9,954,414 bytes. Delivered as a local output in the Codex task; the video binary has not been uploaded to GitHub.
+
+**Goal:**  
+Complete the first playable teaser using Trial 05 for D1 readability and Trial 07 for activation.
+
+**What we tried:**  
+- 0–2 s: dark background, SYSTEM ONLINE...
+- 2–6 s: Trial 05 source seconds 3–7, ZERO CODE DETECTED.
+- 6–10 s: first 5 seconds of Trial 07 at 1.25× speed, PLAYER REGISTERED.
+- 10–14 s: darkened final Trial 07 still, PLAYER STATUS / LV.01 / FOLLOWERS 0 / 1000 / TOTAL REVENUE ¥0.
+- 14–18 s: dark background, MISSION 01 / 最初の1円を生み出せ。 / EARN YOUR FIRST ¥1.
+- 18–20 s: CONTINUE...?
+- Cyan/white HUD, short fades, low electronic bed, boot/scan/registration/mission cues. Source videos contain no audio.
+
+**Result / What worked:**  
+First complete v0.1 MP4 exported. Full file decoded without errors; duration, resolution, codecs, and 24 fps verified. Representative frames from all six sections were visually checked for text rendering, D1 visibility, and framing.
+
+**Limitations:**  
+Source clips are 704 × 1248 and 480 × 864, upscaled and minimally cropped to fill 9:16. Export resolution does not imply native 1080p source detail. Existing D1 geometry limitations remain; the footage is still TEST/CANDIDATE, not MASTER. Producer playback review is pending.
+
+**Why:**  
+Create a finished first edit that can be reviewed and refined before publication.
+
+**Next action:**  
+Review pacing, HUD readability, and sound on a phone; apply any requested revisions as v0.2. No public video publication was performed.
+
+**SHA-256:**  
+`37b159d9424bb723c3eeb1f730c939ab0dff8d6f961a8fbef7874ee9a4c97063`
+
+---
+
 ## 2026-10-07 — D1 TEST A CapCut Trial 07
 
 **Status:** TEST / BALANCED GLOW PASS / CURRENT BEST ACTIVATION CANDIDATE
