@@ -1,8 +1,23 @@
 # ZERO CODE — VISUAL BIBLE
 
-> Version: 0.1  
-> Status: DRAFT  
+> Version: 0.2  
+> Status: DRAFT / CANDIDATE LOCKING  
 > This document defines the visual truth of the project.
+
+---
+
+## 0. Current asset status
+
+The current D1 emblem board and protagonist references have been identified in the production chat and recorded in:
+
+`master_assets/ASSET_IMPORT_MANIFEST.md`
+
+Important distinction:
+
+- Creative status: D1 v1.1 is the current main design.
+- Production status: D1 v1.1 remains **Production Master Candidate** until continuity tests pass.
+
+The source image may include the phrase “PRODUCTION MASTER”, but project canon treats it as Candidate until promotion.
 
 ---
 
@@ -34,6 +49,12 @@ No neon clothing trim.
 
 In very dark scenes, the body may almost disappear while the emblem remains visible.
 
+### Current reference candidate
+
+- `master_assets/protagonist/protagonist_character_sheet_v0.1.png`
+- Source currently recorded in `master_assets/ASSET_IMPORT_MANIFEST.md`
+- Status: Character Sheet Candidate v0.1
+
 ---
 
 ## 2. ZERO CODE emblem
@@ -41,6 +62,10 @@ In very dark scenes, the body may almost disappear while the emblem remains visi
 Current asset:
 
 **D1 v1.1 — Production Master Candidate**
+
+Recommended asset path:
+
+`master_assets/emblem/D1_v1.1/D1_v1.1_production_master_candidate.png`
 
 Visual anchors:
 
@@ -59,6 +84,22 @@ It should feel like an unknown, damaged, reconstructed code trace.
 > 欠けていることが、完成形である。
 
 Do not “fix” its brokenness.
+
+### D1 promotion rule
+
+D1 v1.1 must pass continuity tests before becoming **D1 MASTER v1.0**.
+
+Required tests:
+
+1. TEST A — BACK CLOSE-UP
+2. TEST B — FULL BODY / DISTANCE
+3. TEST C — DARK / HEAVY RAIN
+4. TEST D — WALKING
+
+During every test:
+
+> DO NOT REDESIGN D1.  
+> FILM IT.
 
 ---
 
@@ -79,6 +120,17 @@ After activation:
 - D1 fixed at canonical placement
 - steady cyan glow
 - no random movement or redesign
+
+### Current TEST A reference
+
+Recommended path:
+
+`master_assets/emblem/D1_v1.1/backpack_closeup_reference_cropped.png`
+
+Status:
+
+- TEST A Reference
+- Caption/text area should be removed before using as direct video-model input.
 
 ---
 
