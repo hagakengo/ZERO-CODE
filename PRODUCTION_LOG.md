@@ -44,6 +44,49 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — D1 TEST A CapCut Trial 03
+
+**Status:** TEST / D1 FIDELITY PASS / FRAMING ISSUE
+
+**Tool / Model:**  
+CapCut Image-to-Video / free trial generation
+
+**Asset / Version:**  
+- hooded 9:16 backpack reference candidate
+- D1 v1.1 Production Master Candidate
+
+**Goal:**  
+Test whether an almost-still / micro-push-in prompt improves D1 emblem retention compared with Trial 02.
+
+**What we tried:**  
+Generated a 5-second video from the same hooded backpack reference, using a stricter prompt focused on minimal motion, almost-still behavior, no cuts, no turning, and no emblem redesign.
+
+**Result:**  
+D1 fidelity pass, but framing issue. The sampled frames show the D1 emblem remained highly stable across the clip. The broken zero, diagonal A-like axis, central cyan core, and backpack placement stayed recognizable with very little drift. However, the exported clip appears closer to a horizontal 1248x704 frame than a true 9:16 export, so it is not directly usable as vertical final footage.
+
+**What worked:**  
+- D1 was more stable than Trial 02.
+- The emblem stayed attached to the backpack.
+- The protagonist remained rear-facing.
+- Motion was controlled and close to an almost-still shot.
+- The micro-push-in / almost-still prompt is promising for emblem preservation.
+
+**What failed / needs improvement:**  
+- Export/aspect ratio appears horizontal instead of 9:16.
+- Composition is too tight and loses the full vertical character silhouette.
+- Not suitable as final EP footage without correct vertical export settings.
+
+**Change:**  
+Keep the Trial 03 prompt style as the high-fidelity D1 preservation prompt, but check CapCut export/project settings before the next generation so the result remains 9:16 vertical.
+
+**Why:**  
+Trial 03 shows that reducing motion improves D1 consistency. The failure is not emblem stability; it is output framing/export configuration.
+
+**Next action:**  
+Run Trial 04 only after confirming the CapCut project/export is set to 9:16 vertical. Use the same almost-still prompt or a close variant.
+
+---
+
 ## 2026-10-07 — D1 TEST A CapCut Trial 02
 
 **Status:** TEST / STRONG PARTIAL PASS
