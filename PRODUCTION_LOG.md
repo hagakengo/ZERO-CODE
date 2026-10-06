@@ -44,6 +44,50 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — D1 TEST A CapCut Trial 07
+
+**Status:** TEST / BALANCED GLOW PASS / CURRENT BEST ACTIVATION CANDIDATE
+
+**Tool / Model:**  
+CapCut Image-to-Video / trial generation
+
+**Asset / Version:**  
+- hooded 9:16 backpack reference candidate
+- D1 v1.1 Production Master Candidate
+
+**Goal:**  
+Reduce Trial 06's glow intensity while keeping the activation feeling, so the D1 emblem shape remains more readable.
+
+**What we tried:**  
+Generated a 5-second vertical clip from the same hooded backpack reference. The prompt allowed only the existing central cyan core to pulse once at low intensity, while keeping the protagonist still, the backpack fixed, and the D1 emblem unchanged.
+
+**Result:**  
+Balanced glow pass. The cyan activation reads clearly without overwhelming the emblem as much as Trial 06. The hooded protagonist remains rear-facing, the backpack stays centered, and D1 remains attached and readable across sampled frames.
+
+**What worked:**  
+- Glow feels alive but more controlled than Trial 06.
+- D1 remains readable and stable.
+- Hooded silhouette stays consistent.
+- Backpack placement is stable.
+- City/rain atmosphere remains cinematic without excessive motion.
+- This is the current best CapCut activation-shot candidate.
+
+**What failed / needs improvement:**  
+- D1 is still not a perfect geometric match to the official D1 v1.1 sheet.
+- Lower-right fracture details remain simplified.
+- This is still TEST footage, not MASTER footage.
+
+**Change:**  
+Treat Trial 07 as the current best low-glow activation baseline. Trial 05 remains the best D1 readability / close-up baseline, while Trial 07 is the best activation baseline.
+
+**Why:**  
+Trial 07 balances story energy and emblem readability better than Trial 06. It gives the D1 core a living/system feel without fully washing out the mark.
+
+**Next action:**  
+Stop glow escalation for now. Either move to TEST B full-body/distance framing, or create a stricter D1 reference shot for exact emblem geometry before spending Flow / Veo credits.
+
+---
+
 ## 2026-10-07 — D1 TEST A CapCut Trial 06
 
 **Status:** TEST / GLOW PULSE PASS / SHOT CANDIDATE
