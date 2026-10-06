@@ -44,6 +44,50 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — D1 TEST A CapCut Trial 01
+
+**Status:** TEST / PARTIAL PASS
+
+**Tool / Model:**  
+CapCut Image-to-Video / free trial generation
+
+**Asset / Version:**  
+- `backpack_closeup_reference_cropped`
+- D1 v1.1 Production Master Candidate
+
+**Goal:**  
+Test whether D1 can survive a low-cost image-to-video generation as a fixed physical emblem attached to the backpack.
+
+**What we tried:**  
+Generated a short vertical-ish close-up video using the backpack close-up reference. The prompt asked CapCut to preserve the same backpack, the same D1 emblem, the rear-facing protagonist, and minimal motion.
+
+**Result:**  
+Partial pass. D1 did not collapse into a completely different logo. The broken zero, rising diagonal A-like axis, central cyan core, and backpack placement remained recognizable across sampled frames.
+
+**What worked:**  
+- D1 remained attached to the backpack.
+- Protagonist stayed rear-facing.
+- No major character turn occurred.
+- Emblem identity survived better than expected for a free / low-cost test.
+- CapCut can be used as a cheap preflight tool before spending Flow / Veo credits.
+
+**What failed / needs improvement:**  
+- Output resolution/aspect appeared closer to horizontal video than true 9:16 vertical.
+- Large black letterboxing remained in the preview/export.
+- Fine lower-right D1 details were partially softened.
+- Not yet suitable as final EP footage.
+
+**Change:**  
+For the next CapCut or alternate-app test, use a correctly framed 9:16 source/canvas, enlarge the backpack within frame, keep D1 fully visible, and avoid large black bars before generation.
+
+**Why:**  
+The test proved D1 is video-tolerant enough to continue testing, but final usability requires better framing and stronger vertical composition.
+
+**Next action:**  
+Prepare a cleaner vertical reference or canvas for D1 TEST A Trial 02, then compare CapCut with Flow / Veo when credits return.
+
+---
+
 ## 2026-10-06 — GitHub production repository established
 
 **Status:** APPROVED
