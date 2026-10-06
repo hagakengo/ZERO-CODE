@@ -44,6 +44,49 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — D1 TEST A CapCut Trial 04
+
+**Status:** TEST / ATMOSPHERE PASS / D1 STABLE
+
+**Tool / Model:**  
+CapCut Image-to-Video / free trial generation
+
+**Asset / Version:**  
+- hooded 9:16 backpack reference candidate
+- D1 v1.1 Production Master Candidate
+
+**Goal:**  
+Test whether the Trial 03 preservation approach can tolerate slightly stronger atmosphere: rainy futuristic city, subtle neon reflections, soft fog, and gentle rain movement.
+
+**What we tried:**  
+Generated a 5-second vertical clip using the same hooded backpack reference and a prompt that kept the protagonist still, preserved the D1 emblem, and added subtle rain/fog/neon atmosphere.
+
+**Result:**  
+Atmosphere pass with stable D1. Across sampled frames, the hooded protagonist remains rear-facing, the backpack stays centered, and the D1 emblem remains attached and recognizable. The scene has more cinematic city atmosphere than the strict preservation test while still avoiding major emblem collapse.
+
+**What worked:**  
+- D1 remained stable across the clip.
+- Broken zero, diagonal A-like axis, and central cyan core remained recognizable.
+- The hooded silhouette stayed consistent.
+- Vertical framing was usable.
+- Atmosphere improved without causing obvious redesign or major drift.
+
+**What failed / needs improvement:**  
+- The D1 emblem still does not perfectly match the official D1 v1.1 specification sheet.
+- Lower-right fractured details remain simplified by generation.
+- This should still be treated as TEST footage, not MASTER footage.
+
+**Change:**  
+Trial 04 proves that limited atmosphere can be added without immediately breaking D1. Future tests can use the Trial 03/04 prompt family, but any MASTER candidate must still be compared against the D1 v1.1 sheet.
+
+**Why:**  
+The project needs both continuity and cinematic appeal. Trial 04 suggests CapCut can provide low-cost preflight shots that preserve the core emblem while improving mood.
+
+**Next action:**  
+Use Trial 03 as the high-fidelity preservation baseline and Trial 04 as the mood-enhanced baseline. Next tests should explore one variable at a time: tighter backpack close-up, stronger glow pulse, or very slow camera push-in.
+
+---
+
 ## 2026-10-07 — D1 TEST A CapCut Trial 03
 
 **Status:** TEST / D1 FIDELITY PASS / FRAMING ISSUE
