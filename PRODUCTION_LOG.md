@@ -44,6 +44,51 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-07 — D1 TEST A CapCut Trial 05
+
+**Status:** TEST / CLOSE-UP PASS / D1 READABILITY IMPROVED
+
+**Tool / Model:**  
+CapCut Image-to-Video / trial generation
+
+**Asset / Version:**  
+- hooded 9:16 backpack reference candidate
+- D1 v1.1 Production Master Candidate
+
+**Goal:**  
+Test whether a slightly tighter backpack close-up improves D1 readability while preserving the Trial 04 atmosphere and avoiding emblem redesign.
+
+**What we tried:**  
+Generated a longer vertical clip from the same hooded reference image. The prompt asked the camera to push slightly closer to the backpack emblem, making D1 larger and clearer while keeping the protagonist still and rear-facing.
+
+**Result:**  
+Close-up pass. The backpack and D1 occupy more of the frame and remain stable across sampled frames. The hooded rear-facing silhouette remains intact, the city/rain atmosphere is preserved, and the D1 emblem remains readable throughout the clip.
+
+**What worked:**  
+- D1 is larger and more readable than earlier trials.
+- Backpack stays centered and physically consistent.
+- Hooded protagonist remains rear-facing.
+- Rainy futuristic city mood remains strong.
+- Motion stays controlled; no major camera or character drift.
+- This is a strong CapCut preflight candidate for D1 TEST A.
+
+**What failed / needs improvement:**  
+- D1 still does not perfectly match the official D1 v1.1 sheet.
+- Lower-right fracture detail remains simplified.
+- The emblem reads more like a video-stable adaptation of D1 than exact MASTER geometry.
+- Still not final MASTER footage.
+
+**Change:**  
+Keep Trial 05 as the best close-up / readability baseline. Future tests should compare this against a stricter D1 reference, or test a subtle activation/glow pulse without changing the emblem shape.
+
+**Why:**  
+The shot proves that closer framing can improve D1 visibility without immediately breaking the emblem or character silhouette.
+
+**Next action:**  
+Test one controlled glow-pulse version from the same reference. Keep all motion minimal and only allow the existing cyan core to brighten subtly.
+
+---
+
 ## 2026-10-07 — D1 TEST A CapCut Trial 04
 
 **Status:** TEST / ATMOSPHERE PASS / D1 STABLE
