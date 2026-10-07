@@ -75,7 +75,7 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(data['delta']['total_revenue_yen'], 5)
             self.assertIsNone(data['delta']['youtube']['views'])  # Carried != newly observed.
             self.assertEqual(data['youtube'], {'subscribers': 7, 'views': 40})
-            self.assertEqual((data['day'], data['level']), (3, 2))
+            self.assertEqual((data['day'], data['level']), (2, 2))  # Calendar DAY; stored snapshot remains 3.
             self.update(total_revenue_yen=6)
         history = self.client.get('/api/metrics/history').json()
         self.assertEqual([r['date'] for r in history], ['2026-10-08', '2026-10-07'])

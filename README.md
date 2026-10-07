@@ -228,3 +228,86 @@ TikTok API, automatic posting and scheduled polling remain outside Phase 3.
 References: [Desktop OAuth](https://developers.google.com/identity/protocols/oauth2/native-app),
 [Channel statistics](https://developers.google.com/youtube/v3/docs/channels),
 [Analytics reports](https://developers.google.com/youtube/analytics/reference/reports/query).
+
+## ZERO CODE OS Phase 4 — History & Progression Engine
+
+Dashboard now reads `/api/metrics/history?limit=30` and `/api/progression` on load
+and after a successful manual save or YouTube sync. HISTORY displays the latest
+30 recorded dates, all five primary cumulative counters, observation dates and
+previous-calendar-day deltas. Unknown provenance shows **未取得**, measured zero
+shows **0**, and carried values retain their last observation date. Deltas remain
+null unless both consecutive calendar dates contain an observation for that field.
+No missing-day rows or fabricated measurements are inserted.
+
+### DAY and migration
+
+- First successful manual measurement (including zero) or YouTube sync starts DAY 1.
+  DAY advances by calendar dates in `METRICS_TIMEZONE`, even without new records.
+  Until a start exists, DAY is 0. Dates before the start also return DAY 0.
+- The additive `progression_settings` table stores one start date. On upgrade,
+  `PROGRESSION_START_DATE=YYYY-MM-DD`, if provided, takes priority; otherwise the
+  earliest positive legacy DAY restores `start = record date - (DAY - 1)`, then
+  the earliest known observation is used. Initial seed rows alone do not start DAY.
+- `PROGRESSION_START_DATE` is a first-initialization setting, not a recurring override.
+  For an existing installation, deliberately edit `progression_settings.start_on`
+  with the backend stopped to change the operational start date.
+- Stored `daily_metrics.day` and `.level` are preserved for compatibility.
+  `/api/status` returns today's computed DAY and effective LEVEL;
+  history/latest keep legacy snapshots and add `computed_day` for each record date.
+  Read `/api/progression.metrics_date` to distinguish latest evidence from today's DAY.
+
+### LEVEL v0.4 rules
+
+`backend/app/main.py:LEVEL_RULES` is the explicit, replaceable declarative rule list.
+Each rule has a level and a map of metric thresholds; **all** its conditions must
+be met by observed counters. Initial rules are:
+
+- LEVEL 0: no qualifying rule.
+- LEVEL 1: observed total revenue ≥ ¥1.
+- LEVEL 2: observed total revenue ≥ ¥100, TikTok followers ≥ 100,
+  and YouTube lifetime views ≥ 1,000 (all three required).
+
+These are configurable prototype thresholds, not claims of achieved milestones.
+No API measurement is created by progression. Unknown-provenance legacy counters
+cannot satisfy a rule. Carried observations are accepted as last-known evidence;
+HISTORY exposes their dates. Corrections can lower the calculated level.
+Effective LEVEL is `max(legacy stored level, calculated level)` to retain prior
+progression. The API exposes both components rather than implying the legacy level
+was verified. New cumulative metrics can be used by replacing/adding requirements;
+YouTube Analytics fields retain their distinct period definitions.
+
+### Missions and API
+
+Only explicitly seeded/stored `missions` rows are shown; startup continues to seed
+**MISSION 01 only**, without inventing new missions. To add a mission, explicitly
+insert its unique code, title, metric_type, positive target_value and status into
+SQLite with the app stopped, or edit the seed configuration in source. No mission
+creation or unlocking API is introduced. Locked stays locked; other mission progress
+and completed/active state follow the existing Phase 2 rules, including downward
+corrections. Unknown YouTube measurements/invalid targets show unavailable progress.
+
+`GET /api/progression` returns `day`, `start_on`, `as_of`, `level`,
+`calculated_level`, `legacy_level`, `rules_version`, `level_rules`, `metrics_date`,
+`current_mission` (first active mission or null), all `missions`, and
+`history_summary` (record count and first/last saved dates). `achievements` is an
+explicit disabled placeholder with an empty items array; no awards are generated.
+The PROGRESSION section renders all active/completed/locked missions in the existing
+black/charcoal and cyan HUD style.
+
+### Phase 4 verification and remaining work
+
+```bash
+cd backend
+python -m unittest discover -v
+cd ../frontend
+npm ci
+npm run build
+```
+
+New isolated tests cover Tokyo midnight, calendar gaps, explicit/future start dates,
+legacy Phase 3 migration and repeat startup, measured-zero initialization, rule
+thresholds and correction, unknown provenance, mission states and disabled achievements.
+Phase 2 manual-input and Phase 3 mocked OAuth/sync regressions remain in the suite.
+Actual OAuth consent and first live sync still require owner configuration. Additional
+missions and revised thresholds require explicit configuration. Achievements, TikTok
+API, automatic posting and periodic synchronization remain unimplemented.

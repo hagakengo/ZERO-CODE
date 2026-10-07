@@ -65,6 +65,12 @@ class DailyMetrics(Base):
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
 
+class ProgressionSettings(Base):
+    __tablename__ = "progression_settings"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    start_on: Mapped[date | None] = mapped_column(Date, nullable=True)
+
+
 class YouTubeIntegration(Base):
     __tablename__ = "youtube_integration"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -104,6 +110,19 @@ def seed() -> None:
             db.add(Mission(code="MISSION 01", title="最初の1円を生み出せ。", status="active", progress=0))
         if not db.scalar(select(DailyMetrics.id).limit(1)):
             db.add(DailyMetrics(date=metrics_today()))
+        settings = db.get(ProgressionSettings, 1)
+        if settings is None:
+            configured_start = os.getenv("PROGRESSION_START_DATE")
+            rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date)))
+            legacy = next((row for row in rows if row.day > 0), None)
+            observations = [getattr(row, field) for row in rows for field in (
+                "youtube_observed_on", "tiktok_followers_observed_on",
+                "tiktok_views_observed_on", "total_revenue_yen_observed_on")
+                if getattr(row, field) is not None]
+            start = (date.fromisoformat(configured_start) if configured_start else
+                     legacy.date - timedelta(days=legacy.day - 1) if legacy else
+                     min(observations) if observations else None)
+            db.add(ProgressionSettings(id=1, start_on=start))
         db.commit()
 
 
@@ -113,7 +132,7 @@ def get_db():
 
 
 seed()
-app = FastAPI(title="ZERO CODE OS", version="0.3.0")
+app = FastAPI(title="ZERO CODE OS", version="0.4.0")
 app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(","), allow_methods=["*"], allow_headers=["*"])
 
 
@@ -190,11 +209,12 @@ def system_status(db: Session = Depends(get_db)):
             return None
         return getattr(metrics, field) - getattr(previous, field)
     mission = db.scalars(select(Mission).where(Mission.code == "MISSION 01")).one()
+    progress = progression_values(db, metrics)
     return {
         "date": metrics.date, "today": metrics_today(),
         "timezone": os.getenv("METRICS_TIMEZONE", "Asia/Tokyo"),
         "observed_on": serialize_metrics(metrics)["observed_on"],
-        "day": metrics.day, "level": metrics.level,
+        "day": progress["day"], "level": progress["level"],
         "youtube": {"subscribers": metrics.youtube_subscribers, "views": metrics.youtube_views},
         "tiktok": {"followers": metrics.tiktok_followers, "views": metrics.tiktok_views},
         "total_revenue_yen": metrics.total_revenue_yen,
@@ -211,13 +231,18 @@ def system_status(db: Session = Depends(get_db)):
 
 @app.get("/api/metrics/latest")
 def latest(db: Session = Depends(get_db)):
-    return serialize_metrics(latest_metrics(db))
+    return history(1, db)[0]
 
 
 @app.get("/api/metrics/history")
 def history(limit: int = Query(30, ge=1, le=366), db: Session = Depends(get_db)):
-    return [serialize_metrics(row) for row in db.scalars(
-        select(DailyMetrics).order_by(DailyMetrics.date.desc()).limit(limit))]
+    rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date.desc()).limit(limit)))
+    result = []
+    for row in rows:
+        previous = db.scalar(select(DailyMetrics).where(DailyMetrics.date == row.date - timedelta(days=1)))
+        result.append({**serialize_metrics(row), "computed_day": progression_values(db, row, row.date)["day"],
+                       "delta": metric_deltas(row, previous)})
+    return result
 
 
 @app.post("/api/metrics/manual")
@@ -228,6 +253,7 @@ def update_manual(payload: ManualUpdate, db: Session = Depends(get_db)):
     for field, value in payload.model_dump(exclude_unset=True).items():
         setattr(row, field, value)
         setattr(row, f"{field}_observed_on", today)
+    ensure_progression_start(db, row.date)
     row.updated_at = datetime.now(timezone.utc)
     db.commit()
     return system_status(db)
@@ -290,6 +316,7 @@ def sync_youtube(request: Request, db: Session = Depends(get_db)):
         row = writable_today(db)
         for field, value in values.items():
             setattr(row, field, value)
+        ensure_progression_start(db, row.date)
         row.youtube_observed_on = row.date
         row.updated_at = datetime.now(timezone.utc)
         integration = db.get(YouTubeIntegration, 1) or YouTubeIntegration(id=1)
@@ -300,3 +327,66 @@ def sync_youtube(request: Request, db: Session = Depends(get_db)):
         return {"status": system_status(db), "integration": youtube_status(db)}
     finally:
         sync_lock.release()
+
+
+# Declarative, replaceable rules. All requirements in a rule must be observed.
+LEVEL_RULES = (
+    {"level": 1, "requirements": {"total_revenue_yen": 1}},
+    {"level": 2, "requirements": {"total_revenue_yen": 100,
+                                  "tiktok_followers": 100, "youtube_views": 1000}},
+)
+
+
+def observation_field(field):
+    if field in ("youtube_subscribers", "youtube_views"):
+        return "youtube_observed_on"
+    if field.startswith("youtube_"):
+        return "youtube_analytics_observed_on"
+    return f"{field}_observed_on"
+
+
+def metric_deltas(row, previous):
+    return {field: (getattr(row, field) - getattr(previous, field)
+                   if previous is not None and
+                   getattr(row, observation_field(field)) == row.date and
+                   getattr(previous, observation_field(field)) == previous.date else None)
+            for field in METRIC_FIELDS}
+
+
+def ensure_progression_start(db, observed_date):
+    settings = db.get(ProgressionSettings, 1)
+    if settings.start_on is None:
+        settings.start_on = observed_date
+
+
+def progression_values(db, metrics, as_of=None):
+    start = db.get(ProgressionSettings, 1).start_on
+    # Legacy snapshots remain untouched; derive the calendar anchor when needed.
+    if start is None and metrics.day > 0:
+        start = metrics.date - timedelta(days=metrics.day - 1)
+    as_of = as_of or metrics_today()
+    calculated = 0
+    for rule in LEVEL_RULES:
+        if rule["requirements"] and all(field in METRIC_FIELDS and target > 0 and
+               getattr(metrics, observation_field(field)) is not None and
+               getattr(metrics, field) >= target
+               for field, target in rule["requirements"].items()):
+            calculated = max(calculated, rule["level"])
+    return {"day": max(0, (as_of - start).days + 1) if start else 0,
+            "start_on": start, "as_of": as_of,
+            "level": max(metrics.level, calculated), "calculated_level": calculated,
+            "legacy_level": metrics.level, "rules_version": "0.4",
+            "level_rules": LEVEL_RULES}
+
+
+@app.get("/api/progression")
+def progression(db: Session = Depends(get_db)):
+    metrics = latest_metrics(db)
+    mission_list = missions(db)
+    rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date)))
+    current = next((mission for mission in mission_list if mission["status"] == "active"), None)
+    return {**progression_values(db, metrics), "metrics_date": metrics.date,
+            "current_mission": current, "missions": mission_list,
+            "history_summary": {"record_count": len(rows), "first_date": rows[0].date,
+                                "last_date": rows[-1].date},
+            "achievements": {"enabled": False, "items": []}}
