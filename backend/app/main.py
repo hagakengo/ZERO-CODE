@@ -6,7 +6,14 @@ from typing import Annotated
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, Query
+from fastapi import Depends, FastAPI, Query, HTTPException, Request
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from dotenv import load_dotenv
+from . import youtube
+from threading import Lock
+
+load_dotenv(youtube.ENV_PATH)
+sync_lock = Lock()
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import Date, DateTime, Integer, String, create_engine, select, inspect, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
@@ -49,10 +56,22 @@ class DailyMetrics(Base):
     tiktok_views_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     total_revenue_yen_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     youtube_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
+    youtube_analytics_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
+    youtube_analytics_start_on: Mapped[date | None] = mapped_column(Date, nullable=True)
+    youtube_analytics_end_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     day: Mapped[int] = mapped_column(Integer, default=0)
     level: Mapped[int] = mapped_column(Integer, default=0)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+
+class YouTubeIntegration(Base):
+    __tablename__ = "youtube_integration"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    state: Mapped[str] = mapped_column(String(32), default="disconnected")
+    error: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    warning: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    last_synced_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
 
 def metrics_today() -> date:
@@ -66,7 +85,8 @@ def migrate() -> None:
                      "target_value": "INTEGER NOT NULL DEFAULT 1"},
         "daily_metrics": {name: "DATE" for name in (
             "tiktok_followers_observed_on", "tiktok_views_observed_on",
-            "total_revenue_yen_observed_on", "youtube_observed_on")},
+            "total_revenue_yen_observed_on", "youtube_observed_on",
+            "youtube_analytics_observed_on", "youtube_analytics_start_on", "youtube_analytics_end_on")},
     }
     with engine.begin() as connection:
         for table, columns in additions.items():
@@ -93,8 +113,11 @@ def get_db():
 
 
 seed()
-app = FastAPI(title="ZERO CODE OS", version="0.2.0")
+app = FastAPI(title="ZERO CODE OS", version="0.3.0")
 app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(","), allow_methods=["*"], allow_headers=["*"])
+
+
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=["localhost", "127.0.0.1", "testserver"])
 
 
 @app.get("/health")
@@ -107,7 +130,9 @@ METRIC_FIELDS = (
     "youtube_comments", "tiktok_followers", "tiktok_views", "total_revenue_yen",
 )
 OBSERVATION_FIELDS = ("youtube_observed_on", "tiktok_followers_observed_on",
-                      "tiktok_views_observed_on", "total_revenue_yen_observed_on")
+                      "tiktok_views_observed_on", "total_revenue_yen_observed_on",
+                      "youtube_analytics_observed_on")
+ANALYTICS_DATES = ("youtube_analytics_start_on", "youtube_analytics_end_on")
 Counter = Annotated[int, Field(strict=True, ge=0, le=9007199254740991)]
 
 
@@ -133,6 +158,10 @@ def mission_state(mission: Mission, metrics: DailyMetrics):
               "views": "tiktok_views", **{name: name for name in METRIC_FIELDS}}
     field = fields.get(mission.metric_type)
     current = getattr(metrics, field) if field else None
+    if field and field.startswith("youtube_"):
+        observation = "youtube_observed_on" if field in ("youtube_subscribers", "youtube_views") else "youtube_analytics_observed_on"
+        if getattr(metrics, observation) is None:
+            current = None
     progress = (min(max(current, 0) / mission.target_value, 1) * 100
                 if current is not None and mission.target_value > 0 else None)
     status = mission.status if mission.status == "locked" or progress is None else (
@@ -144,6 +173,7 @@ def mission_state(mission: Mission, metrics: DailyMetrics):
 
 def serialize_metrics(row: DailyMetrics):
     return {"date": row.date, **{key: getattr(row, key) for key in METRIC_FIELDS},
+            **{key: getattr(row, key) for key in ANALYTICS_DATES},
             "day": row.day, "level": row.level, "created_at": row.created_at,
             "updated_at": row.updated_at,
             "observed_on": {key.removesuffix("_observed_on"): getattr(row, key)
@@ -193,18 +223,8 @@ def history(limit: int = Query(30, ge=1, le=366), db: Session = Depends(get_db))
 @app.post("/api/metrics/manual")
 @app.patch("/api/metrics/manual")
 def update_manual(payload: ManualUpdate, db: Session = Depends(get_db)):
-    # Serialize SQLite writers before reading, so simultaneous rollover updates
-    # cannot create duplicate dates or overwrite each other's omitted fields.
-    db.execute(text("BEGIN IMMEDIATE"))
-    today = metrics_today()
-    row = db.scalar(select(DailyMetrics).where(DailyMetrics.date == today))
-    if row is None:
-        previous = db.scalar(select(DailyMetrics).where(DailyMetrics.date < today)
-                             .order_by(DailyMetrics.date.desc()).limit(1))
-        carried = {key: getattr(previous, key) for key in
-                   (*METRIC_FIELDS, *OBSERVATION_FIELDS, "day", "level")} if previous else {}
-        row = DailyMetrics(date=today, **carried)
-        db.add(row)
+    row = writable_today(db)
+    today = row.date
     for field, value in payload.model_dump(exclude_unset=True).items():
         setattr(row, field, value)
         setattr(row, f"{field}_observed_on", today)
@@ -217,3 +237,66 @@ def update_manual(payload: ManualUpdate, db: Session = Depends(get_db)):
 def missions(db: Session = Depends(get_db)):
     metrics = latest_metrics(db)
     return [mission_state(row, metrics) for row in db.scalars(select(Mission).order_by(Mission.id))]
+
+
+def writable_today(db):
+    # Serialize SQLite writers before reading, so simultaneous rollover updates
+    # cannot create duplicate dates or overwrite each other's omitted fields.
+    db.execute(text("BEGIN IMMEDIATE"))
+    today = metrics_today()
+    row = db.scalar(select(DailyMetrics).where(DailyMetrics.date == today))
+    if row is None:
+        previous = db.scalar(select(DailyMetrics).where(DailyMetrics.date < today)
+                             .order_by(DailyMetrics.date.desc()).limit(1))
+        carried = {key: getattr(previous, key) for key in
+                   (*METRIC_FIELDS, *OBSERVATION_FIELDS, *ANALYTICS_DATES, "day", "level")} if previous else {}
+        row = DailyMetrics(date=today, **carried)
+        db.add(row)
+    return row
+
+
+@app.get("/api/integrations/youtube/status")
+def youtube_status(db: Session = Depends(get_db)):
+    integration = db.get(YouTubeIntegration, 1)
+    configured = youtube.configured()
+    return {"state": integration.state if configured and integration else "disconnected",
+            "configured": configured,
+            "error": integration.error if configured and integration else None,
+            "warning": integration.warning if integration else None,
+            "last_synced_at": integration.last_synced_at if integration else None,
+            "last_observed_on": latest_metrics(db).youtube_observed_on}
+
+
+@app.post("/api/integrations/youtube/sync")
+def sync_youtube(request: Request, db: Session = Depends(get_db)):
+    origin = request.headers.get("origin")
+    allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
+    if origin and origin not in allowed:
+        raise HTTPException(403, "Origin not allowed")
+    if not youtube.configured():
+        raise HTTPException(409, "YouTube未接続: backend/.envとOAuthを設定してください。")
+    if not sync_lock.acquire(blocking=False):
+        raise HTTPException(409, "YouTube sync is already running.")
+    try:
+        try:
+            values, warning = youtube.fetch_metrics(metrics_today())
+        except youtube.YouTubeError as error:
+            db.execute(text("BEGIN IMMEDIATE"))
+            integration = db.get(YouTubeIntegration, 1) or YouTubeIntegration(id=1)
+            integration.state, integration.error = "error", str(error)
+            db.add(integration)
+            db.commit()
+            raise HTTPException(502, str(error)) from None
+        row = writable_today(db)
+        for field, value in values.items():
+            setattr(row, field, value)
+        row.youtube_observed_on = row.date
+        row.updated_at = datetime.now(timezone.utc)
+        integration = db.get(YouTubeIntegration, 1) or YouTubeIntegration(id=1)
+        integration.state, integration.error, integration.warning = "connected", None, warning
+        integration.last_synced_at = datetime.now(timezone.utc)
+        db.add(integration)
+        db.commit()
+        return {"status": system_status(db), "integration": youtube_status(db)}
+    finally:
+        sync_lock.release()
