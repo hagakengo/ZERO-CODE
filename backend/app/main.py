@@ -9,7 +9,7 @@ from pathlib import Path
 from fastapi import Depends, FastAPI, Query, HTTPException, Request
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
-from . import youtube
+from . import youtube, buffer
 from threading import Lock
 
 load_dotenv(youtube.ENV_PATH)
@@ -121,6 +121,7 @@ def get_db():
 
 
 app = FastAPI(title="ZERO CODE OS", version="0.4.0")
+app.include_router(buffer.router)
 app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(","), allow_methods=["*"], allow_headers=["*"])
 
 

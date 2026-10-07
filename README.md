@@ -296,3 +296,61 @@ and XP remain. Never enter these sample numbers in the real metrics database.
 Tests simulate missing dates, level boundaries, migrations, zero/unknown values,
 mission completion and duplicate saves; YouTube tests use mocked HTTP and no
 real credentials. Live Google OAuth and first sync still require account setup.
+
+
+## Buffer / X minimal integration
+
+Uses the current [Buffer GraphQL API](https://developers.buffer.com/guides/getting-started.html)
+at `https://api.buffer.com` and [custom scheduled posts](https://developers.buffer.com/guides/your-first-post.html).
+Set `BUFFER_API_KEY` in ignored `backend/.env`; never put real values in `.env.example`.
+Optional `BUFFER_X_CHANNEL_ID` selects an existing Twitter channel. One X channel is
+selected automatically; multiple X channels require this setting. Other services are rejected.
+No metrics, history, progression, or YouTube records are changed by this integration.
+
+Restart the backend after configuring it. Read-only connectivity check:
+
+```sh
+curl --fail http://localhost:8000/api/integrations/buffer/status
+```
+
+Validation/channel resolution only (no Buffer writes):
+
+```sh
+curl --fail http://localhost:8000/api/integrations/buffer/schedule \
+  -H 'Content-Type: application/json' \
+  -d '{"text":"ZERO CODE test","scheduled_at":"2099-01-01T12:00:00+09:00","dry_run":true}'
+```
+
+Replace the example date with your intended future time, including a timezone.
+Only an explicit JSON `"dry_run":false` creates a reservation. The default is true.
+Text must fit one tweet (conservative 280 weighted-character limit; URLs counted
+in full and emoji sequences conservatively counted). Text is never split into a thread.
+Scheduling uses `automatic` + `customScheduled` and UTC `dueAt`, never immediate sharing.
+Success returns a post ID; verify the reservation in the Buffer planner.
+Errors return fixed safe messages, never upstream response bodies or credentials.
+Requests time out after 15 seconds per query. Do not blindly retry a failed write:
+Buffer may already have accepted it. Check the planner first; no automatic retry or
+local deduplication is provided in this minimal version.
+This follows the existing localhost backend trust model; keep it local.
+
+For a later seven-day batch, prepare seven approved texts and future timezone-aware
+posting times, select the intended X channel, and add persistent reservation IDs /
+idempotency handling before automatic retries or bulk scheduling.
+
+Run checks:
+
+```sh
+cd backend
+python -m unittest discover -v
+cd ../frontend
+npm run build
+cd ..
+git diff --check
+```
+
+Implementation verification (2026-10-08): a read-only status probe with the locally
+located `backend/.env` returned `Buffer authentication failed`; a valid-key
+connection and live reservation are not yet verified. Run the status command
+above after configuring the intended new key. No live post was created.
+If a real key was ever committed in an example file, revoke it and issue a new
+one: removing its value from the current file does not remove Git history.

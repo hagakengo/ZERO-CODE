@@ -25,6 +25,8 @@ function Delta({ value, yen = false }: { value: number | null; yen?: boolean }) 
 }
 
 export default function Dashboard() {
+  const [bufferStatus, setBufferStatus] = useState<{ configured: boolean; connected: boolean; x_channel_available: boolean; error: string | null } | null>(null);
+  const [bufferError, setBufferError] = useState(false);
   const [history, setHistory] = useState<HistoryRow[]>([]);
   const [historyError, setHistoryError] = useState("");
   async function loadHistory(signal?: AbortSignal) {
@@ -55,6 +57,9 @@ export default function Dashboard() {
     fetch(`${base}/api/integrations/youtube/status`, { signal: controller.signal, cache: "no-store" })
       .then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(setIntegration)
       .catch(() => { if (!controller.signal.aborted) setSyncError("YouTube接続状態を取得できません。"); });
+    fetch(`${base}/api/integrations/buffer/status`, { signal: controller.signal, cache: "no-store" })
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(setBufferStatus)
+      .catch(() => { if (!controller.signal.aborted) setBufferError(true); });
     return () => controller.abort();
   }, []);
   async function syncYouTube() {
@@ -113,6 +118,7 @@ export default function Dashboard() {
       <div><p className="text-xs tracking-[0.35em] text-cyan-300">ZERO CODE OS / 0.4</p><h1 className="mt-2 text-3xl font-semibold tracking-tight">Dashboard</h1></div>
       <span role="status" className={`rounded-full border px-3 py-1 text-xs ${status ? "border-cyan-400/40 text-cyan-300" : "border-white/20 text-white/50"}`}>{status ? "SYSTEM ONLINE" : error ? "UNAVAILABLE" : "CONNECTING"}</span>
     </header>
+    <p role="status" className="mx-auto mt-4 max-w-6xl text-xs text-cyan-200/70">Buffer / X: {bufferError ? "状態を取得できません" : !bufferStatus ? "確認中…" : !bufferStatus.configured ? "未設定" : !bufferStatus.connected ? "接続失敗" : bufferStatus.x_channel_available ? "X接続あり" : "X未接続"}{bufferStatus?.error && <span className="ml-2">{bufferStatus.error}</span>}</p>
     {error && <p role="alert" className="mx-auto mt-8 max-w-6xl text-white/70">データを取得できませんでした。APIの起動を確認してページを再読み込みしてください。</p>}
     {status && <>
       <section aria-label="System metrics" className="mx-auto mt-8 max-w-6xl font-mono">
