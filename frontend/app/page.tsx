@@ -1,16 +1,15 @@
 "use client";
 import { FormEvent, useEffect, useRef, useState } from "react";
 
-type Mission = { code: string; title: string; status: string; progress: number | null; target_value: number; current_value: number | null };
+type Mission = { code: string; title: string; status: string; progress: number | null; target_value: number; current_value: number | null; completed_at: string | null };
 type Counters = { youtube: { subscribers: number; views: number }; tiktok: { followers: number; views: number }; total_revenue_yen: number };
 type Status = Counters & {
+  progression: { day: number; level: number; xp: number; xp_to_next_level: number; first_recorded_on: string | null; last_recorded_on: string | null; recorded_days: number; completed_missions: number; rules: { daily_record_xp: number; mission_completion_xp: number; xp_per_level: number } };
   day: number; level: number; date: string; today: string; timezone: string; mission: Mission;
   observed_on: Record<string, string | null>;
   delta: { youtube: { subscribers: number | null; views: number | null }; tiktok: { followers: number | null; views: number | null }; total_revenue_yen: number | null };
 };
-type HistoryRow = { date: string; computed_day: number; observed_on: Record<string, string | null>; delta: Record<string, number | null> } & Record<"youtube_subscribers" | "youtube_views" | "tiktok_followers" | "tiktok_views" | "total_revenue_yen", number>;
-type Progression = { day: number; level: number; calculated_level: number; legacy_level: number; start_on: string | null; missions: Mission[]; history_summary: { record_count: number; first_date: string; last_date: string }; level_rules: { level: number; requirements: Record<string, number> }[] };
-const historyFields = ["youtube_subscribers", "youtube_views", "tiktok_followers", "tiktok_views", "total_revenue_yen"] as const;
+type HistoryRow = { date: string; recorded: boolean; day: number; measured: Record<string, number | null> };
 type Integration = { state: "disconnected" | "connected" | "error"; configured: boolean; error: string | null; warning: string | null; last_synced_at: string | null; last_observed_on: string | null };
 const base = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000").replace(/\/$/, "").replace(/\/api\/(missions|status)$/, "");
 const fields = [
@@ -27,15 +26,13 @@ function Delta({ value, yen = false }: { value: number | null; yen?: boolean }) 
 
 export default function Dashboard() {
   const [history, setHistory] = useState<HistoryRow[]>([]);
-  const [progression, setProgression] = useState<Progression | null>(null);
   const [historyError, setHistoryError] = useState("");
-  async function refreshProgression(signal?: AbortSignal) {
+  async function loadHistory(signal?: AbortSignal) {
     try {
-      const responses = await Promise.all(["/api/metrics/history?limit=30", "/api/progression"].map(path => fetch(`${base}${path}`, { signal, cache: "no-store" })));
-      if (responses.some(response => !response.ok)) throw new Error();
-      const [rows, progress] = await Promise.all(responses.map(response => response.json()));
-      setHistory(rows); setProgression(progress); setHistoryError("");
-    } catch { if (!signal?.aborted) setHistoryError("履歴・進行を取得できません。表示がある場合は前回取得分です。"); }
+      const response = await fetch(`${base}/api/metrics/history`, { signal, cache: "no-store" });
+      if (!response.ok) throw new Error();
+      setHistory(await response.json()); setHistoryError("");
+    } catch { if (!signal?.aborted) setHistoryError("履歴を取得できません。再読み込みしてください。"); }
   }
   const [status, setStatus] = useState<Status | null>(null);
   const [integration, setIntegration] = useState<Integration | null>(null);
@@ -50,6 +47,7 @@ export default function Dashboard() {
   const [message, setMessage] = useState("");
   useEffect(() => {
     const controller = new AbortController();
+    void loadHistory(controller.signal);
     fetch(`${base}/api/status`, { signal: controller.signal, cache: "no-store" })
       .then(r => { if (!r.ok) throw new Error("Status unavailable"); return r.json(); })
       .then(setStatus)
@@ -57,7 +55,6 @@ export default function Dashboard() {
     fetch(`${base}/api/integrations/youtube/status`, { signal: controller.signal, cache: "no-store" })
       .then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(setIntegration)
       .catch(() => { if (!controller.signal.aborted) setSyncError("YouTube接続状態を取得できません。"); });
-    void refreshProgression(controller.signal);
     return () => controller.abort();
   }, []);
   async function syncYouTube() {
@@ -69,7 +66,7 @@ export default function Dashboard() {
       if (!response.ok) throw new Error(result.detail || "YouTube同期に失敗しました。");
       setStatus(result.status); setIntegration(result.integration); setError(false);
       setSyncMessage("YouTubeの実測値を保存しました。");
-      await refreshProgression();
+      await loadHistory();
     } catch (error) {
       setSyncError(error instanceof Error ? error.message : "同期結果を確認できません。");
       try {
@@ -102,7 +99,7 @@ export default function Dashboard() {
       const updated: Status = await response.json();
       setStatus(updated); setForm(emptyForm); setError(false);
       setMessage(`${updated.date} の記録を保存しました。`);
-      await refreshProgression();
+      await loadHistory();
     } catch { setSaveError("保存結果を確認できませんでした。接続を確認して再保存してください（累計値なので重複加算されません）。"); }
     finally { savingRef.current = false; setSaving(false); }
   }
@@ -119,7 +116,8 @@ export default function Dashboard() {
     {error && <p role="alert" className="mx-auto mt-8 max-w-6xl text-white/70">データを取得できませんでした。APIの起動を確認してページを再読み込みしてください。</p>}
     {status && <>
       <section aria-label="System metrics" className="mx-auto mt-8 max-w-6xl font-mono">
-        <div className="mb-3 flex gap-8 text-cyan-200"><p>DAY {status.day}</p><p>LEVEL {status.level}</p></div>
+        <div className="mb-3 flex flex-wrap gap-8 text-cyan-200"><p>CURRENT DAY {status.progression.day}</p><p>LEVEL {status.progression.level}</p><p>XP {status.progression.xp}</p><p>NEXT LEVEL あと {status.progression.xp_to_next_level} XP</p></div>
+        <p className="mb-4 text-xs leading-6 text-white/60">実記録 {status.progression.recorded_days} 日 × {status.progression.rules.daily_record_xp} XP ＋ Mission達成 {status.progression.completed_missions} 件 × {status.progression.rules.mission_completion_xp} XP。{status.progression.rules.xp_per_level} XPごとにLEVEL UP。初回記録でLEVEL 1。<br />初回 {status.progression.first_recorded_on ?? "未記録"} / 最終 {status.progression.last_recorded_on ?? "未記録"}。空白日はDAYに含めません。</p>
         <p className="mb-6 text-xs leading-6 text-white/50">記録日 {status.date} / {status.timezone}{status.date !== status.today && " / 本日未更新"}<br />前日比は記録日の1日前との比較。両日の実測値がない場合は — 。</p>
         <div className="grid gap-4 md:grid-cols-3">
           <article className={panel}><h2 className="mb-2 text-cyan-300">YouTube</h2><p className="mb-5 text-xs text-white/50">{integration ? ({ disconnected: "未接続", connected: "接続済み", error: "エラー" }[integration.state]) : "接続状態を確認中"} / {observed("youtube")}</p>
@@ -131,30 +129,18 @@ export default function Dashboard() {
             {integration?.warning && <p className="mt-3 text-xs text-amber-200">{integration.warning}</p>}
             <p role="status" className="mt-2 text-xs text-cyan-200">{syncMessage}</p>
           </article>
-          <article className={panel}><h2 className="mb-6 text-cyan-300">TikTok</h2><dl className="space-y-5">{(["followers", "views"] as const).map(key => <div key={key}><div className="flex justify-between gap-4"><dt>{key === "followers" ? "Followers" : "Views"}</dt><dd className="text-right">{status.tiktok[key].toLocaleString("ja-JP")}<Delta value={status.delta.tiktok[key]} /></dd></div><p className="mt-1 text-xs text-white/50">{observed(`tiktok_${key}`)}</p></div>)}</dl></article>
-          <article className={panel}><h2 className="text-cyan-300">TOTAL REVENUE</h2><p className="mt-6 break-all text-4xl">¥{status.total_revenue_yen.toLocaleString("ja-JP")}</p><div className="mt-3"><Delta value={status.delta.total_revenue_yen} yen /></div><p className="mt-3 text-xs text-white/50">{observed("total_revenue_yen")}</p></article>
+          <article className={panel}><h2 className="mb-6 text-cyan-300">TikTok</h2><dl className="space-y-5">{(["followers", "views"] as const).map(key => <div key={key}><div className="flex justify-between gap-4"><dt>{key === "followers" ? "Followers" : "Views"}</dt><dd className="text-right">{status.observed_on[`tiktok_${key}`] ? status.tiktok[key].toLocaleString("ja-JP") : "未取得"}<Delta value={status.delta.tiktok[key]} /></dd></div><p className="mt-1 text-xs text-white/50">{observed(`tiktok_${key}`)}</p></div>)}</dl></article>
+          <article className={panel}><h2 className="text-cyan-300">TOTAL REVENUE</h2><p className="mt-6 break-all text-4xl">{status.observed_on.total_revenue_yen ? `¥${status.total_revenue_yen.toLocaleString("ja-JP")}` : "未取得"}</p><div className="mt-3"><Delta value={status.delta.total_revenue_yen} yen /></div><p className="mt-3 text-xs text-white/50">{observed("total_revenue_yen")}</p></article>
         </div>
       </section>
-      {mission && <section className="mx-auto mt-10 max-w-6xl"><p className="text-sm uppercase tracking-[0.25em] text-white/40">Current mission</p><article className={`${panel} mt-4 shadow-2xl shadow-cyan-950/20`}><div className="flex flex-wrap items-start justify-between gap-4"><div><p className="font-mono text-sm text-cyan-300">{mission.code}</p><h2 className="mt-3 text-2xl font-medium">{mission.title}</h2></div><span className="rounded-full bg-cyan-300/10 px-3 py-1 text-xs text-cyan-200">{mission.status}</span></div><div className="mt-8"><div className="flex justify-between text-xs text-white/60"><span>Progress / {mission.current_value ?? "—"} / {mission.target_value}</span><span>{mission.progress === null ? "—" : `${Number(mission.progress.toFixed(2))}%`}</span></div><div role="progressbar" aria-label="Mission progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={mission.progress ?? undefined} className="mt-2 h-2 rounded-full bg-white/10"><div className="h-2 rounded-full bg-cyan-300" style={{ width: `${mission.progress ?? 0}%` }} /></div></div></article></section>}
-      <section aria-label="Progression" className={`${panel} mx-auto mt-10 max-w-6xl`}>
-        <h2 className="font-mono tracking-widest text-cyan-300">PROGRESSION</h2>
-        {historyError && <p role="alert" className="mt-3 text-amber-200">{historyError}</p>}
-        {progression && <><p className="mt-4 font-mono text-xl">DAY {progression.day} / LEVEL {progression.level}</p>
-          <p className="mt-2 text-xs text-white/50">開始日 {progression.start_on ?? "最初の実測待ち"} / 暦日で進行 / ルールLEVEL {progression.calculated_level} / 既存LEVEL {progression.legacy_level}</p>
-          <p className="mt-3 text-sm text-white/60">履歴 {progression.history_summary.record_count}件 / {progression.history_summary.first_date} → {progression.history_summary.last_date}</p>
-          <div className="mt-4 space-y-2 text-xs text-white/50">{progression.level_rules.map(rule => <p key={rule.level}>LEVEL {rule.level}: {Object.entries(rule.requirements).map(([key, value]) => `${key} ≥ ${value.toLocaleString("ja-JP")}`).join(" / ")}（全条件・実測必須）</p>)}</div>
-          <div className="mt-6 grid gap-3 md:grid-cols-2">{progression.missions.map(item => <article key={item.code} className="rounded border border-cyan-300/20 p-4"><p className="font-mono text-cyan-200">{item.code} / {item.status.toUpperCase()}</p><p className="mt-2">{item.title}</p><p className="mt-3 text-xs text-white/60">{item.current_value ?? "—"} / {item.target_value} · {item.progress === null ? "未取得" : `${Number(item.progress.toFixed(2))}%`}</p></article>)}</div>
-          <p className="mt-4 text-xs text-white/40">ACHIEVEMENTS / 未実装</p></>}
-      </section>
-      <section aria-label="History" className={`${panel} mx-auto mt-10 max-w-6xl`}>
-        <h2 className="font-mono tracking-widest text-cyan-300">HISTORY</h2>
-        <p className="mt-3 text-xs text-white/50">最新30記録。Δは前暦日比。持ち越し値は最終実測日を表示し、未測定は未取得。欠損日は補完しません。</p>
-        <div className="mt-5 overflow-x-auto"><table className="w-full whitespace-nowrap text-left text-xs"><thead><tr className="border-b border-white/10 text-cyan-200"><th className="p-3">DATE / DAY</th>{historyFields.map(field => <th key={field} className="p-3">{field}</th>)}</tr></thead>
-          <tbody>{history.map(row => <tr key={row.date} className="border-b border-white/10"><th className="p-3 font-mono">{row.date} / {row.computed_day}</th>{historyFields.map(field => {
-            const observation = row.observed_on[field.startsWith("youtube_") ? "youtube" : field];
-            const delta = row.delta[field];
-            return <td key={field} className="p-3 font-mono">{observation ? `${field === "total_revenue_yen" ? "¥" : ""}${row[field].toLocaleString("ja-JP")}` : "未取得"}<span className="mt-1 block text-cyan-200/60">Δ {delta === null ? "—" : `${delta >= 0 ? "+" : ""}${delta.toLocaleString("ja-JP")}`}</span><span className="block text-white/40">{observation ?? "実測なし"}</span></td>;
-          })}</tr>)}</tbody></table></div>
+      {mission && <section className="mx-auto mt-10 max-w-6xl"><p className="text-sm uppercase tracking-[0.25em] text-white/40">Current mission</p><article className={`${panel} mt-4 shadow-2xl shadow-cyan-950/20`}><div className="flex flex-wrap items-start justify-between gap-4"><div><p className="font-mono text-sm text-cyan-300">{mission.code}</p><h2 className="mt-3 text-2xl font-medium">{mission.title}</h2></div><span className="rounded-full bg-cyan-300/10 px-3 py-1 text-xs text-cyan-200">{mission.status === "completed" ? "MISSION COMPLETE" : mission.status}</span></div><p className="mt-4 text-xs text-white/60">{mission.completed_at ? `達成記録 ${mission.completed_at} UTC / 次Missionは未定義` : "実測値で目標を達成すると履歴に保存されます。"}</p><div className="mt-8"><div className="flex justify-between text-xs text-white/60"><span>Progress / {mission.current_value ?? "—"} / {mission.target_value}</span><span>{mission.progress === null ? "—" : `${Number(mission.progress.toFixed(2))}%`}</span></div><div role="progressbar" aria-label="Mission progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={mission.progress ?? undefined} className="mt-2 h-2 rounded-full bg-white/10"><div className="h-2 rounded-full bg-cyan-300" style={{ width: `${mission.progress ?? 0}%` }} /></div></div></article></section>}
+      <section aria-label="Metrics history" className={`mx-auto mt-10 max-w-6xl ${panel}`}>
+        <h2 className="font-mono text-cyan-300">REAL DATA HISTORY</h2>
+        <p className="mt-3 text-xs text-white/60">直近30行 / 新しい順。その日に取得・入力した値のみ表示。未取得・持ち越しは —、実測ゼロは 0。</p>
+        {historyError && <p role="alert" className="mt-3 text-red-200">{historyError}</p>}
+        <div className="mt-5 overflow-x-auto"><table className="w-full whitespace-nowrap text-right font-mono text-xs"><caption className="sr-only">実測値の日次履歴</caption><thead className="text-cyan-200"><tr>{["DATE / DAY", "YouTube Views", "Subscribers", "TikTok Views", "Followers", "Revenue ¥"].map(label => <th scope="col" key={label} className="p-3">{label}</th>)}</tr></thead>
+          <tbody>{history.filter(row => row.recorded).map(row => <tr key={row.date} className="border-t border-white/10"><th scope="row" className="p-3 font-normal">{row.date} / {row.day}</th>{["youtube_views", "youtube_subscribers", "tiktok_views", "tiktok_followers", "total_revenue_yen"].map(key => <td key={key} className="p-3">{row.measured[key] === null ? "—" : row.measured[key].toLocaleString("ja-JP")}</td>)}</tr>)}</tbody></table></div>
+        {!historyError && !history.some(row => row.recorded) && <p className="mt-4 text-white/50">実記録はまだありません。</p>}
       </section>
       <section className="mx-auto mt-10 max-w-6xl"><form onSubmit={save} className={panel}>
         <h2 className="font-mono text-cyan-300">UPDATE MANUAL</h2>

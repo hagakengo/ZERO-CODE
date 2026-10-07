@@ -41,7 +41,7 @@ class ApiTests(unittest.TestCase):
         self.assertEqual((data['day'], data['level'], data['total_revenue_yen']), (0, 0, 0))
         self.assertEqual(data['youtube'], {'subscribers': 0, 'views': 0})
         self.assertEqual(data['tiktok'], {'followers': 0, 'views': 0})
-        self.assertEqual(data['mission']['progress'], 0)
+        self.assertEqual(data['mission']['progress'], None)
         self.assertEqual(data['mission']['metric_type'], 'revenue')
         self.assertEqual(data['mission']['target_value'], 1)
         self.assertTrue(all(value is None for value in data['observed_on'].values()))
@@ -59,7 +59,7 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(self.client.get('/api/status').json(), data)
         self.assertEqual(len(self.client.get('/api/metrics/history').json()), 1)
         self.assertEqual(self.client.get('/api/missions').json()[0], data['mission'])
-        self.assertEqual(self.update(total_revenue_yen=0)['mission']['status'], 'active')
+        self.assertEqual(self.update(total_revenue_yen=0)['mission']['status'], 'completed')
 
     def test_rollover_deltas_and_history(self):
         self.update(tiktok_followers=12, tiktok_views=100, total_revenue_yen=0)
@@ -75,7 +75,7 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(data['delta']['total_revenue_yen'], 5)
             self.assertIsNone(data['delta']['youtube']['views'])  # Carried != newly observed.
             self.assertEqual(data['youtube'], {'subscribers': 7, 'views': 40})
-            self.assertEqual((data['day'], data['level']), (2, 2))  # Calendar DAY; stored snapshot remains 3.
+            self.assertEqual((data['day'], data['level']), (2, 2))
             self.update(total_revenue_yen=6)
         history = self.client.get('/api/metrics/history').json()
         self.assertEqual([r['date'] for r in history], ['2026-10-08', '2026-10-07'])
@@ -128,12 +128,12 @@ class ApiTests(unittest.TestCase):
             mission = db.scalar(select(Mission))
             mission.metric_type = 'followers'
             db.commit()
-        self.assertEqual(self.update(tiktok_followers=50)['mission']['progress'], 50)
+        self.assertEqual(self.update(tiktok_followers=50)['mission']['progress'], 100)
         with SessionLocal() as db:
             mission = db.scalar(select(Mission))
             mission.target_value = 0
             db.commit()
-        self.assertIsNone(self.client.get('/api/status').json()['mission']['progress'])
+        self.assertEqual(self.client.get('/api/status').json()['mission']['progress'], 100)
 
     def test_concurrent_rollover_keeps_both_updates(self):
         with patch('app.main.metrics_today', return_value=TODAY + timedelta(days=1)):
@@ -159,8 +159,8 @@ class ApiTests(unittest.TestCase):
         seed()
         seed()
         data = self.client.get('/api/status').json()
-        self.assertEqual((data['total_revenue_yen'], data['day'], data['level']), (42, 5, 2))
-        self.assertEqual(data['mission']['progress'], 100)
+        self.assertEqual((data['total_revenue_yen'], data['day'], data['level']), (42, 0, 0))
+        self.assertEqual(data['mission']['progress'], None)
         self.assertIsNone(data['observed_on']['total_revenue_yen'])
         self.assertEqual(len(self.client.get('/api/metrics/history').json()), 1)
 

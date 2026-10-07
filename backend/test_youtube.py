@@ -39,6 +39,8 @@ class SyncTests(unittest.TestCase):
         with SessionLocal() as db:
             mission = db.scalar(select(Mission))
             mission.metric_type, mission.target_value = 'youtube_views', 200
+            mission.status = 'active'
+            mission.completed_at = mission.completed_recorded_on = None
             db.commit()
         result = self.sync().json()
         self.assertEqual(result['status']['mission']['progress'], 50)

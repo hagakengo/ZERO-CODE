@@ -36,6 +36,8 @@ class Mission(Base):
     metric_type: Mapped[str] = mapped_column(String(32), default="revenue")
     target_value: Mapped[int] = mapped_column(Integer, default=1)
     progress: Mapped[int] = mapped_column(Integer, default=0)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    completed_recorded_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
@@ -59,16 +61,11 @@ class DailyMetrics(Base):
     youtube_analytics_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     youtube_analytics_start_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     youtube_analytics_end_on: Mapped[date | None] = mapped_column(Date, nullable=True)
+    xp: Mapped[int] = mapped_column(Integer, default=0)
     day: Mapped[int] = mapped_column(Integer, default=0)
     level: Mapped[int] = mapped_column(Integer, default=0)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
-    updated_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
-
-
-class ProgressionSettings(Base):
-    __tablename__ = "progression_settings"
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    start_on: Mapped[date | None] = mapped_column(Date, nullable=True)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 class YouTubeIntegration(Base):
@@ -88,12 +85,14 @@ def migrate() -> None:
     """Additive SQLite migration: retain Phase 1 rows and unknown provenance."""
     additions = {
         "missions": {"metric_type": "VARCHAR(32) NOT NULL DEFAULT 'revenue'",
-                     "target_value": "INTEGER NOT NULL DEFAULT 1"},
+                     "target_value": "INTEGER NOT NULL DEFAULT 1",
+                     "completed_at": "DATETIME", "completed_recorded_on": "DATE"},
         "daily_metrics": {name: "DATE" for name in (
             "tiktok_followers_observed_on", "tiktok_views_observed_on",
             "total_revenue_yen_observed_on", "youtube_observed_on",
             "youtube_analytics_observed_on", "youtube_analytics_start_on", "youtube_analytics_end_on")},
     }
+    additions["daily_metrics"]["xp"] = "INTEGER NOT NULL DEFAULT 0"
     with engine.begin() as connection:
         for table, columns in additions.items():
             existing = {c["name"] for c in inspect(connection).get_columns(table)}
@@ -106,23 +105,13 @@ def seed() -> None:
     Base.metadata.create_all(engine)
     migrate()
     with SessionLocal() as db:
+        db.execute(text("BEGIN IMMEDIATE"))
         if not db.scalar(select(Mission).where(Mission.code == "MISSION 01")):
             db.add(Mission(code="MISSION 01", title="最初の1円を生み出せ。", status="active", progress=0))
         if not db.scalar(select(DailyMetrics.id).limit(1)):
             db.add(DailyMetrics(date=metrics_today()))
-        settings = db.get(ProgressionSettings, 1)
-        if settings is None:
-            configured_start = os.getenv("PROGRESSION_START_DATE")
-            rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date)))
-            legacy = next((row for row in rows if row.day > 0), None)
-            observations = [getattr(row, field) for row in rows for field in (
-                "youtube_observed_on", "tiktok_followers_observed_on",
-                "tiktok_views_observed_on", "total_revenue_yen_observed_on")
-                if getattr(row, field) is not None]
-            start = (date.fromisoformat(configured_start) if configured_start else
-                     legacy.date - timedelta(days=legacy.day - 1) if legacy else
-                     min(observations) if observations else None)
-            db.add(ProgressionSettings(id=1, start_on=start))
+        db.flush()
+        refresh_progression(db)
         db.commit()
 
 
@@ -131,7 +120,6 @@ def get_db():
         yield db
 
 
-seed()
 app = FastAPI(title="ZERO CODE OS", version="0.4.0")
 app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(","), allow_methods=["*"], allow_headers=["*"])
 
@@ -172,28 +160,98 @@ def latest_metrics(db: Session):
     return db.scalars(select(DailyMetrics).order_by(DailyMetrics.date.desc()).limit(1)).one()
 
 
+DAILY_RECORD_XP = 10
+MISSION_COMPLETION_XP = 100
+XP_PER_LEVEL = 100
+MISSION_FIELDS = {"revenue": "total_revenue_yen", "followers": "tiktok_followers",
+                  "views": "tiktok_views", **{name: name for name in METRIC_FIELDS}}
+
+
+def metric_observation(field):
+    if field in ("youtube_subscribers", "youtube_views"):
+        return "youtube_observed_on"
+    if field.startswith("youtube_"):
+        return "youtube_analytics_observed_on"
+    return f"{field}_observed_on"
+
+
 def mission_state(mission: Mission, metrics: DailyMetrics):
-    fields = {"revenue": "total_revenue_yen", "followers": "tiktok_followers",
-              "views": "tiktok_views", **{name: name for name in METRIC_FIELDS}}
-    field = fields.get(mission.metric_type)
-    current = getattr(metrics, field) if field else None
-    if field and field.startswith("youtube_"):
-        observation = "youtube_observed_on" if field in ("youtube_subscribers", "youtube_views") else "youtube_analytics_observed_on"
-        if getattr(metrics, observation) is None:
-            current = None
+    field = MISSION_FIELDS.get(mission.metric_type)
+    current = (getattr(metrics, field) if field and
+               getattr(metrics, metric_observation(field)) is not None else None)
     progress = (min(max(current, 0) / mission.target_value, 1) * 100
                 if current is not None and mission.target_value > 0 else None)
-    status = mission.status if mission.status == "locked" or progress is None else (
-        "completed" if progress >= 100 else "active")
-    return {"code": mission.code, "title": mission.title, "status": status,
+    completed = mission.completed_at is not None
+    return {"code": mission.code, "title": mission.title,
+            "status": "completed" if completed else mission.status,
+            "completed_at": mission.completed_at,
             "metric_type": mission.metric_type, "target_value": mission.target_value,
-            "current_value": current, "progress": progress}
+            "current_value": current, "progress": 100 if completed else progress}
+
+
+def recorded(row: DailyMetrics) -> bool:
+    return any(getattr(row, key) == row.date for key in OBSERVATION_FIELDS)
+
+
+def refresh_progression(db: Session) -> None:
+    """Rebuild derived snapshots; retain observed counters and timestamps.
+
+    Caller owns the transaction. Historical completions use the earliest saved
+    qualifying row timestamp; unknown provenance and carried values do not count.
+    """
+    db.flush()
+    rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date)))
+    all_missions = list(db.scalars(select(Mission).order_by(Mission.id)))
+    for mission in all_missions:
+        if mission.completed_at is not None or mission.status == "locked":
+            continue
+        field = MISSION_FIELDS.get(mission.metric_type)
+        if field is None:
+            continue
+        for row in rows:
+            if (mission_state(mission, row)["progress"] == 100 and
+                    getattr(row, metric_observation(field)) == row.date):
+                mission.status = "completed"
+                mission.completed_at = row.updated_at
+                mission.completed_recorded_on = row.date
+                break
+    day = 0
+    for row in rows:
+        day += int(recorded(row))
+        row.day = day
+        row.xp = day * DAILY_RECORD_XP + sum(
+            MISSION_COMPLETION_XP for m in all_missions
+            if m.completed_at is not None and m.completed_recorded_on is not None
+            and m.completed_recorded_on <= row.date)
+        row.level = 1 + row.xp // XP_PER_LEVEL if day else 0
+
+
+def progression(db: Session):
+    rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date)))
+    dates = [r.date for r in rows if recorded(r)]
+    completed_count = sum(1 for m in db.scalars(select(Mission))
+                          if m.completed_at is not None and m.completed_recorded_on is not None)
+    xp = len(dates) * DAILY_RECORD_XP + completed_count * MISSION_COMPLETION_XP
+    return {"day": len(dates), "level": 1 + xp // XP_PER_LEVEL if dates else 0,
+            "xp": xp, "xp_to_next_level": XP_PER_LEVEL - xp % XP_PER_LEVEL,
+            "first_recorded_on": dates[0] if dates else None,
+            "last_recorded_on": dates[-1] if dates else None,
+            "recorded_days": len(dates), "completed_missions": completed_count,
+            "rules": {"daily_record_xp": DAILY_RECORD_XP,
+                      "mission_completion_xp": MISSION_COMPLETION_XP, "xp_per_level": XP_PER_LEVEL}}
+
+
+seed()
 
 
 def serialize_metrics(row: DailyMetrics):
     return {"date": row.date, **{key: getattr(row, key) for key in METRIC_FIELDS},
             **{key: getattr(row, key) for key in ANALYTICS_DATES},
-            "day": row.day, "level": row.level, "created_at": row.created_at,
+            "day": row.day, "level": row.level, "xp": row.xp,
+            "recorded": recorded(row),
+            "measured": {key: getattr(row, key) if getattr(row, metric_observation(key)) == row.date else None
+                         for key in METRIC_FIELDS},
+            "created_at": row.created_at,
             "updated_at": row.updated_at,
             "observed_on": {key.removesuffix("_observed_on"): getattr(row, key)
                             for key in OBSERVATION_FIELDS}}
@@ -209,8 +267,9 @@ def system_status(db: Session = Depends(get_db)):
             return None
         return getattr(metrics, field) - getattr(previous, field)
     mission = db.scalars(select(Mission).where(Mission.code == "MISSION 01")).one()
-    progress = progression_values(db, metrics)
+    progress = progression(db)
     return {
+        "progression": progress,
         "date": metrics.date, "today": metrics_today(),
         "timezone": os.getenv("METRICS_TIMEZONE", "Asia/Tokyo"),
         "observed_on": serialize_metrics(metrics)["observed_on"],
@@ -236,11 +295,11 @@ def latest(db: Session = Depends(get_db)):
 
 @app.get("/api/metrics/history")
 def history(limit: int = Query(30, ge=1, le=366), db: Session = Depends(get_db)):
-    rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date.desc()).limit(limit)))
+    rows = db.scalars(select(DailyMetrics).order_by(DailyMetrics.date.desc()).limit(limit))
     result = []
     for row in rows:
         previous = db.scalar(select(DailyMetrics).where(DailyMetrics.date == row.date - timedelta(days=1)))
-        result.append({**serialize_metrics(row), "computed_day": progression_values(db, row, row.date)["day"],
+        result.append({**serialize_metrics(row), "computed_day": row.day,
                        "delta": metric_deltas(row, previous)})
     return result
 
@@ -253,8 +312,8 @@ def update_manual(payload: ManualUpdate, db: Session = Depends(get_db)):
     for field, value in payload.model_dump(exclude_unset=True).items():
         setattr(row, field, value)
         setattr(row, f"{field}_observed_on", today)
-    ensure_progression_start(db, row.date)
     row.updated_at = datetime.now(timezone.utc)
+    refresh_progression(db)
     db.commit()
     return system_status(db)
 
@@ -316,77 +375,36 @@ def sync_youtube(request: Request, db: Session = Depends(get_db)):
         row = writable_today(db)
         for field, value in values.items():
             setattr(row, field, value)
-        ensure_progression_start(db, row.date)
         row.youtube_observed_on = row.date
         row.updated_at = datetime.now(timezone.utc)
         integration = db.get(YouTubeIntegration, 1) or YouTubeIntegration(id=1)
         integration.state, integration.error, integration.warning = "connected", None, warning
         integration.last_synced_at = datetime.now(timezone.utc)
         db.add(integration)
+        refresh_progression(db)
         db.commit()
         return {"status": system_status(db), "integration": youtube_status(db)}
     finally:
         sync_lock.release()
 
 
-# Declarative, replaceable rules. All requirements in a rule must be observed.
-LEVEL_RULES = (
-    {"level": 1, "requirements": {"total_revenue_yen": 1}},
-    {"level": 2, "requirements": {"total_revenue_yen": 100,
-                                  "tiktok_followers": 100, "youtube_views": 1000}},
-)
-
-
-def observation_field(field):
-    if field in ("youtube_subscribers", "youtube_views"):
-        return "youtube_observed_on"
-    if field.startswith("youtube_"):
-        return "youtube_analytics_observed_on"
-    return f"{field}_observed_on"
-
 
 def metric_deltas(row, previous):
     return {field: (getattr(row, field) - getattr(previous, field)
                    if previous is not None and
-                   getattr(row, observation_field(field)) == row.date and
-                   getattr(previous, observation_field(field)) == previous.date else None)
+                   getattr(row, metric_observation(field)) == row.date and
+                   getattr(previous, metric_observation(field)) == previous.date else None)
             for field in METRIC_FIELDS}
 
 
-def ensure_progression_start(db, observed_date):
-    settings = db.get(ProgressionSettings, 1)
-    if settings.start_on is None:
-        settings.start_on = observed_date
-
-
-def progression_values(db, metrics, as_of=None):
-    start = db.get(ProgressionSettings, 1).start_on
-    # Legacy snapshots remain untouched; derive the calendar anchor when needed.
-    if start is None and metrics.day > 0:
-        start = metrics.date - timedelta(days=metrics.day - 1)
-    as_of = as_of or metrics_today()
-    calculated = 0
-    for rule in LEVEL_RULES:
-        if rule["requirements"] and all(field in METRIC_FIELDS and target > 0 and
-               getattr(metrics, observation_field(field)) is not None and
-               getattr(metrics, field) >= target
-               for field, target in rule["requirements"].items()):
-            calculated = max(calculated, rule["level"])
-    return {"day": max(0, (as_of - start).days + 1) if start else 0,
-            "start_on": start, "as_of": as_of,
-            "level": max(metrics.level, calculated), "calculated_level": calculated,
-            "legacy_level": metrics.level, "rules_version": "0.4",
-            "level_rules": LEVEL_RULES}
-
-
 @app.get("/api/progression")
-def progression(db: Session = Depends(get_db)):
+def progression_status(db: Session = Depends(get_db)):
     metrics = latest_metrics(db)
     mission_list = missions(db)
     rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date)))
-    current = next((mission for mission in mission_list if mission["status"] == "active"), None)
-    return {**progression_values(db, metrics), "metrics_date": metrics.date,
-            "current_mission": current, "missions": mission_list,
+    return {**progression(db), "metrics_date": metrics.date,
+            "current_mission": next((m for m in mission_list if m["status"] == "active"), None),
+            "missions": mission_list,
             "history_summary": {"record_count": len(rows), "first_date": rows[0].date,
                                 "last_date": rows[-1].date},
             "achievements": {"enabled": False, "items": []}}
