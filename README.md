@@ -1,57 +1,26 @@
 # ZERO CODE
 
-AI Agent Studio / Original Cinematic IP Production Repository
+AI Agent Studio / Original Cinematic IP Production Repository.
 
-ZERO CODE is a story-driven AI video project where real-world follower and revenue data influence the fictional story.
+## ZERO CODE OS Phase 1
 
-## Core principle
+Phase 1 adds a local FastAPI + Next.js + SQLite foundation. It seeds one mission and keeps all initial metrics at zero.
 
-> 設定は固定する。でも結末は決めない。  
-> 数字を盛らない。現実を脚本にする。
+## Local startup
 
-## Repository role
+```bash
+cd backend
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
 
-This repository is the Single Source of Truth for:
+In another terminal:
 
-- project memory
-- production rules
-- visual bible
-- master asset status
-- episode development
-- production logs
-- rejected/prototype history
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## Start here
-
-1. `ZERO_CODE_RULES.md`
-2. `PROJECT_CONTEXT.md`
-3. `ROADMAP.md`
-4. `bible/VISUAL_BIBLE.md`
-5. `PRODUCTION_LOG.md`
-
-## Naming
-
-- **ZERO CODE** = fictional IP / story / code
-- **ZERRO CODE** = working name for the real-world production studio, not yet a legal/trademark identity
-
-## Current status
-
-Current phase: **STEP 1 — Production Foundation**
-
-Current emblem status: **D1 v1.1 — Production Master Candidate**
-
-D1 is not yet final MASTER.
-
-## Canon rule
-
-Nothing becomes canon or MASTER merely because an AI generated it.
-
-Major canon changes require explicit Executive Producer approval.
-
-Until then, use statuses such as:
-
-- DRAFT
-- CANDIDATE
-- PROTOTYPE
-- TEST
-- EXPERIMENT
+Open http://localhost:3000. API health is available at http://localhost:8000/health. YouTube and TikTok integrations are intentionally not included in Phase 1.
