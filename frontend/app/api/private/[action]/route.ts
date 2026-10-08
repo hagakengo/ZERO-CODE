@@ -20,7 +20,7 @@ async function proxy(request: NextRequest, action: string): Promise<Response> {
   if (!target || request.method !== target.method) return NextResponse.json({ detail: "Not found" }, { status: 404 });
   const api = process.env.ZERO_CODE_BACKEND_URL;
   const token = process.env.ZERO_CODE_WRITE_TOKEN;
-  if (!api || (!token && target.method !== "GET")) return NextResponse.json({ detail: "Backend is not configured" }, { status: 503 });
+  if (!api || !token) return NextResponse.json({ detail: "Backend is not configured" }, { status: 503 });
   let base: URL;
   try {
     base = new URL(api);
@@ -34,7 +34,7 @@ async function proxy(request: NextRequest, action: string): Promise<Response> {
     if (body && body.length > 8192) return NextResponse.json({ detail: "Payload too large" }, { status: 413 });
     const upstream = await fetch(new URL(target.path, base), {
       method: target.method,
-      headers: { ...(target.method === "GET" ? {} : { Authorization: `Bearer ${token}` }), ...(body === undefined ? {} : { "Content-Type": "application/json" }) },
+      headers: { Authorization: `Bearer ${token}`, ...(body === undefined ? {} : { "Content-Type": "application/json" }) },
       body,
       cache: "no-store",
       signal: AbortSignal.timeout(20000),
