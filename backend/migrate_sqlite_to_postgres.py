@@ -1,71 +1,71 @@
-"""One-time SQLite -> PostgreSQL copy for ZERO CODE OS.
+"""Explicit SQLite -> PostgreSQL copy; never creates schema or rebuilds data.
 
-Usage:
-  cd backend
-  source .venv/bin/activate
-  DATABASE_URL='postgresql://...' python migrate_sqlite_to_postgres.py
-
-The target database must be empty. The script creates the current schema without
-seeding, copies existing rows verbatim, fixes PostgreSQL identity sequences, then
-runs the normal seed/progression refresh.
+Prepare a NEW target using an approved Alembic upgrade (PR #4), or db_admin
+migrate for disposable local databases, before running this utility. Production
+migration/copy needs separate approval. All application target tables must be empty.
 """
 import os
 from pathlib import Path
 
-from sqlalchemy import MetaData, Table, create_engine, func, select, text
+from sqlalchemy import MetaData, create_engine, func, inspect, select, text
 
-source_path = Path(os.getenv("SQLITE_SOURCE_PATH", Path(__file__).with_name("zero_code.db"))).resolve()
-target_url = os.getenv("DATABASE_URL", "").strip()
+TABLES = ("missions", "daily_metrics", "youtube_integration")
 
-if not source_path.exists():
-    raise SystemExit(f"SQLite source not found: {source_path}")
-if not target_url or target_url.startswith("sqlite:"):
-    raise SystemExit("DATABASE_URL must point to the target PostgreSQL database.")
 
-os.environ["ZERO_CODE_SKIP_SEED"] = "1"
+def copy_data(source_engine, target_engine):
+    """Copy saved values atomically. Caller explicitly prepares target schema."""
+    from app.main import Base
+    source_meta, target_meta = MetaData(), MetaData()
+    source_meta.reflect(bind=source_engine, only=list(TABLES))
+    # No app import side effects or DDL: verify prepared target before copying.
+    with source_engine.connect() as source, target_engine.begin() as target:
+        inspector = inspect(target)
+        for table in Base.metadata.sorted_tables:
+            if not inspector.has_table(table.name):
+                raise RuntimeError("Target schema is not ready; run an approved migration first.")
+            if not set(table.columns.keys()) <= {c['name'] for c in inspector.get_columns(table.name)}:
+                raise RuntimeError("Target schema is outdated; run an approved migration first.")
+        target_meta.reflect(bind=target, only=list(TABLES))
+        if target.dialect.name == "postgresql":
+            # Serialize concurrent copies and ordinary writers; lock tables too.
+            target.execute(text("SELECT pg_advisory_xact_lock(9001001)"))
+            target.execute(text("LOCK TABLE missions, daily_metrics, youtube_integration IN ACCESS EXCLUSIVE MODE"))
+        for name in TABLES:
+            if target.scalar(select(func.count()).select_from(target_meta.tables[name])):
+                raise RuntimeError("Target database is not empty; refusing to overwrite it.")
+        for name in TABLES:
+            source_table, target_table = source_meta.tables[name], target_meta.tables[name]
+            if not set(source_table.columns.keys()) <= set(target_table.columns.keys()):
+                raise RuntimeError("Target schema cannot preserve source columns.")
+            rows = [dict(row._mapping) for row in source.execute(select(source_table))]
+            if rows:
+                target.execute(target_table.insert(), rows)
+        # PostgreSQL setval is not transactional; perform it only after all inserts.
+        # A failed sequence operation still requires operator review before retry.
+        if target.dialect.name == "postgresql":
+            for name in TABLES:
+                target.execute(text(
+                    "SELECT setval(pg_get_serial_sequence(:table_name, 'id'), "
+                    "COALESCE((SELECT MAX(id) FROM " + name + "), 1), "
+                    "(SELECT COUNT(*) > 0 FROM " + name + "))"
+                ), {"table_name": name})
 
-from app.main import engine as target_engine, seed  # noqa: E402
 
-source_engine = create_engine(f"sqlite:///{source_path}", connect_args={"check_same_thread": False})
-tables = ("missions", "daily_metrics", "youtube_integration")
+def main():
+    source_path = Path(os.getenv("SQLITE_SOURCE_PATH", Path(__file__).with_name("zero_code.db"))).resolve()
+    target_url = os.getenv("DATABASE_URL", "").strip()
+    if not target_url.startswith(("postgres://", "postgresql://", "postgresql+psycopg://")):
+        raise SystemExit("Set DATABASE_URL explicitly to the target PostgreSQL database.")
+    if not source_path.is_file():
+        raise SystemExit("SQLite source file is missing.")
+    from app.main import engine
+    source_engine = create_engine(f"sqlite:///{source_path}")
+    try:
+        copy_data(source_engine, engine)
+    finally:
+        source_engine.dispose()
+    print("Copy complete. Saved values preserved; no seed or progression rebuild performed.")
 
-source_meta = MetaData()
-target_meta = MetaData()
-source_meta.reflect(bind=source_engine, only=list(tables))
-target_meta.reflect(bind=target_engine, only=list(tables))
 
-with target_engine.begin() as target_conn:
-    occupied = {
-        name: target_conn.scalar(select(func.count()).select_from(target_meta.tables[name]))
-        for name in tables
-    }
-    nonempty = {name: count for name, count in occupied.items() if count}
-    if nonempty:
-        raise SystemExit(
-            "Target PostgreSQL is not empty; refusing to overwrite it. "
-            f"Rows found: {nonempty}"
-        )
-
-with source_engine.connect() as source_conn, target_engine.begin() as target_conn:
-    for name in tables:
-        source_table = source_meta.tables[name]
-        target_table = target_meta.tables[name]
-        source_columns = {column.name for column in source_table.columns}
-        target_columns = {column.name for column in target_table.columns}
-        missing = source_columns - target_columns
-        if missing:
-            raise SystemExit(f"Target table {name} is missing columns: {sorted(missing)}")
-
-        rows = [dict(row._mapping) for row in source_conn.execute(select(source_table))]
-        if rows:
-            target_conn.execute(target_table.insert(), rows)
-
-        if "id" in target_columns:
-            target_conn.execute(text(
-                "SELECT setval(pg_get_serial_sequence(:table_name, 'id'), "
-                "COALESCE((SELECT MAX(id) FROM " + name + "), 1), "
-                "(SELECT COUNT(*) > 0 FROM " + name + "))"
-            ), {"table_name": name})
-
-seed()
-print("Migration complete. PostgreSQL now contains the copied ZERO CODE OS data.")
+if __name__ == "__main__":
+    main()
