@@ -10,8 +10,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# Importing app.main creates tables as an import side effect.
-# Keep this baseline self-contained until app models are decoupled from startup.
+# Keep this frozen baseline self-contained; app startup performs no DDL.
 target_metadata = None
 
 

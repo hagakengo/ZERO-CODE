@@ -21,9 +21,12 @@
   production credentials into GitHub Actions or run CI against production.
 - Production schema changes must be reviewed separately from app deployment.
   No automatic migrations on serverless startup.
-- The existing app's `seed()` and `migrate()` paths currently mutate schema
-  at startup. **Do not enable production startup/seeding** until these are
-  removed or gated and the authorization model is reviewed.
+- App import/startup no longer performs DDL/seed/recalculation. Startup validates
+  schema only; /ready and db_admin ready also validate required dashboard data.
+- Fresh targets: explicit Alembic upgrade, then either explicit seed OR history
+  copy into empty tables. Copy never seeds/rebuilds snapshots. db_admin migrate
+  is legacy local setup and does not record Alembic history; never apply a fresh
+  baseline to those existing tables without parity review.
 - CI exercises a fresh temporary SQLite DB only. It does not prove PostgreSQL
   compatibility or Supabase RLS/permissions behavior.
 

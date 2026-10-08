@@ -551,3 +551,13 @@ This preserves mystery and gives the ZERO CODE emblem unique visual authority.
 The earlier episode attempt is not official final canon footage.
 
 It may provide usable material, but official EP.01 should be rebuilt to current quality standards.
+
+
+## 2026-10-09 — P1 DB safety local candidate
+
+**Status:** TEST, PR #4 d5b95cab, local only. No auth/CSRF changes.
+**Inputs / goal:** Disposable SQLite, Python 3.12; remove startup writes,
+separate readiness and explicit history copy. See additional P1 report for
+verification and limitations. PostgreSQL/hosted behavior unverified.
+**Next:** Separate approval for GitHub/preview, merge, deployment and production
+DB operations. No remote mutation, external posting or charge performed.
