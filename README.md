@@ -2,6 +2,14 @@
 
 AI Agent Studio / Original Cinematic IP Production Repository.
 
+## 理念とAI社員の共通指針
+
+- [理念・行動指針](docs/ZERO_CODE_PHILOSOPHY.md)：社訓、事業・開発原則、証拠と安全の基準。
+- [AGENTS.md](AGENTS.md)：AI社員・エージェントの作業開始時の必読指示。
+- [制作ルール](ZERO_CODE_RULES.md) / [プロジェクト背景](PROJECT_CONTEXT.md)：正史・資産の制約と背景。
+
+理念は判断基準です。未検証の接続・本番稼働・収益を達成実績として記載しません。
+
 ## ZERO CODE OS Phase 1
 
 Phase 1 adds a local FastAPI + Next.js + SQLite foundation. It seeds one mission and keeps all initial metrics at zero.

@@ -6,6 +6,10 @@
 
 ---
 
+共通の事業・開発理念は [理念・行動指針](docs/ZERO_CODE_PHILOSOPHY.md)、
+AI社員の作業指示は [AGENTS.md](AGENTS.md) を参照する。
+以下の優先順位は制作上の正史・資産判断に適用し、権限・秘密情報・DBの安全ルールを上書きしない。
+
 ## 1. Authority order
 
 When instructions conflict, use this priority:
