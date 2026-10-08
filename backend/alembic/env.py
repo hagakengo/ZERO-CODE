@@ -1,6 +1,6 @@
 """Offline-only migration scaffold; no production connection."""
 from alembic import context
-from app.main import Base
+from app.models import Base
 
 target_metadata = Base.metadata
 
