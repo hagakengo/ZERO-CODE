@@ -17,15 +17,18 @@ TODAY = date(2026, 10, 7)
 
 class ApiTests(unittest.TestCase):
     def setUp(self):
+        self.write_auth = patch.dict(os.environ, {'ZERO_CODE_WRITE_TOKEN': 'ci-write-test-token'})
+        self.write_auth.start()
         self.clock = patch('app.main.metrics_today', return_value=TODAY)
         self.clock.start()
         Base.metadata.drop_all(engine)
         seed()
-        self.client = TestClient(app)
+        self.client = TestClient(app, headers={'Authorization': 'Bearer ci-write-test-token'})
 
     def tearDown(self):
         self.client.close()
         self.clock.stop()
+        self.write_auth.stop()
 
     def update(self, **values):
         response = self.client.patch('/api/metrics/manual', json=values)
@@ -138,7 +141,7 @@ class ApiTests(unittest.TestCase):
     def test_concurrent_rollover_keeps_both_updates(self):
         with patch('app.main.metrics_today', return_value=TODAY + timedelta(days=1)):
             def send(payload):
-                with TestClient(app) as client:
+                with TestClient(app, headers={'Authorization': 'Bearer ci-write-test-token'}) as client:
                     return client.post('/api/metrics/manual', json=payload).status_code
             with ThreadPoolExecutor(max_workers=2) as pool:
                 codes = list(pool.map(send, [{'tiktok_followers': 4}, {'total_revenue_yen': 2}]))
