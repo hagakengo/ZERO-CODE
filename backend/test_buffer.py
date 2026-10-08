@@ -10,9 +10,9 @@ from app import buffer
 
 class BufferTests(unittest.TestCase):
     def setUp(self):
-        self.env = patch.dict(os.environ, {"BUFFER_API_KEY": "test-secret", "BUFFER_X_CHANNEL_ID": ""})
+        self.env = patch.dict(os.environ, {"BUFFER_API_KEY": "test-secret", "BUFFER_X_CHANNEL_ID": "", "ZERO_CODE_WRITE_TOKEN": "ci-write-test-token"})
         self.env.start()
-        self.client = TestClient(app)
+        self.client = TestClient(app, headers={'Authorization': 'Bearer ci-write-test-token'})
         self.calls = []
         self.service = "twitter"
         self.failure = None
