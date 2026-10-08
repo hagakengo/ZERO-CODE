@@ -354,3 +354,111 @@ connection and live reservation are not yet verified. Run the status command
 above after configuring the intended new key. No live post was created.
 If a real key was ever committed in an example file, revoke it and issue a new
 one: removing its value from the current file does not remove Git history.
+
+## ZERO CODE OS Phase 4.5 — remote dashboard + PostgreSQL
+
+Phase 4.5 makes the dashboard deployable and adds a protected read-only endpoint for trusted remote clients such as ChatGPT/agents.
+
+### Production architecture
+
+Recommended low-cost setup:
+
+- **Frontend:** Vercel project with Root Directory `frontend`
+- **Backend:** Vercel project with Root Directory `backend`
+- **Database:** managed PostgreSQL (Supabase or Neon)
+- **Local development/tests:** SQLite remains supported
+
+Set the backend production environment variables:
+
+```env
+DATABASE_URL=postgresql://...
+METRICS_TIMEZONE=Asia/Tokyo
+ZERO_CODE_READ_TOKEN=<long-random-secret>
+CORS_ORIGINS=https://<frontend-project>.vercel.app
+ALLOWED_HOSTS=<backend-project>.vercel.app,*.vercel.app
+
+YOUTUBE_CLIENT_ID=
+YOUTUBE_CLIENT_SECRET=
+YOUTUBE_REFRESH_TOKEN=
+YOUTUBE_CHANNEL_ID=
+YOUTUBE_ANALYTICS_ENABLED=true
+YOUTUBE_ANALYTICS_START_DATE=2005-01-01
+
+BUFFER_API_KEY=
+BUFFER_X_CHANNEL_ID=
+```
+
+Do not commit real values. The backend accepts both `postgres://` and
+`postgresql://` URLs and uses the psycopg driver in production.
+
+Set the frontend production variable:
+
+```env
+NEXT_PUBLIC_API_URL=https://<backend-project>.vercel.app
+```
+
+The backend has a Vercel entrypoint at `backend/api/index.py` and rewrite config
+at `backend/vercel.json`.
+
+### Protected remote status
+
+`GET /api/public/status` returns only non-sensitive data needed for remote analysis:
+
+- DAY / LEVEL / XP / XP-to-next-level
+- YouTube subscribers/views + observation date
+- TikTok followers/views + observation dates
+- revenue + observation date
+- active/completed mission and progress
+- latest deltas
+- last database update time
+
+Authentication:
+
+```bash
+curl https://<backend-project>.vercel.app/api/public/status \
+  -H "Authorization: Bearer $ZERO_CODE_READ_TOKEN"
+```
+
+Missing/invalid tokens return `401`; if the server has no read token configured,
+the endpoint is closed with `503`. API keys, OAuth credentials and internal
+integration secrets are never included in the response.
+
+### PostgreSQL migration path
+
+Before moving production data, back up `backend/zero_code.db`. Create the managed
+PostgreSQL database first and set its `DATABASE_URL` only in the production
+environment. The application creates the current schema on first startup and its
+additive migration logic supports both SQLite and PostgreSQL.
+
+For the first hosted cutover, keep the local SQLite file as the source of truth
+until the PostgreSQL instance and HTTPS dashboard are verified. Copy existing
+records only once, then switch production writes to PostgreSQL. Do not create
+synthetic missing days or backfill unknown observations. A dedicated one-time data
+copy utility can be used for the cutover if existing local history must be retained.
+
+### Deployment checklist
+
+1. Create Supabase/Neon PostgreSQL and copy its connection string into the backend Vercel project.
+2. Create the backend Vercel project from this repo with Root Directory `backend`.
+3. Add backend environment variables above and deploy.
+4. Verify `/health`.
+5. Verify `/api/public/status` returns 401 without a token and data with the Bearer token.
+6. Create the frontend Vercel project with Root Directory `frontend`.
+7. Set `NEXT_PUBLIC_API_URL` to the backend URL and deploy.
+8. Set backend `CORS_ORIGINS` to the exact frontend HTTPS origin and redeploy.
+9. Open the frontend URL on iPhone and verify metrics/history/mission views.
+10. If YouTube OAuth must be reauthorized for the hosted environment, update the Google Cloud OAuth configuration before the first production sync.
+
+### Validation
+
+```bash
+cd backend
+python -m unittest discover -v
+cd ../frontend
+npm run build
+cd ..
+git diff --check
+```
+
+The remote endpoint tests verify Bearer authentication and ensure common secret
+names/token values do not appear in the response.
