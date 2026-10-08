@@ -8,6 +8,10 @@ const actions: Record<string, { path: string; method: string }> = {
   manual: { path: "/api/metrics/manual", method: "PATCH" },
   youtube: { path: "/api/integrations/youtube/sync", method: "POST" },
   buffer: { path: "/api/integrations/buffer/schedule", method: "POST" },
+  status: { path: "/api/status", method: "GET" },
+  history: { path: "/api/metrics/history", method: "GET" },
+  youtube_status: { path: "/api/integrations/youtube/status", method: "GET" },
+  buffer_status: { path: "/api/integrations/buffer/status", method: "GET" },
 };
 
 async function proxy(request: NextRequest, action: string): Promise<Response> {
@@ -16,7 +20,7 @@ async function proxy(request: NextRequest, action: string): Promise<Response> {
   if (!target || request.method !== target.method) return NextResponse.json({ detail: "Not found" }, { status: 404 });
   const api = process.env.ZERO_CODE_BACKEND_URL;
   const token = process.env.ZERO_CODE_WRITE_TOKEN;
-  if (!api || !token) return NextResponse.json({ detail: "Write API is not configured" }, { status: 503 });
+  if (!api || (!token && target.method !== "GET")) return NextResponse.json({ detail: "Backend is not configured" }, { status: 503 });
   let base: URL;
   try {
     base = new URL(api);
@@ -26,11 +30,11 @@ async function proxy(request: NextRequest, action: string): Promise<Response> {
     return NextResponse.json({ detail: "Backend URL is invalid" }, { status: 503 });
   }
   try {
-    const body = action === "youtube" ? undefined : await request.text();
+    const body = target.method === "GET" || action === "youtube" ? undefined : await request.text();
     if (body && body.length > 8192) return NextResponse.json({ detail: "Payload too large" }, { status: 413 });
     const upstream = await fetch(new URL(target.path, base), {
       method: target.method,
-      headers: { Authorization: `Bearer ${token}`, ...(body === undefined ? {} : { "Content-Type": "application/json" }) },
+      headers: { ...(target.method === "GET" ? {} : { Authorization: `Bearer ${token}` }), ...(body === undefined ? {} : { "Content-Type": "application/json" }) },
       body,
       cache: "no-store",
       signal: AbortSignal.timeout(20000),
@@ -50,5 +54,9 @@ export async function POST(request: NextRequest, context: RouteContext) {
   return proxy(request, (await context.params).action);
 }
 export async function PATCH(request: NextRequest, context: RouteContext) {
+  return proxy(request, (await context.params).action);
+}
+
+export async function GET(request: NextRequest, context: RouteContext) {
   return proxy(request, (await context.params).action);
 }
