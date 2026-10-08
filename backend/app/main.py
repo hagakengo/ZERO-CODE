@@ -36,7 +36,7 @@ SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 def begin_write(db: Session) -> None:
     """Serialize write paths on both SQLite and PostgreSQL."""
     if IS_SQLITE:
-        begin_write(db)
+        db.execute(text("BEGIN IMMEDIATE"))
     else:
         # One app-wide transaction lock avoids duplicate same-day rows and
         # conflicting integration writes without exposing a separate lock table.
