@@ -531,3 +531,24 @@ db_admin migrate is legacy local setup without Alembic history. Existing DB
 baseline/parity/stamp and all production operations require separate approval.
 Schema type/constraint parity, PostgreSQL copy and sequence recovery remain
 unverified. seed includes progression recalculation; review its effects first.
+
+## P1 private proxy CSRF validation
+
+Set server-only `ZERO_CODE_FRONTEND_ORIGIN` to one exact public origin with no
+trailing slash, path or query. HTTPS is required outside loopback. Mutations
+validate Origin, public Host and Fetch Metadata before reading the payload or
+calling the backend. Missing, null or invalid Origin and mismatched Host return
+403; missing/invalid configured origin returns 503. All CSRF failures are
+no-store. Forwarded headers cannot override the trusted origin. Reads retain
+the existing authentication behavior and do not require Origin.
+
+Browser same-origin fetch supplies Origin. HTTP clients of the Basic-auth proxy
+must send the exact Origin or use the separately authenticated backend API.
+Basic auth uses no session cookie; SameSite does not protect cached credentials.
+Each approved preview needs its own exact origin, and hosted Host forwarding
+and real browsers remain unverified. No deployment is authorized by this section.
+
+The isolated HTTP suite includes an upstream spy: rejected mutations make zero
+upstream calls; a same-origin Buffer dry-run preserves its payload. It also tests
+actual Next.js-to-FastAPI authorization, writes, configuration failure and secret
+canaries using only dummy credentials and temporary SQLite.

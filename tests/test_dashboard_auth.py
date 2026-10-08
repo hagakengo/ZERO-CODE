@@ -27,8 +27,12 @@ def port():
         return sock.getsockname()[1]
 
 
-def request(base, path, method='GET', auth=None, data=None):
+def request(base, path, method='GET', auth=None, data=None, extra_headers=None):
     headers = {} if auth is None else {'Authorization': auth}
+    if method not in ('GET', 'HEAD', 'OPTIONS'):
+        headers['Origin'] = base
+    headers.update(extra_headers or {})
+    headers = {key: value for key, value in headers.items() if value is not None}
     body = None if data is None else json.dumps(data).encode()
     if body is not None:
         headers['Content-Type'] = 'application/json'
@@ -59,6 +63,11 @@ class DashboardAuthIntegration(unittest.TestCase):
         cls.backend = f'http://127.0.0.1:{port()}'
         cls.frontend = f'http://127.0.0.1:{port()}'
         cls.env['ZERO_CODE_BACKEND_URL'] = cls.backend
+        cls.env['ZERO_CODE_FRONTEND_ORIGIN'] = cls.frontend
+        subprocess.run([sys.executable, '-m', 'app.db_admin', 'migrate'],
+                       cwd=ROOT / 'backend', env=cls.env, check=True)
+        subprocess.run([sys.executable, '-m', 'app.db_admin', 'seed'],
+                       cwd=ROOT / 'backend', env=cls.env, check=True)
         cls.start([sys.executable, '-m', 'uvicorn', 'app.main:app', '--host', '127.0.0.1',
                    '--port', cls.backend.rsplit(':', 1)[1]], ROOT / 'backend', cls.backend, '/health')
         cls.start(['node', 'node_modules/next/dist/bin/next', 'start', '--hostname', '127.0.0.1',
@@ -141,12 +150,15 @@ class DashboardAuthIntegration(unittest.TestCase):
             ({'ZERO_CODE_WRITE_TOKEN': READ}, 401),
             ({'ZERO_CODE_BACKEND_URL': 'http://untrusted.example'}, 503),
             ({'ZERO_CODE_ADMIN_PASSWORD': ''}, 401),
+            ({'ZERO_CODE_FRONTEND_ORIGIN': ''}, 503),
+            ({'ZERO_CODE_FRONTEND_ORIGIN': 'https://example.invalid/path'}, 503),
+            ({'ZERO_CODE_FRONTEND_ORIGIN': 'http://example.invalid'}, 503),
         ):
             with self.subTest(configuration=list(overrides)):
                 base = f'http://127.0.0.1:{port()}'
                 stop = self.start(['node', 'node_modules/next/dist/bin/next', 'start',
                                    '--hostname', '127.0.0.1', '--port', base.rsplit(':', 1)[1]],
-                                  ROOT / 'frontend', base, '/', overrides)
+                                  ROOT / 'frontend', base, '/', {'ZERO_CODE_FRONTEND_ORIGIN': base, **overrides})
                 try:
                     before = request(self.backend, '/api/metrics/history', auth=f'Bearer {READ}')[2]
                     result = request(base, '/api/private/manual', 'PATCH', AUTH, {'tiktok_views': 99})
@@ -155,9 +167,84 @@ class DashboardAuthIntegration(unittest.TestCase):
                 finally:
                     stop()
 
+    def test_csrf_mutations_fail_closed_without_writing(self):
+        before = request(self.backend, '/api/metrics/history', auth=f'Bearer {READ}')[2]
+        for action, method in (('manual', 'PATCH'), ('youtube', 'POST'), ('buffer', 'POST')):
+            for headers in (
+                {'Origin': 'https://attacker.invalid', 'Sec-Fetch-Site': 'cross-site'},
+                {'Origin': None}, {'Origin': 'null'},
+                {'Origin': self.frontend + '/'},
+                {'Origin': self.frontend + ', https://attacker.invalid'},
+                {'Origin': self.frontend, 'Sec-Fetch-Site': 'cross-site'},
+                {'Origin': 'https://attacker.invalid', 'X-Forwarded-Host': 'attacker.invalid',
+                 'X-Forwarded-Proto': 'https'},
+                {'Origin': self.frontend, 'Host': 'attacker.invalid'},
+            ):
+                with self.subTest(action=action, headers=headers):
+                    result = request(self.frontend, '/api/private/' + action, method, AUTH,
+                                     {'tiktok_views': 123}, headers)
+                    self.assertEqual(self.safe(result)[0], 403)
+                    self.assertIn('no-store', result[1]['Cache-Control'])
+        self.assertEqual(request(self.backend, '/api/metrics/history', auth=f'Bearer {READ}')[2], before)
+
+    def test_csrf_same_origin_and_fetch_metadata(self):
+        for site in (None, 'same-origin', 'same-site'):
+            result = request(self.frontend, '/api/private/manual', 'PATCH', AUTH,
+                             {'tiktok_views': 42}, {'Sec-Fetch-Site': site})
+            self.assertEqual(self.safe(result)[0], 200)
+        # Valid-origin POST reaches safe unconfigured integration, never real OAuth.
+        self.assertEqual(self.safe(request(self.frontend, '/api/private/youtube', 'POST', AUTH))[0], 409)
+        # Read-only proxy remains available to non-browser HTTP clients without Origin.
+        self.assertEqual(self.safe(request(self.frontend, '/api/private/status', auth=AUTH,
+                                          extra_headers={'Origin': None}))[0], 200)
+
+    def test_csrf_rejection_never_calls_upstream_and_buffer_dry_run_passes(self):
+        from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+        from threading import Thread
+        calls = []
+        class Spy(BaseHTTPRequestHandler):
+            def do_POST(self):
+                body = self.rfile.read(int(self.headers.get('Content-Length', '0')))
+                calls.append((self.path, json.loads(body)))
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(b'{"dry_run":true,"created":false}')
+            def do_PATCH(self):
+                self.do_POST()
+            def log_message(self, *args):
+                pass
+        server = ThreadingHTTPServer(('127.0.0.1', 0), Spy)
+        thread = Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        base = f'http://127.0.0.1:{port()}'
+        stop = self.start(['node', 'node_modules/next/dist/bin/next', 'start',
+                           '--hostname', '127.0.0.1', '--port', base.rsplit(':', 1)[1]],
+                          ROOT / 'frontend', base, '/', {
+                              'ZERO_CODE_FRONTEND_ORIGIN': base,
+                              'ZERO_CODE_BACKEND_URL': f'http://127.0.0.1:{server.server_port}'})
+        try:
+            for action, method in (('manual', 'PATCH'), ('youtube', 'POST'), ('buffer', 'POST')):
+                for origin in (None, 'null', 'https://attacker.invalid'):
+                    result = request(base, '/api/private/' + action, method, AUTH,
+                                     {'text': 'TEST', 'dry_run': True}, {'Origin': origin})
+                    self.assertEqual(result[0], 403)
+            self.assertEqual(calls, [])
+            result = request(base, '/api/private/buffer', 'POST', AUTH,
+                             {'text': 'TEST', 'dry_run': True})
+            self.assertEqual(result[0], 200)
+            self.assertEqual(calls, [('/api/integrations/buffer/schedule',
+                                      {'text': 'TEST', 'dry_run': True})])
+        finally:
+            stop()
+            server.shutdown()
+            server.server_close()
+            thread.join()
+
     def test_no_secrets_in_html_or_browser_assets(self):
         result = request(self.frontend, '/', auth=AUTH)
         self.assertEqual(self.safe(result)[0], 200)
+        self.assertIsNone(result[1].get('Set-Cookie'))  # Basic auth, no session cookie.
         assets = list((ROOT / 'frontend/.next/static').rglob('*.js'))
         self.assertTrue(assets)
         for asset in assets:

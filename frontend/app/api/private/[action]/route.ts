@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAdminAuthorized, unauthorized } from "../../../../lib/admin-auth";
 
+import { rejectUnsafeMutation } from "../../../../lib/csrf";
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -18,6 +20,8 @@ async function proxy(request: NextRequest, action: string): Promise<Response> {
   if (!(await isAdminAuthorized(request.headers.get("authorization")))) return unauthorized();
   const target = actions[action];
   if (!target || request.method !== target.method) return NextResponse.json({ detail: "Not found" }, { status: 404 });
+  const csrfFailure = rejectUnsafeMutation(request);
+  if (csrfFailure) return csrfFailure;
   const api = process.env.ZERO_CODE_BACKEND_URL;
   const token = process.env.ZERO_CODE_WRITE_TOKEN;
   if (!api || !token) return NextResponse.json({ detail: "Backend is not configured" }, { status: 503 });

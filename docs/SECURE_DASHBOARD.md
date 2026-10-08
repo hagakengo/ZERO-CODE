@@ -49,3 +49,20 @@ read-token-only contract.
 **Compatibility:** clients that previously fetched these endpoints without
 credentials must be updated before deploying. Verify all third-party agents
 and integrations; CI does not cover live authentication, rate limits or hosting.
+
+## CSRF configuration and compatibility
+
+Set server-only `ZERO_CODE_FRONTEND_ORIGIN` to the single exact public HTTPS
+origin (HTTP allowed only on loopback), without trailing slash/path/query.
+All private proxy mutations require matching Origin and public Host; cross-site
+Fetch Metadata is rejected. Validation runs before payload reading or backend
+communication. Missing/null/invalid Origin or Host mismatch returns 403;
+invalid/missing configuration returns 503. Rejections use no-store. Forwarded
+headers are not a trusted source for the configured origin. Reads still require
+existing admin authentication but do not need Origin.
+
+Same-origin browser fetch supplies Origin. Other HTTP clients must send it or
+use the separate backend Bearer API. Basic auth has no session cookie, so
+SameSite does not protect cached Basic credentials. Each separately approved
+preview needs its own exact public origin. Actual browsers and Vercel Host
+forwarding still require separate verification; this does not authorize deploys.
