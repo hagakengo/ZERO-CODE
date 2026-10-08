@@ -268,7 +268,11 @@ def progression(db: Session):
                       "mission_completion_xp": MISSION_COMPLETION_XP, "xp_per_level": XP_PER_LEVEL}}
 
 
-seed()
+if os.getenv("ZERO_CODE_SKIP_SEED") == "1":
+    Base.metadata.create_all(engine)
+    migrate()
+else:
+    seed()
 
 
 def serialize_metrics(row: DailyMetrics):
