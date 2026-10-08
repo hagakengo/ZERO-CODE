@@ -25,8 +25,10 @@ Browsers may cache Basic credentials until closed.
 
 - Do not merge or deploy until PR #5 is reviewed and backend/frontend
   authentication is integration-tested together.
-- Read endpoints currently go directly to the FastAPI origin. If metrics
-  are private, those endpoints also need an authenticated server-side proxy.
+- Dashboard read requests now go through the authenticated Next.js proxy,
+  but the FastAPI read endpoints themselves remain directly accessible at the
+  backend origin. Protect the backend origin or add backend read authorization
+  before treating any metrics as private.
 - Ensure the backend cannot be used to bypass authorization. All write
   endpoints must require `ZERO_CODE_WRITE_TOKEN`.
 - Add rate limiting, audit logging, safe secret rotation and stronger
