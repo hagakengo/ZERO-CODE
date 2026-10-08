@@ -1,4 +1,5 @@
 import os
+import secrets
 from datetime import date, datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 from typing import Annotated
@@ -6,7 +7,7 @@ from typing import Annotated
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, Query, HTTPException, Request
+from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
 from . import youtube, buffer
@@ -19,8 +20,27 @@ from sqlalchemy import Date, DateTime, Integer, String, create_engine, select, i
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{Path(__file__).resolve().parent.parent / 'zero_code.db'}")
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = "postgresql+psycopg://" + DATABASE_URL.removeprefix("postgres://")
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = "postgresql+psycopg://" + DATABASE_URL.removeprefix("postgresql://")
+IS_SQLITE = DATABASE_URL.startswith("sqlite:")
+engine = create_engine(
+    DATABASE_URL,
+    connect_args={"check_same_thread": False} if IS_SQLITE else {},
+    pool_pre_ping=not IS_SQLITE,
+)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+
+
+def begin_write(db: Session) -> None:
+    """Serialize write paths on both SQLite and PostgreSQL."""
+    if IS_SQLITE:
+        begin_write(db)
+    else:
+        # One app-wide transaction lock avoids duplicate same-day rows and
+        # conflicting integration writes without exposing a separate lock table.
+        db.execute(text("SELECT pg_advisory_xact_lock(9001001)"))
 
 
 class Base(DeclarativeBase):
@@ -82,11 +102,12 @@ def metrics_today() -> date:
 
 
 def migrate() -> None:
-    """Additive SQLite migration: retain Phase 1 rows and unknown provenance."""
+    """Additive migration for existing SQLite/PostgreSQL databases."""
+    timestamp_type = "DATETIME" if IS_SQLITE else "TIMESTAMP"
     additions = {
         "missions": {"metric_type": "VARCHAR(32) NOT NULL DEFAULT 'revenue'",
                      "target_value": "INTEGER NOT NULL DEFAULT 1",
-                     "completed_at": "DATETIME", "completed_recorded_on": "DATE"},
+                     "completed_at": timestamp_type, "completed_recorded_on": "DATE"},
         "daily_metrics": {name: "DATE" for name in (
             "tiktok_followers_observed_on", "tiktok_views_observed_on",
             "total_revenue_yen_observed_on", "youtube_observed_on",
@@ -120,12 +141,17 @@ def get_db():
         yield db
 
 
-app = FastAPI(title="ZERO CODE OS", version="0.4.0")
+app = FastAPI(title="ZERO CODE OS", version="0.4.5")
 app.include_router(buffer.router)
 app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(","), allow_methods=["*"], allow_headers=["*"])
 
 
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=["localhost", "127.0.0.1", "testserver"])
+app.add_middleware(
+    TrustedHostMiddleware,
+    allowed_hosts=[host.strip() for host in os.getenv(
+        "ALLOWED_HOSTS", "localhost,127.0.0.1,testserver,*.vercel.app"
+    ).split(",") if host.strip()],
+)
 
 
 @app.get("/health")
@@ -289,6 +315,52 @@ def system_status(db: Session = Depends(get_db)):
     }
 
 
+def _require_read_token(authorization: str | None) -> None:
+    expected = os.getenv("ZERO_CODE_READ_TOKEN", "").strip()
+    if not expected:
+        raise HTTPException(503, "Remote read access is not configured.")
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(401, "Unauthorized")
+    supplied = authorization.removeprefix("Bearer ").strip()
+    if not secrets.compare_digest(supplied, expected):
+        raise HTTPException(401, "Unauthorized")
+
+
+@app.get("/api/public/status")
+def public_status(
+    authorization: str | None = Header(default=None),
+    db: Session = Depends(get_db),
+):
+    """Minimal read-only snapshot for trusted remote clients/agents."""
+    _require_read_token(authorization)
+    current = system_status(db)
+    metrics = latest_metrics(db)
+    observed = current["observed_on"]
+    return {
+        "date": current["date"],
+        "timezone": current["timezone"],
+        "progression": current["progression"],
+        "youtube": {
+            "subscribers": metrics.youtube_subscribers if observed.get("youtube") else None,
+            "views": metrics.youtube_views if observed.get("youtube") else None,
+            "observed_on": observed.get("youtube"),
+        },
+        "tiktok": {
+            "followers": metrics.tiktok_followers if observed.get("tiktok_followers") else None,
+            "views": metrics.tiktok_views if observed.get("tiktok_views") else None,
+            "followers_observed_on": observed.get("tiktok_followers"),
+            "views_observed_on": observed.get("tiktok_views"),
+        },
+        "revenue": {
+            "yen": metrics.total_revenue_yen if observed.get("total_revenue_yen") else None,
+            "observed_on": observed.get("total_revenue_yen"),
+        },
+        "mission": current["mission"],
+        "delta": current["delta"],
+        "last_updated_at": metrics.updated_at,
+    }
+
+
 @app.get("/api/metrics/latest")
 def latest(db: Session = Depends(get_db)):
     return history(1, db)[0]
@@ -326,9 +398,9 @@ def missions(db: Session = Depends(get_db)):
 
 
 def writable_today(db):
-    # Serialize SQLite writers before reading, so simultaneous rollover updates
-    # cannot create duplicate dates or overwrite each other's omitted fields.
-    db.execute(text("BEGIN IMMEDIATE"))
+    # Serialize writers before reading so simultaneous rollover updates cannot
+    # create duplicate dates or overwrite each other's omitted fields.
+    begin_write(db)
     today = metrics_today()
     row = db.scalar(select(DailyMetrics).where(DailyMetrics.date == today))
     if row is None:
@@ -367,7 +439,7 @@ def sync_youtube(request: Request, db: Session = Depends(get_db)):
         try:
             values, warning = youtube.fetch_metrics(metrics_today())
         except youtube.YouTubeError as error:
-            db.execute(text("BEGIN IMMEDIATE"))
+            begin_write(db)
             integration = db.get(YouTubeIntegration, 1) or YouTubeIntegration(id=1)
             integration.state, integration.error = "error", str(error)
             db.add(integration)
