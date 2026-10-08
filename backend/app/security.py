@@ -17,3 +17,21 @@ def require_write_token(authorization: str | None = Header(default=None)) -> Non
             detail="Invalid write authorization",
             headers={"WWW-Authenticate": "Bearer"},
         )
+
+def require_dashboard_read_token(authorization: str | None = Header(default=None)) -> None:
+    """Protect private dashboard reads. Accept operator write or dedicated read token."""
+    configured = [value.strip() for value in (
+        os.getenv("ZERO_CODE_WRITE_TOKEN", ""),
+        os.getenv("ZERO_CODE_READ_TOKEN", ""),
+    ) if value.strip()]
+    if not configured:
+        raise HTTPException(status_code=503, detail="Read API is not configured")
+    scheme, separator, provided = (authorization or "").partition(" ")
+    valid = separator and scheme.lower() == "bearer" and any(
+        secrets.compare_digest(provided, expected) for expected in configured
+    )
+    if not valid:
+        raise HTTPException(
+            status_code=401, detail="Invalid read authorization",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
