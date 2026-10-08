@@ -11,7 +11,7 @@ from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
 from . import youtube, buffer
-from .security import require_write_token
+from .security import require_write_token, require_dashboard_read_token
 from threading import Lock
 
 load_dotenv(youtube.ENV_PATH)
@@ -290,7 +290,7 @@ def serialize_metrics(row: DailyMetrics):
 
 
 @app.get("/api/status")
-def system_status(db: Session = Depends(get_db)):
+def system_status(db: Session = Depends(get_db), _authorized: None = Depends(require_dashboard_read_token)):
     metrics = latest_metrics(db)
     previous = db.scalar(select(DailyMetrics).where(DailyMetrics.date == metrics.date - timedelta(days=1)))
     def delta(field, observation):
@@ -367,12 +367,12 @@ def public_status(
 
 
 @app.get("/api/metrics/latest")
-def latest(db: Session = Depends(get_db)):
+def latest(db: Session = Depends(get_db), _authorized: None = Depends(require_dashboard_read_token)):
     return history(1, db)[0]
 
 
 @app.get("/api/metrics/history")
-def history(limit: int = Query(30, ge=1, le=366), db: Session = Depends(get_db)):
+def history(limit: int = Query(30, ge=1, le=366), db: Session = Depends(get_db), _authorized: None = Depends(require_dashboard_read_token)):
     rows = db.scalars(select(DailyMetrics).order_by(DailyMetrics.date.desc()).limit(limit))
     result = []
     for row in rows:
@@ -397,7 +397,7 @@ def update_manual(payload: ManualUpdate, _authorized: None = Depends(require_wri
 
 
 @app.get("/api/missions")
-def missions(db: Session = Depends(get_db)):
+def missions(db: Session = Depends(get_db), _authorized: None = Depends(require_dashboard_read_token)):
     metrics = latest_metrics(db)
     return [mission_state(row, metrics) for row in db.scalars(select(Mission).order_by(Mission.id))]
 
@@ -419,7 +419,7 @@ def writable_today(db):
 
 
 @app.get("/api/integrations/youtube/status")
-def youtube_status(db: Session = Depends(get_db)):
+def youtube_status(db: Session = Depends(get_db), _authorized: None = Depends(require_dashboard_read_token)):
     integration = db.get(YouTubeIntegration, 1)
     configured = youtube.configured()
     return {"state": integration.state if configured and integration else "disconnected",
@@ -476,7 +476,7 @@ def metric_deltas(row, previous):
 
 
 @app.get("/api/progression")
-def progression_status(db: Session = Depends(get_db)):
+def progression_status(db: Session = Depends(get_db), _authorized: None = Depends(require_dashboard_read_token)):
     metrics = latest_metrics(db)
     mission_list = missions(db)
     rows = list(db.scalars(select(DailyMetrics).order_by(DailyMetrics.date)))
