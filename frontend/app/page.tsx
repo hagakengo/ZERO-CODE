@@ -66,7 +66,7 @@ export default function Dashboard() {
     if (savingRef.current) return;
     savingRef.current = true; setSyncing(true); setSyncError(""); setSyncMessage("");
     try {
-      const response = await fetch(`${base}/api/integrations/youtube/sync`, { method: "POST" });
+      const response = await fetch("/api/private/youtube", { method: "POST" });
       const result = await response.json();
       if (!response.ok) throw new Error(result.detail || "YouTube同期に失敗しました。");
       setStatus(result.status); setIntegration(result.integration); setError(false);
@@ -97,7 +97,7 @@ export default function Dashboard() {
     if (!Object.keys(payload).length) { setSaveError("更新する項目を1つ以上入力してください。"); return; }
     savingRef.current = true; setSaving(true);
     try {
-      const response = await fetch(`${base}/api/metrics/manual`, {
+      const response = await fetch("/api/private/manual", {
         method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
       });
       if (!response.ok) throw new Error("Update failed");
