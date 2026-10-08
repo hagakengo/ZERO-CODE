@@ -5,13 +5,14 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import create_engine, pool
 
-from app.main import Base
 
 config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-target_metadata = Base.metadata
+# Importing app.main creates tables as an import side effect.
+# Keep this baseline self-contained until app models are decoupled from startup.
+target_metadata = None
 
 
 def database_url() -> str:
