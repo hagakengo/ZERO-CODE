@@ -126,7 +126,7 @@ def seed() -> None:
     Base.metadata.create_all(engine)
     migrate()
     with SessionLocal() as db:
-        db.execute(text("BEGIN IMMEDIATE"))
+        begin_write(db)
         if not db.scalar(select(Mission).where(Mission.code == "MISSION 01")):
             db.add(Mission(code="MISSION 01", title="最初の1円を生み出せ。", status="active", progress=0))
         if not db.scalar(select(DailyMetrics.id).limit(1)):
