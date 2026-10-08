@@ -11,6 +11,7 @@ from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
 from . import youtube, buffer
+from .security import require_write_token
 from threading import Lock
 
 load_dotenv(youtube.ENV_PATH)
@@ -383,7 +384,7 @@ def history(limit: int = Query(30, ge=1, le=366), db: Session = Depends(get_db))
 
 @app.post("/api/metrics/manual")
 @app.patch("/api/metrics/manual")
-def update_manual(payload: ManualUpdate, db: Session = Depends(get_db)):
+def update_manual(payload: ManualUpdate, _authorized: None = Depends(require_write_token), db: Session = Depends(get_db)):
     row = writable_today(db)
     today = row.date
     for field, value in payload.model_dump(exclude_unset=True).items():
@@ -430,7 +431,7 @@ def youtube_status(db: Session = Depends(get_db)):
 
 
 @app.post("/api/integrations/youtube/sync")
-def sync_youtube(request: Request, db: Session = Depends(get_db)):
+def sync_youtube(request: Request, _authorized: None = Depends(require_write_token), db: Session = Depends(get_db)):
     origin = request.headers.get("origin")
     allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
     if origin and origin not in allowed:
