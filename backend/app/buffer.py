@@ -5,7 +5,7 @@ import re
 from datetime import datetime, timezone
 import httpx
 from fastapi import APIRouter, HTTPException, Request, Depends
-from .security import require_write_token
+from .security import require_write_token, require_dashboard_read_token
 from pydantic import BaseModel, ConfigDict, StrictBool
 
 router = APIRouter(prefix="/api/integrations/buffer")
@@ -73,7 +73,7 @@ def resolve_x(items):
 
 
 @router.get("/status")
-def status():
+def status(_authorized: None = Depends(require_dashboard_read_token)):
     result = dict(configured=configured(), connected=False, channel_count=0,
                   x_channel_available=False, error=None)
     if not result["configured"]:
