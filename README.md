@@ -19,7 +19,12 @@ Phase 1 adds a local FastAPI + Next.js + SQLite foundation. It seeds one mission
 ```bash
 cd backend
 python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
+# Explicit setup for a NEW disposable local database only:
+export DATABASE_URL="sqlite:////tmp/zero-code-local-isolated.db"
+python -m alembic upgrade head
+python -m app.db_admin seed
+python -m app.db_admin ready
 uvicorn app.main:app --reload --port 8000
 ```
 
@@ -36,7 +41,8 @@ Open http://localhost:3000. API health is available at http://localhost:8000/hea
 `GET /api/status` returns the latest saved `daily_metrics` row and the initial mission.
 The dashboard reads this endpoint for DAY, LEVEL, both platform counters, revenue,
 and mission progress. All counters, including DAY and LEVEL, start at zero.
-Startup seeds metrics only when the table is empty; restarting preserves saved data.
+Startup validates schema read-only; it never migrates, seeds or recalculates data.
+Explicit seeding initializes a reviewed database and rebuilds progression.
 DAY and LEVEL remain stored values until progression rules are defined.
 MISSION 01 progress is calculated from revenue and capped at 100%.
 
@@ -100,7 +106,7 @@ curl -X PATCH http://localhost:8000/api/metrics/manual \
 curl http://localhost:8000/api/metrics/history
 ```
 
-Startup automatically adds Phase 2 columns to the existing SQLite database;
+Explicit legacy migration adds Phase 2 columns to an existing SQLite database;
 existing rows and counters are preserved. Back up `backend/zero_code.db` before
 upgrading. Migrations are idempotent; SQLite manual writes are serialized to
 protect same-day and concurrent rollover updates. This is a local, single-user
@@ -211,7 +217,7 @@ The button fetches real data; no scheduler or background periodic sync is instal
 - Subscriber totals may be rounded by YouTube. Data API counts and Studio Analytics
   can differ in timing and definition; the app does not invent precision.
 
-Startup adds nullable Analytics date columns and a non-secret integration status
+Explicit migration adds nullable Analytics date columns and a non-secret integration status
 record table, preserving Phase 1/2 history. Back up the SQLite database before upgrade.
 Manual TikTok/revenue saves, daily carry-forward, deltas and revenue missions retain
 Phase 2 behavior. API errors keep the last good metrics and last successful timestamp.
@@ -253,7 +259,7 @@ mission status. No historical counters, observations, or blank days are invented
   `MISSION_COMPLETION_XP`, `XP_PER_LEVEL` in `backend/app/main.py`.
 - **LEVEL** is 0 before any record, otherwise `1 + floor(XP / 100)`.
   **NEXT LEVEL** displays remaining XP (`100 - XP % 100`). Stored row snapshots
-  (`day`, `level`, `xp`) are rebuilt on startup and successful writes.
+  (`day`, `level`, `xp`) are rebuilt by explicit seeding and successful writes.
 - Missions support the existing metric types and targets. An unlocked mission
   completes only with observed evidence meeting its positive target. Its first
   `completed_at` (UTC) and `completed_recorded_on` persist. Later lower totals do
@@ -435,8 +441,9 @@ integration secrets are never included in the response.
 
 Before moving production data, back up `backend/zero_code.db`. Create the managed
 PostgreSQL database first and set its `DATABASE_URL` only in the production
-environment. The application creates the current schema on first startup and its
-additive migration logic supports both SQLite and PostgreSQL.
+environment. Startup never creates or alters schema. For fresh isolated databases,
+run the Alembic baseline explicitly, then seed OR copy saved history. Existing
+production migration, parity, backup/restore and permissions require separate review.
 
 For the first hosted cutover, keep the local SQLite file as the source of truth
 until the PostgreSQL instance and HTTPS dashboard are verified. Copy existing
@@ -508,3 +515,19 @@ invalid proxy configuration, and absence of canaries from HTML, response
 headers and browser JavaScript. These HTTP tests do not exercise an actual
 browser's Basic-auth prompt, iPhone Safari, production PostgreSQL, hosted
 credentials, live OAuth or external posting.
+
+
+## P1 DB safety correction
+
+Application import/startup never performs DDL, seed or progression rebuild.
+Startup validates schema only; /health is liveness and /ready independently
+checks readable schema/models, daily metrics and MISSION 01 (200/503, no-store,
+generic status only). It does not contact external services. YouTube row optional.
+For a NEW isolated DB: explicitly set DATABASE_URL, alembic upgrade head,
+then db_admin seed OR copy saved history into empty tables. Never seed before
+copy. Copy does no DDL/recalculation, preserves snapshots and refuses nonempty
+targets. db_admin check is schema only; db_admin ready checks required data too.
+db_admin migrate is legacy local setup without Alembic history. Existing DB
+baseline/parity/stamp and all production operations require separate approval.
+Schema type/constraint parity, PostgreSQL copy and sequence recovery remain
+unverified. seed includes progression recalculation; review its effects first.
