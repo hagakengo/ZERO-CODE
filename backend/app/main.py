@@ -17,7 +17,7 @@ from contextlib import asynccontextmanager
 load_dotenv(youtube.ENV_PATH)
 sync_lock = Lock()
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy import Date, DateTime, Integer, String, create_engine, select, inspect, text
+from sqlalchemy import BigInteger, Date, DateTime, Integer, String, create_engine, select, inspect, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{Path(__file__).resolve().parent.parent / 'zero_code.db'}")
@@ -55,7 +55,7 @@ class Mission(Base):
     title: Mapped[str] = mapped_column(String(255))
     status: Mapped[str] = mapped_column(String(32), default="active")
     metric_type: Mapped[str] = mapped_column(String(32), default="revenue")
-    target_value: Mapped[int] = mapped_column(Integer, default=1)
+    target_value: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=1)
     progress: Mapped[int] = mapped_column(Integer, default=0)
     completed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     completed_recorded_on: Mapped[date | None] = mapped_column(Date, nullable=True)
@@ -66,14 +66,14 @@ class DailyMetrics(Base):
     __tablename__ = "daily_metrics"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     date: Mapped[date] = mapped_column(Date, unique=True, nullable=False)
-    youtube_subscribers: Mapped[int] = mapped_column(Integer, default=0)
-    youtube_views: Mapped[int] = mapped_column(Integer, default=0)
-    youtube_watch_minutes: Mapped[int] = mapped_column(Integer, default=0)
-    youtube_likes: Mapped[int] = mapped_column(Integer, default=0)
-    youtube_comments: Mapped[int] = mapped_column(Integer, default=0)
-    tiktok_followers: Mapped[int] = mapped_column(Integer, default=0)
-    tiktok_views: Mapped[int] = mapped_column(Integer, default=0)
-    total_revenue_yen: Mapped[int] = mapped_column(Integer, default=0)
+    youtube_subscribers: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    youtube_views: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    youtube_watch_minutes: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    youtube_likes: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    youtube_comments: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    tiktok_followers: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    tiktok_views: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    total_revenue_yen: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
     # Observation dates distinguish initial/carried values from measurements.
     tiktok_followers_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     tiktok_views_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
