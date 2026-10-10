@@ -478,6 +478,44 @@ git diff --check
 The remote endpoint tests verify Bearer authentication and ensure common secret
 names/token values do not appear in the response.
 
+## PR #6 — authenticated dashboard and isolated integration checks
+
+This section supersedes the earlier unauthenticated dashboard startup and
+`NEXT_PUBLIC_API_URL` instructions. Configure `ZERO_CODE_ADMIN_USER` and
+`ZERO_CODE_ADMIN_PASSWORD` only on the Next.js server, together with
+`ZERO_CODE_BACKEND_URL` and `ZERO_CODE_WRITE_TOKEN` (see `frontend/.env.example`).
+The backend must have the matching write token; `ZERO_CODE_READ_TOKEN` grants
+read access only. Browser requests use same-origin `/api/private/*`; the
+backend Bearer token must never be a `NEXT_PUBLIC_*` variable. Admin Basic
+credentials require HTTPS outside loopback. `/health` remains public.
+
+Tests require a clean checkout without backend/frontend `.env` files. The
+integration runner refuses such files, supplies dummy credentials, starts a
+production Next.js server and real FastAPI server on loopback ephemeral ports,
+and seeds only a disposable SQLite database. It never syncs YouTube or creates
+Buffer reservations. External integration unit tests use mocked transports.
+
+```bash
+cd backend
+# Python 3.11/3.12 environment with requirements.txt installed
+python -m compileall -q app api
+python -m unittest discover -p 'test*.py' -v
+cd ../frontend
+npm ci
+npx tsc --noEmit
+ZERO_CODE_WRITE_TOKEN=integration-only-write-secret ZERO_CODE_READ_TOKEN=integration-only-read-secret ZERO_CODE_ADMIN_PASSWORD=integration-only-admin-password npm run build
+cd ..
+python tests/test_dashboard_auth.py
+```
+
+CI builds with the same dummy secret canaries and runs the integration suite.
+Coverage: admin authentication, protected reads and persisted manual writes,
+backend read/write permissions, malformed actions/methods/payloads, missing or
+invalid proxy configuration, and absence of canaries from HTML, response
+headers and browser JavaScript. These HTTP tests do not exercise an actual
+browser's Basic-auth prompt, iPhone Safari, production PostgreSQL, hosted
+credentials, live OAuth or external posting.
+
 
 ## P1 DB safety correction
 
@@ -494,6 +532,26 @@ baseline/parity/stamp and all production operations require separate approval.
 Schema type/constraint parity, PostgreSQL copy and sequence recovery remain
 unverified. seed includes progression recalculation; review its effects first.
 
+## P1 private proxy CSRF validation
+
+Set server-only `ZERO_CODE_FRONTEND_ORIGIN` to one exact public origin with no
+trailing slash, path or query. HTTPS is required outside loopback. Mutations
+validate Origin, public Host and Fetch Metadata before reading the payload or
+calling the backend. Missing, null or invalid Origin and mismatched Host return
+403; missing/invalid configured origin returns 503. All CSRF failures are
+no-store. Forwarded headers cannot override the trusted origin. Reads retain
+the existing authentication behavior and do not require Origin.
+
+Browser same-origin fetch supplies Origin. HTTP clients of the Basic-auth proxy
+must send the exact Origin or use the separately authenticated backend API.
+Basic auth uses no session cookie; SameSite does not protect cached credentials.
+Each approved preview needs its own exact origin, and hosted Host forwarding
+and real browsers remain unverified. No deployment is authorized by this section.
+
+The isolated HTTP suite includes an upstream spy: rejected mutations make zero
+upstream calls; a same-origin Buffer dry-run preserves its payload. It also tests
+actual Next.js-to-FastAPI authorization, writes, configuration failure and secret
+canaries using only dummy credentials and temporary SQLite.
 
 ## TEST candidate — safe integer counter storage
 

@@ -31,7 +31,7 @@ export default function Dashboard() {
   const [historyError, setHistoryError] = useState("");
   async function loadHistory(signal?: AbortSignal) {
     try {
-      const response = await fetch(`${base}/api/metrics/history`, { signal, cache: "no-store" });
+      const response = await fetch("/api/private/history", { signal, cache: "no-store" });
       if (!response.ok) throw new Error();
       setHistory(await response.json()); setHistoryError("");
     } catch { if (!signal?.aborted) setHistoryError("履歴を取得できません。再読み込みしてください。"); }
@@ -50,14 +50,14 @@ export default function Dashboard() {
   useEffect(() => {
     const controller = new AbortController();
     void loadHistory(controller.signal);
-    fetch(`${base}/api/status`, { signal: controller.signal, cache: "no-store" })
+    fetch("/api/private/status", { signal: controller.signal, cache: "no-store" })
       .then(r => { if (!r.ok) throw new Error("Status unavailable"); return r.json(); })
       .then(setStatus)
       .catch(() => { if (!controller.signal.aborted) setError(true); });
-    fetch(`${base}/api/integrations/youtube/status`, { signal: controller.signal, cache: "no-store" })
+    fetch("/api/private/youtube_status", { signal: controller.signal, cache: "no-store" })
       .then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(setIntegration)
       .catch(() => { if (!controller.signal.aborted) setSyncError("YouTube接続状態を取得できません。"); });
-    fetch(`${base}/api/integrations/buffer/status`, { signal: controller.signal, cache: "no-store" })
+    fetch("/api/private/buffer_status", { signal: controller.signal, cache: "no-store" })
       .then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(setBufferStatus)
       .catch(() => { if (!controller.signal.aborted) setBufferError(true); });
     return () => controller.abort();
@@ -66,7 +66,7 @@ export default function Dashboard() {
     if (savingRef.current) return;
     savingRef.current = true; setSyncing(true); setSyncError(""); setSyncMessage("");
     try {
-      const response = await fetch(`${base}/api/integrations/youtube/sync`, { method: "POST" });
+      const response = await fetch("/api/private/youtube", { method: "POST" });
       const result = await response.json();
       if (!response.ok) throw new Error(result.detail || "YouTube同期に失敗しました。");
       setStatus(result.status); setIntegration(result.integration); setError(false);
@@ -75,7 +75,7 @@ export default function Dashboard() {
     } catch (error) {
       setSyncError(error instanceof Error ? error.message : "同期結果を確認できません。");
       try {
-        const response = await fetch(`${base}/api/integrations/youtube/status`, { cache: "no-store" });
+        const response = await fetch("/api/private/youtube_status", { cache: "no-store" });
         if (response.ok) setIntegration(await response.json());
       } catch { /* Preserve the last known status when offline. */ }
     } finally { savingRef.current = false; setSyncing(false); }
@@ -97,7 +97,7 @@ export default function Dashboard() {
     if (!Object.keys(payload).length) { setSaveError("更新する項目を1つ以上入力してください。"); return; }
     savingRef.current = true; setSaving(true);
     try {
-      const response = await fetch(`${base}/api/metrics/manual`, {
+      const response = await fetch("/api/private/manual", {
         method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
       });
       if (!response.ok) throw new Error("Update failed");

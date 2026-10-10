@@ -552,6 +552,34 @@ The earlier episode attempt is not official final canon footage.
 
 It may provide usable material, but official EP.01 should be rebuilt to current quality standards.
 
+---
+
+## 2026-10-09 — PR #6 dashboard authentication integration
+
+**Version / status:** feat/secure-dashboard-proxy-20261009 / TEST, draft PR #6.
+**Tool / inputs:** Python 3.12, Node 20, Next.js production build, FastAPI;
+clean checkout, dummy credentials, temporary SQLite only. No generation prompt.
+**Goal:** Verify Next.js-to-FastAPI authorization and prevent browser secret exposure.
+**Changes:** Added six real HTTP integration tests, CI execution with dummy build
+canaries, and current authentication verification instructions in README.
+**Result / evidence:** Existing backend suite: 50 tests passed without global read
+auth configuration. Integration: 6 tests passed, including five bad-configuration
+cases. TypeScript check and production build passed. Latest remote CI before
+changes: backend/frontend SUCCESS, run 37802951076, head 5a6281c.
+**What worked:** Authorized proxy reads/writes persist in isolated SQLite;
+unauthorized and read-only writes are rejected; no dummy secret values appear
+in HTML, response headers or browser JavaScript.
+**Failure / improvement:** Local system Python 3.9 was incompatible with the
+required dependency setup; used isolated Python 3.12. Default npm cache was
+unwritable; used a temporary cache. No application defect found in tested paths.
+**Why:** Build-only CI did not previously test the two services together.
+**Constraints / next action:** No actual browser/iPhone, hosted PostgreSQL,
+production authentication or live external integrations verified. No production
+DB changes, merge, deployment or posting performed. Local commit prepared;
+remote push withheld because branch updates previously triggered Vercel Preview
+and deployment requires explicit approval. After preview approval or confirmation
+that automatic deployment is disabled, push and verify updated GitHub CI.
+
 
 ## 2026-10-09 — P1 DB safety local candidate
 
@@ -562,6 +590,22 @@ verification and limitations. PostgreSQL/hosted behavior unverified.
 **Next:** Separate approval for GitHub/preview, merge, deployment and production
 DB operations. No remote mutation, external posting or charge performed.
 
+## 2026-10-09 — P1 branch integration preparation
+
+**Status / inputs:** TEST; approved updates to PR #4–#6 only. Preview Branch
+Tracking was observed OFF in zero-code settings; other visible Vercel projects
+use separate Git repositories. Existing production remains on hold.
+**Changes / why:** DB safety is owned by #4; #5 incorporates that branch without
+changing its authentication implementation; #6 follows #5 and adds fixed
+Origin/Host CSRF validation before upstream communication. Document-only merge
+conflicts preserved both DB and dashboard instructions and historical records.
+**Evidence:** #4 isolated backend suite passed 49 tests in this checkout. Prior
+local complete suite passed 56 backend and 9 HTTP tests; new remote CI results
+must be measured separately and are recorded in the external execution report.
+**Limitations / next:** PostgreSQL, actual browsers and hosted runtime remain
+unverified. No production merge, deployment, DB operation, posting or charge.
+Buffer evidence supplied by user remains old candidates 2x401, new key200;
+no key values accessed or retained in this task.
 
 ## 2026-10-10 — BIGINT correction on PR #4
 
