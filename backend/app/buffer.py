@@ -4,7 +4,8 @@ import os
 import re
 from datetime import datetime, timezone
 import httpx
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, Depends
+from .security import require_write_token
 from pydantic import BaseModel, ConfigDict, StrictBool
 
 router = APIRouter(prefix="/api/integrations/buffer")
@@ -117,7 +118,7 @@ def validate(payload):
 
 
 @router.post("/schedule")
-def schedule(payload: ScheduleInput, request: Request):
+def schedule(payload: ScheduleInput, request: Request, _authorized: None = Depends(require_write_token)):
     allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
     if request.headers.get("origin") and request.headers["origin"] not in allowed:
         raise HTTPException(403, "Origin not allowed")

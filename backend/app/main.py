@@ -11,12 +11,14 @@ from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
 from . import youtube, buffer
+from .security import require_write_token
 from threading import Lock
+from contextlib import asynccontextmanager
 
 load_dotenv(youtube.ENV_PATH)
 sync_lock = Lock()
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy import Date, DateTime, Integer, String, create_engine, select, inspect, text
+from sqlalchemy import BigInteger, Date, DateTime, Integer, String, create_engine, select, inspect, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{Path(__file__).resolve().parent.parent / 'zero_code.db'}")
@@ -54,7 +56,7 @@ class Mission(Base):
     title: Mapped[str] = mapped_column(String(255))
     status: Mapped[str] = mapped_column(String(32), default="active")
     metric_type: Mapped[str] = mapped_column(String(32), default="revenue")
-    target_value: Mapped[int] = mapped_column(Integer, default=1)
+    target_value: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=1)
     progress: Mapped[int] = mapped_column(Integer, default=0)
     completed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     completed_recorded_on: Mapped[date | None] = mapped_column(Date, nullable=True)
@@ -65,14 +67,14 @@ class DailyMetrics(Base):
     __tablename__ = "daily_metrics"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     date: Mapped[date] = mapped_column(Date, unique=True, nullable=False)
-    youtube_subscribers: Mapped[int] = mapped_column(Integer, default=0)
-    youtube_views: Mapped[int] = mapped_column(Integer, default=0)
-    youtube_watch_minutes: Mapped[int] = mapped_column(Integer, default=0)
-    youtube_likes: Mapped[int] = mapped_column(Integer, default=0)
-    youtube_comments: Mapped[int] = mapped_column(Integer, default=0)
-    tiktok_followers: Mapped[int] = mapped_column(Integer, default=0)
-    tiktok_views: Mapped[int] = mapped_column(Integer, default=0)
-    total_revenue_yen: Mapped[int] = mapped_column(Integer, default=0)
+    youtube_subscribers: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    youtube_views: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    youtube_watch_minutes: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    youtube_likes: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    youtube_comments: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    tiktok_followers: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    tiktok_views: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
+    total_revenue_yen: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, "sqlite"), default=0)
     # Observation dates distinguish initial/carried values from measurements.
     tiktok_followers_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     tiktok_views_observed_on: Mapped[date | None] = mapped_column(Date, nullable=True)
@@ -101,30 +103,14 @@ def metrics_today() -> date:
     return datetime.now(ZoneInfo(os.getenv("METRICS_TIMEZONE", "Asia/Tokyo"))).date()
 
 
-def migrate() -> None:
-    """Additive migration for existing SQLite/PostgreSQL databases."""
-    timestamp_type = "DATETIME" if IS_SQLITE else "TIMESTAMP"
-    additions = {
-        "missions": {"metric_type": "VARCHAR(32) NOT NULL DEFAULT 'revenue'",
-                     "target_value": "INTEGER NOT NULL DEFAULT 1",
-                     "completed_at": timestamp_type, "completed_recorded_on": "DATE"},
-        "daily_metrics": {name: "DATE" for name in (
-            "tiktok_followers_observed_on", "tiktok_views_observed_on",
-            "total_revenue_yen_observed_on", "youtube_observed_on",
-            "youtube_analytics_observed_on", "youtube_analytics_start_on", "youtube_analytics_end_on")},
-    }
-    additions["daily_metrics"]["xp"] = "INTEGER NOT NULL DEFAULT 0"
-    with engine.begin() as connection:
-        for table, columns in additions.items():
-            existing = {c["name"] for c in inspect(connection).get_columns(table)}
-            for name, definition in columns.items():
-                if name not in existing:
-                    connection.execute(text(f"ALTER TABLE {table} ADD COLUMN {name} {definition}"))
-
-
 def seed() -> None:
-    Base.metadata.create_all(engine)
-    migrate()
+    """Explicit compatibility helper for isolated tests/legacy local setup only."""
+    from .db_admin import initialize_schema
+    initialize_schema()
+    seed_data()
+
+
+def seed_data() -> None:
     with SessionLocal() as db:
         begin_write(db)
         if not db.scalar(select(Mission).where(Mission.code == "MISSION 01")):
@@ -141,7 +127,37 @@ def get_db():
         yield db
 
 
-app = FastAPI(title="ZERO CODE OS", version="0.4.5")
+def validate_schema() -> None:
+    """Read-only startup validation; never create, migrate or seed here."""
+    inspector = inspect(engine)
+    tables = set(inspector.get_table_names())
+    for table in Base.metadata.sorted_tables:
+        if table.name not in tables:
+            raise RuntimeError("Database schema is not ready; run an approved migration explicitly.")
+        columns = {column["name"] for column in inspector.get_columns(table.name)}
+        if not set(table.columns.keys()) <= columns:
+            raise RuntimeError("Database schema is outdated; run an approved migration explicitly.")
+
+
+def validate_readiness() -> None:
+    """Read-only local dashboard prerequisites; no external integration calls."""
+    validate_schema()
+    with SessionLocal() as db:
+        # Load full models to detect unreadable required columns, not just IDs.
+        if db.scalar(select(DailyMetrics).limit(1)) is None:
+            raise RuntimeError("Database required data is not ready.")
+        if db.scalar(select(Mission).where(Mission.code == "MISSION 01")) is None:
+            raise RuntimeError("Database required data is not ready.")
+        db.scalars(select(YouTubeIntegration).limit(1)).all()
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    validate_schema()
+    yield
+
+
+app = FastAPI(title="ZERO CODE OS", version="0.4.5", lifespan=lifespan)
 app.include_router(buffer.router)
 app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(","), allow_methods=["*"], allow_headers=["*"])
 
@@ -157,6 +173,18 @@ app.add_middleware(
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/ready")
+def readiness():
+    from fastapi.responses import JSONResponse
+    try:
+        validate_readiness()
+    except Exception:
+        # Never expose SQL, URLs, credentials, table names or driver errors.
+        return JSONResponse({"status": "not_ready"}, status_code=503,
+                            headers={"Cache-Control": "no-store"})
+    return JSONResponse({"status": "ready"}, headers={"Cache-Control": "no-store"})
 
 
 METRIC_FIELDS = (
@@ -268,13 +296,6 @@ def progression(db: Session):
                       "mission_completion_xp": MISSION_COMPLETION_XP, "xp_per_level": XP_PER_LEVEL}}
 
 
-if os.getenv("ZERO_CODE_SKIP_SEED") == "1":
-    Base.metadata.create_all(engine)
-    migrate()
-else:
-    seed()
-
-
 def serialize_metrics(row: DailyMetrics):
     return {"date": row.date, **{key: getattr(row, key) for key in METRIC_FIELDS},
             **{key: getattr(row, key) for key in ANALYTICS_DATES},
@@ -383,7 +404,7 @@ def history(limit: int = Query(30, ge=1, le=366), db: Session = Depends(get_db))
 
 @app.post("/api/metrics/manual")
 @app.patch("/api/metrics/manual")
-def update_manual(payload: ManualUpdate, db: Session = Depends(get_db)):
+def update_manual(payload: ManualUpdate, _authorized: None = Depends(require_write_token), db: Session = Depends(get_db)):
     row = writable_today(db)
     today = row.date
     for field, value in payload.model_dump(exclude_unset=True).items():
@@ -430,7 +451,7 @@ def youtube_status(db: Session = Depends(get_db)):
 
 
 @app.post("/api/integrations/youtube/sync")
-def sync_youtube(request: Request, db: Session = Depends(get_db)):
+def sync_youtube(request: Request, _authorized: None = Depends(require_write_token), db: Session = Depends(get_db)):
     origin = request.headers.get("origin")
     allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
     if origin and origin not in allowed:

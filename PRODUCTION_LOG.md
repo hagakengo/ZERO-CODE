@@ -551,3 +551,21 @@ This preserves mystery and gives the ZERO CODE emblem unique visual authority.
 The earlier episode attempt is not official final canon footage.
 
 It may provide usable material, but official EP.01 should be rebuilt to current quality standards.
+
+
+## 2026-10-09 — P1 DB safety local candidate
+
+**Status:** TEST, PR #4 d5b95cab, local only. No auth/CSRF changes.
+**Inputs / goal:** Disposable SQLite, Python 3.12; remove startup writes,
+separate readiness and explicit history copy. See additional P1 report for
+verification and limitations. PostgreSQL/hosted behavior unverified.
+**Next:** Separate approval for GitHub/preview, merge, deployment and production
+DB operations. No remote mutation, external posting or charge performed.
+
+
+## 2026-10-10 — BIGINT correction on PR #4
+
+**Status / inputs:** TEST, approved PR #4 update; isolated checkout from e243e6db890da0eeba50c6bccdf79f64baefb79d, synthetic SQLite only.
+**Goal / change:** Preserve the existing safe-integer counter contract with PostgreSQL BIGINT for eight daily counters and mission target. Frozen baseline retained; explicit revision 0002, SQLite INTEGER retained, narrowing rejected. No auth or frontend behavior changes.
+**Evidence:** 55 backend tests passed (22.077s), including boundaries, invalid POST/PATCH row preservation, migration/copy/restore and offline PostgreSQL parity. Frontend production build passed. Credential-format scan found no matches; this is not an exhaustive secret detector.
+**Limitations / next:** PostgreSQL execution, HTTP integration and actual browser behavior are not established by these checks. Existing PostgreSQL rollout needs separate verification/approval. Propagate the reviewed correction to #5 then #6 and verify exact-head CI. No main update, merge, intentional deploy, service setting change, production DB operation or external post.
