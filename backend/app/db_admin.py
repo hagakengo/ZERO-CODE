@@ -18,9 +18,10 @@ def migrate() -> None:
     from sqlalchemy import inspect, text
     from .main import IS_SQLITE, engine
     timestamp_type = "DATETIME" if IS_SQLITE else "TIMESTAMP"
+    counter_type = "INTEGER" if IS_SQLITE else "BIGINT"
     additions = {
         "missions": {"metric_type": "VARCHAR(32) NOT NULL DEFAULT 'revenue'",
-                     "target_value": "INTEGER NOT NULL DEFAULT 1",
+                     "target_value": f"{counter_type} NOT NULL DEFAULT 1",
                      "completed_at": timestamp_type, "completed_recorded_on": "DATE"},
         "daily_metrics": {name: "DATE" for name in (
             "tiktok_followers_observed_on", "tiktok_views_observed_on",
