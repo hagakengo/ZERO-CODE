@@ -493,3 +493,31 @@ db_admin migrate is legacy local setup without Alembic history. Existing DB
 baseline/parity/stamp and all production operations require separate approval.
 Schema type/constraint parity, PostgreSQL copy and sequence recovery remain
 unverified. seed includes progression recalculation; review its effects first.
+
+
+## TEST candidate — safe integer counter storage
+
+Manual counters and YouTube counters keep the existing 0–9007199254740991
+contract. PostgreSQL ORM columns use BIGINT for the eight daily metrics and
+mission target_value; SQLite retains INTEGER (signed 64-bit storage).
+IDs, mission progress and derived day/level/xp remain INTEGER.
+
+Revision `0002_widen_counters` follows the unchanged fresh-DB baseline. Apply
+`python -m alembic upgrade head` explicitly on a reviewed isolated database;
+startup and legacy `db_admin migrate` do not widen existing PostgreSQL columns.
+SQLite revision 0002 only advances Alembic history; it does not rebuild tables.
+A legacy PostgreSQL database without Alembic history needs separate schema
+parity/stamp review: do not run the fresh baseline over existing tables.
+
+Before any separately approved existing PostgreSQL migration, verify a backup
+and restore in isolation, compare complete rows/defaults/nullability/indexes,
+and plan for ALTER TABLE locks, table rewrite, disk use and downtime. Widening
+keeps integer values; narrowing downgrade is disabled. Old application versions
+can read BIGINT as Python integers, but database downgrade and rollback under
+concurrent writes are not verified. `/ready` checks columns/readability, not
+numeric type parity: a 200 response does not prove this revision was applied.
+
+Regression: `cd backend && python -m unittest discover -v` includes safe-integer
+boundaries, invalid requests preserving all rows, SQLite upgrade/copy/restore,
+and offline PostgreSQL SQL/model parity. PostgreSQL execution, network HTTP and
+real browser verification are separate checks; offline SQL is not an execution.
