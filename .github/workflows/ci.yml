@@ -44,6 +44,91 @@ jobs:
           ZERO_CODE_READ_TOKEN: ci-test-only-token-not-for-production
         run: python -m unittest discover -p 'test*.py' -v
 
+  postgres:
+    name: Disposable PostgreSQL migration and startup safety
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: zero_code_ci
+          POSTGRES_USER: zero_code_ci
+          POSTGRES_PASSWORD: ci_disposable_only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U zero_code_ci -d zero_code_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      DATABASE_URL: postgresql://zero_code_ci:ci_disposable_only@127.0.0.1:5432/zero_code_ci
+      ZERO_CODE_SKIP_SEED: '1'
+      ZERO_CODE_READ_TOKEN: ci-read-token-not-for-production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            backend/requirements.txt
+            backend/requirements-dev.txt
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Verify clean database and apply fresh PostgreSQL baseline
+        run: |
+          python - <<'PY'
+          import os
+          from sqlalchemy import create_engine, inspect
+          url = os.environ["DATABASE_URL"].replace("postgresql://", "postgresql+psycopg://", 1)
+          engine = create_engine(url)
+          assert not (set(inspect(engine).get_table_names()) & {"missions", "daily_metrics", "youtube_integration"})
+          engine.dispose()
+          PY
+          python -m alembic upgrade head
+          python -m alembic current
+      - name: Check PostgreSQL startup is read-only and readiness requires seed
+        run: |
+          python - <<'PY'
+          from fastapi.testclient import TestClient
+          from sqlalchemy import inspect, select, func
+          from app.main import app, engine, SessionLocal, Mission, DailyMetrics, YouTubeIntegration, seed_data
+
+          def snapshot():
+              inspector = inspect(engine)
+              tables = sorted(inspector.get_table_names())
+              schema = {
+                  name: (tuple(sorted(col["name"] for col in inspector.get_columns(name))),
+                         tuple(sorted(index["name"] for index in inspector.get_indexes(name))))
+                  for name in tables
+              }
+              with SessionLocal() as db:
+                  counts = tuple(db.scalar(select(func.count()).select_from(model))
+                                 for model in (Mission, DailyMetrics, YouTubeIntegration))
+              return schema, counts
+
+          before = snapshot()
+          assert {"missions", "daily_metrics", "youtube_integration", "alembic_version"} <= set(before[0])
+          assert before[1] == (0, 0, 0), before[1]
+          with TestClient(app) as client:
+              assert client.get("/health").status_code == 200
+              assert client.get("/ready").status_code == 503
+          assert snapshot() == before, "Startup or readiness mutated PostgreSQL"
+
+          # Explicit seed is permitted only on this disposable CI database.
+          seed_data()
+          seeded = snapshot()
+          assert seeded[1][0] >= 1 and seeded[1][1] >= 1
+          with TestClient(app) as client:
+              assert client.get("/health").status_code == 200
+              assert client.get("/ready").status_code == 200
+          assert snapshot() == seeded, "Startup or readiness mutated seeded PostgreSQL"
+          print("PASS: PostgreSQL baseline, startup non-mutation, and readiness")
+          PY
+
   frontend:
     runs-on: ubuntu-latest
     defaults:
