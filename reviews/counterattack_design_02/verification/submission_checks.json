@@ -1,0 +1,248 @@
+{
+  "date": "2026-10-13 JST",
+  "status": "DRAFT / 監督レビュー待ち",
+  "camera": "same 1080x1920, coordinates x2, ground y1468; no camera transform",
+  "videos": {
+    "video/counterattack_design_02_24fps.mp4": {
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "mime_codec_string": "avc1.640028",
+            "width": 1080,
+            "height": 1920,
+            "coded_width": 1088,
+            "coded_height": 1920,
+            "has_b_frames": 2,
+            "pix_fmt": "yuv420p",
+            "level": 40,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 4,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "time_base": "1/12288",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 36864,
+            "duration": "3.000000",
+            "bit_rate": "860421",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "72",
+            "nb_read_frames": "72",
+            "extradata_size": 47,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "filename": "/Users/hagakengo/Documents/Codex/2026-10-13/referenced-chatgpt-conversation-this-is-an-21/work/ZERO-CODE/reviews/counterattack_design_02/video/counterattack_design_02_24fps.mp4",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "3.000000",
+          "size": "324357",
+          "bit_rate": "864952",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      },
+      "full_decode": "PASS",
+      "sha256": "54ba6b9b16bc76d090e8e91702102c3ddc449fc6b58b468c4223ad9ce57ad3f8",
+      "bytes": 324357
+    },
+    "comparison/01_vs_02_24fps.mp4": {
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "mime_codec_string": "avc1.640032",
+            "width": 2160,
+            "height": 1920,
+            "coded_width": 2160,
+            "coded_height": 1920,
+            "has_b_frames": 2,
+            "pix_fmt": "yuv420p",
+            "level": 50,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 4,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "time_base": "1/12288",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 36864,
+            "duration": "3.000000",
+            "bit_rate": "1644373",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "72",
+            "nb_read_frames": "72",
+            "extradata_size": 46,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "filename": "/Users/hagakengo/Documents/Codex/2026-10-13/referenced-chatgpt-conversation-this-is-an-21/work/ZERO-CODE/reviews/counterattack_design_02/comparison/01_vs_02_24fps.mp4",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "3.000000",
+          "size": "618346",
+          "bit_rate": "1648922",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      },
+      "full_decode": "PASS",
+      "sha256": "b37cfc4b1232d1edbec90c1c87e1a4c9bb07da370f7a5450d22d119048d8bb9d",
+      "bytes": 618346
+    }
+  },
+  "protected_repository_files_unchanged": true,
+  "protected_external_r15_2_unchanged": true,
+  "external_r15_2_file_count": 20,
+  "browser_playback": "未検証",
+  "director_verdict": "PENDING",
+  "mass_proxy_flags": [],
+  "bone_length_max_error_px": 2.5579538487363607e-13,
+  "planted_point_max_slip_px": 0,
+  "knee_reversals": [],
+  "front_foot_max_lift_px_P042_050": 15.756924048195287,
+  "contact_sequence": {
+    "23": {
+      "fist": [
+        324.0,
+        501.0
+      ],
+      "hip": [
+        264.0,
+        548.0
+      ],
+      "indent_px": 0.0
+    },
+    "24": {
+      "fist": [
+        289.0,
+        503.0
+      ],
+      "hip": [
+        264.0,
+        548.0
+      ],
+      "indent_px": 0.0
+    },
+    "25": {
+      "fist": [
+        277.0,
+        507.0
+      ],
+      "hip": [
+        264.0,
+        552.0
+      ],
+      "indent_px": 24.0
+    }
+  },
+  "attack_travel_px_P020_024": [
+    17.600159800410903,
+    48.62606119315541,
+    59.7715816697922,
+    66.4567064122237,
+    70.11419257183242
+  ],
+  "attack_guard_centerline_clearance_px_P020_025": 76.6550715869472,
+  "contact_gap_px_P023": 69.0,
+  "contact_gap_px_P024": -1.0,
+  "contact_gap_note": "P024 -1px is raster overlap at first contact. Fist rectangle half width 11 output pixels.",
+  "landing_hip_y_px": {
+    "P048": 1132.0,
+    "P050": 1140.0,
+    "P051": 1154.0,
+    "P054": 1140.0
+  },
+  "visual_inspection": "All 72 frames in contact sheet; 16 key poses and same-frame P024 comparison inspected. Hood, hidden face, plain rectangular black bag retained. Timing / impact readability requires director review."
+}
