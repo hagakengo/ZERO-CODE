@@ -1,0 +1,93 @@
+{
+  "contact_world_displacement_m": {
+    "left_216-226": 0.0,
+    "left_240-245": 0.0,
+    "right_216-217": 0.0,
+    "right_233-245": 0.0
+  },
+  "max_leg_length_error_m": 1.1102230246251565e-16,
+  "max_shoulder_pelvis_difference_deg": 31.58600583090379,
+  "technical": {
+    "S04_2D_normal.mp4": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "24/1",
+      "frames": "30",
+      "duration": "1.250000",
+      "audio_streams": 0,
+      "full_decode": true,
+      "decode_error": ""
+    },
+    "S04_cel_normal.mp4": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "24/1",
+      "frames": "30",
+      "duration": "1.250000",
+      "audio_streams": 0,
+      "full_decode": true,
+      "decode_error": ""
+    },
+    "S04_guide_normal.mp4": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "24/1",
+      "frames": "30",
+      "duration": "1.250000",
+      "audio_streams": 0,
+      "full_decode": true,
+      "decode_error": ""
+    },
+    "comparison_6loops.mp4": {
+      "width": 2160,
+      "height": 1920,
+      "fps": "24/1",
+      "frames": "180",
+      "duration": "7.500000",
+      "audio_streams": 0,
+      "full_decode": true,
+      "decode_error": ""
+    },
+    "comparison_guide_vs_2D.mp4": {
+      "width": 2160,
+      "height": 1920,
+      "fps": "24/1",
+      "frames": "30",
+      "duration": "1.250000",
+      "audio_streams": 0,
+      "full_decode": true,
+      "decode_error": ""
+    },
+    "comparison_guide_vs_proxy.mp4": {
+      "width": 2160,
+      "height": 1920,
+      "fps": "24/1",
+      "frames": "30",
+      "duration": "1.250000",
+      "audio_streams": 0,
+      "full_decode": true,
+      "decode_error": ""
+    },
+    "comparison_half.mp4": {
+      "width": 2160,
+      "height": 1920,
+      "fps": "24/1",
+      "frames": "60",
+      "duration": "2.500000",
+      "audio_streams": 0,
+      "full_decode": true,
+      "decode_error": ""
+    },
+    "comparison_old_vs_new.mp4": {
+      "width": 2160,
+      "height": 1920,
+      "fps": "24/1",
+      "frames": "30",
+      "duration": "1.250000",
+      "audio_streams": 0,
+      "full_decode": true,
+      "decode_error": ""
+    }
+  },
+  "viewing": "Normal-speed uninterrupted visual playback NOT performed. Still frames inspected. Art/direction HOLD."
+}
