@@ -1,0 +1,6 @@
+{
+  "base": "4dc7ecdaffdd0f5701d62483434db76fe93939e2",
+  "baseline_files": 860,
+  "changed_baseline_files": [],
+  "method": "git blob hash of every baseline tracked working file compared to base tree"
+}

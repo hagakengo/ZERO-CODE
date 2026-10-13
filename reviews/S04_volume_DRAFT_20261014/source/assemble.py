@@ -44,10 +44,16 @@ if old.exists():
 
 for name,left,leftlabel in [('comparison_old_vs_2D',old,'OLD 4dc7ecd'),('comparison_guide_vs_2D',R/'video/S04_guide_normal.mp4','3D GUIDE')]:
  if not left.exists():continue
- filt="[0:v]scale=540:960[a];[1:v]scale=540:960[b];[a][b]hstack=inputs=2,drawtext=text='"+leftlabel+"':x=24:y=115:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.7,drawtext=text='NEW 2D DRAFT':x=564:y=115:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.7[v]"
- run(['ffmpeg','-y','-v','error','-i',str(left),'-i',str(R/'video/S04_2D_normal.mp4'),'-filter_complex',filt,'-map','[v]','-frames:v','30','-r','24','-c:v','libx264','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(R/'video'/f'{name}.mp4')])
+ temp=R/'.build_pair';temp.mkdir(exist_ok=True)
+ run(['ffmpeg','-y','-v','error','-i',str(left),'-vf','scale=540:960','-frames:v','30',str(temp/'left%02d.png')])
+ for f in range(30):
+  pair=Image.new('RGB',(1080,960));pair.paste(Image.open(temp/f'left{f+1:02}.png'),(0,0));pair.paste(Image.open(R/'frames_2d'/f'f{216+f}.png').resize((540,960)),(540,0));d=ImageDraw.Draw(pair)
+  for x,label in [(20,leftlabel),(560,'NEW 2D DRAFT')]:d.rectangle((x-5,108,x+260,150),fill=(20,24,30));d.text((x,115),label,fill='white',font_size=25)
+  pair.save(temp/f'pair{f:02}.png')
+ run(['ffmpeg','-y','-v','error','-framerate','24','-i',str(temp/'pair%02d.png'),'-frames:v','30','-c:v','libx264','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(R/'video'/f'{name}.mp4')])
  run(['ffmpeg','-y','-v','error','-stream_loop','5','-i',str(R/'video'/f'{name}.mp4'),'-c','copy','-movflags','+faststart',str(R/'video'/f'{name}_6loops.mp4')])
-
+ import shutil
+ shutil.rmtree(temp)
 report={}
 for file in (R/'video').glob('*.mp4'):
  p=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-show_streams','-show_format','-of','json',str(file)]));v=p['streams'][0];run(['ffmpeg','-v','error','-i',str(file),'-f','null','-']);report[file.name]={k:v.get(k) for k in ['width','height','r_frame_rate','nb_read_frames','duration','pix_fmt']};report[file.name]['full_decode']='PASS'
