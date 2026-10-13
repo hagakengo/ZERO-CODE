@@ -1,0 +1,13 @@
+status,cue,start_frame,end_frame_exclusive,sample_start,sample_end,kind,mix,file,rights_source,dependency
+DRAFT,A01,0,72,0,144000,air,included-provisional,audio/A01_air_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,independent
+DRAFT,A02,72,144,144000,288000,step,included-provisional,audio/A02_step_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,visual-sync-pending
+DRAFT,A03,144,209,288000,418000,cloth,included-provisional,audio/A03_cloth_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,visual-sync-pending
+DRAFT,A04,209,216,418000,432000,silence,included-provisional,audio/A04_silence_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,independent
+DRAFT,A05,216,230,432000,460000,step,included-provisional,audio/A05_step_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,visual-sync-pending
+DRAFT,A06,230,246,460000,492000,cloth,included-provisional,audio/A06_cloth_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,visual-sync-pending
+DRAFT,A07,246,253,492000,506000,cloth,AUDITION_ONLY_EXCLUDED,audio/A07_cloth_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,design04-HOLD
+DRAFT,A08,253,257,506000,514000,contact,AUDITION_ONLY_EXCLUDED,audio/A08_contact_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,design04-HOLD
+DRAFT,A09,257,282,514000,564000,cloth,AUDITION_ONLY_EXCLUDED,audio/A09_cloth_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,design04-HOLD
+DRAFT,A10,282,300,564000,600000,step,AUDITION_ONLY_EXCLUDED,audio/A10_step_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,downstream-sync-pending
+DRAFT,A11,300,309,600000,618000,tail,AUDITION_ONLY_EXCLUDED,audio/A11_tail_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,downstream-sync-pending
+DRAFT,A12,309,360,618000,720000,silence,included-provisional,audio/A12_silence_DRAFT.wav,Original arithmetic + seeded Python random noise; no external audio,independent

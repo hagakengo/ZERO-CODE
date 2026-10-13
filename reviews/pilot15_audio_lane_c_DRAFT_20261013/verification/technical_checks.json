@@ -1,0 +1,116 @@
+{
+  "status": "TECHNICAL_PASS",
+  "sample_rate": 48000,
+  "channels": 1,
+  "pcm_bits": 16,
+  "duration_seconds": 15,
+  "samples": 720000,
+  "sample_per_frame_24fps": 2000,
+  "silence_windows_frames_exclusive": [
+    [
+      209,
+      216
+    ],
+    [
+      309,
+      360
+    ]
+  ],
+  "hold_exclusion_frames_exclusive": [
+    246,
+    309
+  ],
+  "mix_peak_integer": 6306,
+  "wav_checks": [
+    {
+      "file": "A01_air_DRAFT.wav",
+      "samples": 144000,
+      "peak_integer": 164,
+      "sha256": "0c6e17854bb55f30df605fc794e607b69c33ca74e8cf4067434ddba8b10674df"
+    },
+    {
+      "file": "A02_step_DRAFT.wav",
+      "samples": 144000,
+      "peak_integer": 6056,
+      "sha256": "68d801b45a9769384c160fbb8f875932830290967a182bd6c51c4d13c30c2c6f"
+    },
+    {
+      "file": "A03_cloth_DRAFT.wav",
+      "samples": 130000,
+      "peak_integer": 3372,
+      "sha256": "f16caf34edd8b79ac4a747d32e3c0e0218ac55e1cd9c315ce67d23db840bfa7f"
+    },
+    {
+      "file": "A04_silence_DRAFT.wav",
+      "samples": 14000,
+      "peak_integer": 0,
+      "sha256": "6d91db2dbdd6a46ba62bb305e9b250b352cca16c1f1748669446829289f5d7e1"
+    },
+    {
+      "file": "A05_step_DRAFT.wav",
+      "samples": 28000,
+      "peak_integer": 6306,
+      "sha256": "c592ed740670666cd985ce8acf0b8477dccad5067479783bc029611b49b0fb7b"
+    },
+    {
+      "file": "A06_cloth_DRAFT.wav",
+      "samples": 32000,
+      "peak_integer": 3433,
+      "sha256": "8d73ef3f1551473e2d0cc3249f862df138309aec5c4aaf53c828584d5440723c"
+    },
+    {
+      "file": "A07_cloth_DRAFT.wav",
+      "samples": 14000,
+      "peak_integer": 3219,
+      "sha256": "60dc39f5f377f2c8b9ae6b4219bb2147f8b57ddd4cc71acdfac1dfdb28f1b10e"
+    },
+    {
+      "file": "A08_contact_DRAFT.wav",
+      "samples": 8000,
+      "peak_integer": 4413,
+      "sha256": "c9971d0c3a082678c19cc0afa0158d565e8441d1a424c2b1008b268fb9618f81"
+    },
+    {
+      "file": "A09_cloth_DRAFT.wav",
+      "samples": 50000,
+      "peak_integer": 3223,
+      "sha256": "046575380cdcbbd273611d8bbc1e575f267c92c0a61e91407bc28391f12e2926"
+    },
+    {
+      "file": "A10_step_DRAFT.wav",
+      "samples": 36000,
+      "peak_integer": 5879,
+      "sha256": "9af0c0136dca9c61d215e6d012b11b2f91e5abf69698172214ca35a6528211e6"
+    },
+    {
+      "file": "A11_tail_DRAFT.wav",
+      "samples": 18000,
+      "peak_integer": 348,
+      "sha256": "efcfba7d5015724d8e1272523786434e3652e88c1ce29d062eaf6d52294173ef"
+    },
+    {
+      "file": "A12_silence_DRAFT.wav",
+      "samples": 102000,
+      "peak_integer": 0,
+      "sha256": "d3cc2afb0ac9242d11047f27d069adfd05baace8ffaa4e0420c958cc15774f8e"
+    }
+  ],
+  "full_decode_pass": [
+    "A01_air_DRAFT.wav",
+    "A02_step_DRAFT.wav",
+    "A03_cloth_DRAFT.wav",
+    "A04_silence_DRAFT.wav",
+    "A05_step_DRAFT.wav",
+    "A06_cloth_DRAFT.wav",
+    "A07_cloth_DRAFT.wav",
+    "A08_contact_DRAFT.wav",
+    "A09_cloth_DRAFT.wav",
+    "A10_step_DRAFT.wav",
+    "A11_tail_DRAFT.wav",
+    "A12_silence_DRAFT.wav",
+    "pilot15_audio_PROVISIONAL_DRAFT.wav"
+  ],
+  "auditory_review": "NOT_PERFORMED",
+  "visual_sync": "NOT_APPROVED",
+  "direction": "UNJUDGED"
+}
