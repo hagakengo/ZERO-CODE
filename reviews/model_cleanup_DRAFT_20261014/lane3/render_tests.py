@@ -18,7 +18,7 @@ def make(name,source,boxes,sequence,kind):
         shutil.copyfile(folder/'keys'/f'key_{key}.png',folder/'frames'/f'frame_{f:03d}.png')
         rows.append({'frame':f+1,'time_s':round(f/24,6),'key':key,'source':str(source.relative_to(ROOT)), 'crop_xywh':str(boxes[key]),'method':'held drawing; no interpolation'})
     with (folder/'exposure.csv').open('w') as o:
-        w=csv.DictWriter(o,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
+        w=csv.DictWriter(o,fieldnames=rows[0],lineterminator="\n");w.writeheader();w.writerows(rows)
     for half in (False,True):
         out=folder/('half_speed_24fps.mp4' if half else 'normal_24fps.mp4')
         run(['-framerate','12' if half else '24','-i',str(folder/'frames/frame_%03d.png'),'-c:v','libx264','-crf','18','-pix_fmt','yuv420p','-r','24','-movflags','+faststart',str(out)])
