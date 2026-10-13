@@ -2,6 +2,8 @@
   "status": "PASS",
   "checks": {
     "resolution": true,
+    "sample_aspect_ratio": true,
+    "display_aspect_ratio": true,
     "fps": true,
     "frames": true,
     "duration": true,
@@ -209,6 +211,8 @@
         "coded_width": 1088,
         "coded_height": 1920,
         "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "9:16",
         "pix_fmt": "yuv420p",
         "level": 50,
         "chroma_location": "left",
@@ -228,7 +232,7 @@
         "bits_per_raw_sample": "8",
         "nb_frames": "30",
         "nb_read_frames": "30",
-        "extradata_size": 47,
+        "extradata_size": 48,
         "disposition": {
           "default": 1,
           "dub": 0,
@@ -266,8 +270,8 @@
       "format_long_name": "QuickTime / MOV",
       "start_time": "0.000000",
       "duration": "1.250000",
-      "size": "206492",
-      "bit_rate": "1321548",
+      "size": "206509",
+      "bit_rate": "1321657",
       "probe_score": 100,
       "tags": {
         "major_brand": "isom",
