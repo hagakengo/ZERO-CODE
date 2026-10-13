@@ -1,0 +1,3511 @@
+{
+  "base_commit": "f12ce0246ad152dbce62873d3893dde3c0e87745",
+  "count": 701,
+  "files": [
+    {
+      "path": ".cursor/rules/zero-code-director-guidance.mdc",
+      "sha256": "e243d347138d4614236d9f89b8d7fcfb01a6a86c771154f9d2740b581afc050d",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "a4655396c9fec3f58522aeac00e9b4017e6d2a2cd97172e0c984326855257785",
+      "unchanged": true
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "472604fae54e65e58dbf31a722ea7ba8d337bf33842f2e9c38fd271dbd3dcc0f",
+      "unchanged": true
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "18ccef8cd4e16f465b72e219c052836ec8bbe9249b13ec49cb663cccb57773c5",
+      "unchanged": true
+    },
+    {
+      "path": "DIRECTOR_GUIDELINES.md",
+      "sha256": "39a8dcc1cd7bc03cf8f2ed10b675292b4874378e13731b2474840a6f29b9e7ce",
+      "unchanged": true
+    },
+    {
+      "path": "PRODUCTION_LOG.md",
+      "sha256": "91a2b40ac46238dbfd995951f19be6414c91fb7cee56f62d033e624589da6308",
+      "unchanged": true
+    },
+    {
+      "path": "PROJECT_CONTEXT.md",
+      "sha256": "37e4ad1db6f95ed10760fb8f45086d1bd8a7e2520b5b24c44e23b9dffc3c5abd",
+      "unchanged": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "6e8df51a6885e177678de47d2ec7c16f3c303e8ca5cf8238aad4f5cf6af5b834",
+      "unchanged": true
+    },
+    {
+      "path": "ROADMAP.md",
+      "sha256": "bc4bf58c6c2682b7a73bf19ab9cd08efce933b8c0f86326cbb53ba408210a729",
+      "unchanged": true
+    },
+    {
+      "path": "ZERO_CODE_RULES.md",
+      "sha256": "0190a47ffa72659bcaf871c8ebd54f116b8f9d17b26ca3df10c2541a3278fc8f",
+      "unchanged": true
+    },
+    {
+      "path": "archive/README.md",
+      "sha256": "e1adc5411f5dc6374ebf134e8f7a7e056855d84b8becf9eca6496a157cdda2ef",
+      "unchanged": true
+    },
+    {
+      "path": "archive/failed_generations/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "archive/prototypes/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "archive/rejected/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env.example",
+      "sha256": "775d8c3e3ff3d1a8bfb971586d875b8006e74bcf7a0a4052892baf662bb6234c",
+      "unchanged": true
+    },
+    {
+      "path": "backend/api/index.py",
+      "sha256": "35a90e8be2d49e29f2ee809c593981bbfb54984591f484841f658e796887859b",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/buffer.py",
+      "sha256": "9e6b28478ba5f2c239df80337cf27d663c2f21c7f74951f91c5db20f13af809e",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/main.py",
+      "sha256": "bcebdde4af1754ed037e29d07152cc4d792a887d605998eecec5529837351783",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/youtube.py",
+      "sha256": "c9c9eaaa64c924e6310948d8702b6aa18bcda2427256a477ded316212f3a01a8",
+      "unchanged": true
+    },
+    {
+      "path": "backend/migrate_sqlite_to_postgres.py",
+      "sha256": "d3dcae47610651c65baf1cf2c90789a382f14e3f5f40a6f10ae348130eb11ed3",
+      "unchanged": true
+    },
+    {
+      "path": "backend/requirements-dev.txt",
+      "sha256": "934fbb549ab3209320a68f549631f92ffa7dcd1372d15620c148eb5f55bd7735",
+      "unchanged": true
+    },
+    {
+      "path": "backend/requirements.txt",
+      "sha256": "3b96e0c88280fe63b9183bf8e90593a6a30ef8c3f729eb4cfbe06ddef67b9a49",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_api.py",
+      "sha256": "6088d2fab4c5fe2470e2b46f09e0aed5d960d16618bae023ad11bc842bc6d401",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_buffer.py",
+      "sha256": "9c4b184b560279cf328b257761334e475168d3578f5fb9ffeb0c5b187cdce4a1",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_progression.py",
+      "sha256": "cc3b27c045b11e4360b4160541b69081ca700dbc1816ef55c9a93d9a8547d913",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_public_status.py",
+      "sha256": "548cfa6e76f831c2b6b5281ce4d84e12b47b899ff0e4ed55990901c5a10dff2b",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_youtube.py",
+      "sha256": "4640df1424704476fe74d1da97416d2f50a7e3ecfd1a4c68d4dc2c0c726f7918",
+      "unchanged": true
+    },
+    {
+      "path": "backend/vercel.json",
+      "sha256": "a744015ffa43bea373e75da3e22e1a49012f049c8bcc4e556706fe078d5f1146",
+      "unchanged": true
+    },
+    {
+      "path": "backend/youtube_authorize.py",
+      "sha256": "7cf3580166638bcbbd5b946e46853b0bb9a77f5da19a72695058a988ac60599f",
+      "unchanged": true
+    },
+    {
+      "path": "bible/VISUAL_BIBLE.md",
+      "sha256": "85ada3431f3d81c742c6815a225f498a23c75df47c5e29a07a633ce8aa0cba29",
+      "unchanged": true
+    },
+    {
+      "path": "bible/WORLD_LORE.md",
+      "sha256": "b12f14392ce7e4a4586a9f04fa72747d2e827db2b9127e26de72f8bc451d7104",
+      "unchanged": true
+    },
+    {
+      "path": "docs/CODEX_PHASE1_TASK.md",
+      "sha256": "e75c62ea8537a71adcf798693bfec610fed6cf36a542d7d6ebb3df64bbefcc7c",
+      "unchanged": true
+    },
+    {
+      "path": "docs/CODEX_PHASE4_5_REMOTE_ACCESS.md",
+      "sha256": "13d75523585a3ddd3811eae4f082b7ba68ad88c45174d256943ded44c671ad30",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ZERO_CODE_OS_V0_1_SPEC.md",
+      "sha256": "846662a3bf72dbb81ffcefa4d32b967ee2f803676f367fb3f0ddaaebb77b0730",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ZERO_CODE_PHILOSOPHY.md",
+      "sha256": "1ddf7699665b2ecf300b75f621b9ad7f24086a0284b00fd7bf641d488fb8e13b",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/EP01/README.md",
+      "sha256": "b264edb987a62b163f9b1572b748385d1753efb57aba3b78273ba486c92e927d",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/TEASER00/CAPCUT_EDIT_GUIDE.md",
+      "sha256": "06f78e90bc1b67d8f64ba060eb6ce49709a1b140765bc98ac44d2fc192a81df5",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/TEASER00/TEASER00_SCRIPT.md",
+      "sha256": "2f6d3193ab7f0a8848d18970e3aebb3fd23a4eda4af5336929285e1a5f3594ed",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/.env.example",
+      "sha256": "bd4d67ffb4406b3cc618b8c2678c7aeec2d5a1a806ed63e19090eb04a14e31c0",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/globals.css",
+      "sha256": "180b2957c4a087657228c07c5cc16e6666650c8e68e802ec36832867d5b68c87",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/layout.tsx",
+      "sha256": "f244a68123e7267929c91f8ad7cc39395cb2858713e0e61bf4d283a020cf81f4",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/page.tsx",
+      "sha256": "4600a68c1ea6cef16a5ebe9adc644d4bbc49b06efbdc2f3206add459073bc0b7",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/next-env.d.ts",
+      "sha256": "85ae5aee75f011967cf2d25cbc342f62d69314e9d925f7f4aa3456fc2cffcca6",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/next.config.ts",
+      "sha256": "c6fec4f61ecfd5790f04386c4cb408679d5797900eeb956456ee527b164fe6e8",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "sha256": "94fc6090d29bbf8ea01c79d043f9da62ee21e3b2d1ff523512e04231b0a8bc99",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/package.json",
+      "sha256": "a9d1c22bd1c87780499ffc4e3c82235788335ce67010b8f612d3700c712ad7aa",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/postcss.config.js",
+      "sha256": "fe0d5cf3cb8c1922f71cca2da3796f3e63366623ad6164336655766efe330e6a",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/tailwind.config.ts",
+      "sha256": "398fc042f8c375e4614f81ea2091a19482f5553d2570651a1220942ed3e84819",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "sha256": "7418443fc53405184051f2241f7be1c07f54340cae4a432e3badf818c299e3dd",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/ASSET_IMPORT_MANIFEST.md",
+      "sha256": "8423ae413c3f45891a4774c30512cdad044a4af4481256187f027394655ccd29",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/README.md",
+      "sha256": "fe910f0e94c57d09a5cab934d94b7e2eb50a33f1178efe5d0f9c77d3b33d8a1a",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/D1_CONTINUITY_TEST_PROTOCOL.md",
+      "sha256": "7d87ddd30a1141c5f21e156161155011eb0916d526d1415f3bcae715dc0e6d54",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/TEST_A_BACK_CLOSEUP_PROMPT.md",
+      "sha256": "91aef3a0cbbea3d644bd338d64ded46ef45173e64a732713dae3e8555643c4b1",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/environments/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/protagonist/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/ui/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/README.md",
+      "sha256": "d5a5b4422173a26494773e96d28c9ce1549017aa1e3faccccf98865edbc14727",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/REVIEW_SUBMISSION_STANDARD.md",
+      "sha256": "11abd9687063d4db5e42bf5961ab32b0bcbf012762d0b1d554407cc35e1f5980",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/ZERO_CODE_counterattack_design_01_review.zip",
+      "sha256": "26f9d88a545e3e5955785f9a7640ebfb9a8e2a382e98297309fa47e1e0effedb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/comparison/footwork_before_after.png",
+      "sha256": "012c0cb245e02dbf4e4945ed18f862b3e71c067857acadc9fbe68d4c8f57da32",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/comparison/r15_1_vs_r15_2_24fps.mp4",
+      "sha256": "dd4eaa25cd06c01d2fd4fd6ab322f35b1c2c64e078e1af451bf9a7e23bf5e190",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/design_keyposes.png",
+      "sha256": "4693ebb4e3eefd66c7ac6aa3cccead032dad621592b9035baedcbf47692c11bc",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/verification/submission_checks.json",
+      "sha256": "0978758801f61d7dd56c79a8bc60d7f786028e393c92557672d5d917a1d975ac",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/video/counterattack_retreat_design_24fps.mp4",
+      "sha256": "868811f38269c6c61fb6fdc32db13af1a659f5ccb2526f5c42f9ec19b86087a2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/PRODUCTION_LOG.md",
+      "sha256": "1af21b46afb50043b490d8cad26e4f10927a10f0eacec9742365260da18abe46",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/README.md",
+      "sha256": "92242f7d8c052281687f81464b1a91a28efc64b2620da615d2caf71ec776bef3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/SHA256.json",
+      "sha256": "0d9d479727bf39d8609a21a4edc3950f6bd8e990a47502142e3c3973bcfcc570",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/ZERO_CODE_counterattack_design_02_review.zip",
+      "sha256": "f0bec3f261aca125297b9e891a087a2c7ea68d4776f37a5381c0e4fe693db5a3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_24fps.mp4",
+      "sha256": "b37cfc4b1232d1edbec90c1c87e1a4c9bb07da370f7a5450d22d119048d8bb9d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P020.png",
+      "sha256": "3b01b5c9c4de243784298943104c4b476e20c009d134e932535e9433095b1e70",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P023.png",
+      "sha256": "8145a559f881780cc9afe816fd6a2e59341e95f12fe0d02188ede94584f1c2d6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P024.png",
+      "sha256": "01d599891c0766f7c45e929a16ff63c5125f631dba5a4e41b00a7677d9532468",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P025.png",
+      "sha256": "5f03eac336fa8883f9287743037b7a761cffe91bf033daf331b0662f52f312f8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P026.png",
+      "sha256": "5df8470c54a161e9d4f5717f3c3e6e539dc03ffaa8fe9a2449de917ec1bbe78f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P028.png",
+      "sha256": "dee5d618f22d83bb5289e9a381e68ee98de901a96ebd17a4fb763135e17c4cf6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P031.png",
+      "sha256": "fb1430434d284c632bc4e8513ad67079f1e574e140c996b22ad449bb2c894276",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P035.png",
+      "sha256": "5d373f30772ca679dacf0b088e99bd9ac1062fa6ca1d65e299e6c84eeda7f596",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P040.png",
+      "sha256": "0806f32169f54704e1875f984dd968e27c9b6e171d737482284523b5d52eff69",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P042.png",
+      "sha256": "12fc1ce50452d4106b42f808d32baabe411bdc07a747351e9d81814eee6c8c04",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P044.png",
+      "sha256": "5d4f6f10c72773569b4485bf79901b6a70d2d261f61bea0305e9a9570a2dfb89",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P046.png",
+      "sha256": "ecb2c026a1798c3442822bdef319280d6303fe63599f74304cb5ab2c9c643564",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P048.png",
+      "sha256": "cb36edf1626d6eebf9aeddfdd66e6f66418876cdd88ad7d7ab0b2a230abe9fe0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P050.png",
+      "sha256": "559d81fae2dc9cc58e9b759716be15973888290f7d108cd765b59a58908a5a45",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P051.png",
+      "sha256": "2284aecc29bb9a38ae7a3cf61f92b93fc19c245bfe065a2d0712b69e64f4daae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P055.png",
+      "sha256": "9e91594f3b5da72ad5c4487b48fcc5ff5305708ff93d60dd8c7182a0b9f2f94b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/design_keyposes_02.png",
+      "sha256": "07aed82e6cd6cd82c566ea925c21cc4f0e024eba2522d249d81e876ab346270e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P000.png",
+      "sha256": "048d62d9e0455eb9dfa1d82fa6b6adaac09dcf66ba5a186996991e2192fef089",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P001.png",
+      "sha256": "873e39c4318fe3447602b6ce66d5a50814c2b06e000c704c68db09668f4244b2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P002.png",
+      "sha256": "16ac79a5ba95e5d941c9f57b7ee1408d995b2a9a3258c91d289dc065357436b1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P003.png",
+      "sha256": "341211a3063d31ac10d7007d4904e6a0859e6f7aef24af2478cc9e5f6a6f89c6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P004.png",
+      "sha256": "d7112b727fd44ec347f4c9507fbc76537127c343fc4cfeefb569a576b659a93d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P005.png",
+      "sha256": "41120cfd92b36d99d4777d23c60fae540512a917deece097563d1443c76bc07b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P006.png",
+      "sha256": "54c7890cdf1c4f113fe8002383b10352451e6d03c1dbe356f9fb715012df740d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P007.png",
+      "sha256": "b69df12a06e2f93e4518adc73515010c57f82a2f8d1a823bc1104b54025b8ecb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P008.png",
+      "sha256": "33ca27ee27a83b39feb9e965f56116202350ace512f7b80415ad739221a4c129",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P009.png",
+      "sha256": "98d72dd2c52669da850c01cee8537f119a562a4e033b457e9762d4b6aa6a38de",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P010.png",
+      "sha256": "fc07176b525c1eac6371b62017976a4370db404c34e5da58f19e69f4a446f072",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P011.png",
+      "sha256": "c6c5dfae5dbae27d13732ab141970bc771e43d453cf56164a7bb5cbf3bb44c3a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P012.png",
+      "sha256": "e41e659f959dfca403c7a9cb1857bc95d8025fd8d5b615a9bad6cabe417fa873",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P013.png",
+      "sha256": "644571620f5b27a364d49b2333605e1f5380856650795e538f4d8e6d5f3530a6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P014.png",
+      "sha256": "083fc3e1cef9d71af76691079e64dd135eed2d409dd1711facbce830645a3e5f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P015.png",
+      "sha256": "6d633a62101fb3aba19221b2331a88a6f64bd72c417c89d05e0fafdffdefac00",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P016.png",
+      "sha256": "6846dac674e566c1bc2581c7878313fcdb8924df8fbe8e526887b067282bfef0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P017.png",
+      "sha256": "dd173a65e3e4db4b9f23c96b0536b89083529fb4dabefa266a6e79952ef88798",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P018.png",
+      "sha256": "f65954d259b6d7eef16aa7e260df0fc91cf046e919781997bec5c76b3dc1ffaf",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P019.png",
+      "sha256": "f7a625b10a7b4b2e781f73df8af4ce28aa490642d4a4890969d64ea0609b7689",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P020.png",
+      "sha256": "ae766f2c0aa27cea4c72fe2196eb6d9af0fa6c63472810ffd71788f79dd89f1f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P021.png",
+      "sha256": "2a738e09afc15536b49de84625bee4d06b74d77a09f9aac53c6953363f786156",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P022.png",
+      "sha256": "0920539cd91f4a84b2da226a1cdd071d8ed1a32e715fd6f83c11fd2bc332418b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P023.png",
+      "sha256": "65bc0cb11d56e110db08d593df4be6008d91fde408e5a91d02fdc466774ebe0a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P024.png",
+      "sha256": "94a0af6cad695405c644c31fb2563b6520f2ff3731ea61fc9a6e03b1a0e5ae0f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P025.png",
+      "sha256": "7e9c7a3b033e26794d76703ab7b84d61382cedbd36bb7156a2d8a0bf5ba19b9d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P026.png",
+      "sha256": "a4b4b45bf5c7dea812566102fccc935d015af7ae3d91ee7d6533587223ffd6e0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P027.png",
+      "sha256": "66283ee071155eb2eea6b588b9a7f55ed2b6d50baaee2997c5be26f6ba59a7de",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P028.png",
+      "sha256": "72ef701473c8cd3ddc6999f1158603f4c0293f36689d3c976b736705d68a9785",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P029.png",
+      "sha256": "01514c6aa413def0efe96843dd091de62d78100562e97929dc18fed4d653afef",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P030.png",
+      "sha256": "ca788aa92f004a3ddd782347879ce4dc5209d59fa68a928233fbca792a1b9cc9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P031.png",
+      "sha256": "ab357c0fa15e6591232f75802fa7e24f97aab4ca4d0292f153367ec2f558ab65",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P032.png",
+      "sha256": "22360479dfe4d6b7d85b454d1e023049c8d66e74cb46b7bf20b525bb856d2197",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P033.png",
+      "sha256": "07d25fdc3e7d3a3fe054976d938bd63c9b08d1f4e5fe904fdc87404e30003d6f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P034.png",
+      "sha256": "d3d644654f9272812d3488b4662bf1263b817e120ab42fd4df2c6ed1a184234f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P035.png",
+      "sha256": "e73ee96b56cb71c83b607ba73bfd8ace734663ca3e1529a51dc2e4fe0772799b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P036.png",
+      "sha256": "bb6fe01b99c5472a6e5577560ee8d4f5bf94846c465376828e713f448c2d9878",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P037.png",
+      "sha256": "251b96bb3386b7ad775afb770189fd54f108e06e063cd64072ccb42f98c813c1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P038.png",
+      "sha256": "01ca2c1971c8ce9c05784dd753297662a5862796a5bd0e65a634c3324d81e392",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P039.png",
+      "sha256": "a4c0af38a2ad9bed593b71fc80875ce538360f7274568468c413817004d3125b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P040.png",
+      "sha256": "93a3fb4532dcc26cb9e9c7c1d37a54a09366bdfef6fa452a28c1356bd670cd72",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P041.png",
+      "sha256": "2e832d3d9418012677b20f42e9f5bb962de99144f65923bd8e12aa97a69c98e7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P042.png",
+      "sha256": "8db5714518e6922906f4df7f2b92c9866284995977c223ffcecf4d5fa57efb61",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P043.png",
+      "sha256": "0b6c5391a0ac6d7726334bf1d5c8d10d46aec1af54ff99dc2c8330f3be908c86",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P044.png",
+      "sha256": "f0cd40b96ba0231a7a5bffd2a3ebfc083acecbda3917ea3c77f1046dfc8bcc9c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P045.png",
+      "sha256": "6b2216ff8d2e4a1e08da9ac66097842b59cf6c1ff1495a14176eadac82e0be4c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P046.png",
+      "sha256": "324bd5cac1600fd40ae7070a749a99659ee0b1b031769594bfd2c9b649bf4329",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P047.png",
+      "sha256": "d2d9d20646fd92c26f1c13a30a2e88db4ff1c6fa4a7b4a63429e3cf26b0b12f0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P048.png",
+      "sha256": "8c5f34c68e9b96bb913eeb8af902622d6d2fcb6cd8d29afb7411b18acb518cd5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P049.png",
+      "sha256": "88654a76785d26058f2cbe3a0dea4ca1b9c84e4ceaf003d1b4325f96b95a2161",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P050.png",
+      "sha256": "42aefcd78de60d441ae74111b472a16aac64fae09a301dbd0cb86596ec4a9e5f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P051.png",
+      "sha256": "ae6bf3f401ff792f837cd188ddec010b6d216005aaa69275355a84363006c843",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P052.png",
+      "sha256": "81c7fa08d5e9b3d6ca48a8556971d20c432b8e3fff5caa3115372659ad122020",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P053.png",
+      "sha256": "fb998f6bd2cad1ec5616f2fb3808f6323a748f9cd6735e7ded3c196371f14e24",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P054.png",
+      "sha256": "0eb77f80be550a23fdc278e3480473932b59ab1dec0ec7912e667e0bd4b0329d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P055.png",
+      "sha256": "efa5ca7dce0061d7a966584e92fc021a13823e537b8a807b8048b762be71a71e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P056.png",
+      "sha256": "615bbaa24e08b020deb8ede1aab64be0f5a82a7a7d061271bbed46863e3e77e6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P057.png",
+      "sha256": "ebf952da525a603fe57a47e7eb9f04f61486a757d87e298bbe2033443b0a9848",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P058.png",
+      "sha256": "aee0f6568eddf0f46bbbd35ac38c6204595bbfe802e799f0dc4e5a130c7ba069",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P059.png",
+      "sha256": "897507696f55b9a34ca0732c0d4277743b735b422e98ed0ddf34976adb4b84a7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P060.png",
+      "sha256": "3b6a2f991bff0a93cf7ca6c54214b6af62ea0231fcf1a7af6255dc5ec909d724",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P061.png",
+      "sha256": "ebff76560b931ef11925f48de07173d6a0b78dc7874081717f6c0293282e10b0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P062.png",
+      "sha256": "8dfded3bd69578b93c92e61d53794b248a0b779b5f8d5693c071d74df12f28dc",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P063.png",
+      "sha256": "8276927d346d384be69890732c220b47344f8dca2b790e63a91a0eb76f543023",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P064.png",
+      "sha256": "bbc5fa808a5fb00507124ae6e83ee14ee4452230de736499ef757126a8b24b48",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P065.png",
+      "sha256": "da164eccdddb4b335daf83d871ce46b33708b9950844487ebeb7477ade9c313c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P066.png",
+      "sha256": "ad316531693100e92ee225c5b1e47ee97aadaafe19a1263071290346fa011be6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P067.png",
+      "sha256": "addddef9fcae140f138ffe32bf0db2635f642dd1efd81eaff25a992d29343c8f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P068.png",
+      "sha256": "580f2efc6c3561b0225f982f34867b726af8446e61f6df75919301a0fbf3fe08",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P069.png",
+      "sha256": "498613554024e1f9deba2fdd6cc0bb02a48e5bbab103265b59e3ef1d4ff601f3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P070.png",
+      "sha256": "61152471ee6a8aac160e424075966939c008a4e8a1b1561e299568f91835c2ea",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P071.png",
+      "sha256": "b83c5bcde4927afeef719853efca529ff26b0addb4363e92d5e62a046f710153",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/baseline.py",
+      "sha256": "afd3b3e0a7516411b867d68b96095ef807cddb8dc733d8bc3cf895572ba86843",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/baseline_poses.json",
+      "sha256": "e4d8b7d2c2642f16f89620eb021e06fa614fef509a17d390542327d6e80b09b6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/build_design_02.py",
+      "sha256": "736dd55d4d61047d223b81efcba4a4e33761a29ef26ef95b226ca0e0be9e73d5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/package_review.py",
+      "sha256": "27a0079c8a9568be7801d11ed29f466814126d300761db47d9eb7fe350e46a0f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/verify_review.py",
+      "sha256": "33bb71fbc27c72d591372b4d3b5af04b0384b689009db522f2d0e27017a81687",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/all_72_frames.png",
+      "sha256": "dd8062ee87191ec6f43a77d544a43d35e6b45d09255b971c9cc5c19e5b1b01bf",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/motion_design_02.json",
+      "sha256": "db6eea913daf6e5a8846f9f62c08aeb31be8c84fbdc5ac29941fc3e1253cef62",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/protected_hashes.json",
+      "sha256": "a3238eecfd64678d8e1808c94ad6f566236809677a5dca196c954e2e497ea8c1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/submission_checks.json",
+      "sha256": "7d9ca84fd90c2797d823548284f29cb30c12b5b577c6423dd04e4a125022ba76",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/zip_integrity.json",
+      "sha256": "f29cce6d85df49c4455c413f08132de01e5e1737ff2cbac435332bfe04084ee4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/video/counterattack_design_02_24fps.mp4",
+      "sha256": "54ba6b9b16bc76d090e8e91702102c3ddc449fc6b58b468c4223ad9ce57ad3f8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/PRODUCTION_LOG.md",
+      "sha256": "9d0a614ac72fe9d50cd85f1c7ae17beee5d74fb0ce7b79e3341e5bee752505df",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/README.md",
+      "sha256": "73cbac96982dc3f92311e95fa84c04dc583f9dd1a3553c1026734ca3cfeb8080",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/SHA256.json",
+      "sha256": "83203117831affbcce528a76a0a0c711b1e9ebff027b279a8e12e11b1042d576",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/ZERO_CODE_counterattack_design_03_review.zip",
+      "sha256": "54521ba113975e1d827b7075273c20fd5410b9d9284c3d22b2fc96e91d1c08e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_24fps.mp4",
+      "sha256": "0a3b38da5234fe5962b71cf68be372c469804b6d0493ce9e923e90dcfb28d9fe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P023.png",
+      "sha256": "400ac4cdef7f4b87f7909ac5199f2fcc9fbd1bbf53174f24fdf6a673a8135134",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P024.png",
+      "sha256": "0b84b5827fbe8ac39b922f21addedcaff52ca614e6b85e23a4fc79df90d194b1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P025.png",
+      "sha256": "e64dfe5fb526f6bb0b5d165c5ab0b5f697b7aeed5edea82868ff8e7b3fa70732",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P026.png",
+      "sha256": "dfe9bb7fbdd2364ca26553d78f46d3aecc03e660808bc421e80350f38f87fcb3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P028.png",
+      "sha256": "7592e41ebb1b638eaa5cd7f787bfc2f202cdf1210ee3e8b9ae4c23215bb0fc76",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P031.png",
+      "sha256": "331e1d4cea46abed9af14f0537f678ca6a391b40ec53fe526e50b0d0f70b0fd3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P035.png",
+      "sha256": "57de2a4570c197f141ae87356ef01b5839f7e86262e439743877f8708726d4f7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P046.png",
+      "sha256": "17de1512f73b64ae86663fcc96d853576266bc6455e8323b2ee67970d3d86287",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P050.png",
+      "sha256": "8e7ed7e43096373c2023d6797bcf028d0187a241a42030159434263d68dedf9e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P051.png",
+      "sha256": "3d056838c419d7ca84e4eda5e29a72c61b1212646d9bcc015b1f9905b9b29f4d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/design_keyposes_03.png",
+      "sha256": "e0c808947cd45466dcdaaa1c863b24799fb1324f49e7a2661ac2a9f2732c913a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P000.png",
+      "sha256": "886be3f9adc701b6e71b04cbfaf5df5d42746482e8c69a45d1c9f758d316fc83",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P001.png",
+      "sha256": "956fbf576ee1b95688874d0169fcc37cddc8679862ccb409a94dd8242452d838",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P002.png",
+      "sha256": "61ae3b1116a63173a76fe84e07ff78eb488d58f484f30f64012e3e32fde82bd0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P003.png",
+      "sha256": "ef4b701912d7918f21abe68a7a11f572156bb79d9ad658c94a80e7b3db70ca0a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P004.png",
+      "sha256": "ec8747599a856b037f414bd22fa5472a2fd5d802ca07c81cce07efe25bc8d507",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P005.png",
+      "sha256": "84425aca68b309c966c5783d2aa7f7777b8da55c665c16dd73f5f49b810d13ee",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P006.png",
+      "sha256": "97306f8ae95af61b017c1ab823c1fe1686d20b0e66e00d6ec801441278c2e158",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P007.png",
+      "sha256": "f8c12ba7fe46726b9a117d0ecaa42b70ca3c0240b20eb42146ae91f65e059847",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P008.png",
+      "sha256": "a0b6ac692113fe6d77f06f3d3b2f04d58022479d91cfd1da5f5b1c19e6855916",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P009.png",
+      "sha256": "a2be52c423ea37e84bd627a6730a7e3fb0d3be8cf51305d6028d984e8380eff3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P010.png",
+      "sha256": "da59a46eb6c86e45fdc73c61c04ae83caeb9b6f3e20283e76dfbf2cace79fee6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P011.png",
+      "sha256": "85def22a2fa2468bdf6feb54a1adf301d24f641c2e813ec00c2ed878f33a0359",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P012.png",
+      "sha256": "0fe4374ab8efdc02ab22f49dc22c4e96429f209106b5faa0ed017238947e7d3d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P013.png",
+      "sha256": "a2737086fab36a7fa1b9170558a719bcdb2aa5bbbb042f7e9f37a5928a603ec9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P014.png",
+      "sha256": "2cca8f92229a8d47858edfed631a12423deafb651491e67acce221c1e57dbb91",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P015.png",
+      "sha256": "1c141d1529b04ccc6d4731b2d6a334b088397e91d7c349d0d196fbe584f82e29",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P016.png",
+      "sha256": "3625888af8ed657a61935878a2cb2b258b9c8ff42c7772678fef6029eeaa243b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P017.png",
+      "sha256": "8b1f5c7efe6b892170276fc5142a267092fce4071b8e6585faa1a5c1cab7f392",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P018.png",
+      "sha256": "3678ab1193d55d614af90d130ea0bd7f59e7132c741338d60170f7147268766c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P019.png",
+      "sha256": "b2486ef8c50383f90546a05c4699d64083cfa267021b4ab8761de40f379b1896",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P020.png",
+      "sha256": "54102a785107aa0a571067533896c0ab3507aab33f713b5ef0204a8505d4d498",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P021.png",
+      "sha256": "621e29d4c15c60eadc4764288766aae1285f97573d1bad80fe718528d5130f8f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P022.png",
+      "sha256": "6bdb4e85e1c6a7d9b143fc45d97ca037c81e1389bfa8105cc8c3479d7d5903a5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P023.png",
+      "sha256": "35c7109662e113267ba6e95953e1e4bbb8e672aec667fc948ad0b992e6f98be9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P024.png",
+      "sha256": "7dbb601faed9816dbe84a9237474264531bab797d9e95841a580bb7a1ec15b52",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P025.png",
+      "sha256": "2f3f651f2257497e75e484b5aa60a92d1bb4a22bfc1f528d68a1351388423739",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P026.png",
+      "sha256": "22460b60a7bc78b6804621c29b71cb914406eeef6d875193461bcb8bbe509df5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P027.png",
+      "sha256": "d93d3c556e892850897b6559db3f517da7e529256e5f856a6cf214740965313a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P028.png",
+      "sha256": "997846b48f7bf44bcfccbfa296fb7213222fe858addda4b37b4cf58403490951",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P029.png",
+      "sha256": "f76824cd31d0d1e27335a5b8f31598b88b6435d049ac5d8da73068659a38054f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P030.png",
+      "sha256": "105fd3d4ba8e5bc86f505706e77e2e26871f3ac88d3bcd9d13ba5be6600972a7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P031.png",
+      "sha256": "4db8079ae38b3a5e07bbe174f02aa4777222520f389cd782eaf292a8bca8b32c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P032.png",
+      "sha256": "9955e5922838f441ce0b0edcf6ca57611a05192a0d96c0aa17656964cbb61691",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P033.png",
+      "sha256": "fc5f00a4f90eabb4772dee93f295ff4ea79269ed0c045a65718bdb308653ea03",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P034.png",
+      "sha256": "e96b236827ec6de6e1731df92dc72f19c0c173ef618f5e1e29860c8602c43cb3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P035.png",
+      "sha256": "1adf11090e3d99ee63a6919d1d74675eec9d272ca517b3f89bbbebb9a1d76f7a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P036.png",
+      "sha256": "229150bdbe2aff641595fc3a8f55e76b9d097e0571b26c54c0dd7de3033ac121",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P037.png",
+      "sha256": "ca023acece76f40129d4f16b3ffe4716d8027f4d1862b5e69f0295a33ec01189",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P038.png",
+      "sha256": "349b6100cd9e760de40513478a1f18dcc6fd49c1a8d7a1c21cdca5455cd7071e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P039.png",
+      "sha256": "ff36bbc2f2292be70cccc1d7aedf9f33bcb2588d0ef824eae219b965e544804e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P040.png",
+      "sha256": "301f7f00d23ca1dcbba7834fe7d7360610c40e6c34060787c332c0b91ce9a399",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P041.png",
+      "sha256": "c94c08fa298c5acb45dada9517e809c85dddf94c3c4570fe4814cdf32d90661e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P042.png",
+      "sha256": "e13102f12916854dcad8cd38abc44be066dab16c917f05d41d89ee86952583cf",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P043.png",
+      "sha256": "5793990cfe17512937fcb6f0aecf430cfb25a7bd4e0301956cbd0b184dfd2fa3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P044.png",
+      "sha256": "d6b0b38aeb538fb01c1d75155d0eb038d296045229bb05982ad359c348bef083",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P045.png",
+      "sha256": "1cd3de7c62879a5799fe1f8fbbe4641d9c675c024123a125c1713d9341962b6c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P046.png",
+      "sha256": "b425d57cdff5fbb4bc3a17e218d6ff7f74d31e098d7085912a547cac0051198e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P047.png",
+      "sha256": "12b3956889985095c7d8753f9c84539042899df574812cc1136a6c6ea3493f02",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P048.png",
+      "sha256": "525c8891318664487d469d5a1724246adc4a2461c780879b62d2ed2219e4295e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P049.png",
+      "sha256": "c72120dd1767c3a92027f1aa2d9072d5da6209dc91f993aa6cc32b34bedf78ff",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P050.png",
+      "sha256": "d0e72a4e015c310a6ba0502711110554ce3fdac9c307dad3c8961e1e0fef9758",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P051.png",
+      "sha256": "943fe435fa22dcadacc9f8a5781130dc3e015f6a96a29a02ac6ca479e6929d85",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P052.png",
+      "sha256": "09501a63fe32e898be2983cd1bf81cf1683e88d4ba91bbbb950da1b4eb481326",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P053.png",
+      "sha256": "06b4768adf026804e1c824ec1cd8dcb510415d96c295820e0733a460152da1b1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P054.png",
+      "sha256": "22d60cead1d8b785a3392247aa79de75d853026ddf34b3b0e7e63299f31cbac1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P055.png",
+      "sha256": "11598a756c1423e3d502b41e78a28d2c3026ac52f6e4d03da22a60c99ba2d7dd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P056.png",
+      "sha256": "37803bdd3c9061ff8174760486cf8794e0547b8b25ce778d6657014508f0f8da",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P057.png",
+      "sha256": "49ed06a4bd3ab96420d50cc110a75616a1b9a72ba141f6a1ccf73ac0c69b36ae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P058.png",
+      "sha256": "2b49dca462dca469a1e00aea2d8e1c132510793f19ccfe0a7fab0f534f38398e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P059.png",
+      "sha256": "3ae6e290531d8d93251f09cad5eee4b3f3f0b35e5fd431ba4a99306a1ed95700",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P060.png",
+      "sha256": "020fe83437c8374bde027488c364d493df888dfdc7a28640b69646c0fa606bfe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P061.png",
+      "sha256": "c9b8324b70f20dd5f76e09696a59110e3d5a1adfc3aac3afc7641f7d46ee94ee",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P062.png",
+      "sha256": "ed85770f443f6c99e905a60e541b54c09d204067d7767c495cd0c7d332d6c3c8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P063.png",
+      "sha256": "4d7a301a69f97dbecbe36e1f54ba2d1c9bfa85a450bc0270e7783c5f4628abe4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P064.png",
+      "sha256": "01c3b54d55d59cbc108636835d5f50e6a62396054c3ba4d305b631e6440c99da",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P065.png",
+      "sha256": "0ccf87875ee0c985b8019a3e13131d6e6b4db36ecba23947a0b9a344122a8c3c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P066.png",
+      "sha256": "acce39b52842fbe6cf3f3a3ce5e032c621453d72e33b3be8eb1be81c35b7f9ae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P067.png",
+      "sha256": "cc8f2af6fe8e410a62b83ddb11ec3c05c8fad5d33e7319d3bff5071b974888cc",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P068.png",
+      "sha256": "0dff4d8f57c8c6a369d4a405ba86a007abdf9ab7dc275b2aab45933d9dad35c9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P069.png",
+      "sha256": "2f15e0d7b27f94e3ecf20bc706aa831284470e221204173d1aa24b2d1e1738ac",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P070.png",
+      "sha256": "972bc66c2f367709fa00c441ffd50e6ba4139e10fd7c04f6a28e0a41c7f9774f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P071.png",
+      "sha256": "7bebaef94c52e0ef759a2f0c62b7452ddf998b9bc35e84344f964cabee194150",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/baseline.py",
+      "sha256": "afd3b3e0a7516411b867d68b96095ef807cddb8dc733d8bc3cf895572ba86843",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/build_design_03.py",
+      "sha256": "7ff012d613a9ce28c2e3dcbceab91e1594b69b6265922e587ff0d2b108db6049",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/poses03.json",
+      "sha256": "21d747fed615fe77c8d5b3001327361c5a58bd289bd24618e71a4993541a85b4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/all_72_frames.png",
+      "sha256": "ac005e63bb57f9ce358cd5485ef0172bc6ff344ecb705373f98ab9feda188f75",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/protected_files.json",
+      "sha256": "a7bf6cab65700becd0a55efdf47b11737554e289272cda9d7ff509a0bdb91e31",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/submission_checks.json",
+      "sha256": "dce775c78093384b4357c080b9b6ebe97c26fdb720971ab2fa7fe246af9bc76b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/video/counterattack_design_03_24fps.mp4",
+      "sha256": "ddba55f4752336a92bf3393f7860d0e7ea4087857b380fd91d022eb4f4648430",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/PRODUCTION_LOG.md",
+      "sha256": "c767fb4860ee8bc74281916b6546d536655828b3bed289558af8fc639342c00f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/README.md",
+      "sha256": "f33a5ee0444a414a2a80385d3e9fb70bb44fa07b7f37dc7bb57bd02e5cbfd049",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/SHA256.json",
+      "sha256": "5e16883b324fff0537c579b99bf7549534ac6314b3ae385ad59e4c4bc8759b10",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/ZERO_CODE_counterattack_design_04_review.zip",
+      "sha256": "70f45e28bbb455b084b285781a1bf6e8de6f4f3e531786dac7d149221f4d49a6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_24fps.mp4",
+      "sha256": "e0ba8ab84d88b0d33b0d76b536ddbe7d24e41d9e29c5b0922f873e57770286b4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P023.png",
+      "sha256": "99e0577b8b7a182cc723ab18e43d8af23c98e8eb98131b0da0f8b82e9628e2db",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P024.png",
+      "sha256": "a9027da2e074e2169a38250306487cedbfdd6f440a80fdea056abce88ef4a030",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P025.png",
+      "sha256": "7bda416c15d984c33f49d8213eb4937046e556e26c650e864ff575b94ed5cce8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P026.png",
+      "sha256": "e5c25017831497e4862c7695c040aab69a35fbac7183966293eff19adb974efe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P028.png",
+      "sha256": "b4a0a0373af4ef37b8db819604103f41033b3d7f2326fda5af9cd224b6808432",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P031.png",
+      "sha256": "2b225883d746b124d4aa42dd1d78d224a7085028dd1d4d7fedb6326a2ec38485",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P035.png",
+      "sha256": "6125c8ad428e3df793f4f0f28798b8d648bcfa40de47c09881ae69fd5b745d40",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P040.png",
+      "sha256": "70c9cd136217a265a047dc4a9f172b7c50e524c07af18cb28f4da6d9678ef56a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P046.png",
+      "sha256": "d9fd89443edd9be4745f8209972435cc4927d0816db4fdea70d1dff1af3d46c8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P050.png",
+      "sha256": "de2c427f420c127fa47084e74cfb7140d21dc5ac6eb7a48a6f82e8fbc8dd3620",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P051.png",
+      "sha256": "1dbd2bfc3f5387daecf3771bfae7b0db647f17bb9aa54f3d72f3a13e4487cc0e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/design_keyposes_04.png",
+      "sha256": "128d564aeed5bbeff48b6c43879ea7b3b706b0a7eb3177a221e37194529321ba",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P000.png",
+      "sha256": "b4a4f4d49c842cd5fec116800cfa3517f5d66a27bfd268545b7eab7683d0e789",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P001.png",
+      "sha256": "bf050ce51a428a23579e1b0cbcd2bd56248fbc3ca39843a65d8f986a267569ed",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P002.png",
+      "sha256": "7f2dddd22c4463ac09a6f6f57733428bff90e0fbdd5e727dc52ac9f98863d1b3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P003.png",
+      "sha256": "d29988eff42af8d31d0059f72362662f1b52806fb5d128c3058badda75076ca4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P004.png",
+      "sha256": "4aaf2a1052d9ef138a8e023e7b75698039911cdffc5417d8aacf4e1067e6ee78",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P005.png",
+      "sha256": "d91250b0d0cef54a2ffdec8d9dd87567ff651fe446179395b40a48d64765fa95",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P006.png",
+      "sha256": "b77d599f27eaf994df6bcb4011a5c4ebd690858fe7940e5284da1a618da1b64c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P007.png",
+      "sha256": "11b56824d93099f64bbe2ed7028eebac2b7063ad3e623f5aa49c78f43de4abc7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P008.png",
+      "sha256": "135eabed19574743b4cc3303fb4a414507d5facc9d2f0e8983bad5b441db9aad",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P009.png",
+      "sha256": "4ce1722c9725e61de8fb700bd22aef2de09ce385b72211f05b2e05b07db411a4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P010.png",
+      "sha256": "bbed35fdcc75f277b0fa73b217a0c10eb64a9bd40c4b1239f189302c6af26236",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P011.png",
+      "sha256": "25e22253144029f06af4bc55ea0a10bbb3c1cb144bdbe0e341cc00485d6f20e6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P012.png",
+      "sha256": "edb0a34ebfb2b5f8d0346860d153fa74af8d77044866ab92bfa319915ea12c0b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P013.png",
+      "sha256": "9032472aeb27d20d7a19753260dc7eb9c98ec2a3052075d5f2121dfabb78a73d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P014.png",
+      "sha256": "1bf9eb6d6c53590b111bc520d79db8bcf57736b5bb07a153109661a037a98682",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P015.png",
+      "sha256": "ab9a8d4a212b748c2e9ead2b6fb99c12cd7b913b112a83b6b3d1102eefef0f36",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P016.png",
+      "sha256": "f9877a75f17a4c35598e8a6063e63f70aa782fc1ece3edd15d5f8d2b3848390c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P017.png",
+      "sha256": "3c9e696400c604e04cfc9bbac66c2c4477b61948972246775eb944c525affe24",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P018.png",
+      "sha256": "33a9732767ebbb64438f6db23881d27b56da1908ed46618fabef60717a97e98c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P019.png",
+      "sha256": "468e8ad70074337ce76c7963c14d9087951cf748439d42e00854a4b8fe291980",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P020.png",
+      "sha256": "2e76b2518d7776e59897b79e06a4479097cace59e62a4a88907920344f0aa092",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P021.png",
+      "sha256": "825855203fd22951dc62524a662a5d865afd69e1123612ad4209c4a391aa386d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P022.png",
+      "sha256": "ee701c67f9ede7c1abffbb7cd4a243149af140d104156402afc087a6bed36090",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P023.png",
+      "sha256": "b739dfdff9cf4ac6630aeb933c1825096696a82b68a43f2e03c918894085525c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P024.png",
+      "sha256": "a90bd21cf4ab95c7d4e769f62f08e7b64b229fbb7ef444f849f5f9e0d00cbecd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P025.png",
+      "sha256": "6fcded72d56efd23897ce5ac39979fa9df00989a1d54b517ccb899f3e788836e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P026.png",
+      "sha256": "691f9e1d102f0e746577937b9a322702634638ec06fd56722138fc91a48bcbaa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P027.png",
+      "sha256": "3e92ff95b232f1afddbb03bac0e56eb03ff5c80f80c68410c36e68be3871fcad",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P028.png",
+      "sha256": "eddfc4b3738a5ff1bc55c04e63182e53c4371d649525761270a2854f8ba02a48",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P029.png",
+      "sha256": "f17f078f9f741d0217961c59998cf62141b3d90015d00b48cf082d86078fead9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P030.png",
+      "sha256": "704fb9a95e6ca8f587424f83ea3b4ec819835b3769b90b8939b2abc1d39d98d7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P031.png",
+      "sha256": "0cdc76b29d16c4ab1690277a7cb98b748c63f1784d083c59154a9266c7f05145",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P032.png",
+      "sha256": "05da736a7f517cac8c1ae9f2951fb0a740b30462216af988021b5cca2ad09b73",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P033.png",
+      "sha256": "25501b9c270d56eb60ff1fae616417adc7d619179e6ca65e5a03d152204dd27a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P034.png",
+      "sha256": "5c5658b4ca3085607839eec10e2d3937215063cbd438674a91ada840484c91f9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P035.png",
+      "sha256": "a315f908fe4be03f545c257724b6dc0acc5485c760638fe55530b5fd4362a5e5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P036.png",
+      "sha256": "a16c51ab666cf26a0ccf36fc261d1ac82252f334de766a2a0772578fb0329e0e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P037.png",
+      "sha256": "c45585f02537beb50260e423475730a2a0f8bb18a79a8ae2cff663c8f412f911",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P038.png",
+      "sha256": "cd34ed97cfa9683aec8a897f5afb96e755e7dbb11454bf5647e0a819ed3ac1b5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P039.png",
+      "sha256": "b88e49cdd11294380116bba083a43b02e898a3c86e19f0faf29f50ef76aa8e53",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P040.png",
+      "sha256": "929ee3a23fc68021ae37809aed6aea835f337327d38214f28665b42726c5ef19",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P041.png",
+      "sha256": "cc2f65965467622bd745949db41a7775b5c0444363fa7c59704bfed69d2401e2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P042.png",
+      "sha256": "3ff8b9c68333c7c48bd477e948a3209fbd77a05a4787b7e33711da3897ced763",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P043.png",
+      "sha256": "a329f37d73c1d8c92230b2e9cf67fd4de9ef580146875159f42af0c264cfd3d7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P044.png",
+      "sha256": "0f491119f63187d137108747c99ecb338a24dd00d6ff0bf5e1e217ee68b5802b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P045.png",
+      "sha256": "89018015d80314a8de447a311a0e2af1217ccdf554906129dde4ebdd4e23ba25",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P046.png",
+      "sha256": "f5ecb610bba94cd7dbd7d81054e7fb03d2e0ec6d92de2039e04871e1f37526fd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P047.png",
+      "sha256": "0dc86cf40f00bd856b19f83e47c1346c66b2b1a0d9393f0efdc54b3c7b3a3072",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P048.png",
+      "sha256": "c7081cc3e273739915baf803e51dfb98371661856946b0f5449a31d7a2fdd06f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P049.png",
+      "sha256": "aa2b2002c7a3421eae0535cffcbff8d23160f87a70851f90134c4d8bc539278e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P050.png",
+      "sha256": "9874cf328b29e299170e98e85fa934d924f465f229289f18fcd550f60384c56d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P051.png",
+      "sha256": "f54d12c04781b119b3edfef0e672a75f08d6992702c9ebccc62b055bf790cad5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P052.png",
+      "sha256": "0853f4c2305e46f6d3fcc88c2512794546ae1c4c254fb2fcef6944caf8c78440",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P053.png",
+      "sha256": "41b929825e4de1ca2ac362ebc3f8617651e11abb437dd183f2facce62f242692",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P054.png",
+      "sha256": "d00b0080135ee4344131688eb491b0443d66cb896a0f1be88f0f8103c048c7e3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P055.png",
+      "sha256": "055148cb5e66f47d4dc7a0f50bf1df4f7558557bb1d22aa9a1b35db259619e36",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P056.png",
+      "sha256": "b694ebc7af550a556b4e7bac8e219e6401bf95c0afdd0f601f62964037aeee54",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P057.png",
+      "sha256": "0d773e53fad26c26805305bf1b523c1b168321281783d5549b4f2550fca837ea",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P058.png",
+      "sha256": "5f6568154efb88f47fedaa2ff936d6e33d35c21ab23fa61122d753ef7f54d278",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P059.png",
+      "sha256": "ec94897956254c1b3e23fed091fbb3e3bfc764a80890233f33381ee501f2297f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P060.png",
+      "sha256": "c44495a117736bb725afa59cd83480e770cabe7f4bac71360c201521bd9648f1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P061.png",
+      "sha256": "42555fb76a4d48676e14fe8f3f33c75dd1cc7962c924fb0311a7e309b1853761",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P062.png",
+      "sha256": "f9cfb01c3b60bfe45eb5150388e7a15016019baff256d9cf9292dee0d23ab5b7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P063.png",
+      "sha256": "8de151dff3cdfa0dc0b417994225aa7c2bcc4e8d6c6aa84923d7e2d5140edf1e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P064.png",
+      "sha256": "d41f254276371371ad3477390e77cfb50f87de557e1edaba9642e1f3624e8873",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P065.png",
+      "sha256": "fb4ec5065c2c884b76be47353c885027db7910676d8413a72df1feb64ad9ed8c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P066.png",
+      "sha256": "8dda818816a4237301b7eb2876f1a2d4beef7c6f81bd97d8ecfcfbda8e0a3212",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P067.png",
+      "sha256": "82f169a5a34bc86c9aadb8af8b6116be09baa91dc40402249d65952691bc7f2c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P068.png",
+      "sha256": "25e48eddf197f4cd6f1ec4fbbbb688452ada4dfc90bc4a7966d8be5835e96a2e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P069.png",
+      "sha256": "c2c250faf1cf2e39287352a367d4cdc7bb55c32a101555b4cbac61be0007b570",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P070.png",
+      "sha256": "af8c5a2e8b30dbf2af89077dde4527f3663c22b3227c32667fa6d486758afc44",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P071.png",
+      "sha256": "f7441571e040f37e4b495378c9d8f5a66cd1ee3ff825fd38985e037d40bcc856",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/baseline.py",
+      "sha256": "afd3b3e0a7516411b867d68b96095ef807cddb8dc733d8bc3cf895572ba86843",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/build_design_04.py",
+      "sha256": "07ac1f283a8ff31e4d62603a12d24c53cd38c767136e15c0f7b28ccbd93879fb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/poses04.json",
+      "sha256": "38dfff5a3a7570916dcbd7993b337156b6082d3f2252d600bdc78961f6f39049",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/all_72_frames.png",
+      "sha256": "05f75124954a72549b6540703450304d06470f8486ee1d48574a923a5bda6dc9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/protected_files.json",
+      "sha256": "ae47b2150080ac74dd23214d27ceb764e156eb6e02b1f0075d331a8542073a78",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/submission_checks.json",
+      "sha256": "ff8616eeac70d13ef98a503c34009a7bb5f82f6f151486a72444b8a1ae8d323e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/temporal_analysis.json",
+      "sha256": "c1d6f46bebaed61b8a433de4bbe1d0d3c71c6ad383e7f7cd99d02090a11632fb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/video/counterattack_design_04_24fps.mp4",
+      "sha256": "3245ad86a00c43b5420e0b4b453ba84562999f6bc9a5f1751d8950b456d0c933",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "sha256": "50b856fa9ee09a4c100621a923913ccf3ce57b9706039cbd875cbb7a83d246d3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/README.md",
+      "sha256": "003de991f2b012de75c923884f22d94cd5b3230123ed8988ac2dfd44afeea6f9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/S01_independent_DRAFT_review.zip",
+      "sha256": "de1f8dea340eeaac56fcdb12c81fc7e807ad6c8ec20eb632e12fe50e8950423b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/SHA256.json",
+      "sha256": "fdc93b1e631d1c1fd1fe9f1700a315e3d231b8274911ec36063cc4c78b53d789",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F000.png",
+      "sha256": "1d30635ba3976ecd97771980c29276912c086d6cdc118a75904f0aca6db2a77d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F001.png",
+      "sha256": "1d30635ba3976ecd97771980c29276912c086d6cdc118a75904f0aca6db2a77d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F002.png",
+      "sha256": "1d30635ba3976ecd97771980c29276912c086d6cdc118a75904f0aca6db2a77d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F003.png",
+      "sha256": "7dd072038b27add3f2d3278d78a9b0ddadee0022c1c9f01ef8d75426a0930d25",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F004.png",
+      "sha256": "7dd072038b27add3f2d3278d78a9b0ddadee0022c1c9f01ef8d75426a0930d25",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F005.png",
+      "sha256": "7dd072038b27add3f2d3278d78a9b0ddadee0022c1c9f01ef8d75426a0930d25",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F006.png",
+      "sha256": "ba7cbfd804d261357ce2d0014a789cae8d20b38654b7e97cb1c19c721e8afd94",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F007.png",
+      "sha256": "ba7cbfd804d261357ce2d0014a789cae8d20b38654b7e97cb1c19c721e8afd94",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F008.png",
+      "sha256": "ba7cbfd804d261357ce2d0014a789cae8d20b38654b7e97cb1c19c721e8afd94",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F009.png",
+      "sha256": "3766b64a66a9ba10c07ff7ca07e5122068c73d354e0c3a951c80441dad200db0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F010.png",
+      "sha256": "3766b64a66a9ba10c07ff7ca07e5122068c73d354e0c3a951c80441dad200db0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F011.png",
+      "sha256": "3766b64a66a9ba10c07ff7ca07e5122068c73d354e0c3a951c80441dad200db0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F012.png",
+      "sha256": "8e5e80a0df68236a7643479f3fa34c75fe9afe08517b322b68725f608e022f83",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F013.png",
+      "sha256": "8e5e80a0df68236a7643479f3fa34c75fe9afe08517b322b68725f608e022f83",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F014.png",
+      "sha256": "8e5e80a0df68236a7643479f3fa34c75fe9afe08517b322b68725f608e022f83",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F015.png",
+      "sha256": "16fe065c0cba88d535b034548aca8435660dc129b8983a05087a779eca8242fa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F016.png",
+      "sha256": "16fe065c0cba88d535b034548aca8435660dc129b8983a05087a779eca8242fa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F017.png",
+      "sha256": "16fe065c0cba88d535b034548aca8435660dc129b8983a05087a779eca8242fa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F018.png",
+      "sha256": "5be47e7edc7a87f93bf3035276b562440e1eefd9c191ecf8c8b6153fac5ea399",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F019.png",
+      "sha256": "5be47e7edc7a87f93bf3035276b562440e1eefd9c191ecf8c8b6153fac5ea399",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F020.png",
+      "sha256": "5be47e7edc7a87f93bf3035276b562440e1eefd9c191ecf8c8b6153fac5ea399",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F021.png",
+      "sha256": "e961dda3f1e5ca8bc668063283c7deb12754ef9360fd5424bf0f9d812d57aa68",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F022.png",
+      "sha256": "e961dda3f1e5ca8bc668063283c7deb12754ef9360fd5424bf0f9d812d57aa68",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F023.png",
+      "sha256": "e961dda3f1e5ca8bc668063283c7deb12754ef9360fd5424bf0f9d812d57aa68",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F024.png",
+      "sha256": "c0af2d7a50ca39c7a3cd2ccb204e940d7f4c660b3f5b83c96c67bed46c66ebde",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F025.png",
+      "sha256": "c0af2d7a50ca39c7a3cd2ccb204e940d7f4c660b3f5b83c96c67bed46c66ebde",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F026.png",
+      "sha256": "c0af2d7a50ca39c7a3cd2ccb204e940d7f4c660b3f5b83c96c67bed46c66ebde",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F027.png",
+      "sha256": "e5d9764c5b80ae8743e4f37f68969c233c6e854b9a4ed58536b2b95fa5afb411",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F028.png",
+      "sha256": "e5d9764c5b80ae8743e4f37f68969c233c6e854b9a4ed58536b2b95fa5afb411",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F029.png",
+      "sha256": "e5d9764c5b80ae8743e4f37f68969c233c6e854b9a4ed58536b2b95fa5afb411",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F030.png",
+      "sha256": "907eee4752357db1ee5007474d14203369972d6fff1b350de186ec331fd6042c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F031.png",
+      "sha256": "907eee4752357db1ee5007474d14203369972d6fff1b350de186ec331fd6042c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F032.png",
+      "sha256": "907eee4752357db1ee5007474d14203369972d6fff1b350de186ec331fd6042c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F033.png",
+      "sha256": "395090c167029e851804c1f5a8a1419f5c9a4acfcf4789173078ebd4cb9dfb8d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F034.png",
+      "sha256": "395090c167029e851804c1f5a8a1419f5c9a4acfcf4789173078ebd4cb9dfb8d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F035.png",
+      "sha256": "395090c167029e851804c1f5a8a1419f5c9a4acfcf4789173078ebd4cb9dfb8d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F036.png",
+      "sha256": "38cc48b31e2ee7bf9179c156fea557fad3906ed11bef1cf9b2d55f6e01a03464",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F037.png",
+      "sha256": "38cc48b31e2ee7bf9179c156fea557fad3906ed11bef1cf9b2d55f6e01a03464",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F038.png",
+      "sha256": "38cc48b31e2ee7bf9179c156fea557fad3906ed11bef1cf9b2d55f6e01a03464",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F039.png",
+      "sha256": "d43a28be4a0ae03d83b0f3b0cbc935020b2087cf3ef8ee88c7a4b9308f9c711b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F040.png",
+      "sha256": "d43a28be4a0ae03d83b0f3b0cbc935020b2087cf3ef8ee88c7a4b9308f9c711b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F041.png",
+      "sha256": "d43a28be4a0ae03d83b0f3b0cbc935020b2087cf3ef8ee88c7a4b9308f9c711b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F042.png",
+      "sha256": "9a68fcb16f8c0c0de870e18cbb230902997d8330aadc4c9e3cc1b5f3ff9fd88e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F043.png",
+      "sha256": "9a68fcb16f8c0c0de870e18cbb230902997d8330aadc4c9e3cc1b5f3ff9fd88e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F044.png",
+      "sha256": "9a68fcb16f8c0c0de870e18cbb230902997d8330aadc4c9e3cc1b5f3ff9fd88e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F045.png",
+      "sha256": "bbc689c90c4b0e589f1eeba12c9ad0208e6c2669af979001c584b2ddbde85ba7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F046.png",
+      "sha256": "bbc689c90c4b0e589f1eeba12c9ad0208e6c2669af979001c584b2ddbde85ba7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F047.png",
+      "sha256": "bbc689c90c4b0e589f1eeba12c9ad0208e6c2669af979001c584b2ddbde85ba7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F048.png",
+      "sha256": "cb993001143e88ea83eb94cb1df681584c442eb0ccbe7946ae64650148c5a4de",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F049.png",
+      "sha256": "cb993001143e88ea83eb94cb1df681584c442eb0ccbe7946ae64650148c5a4de",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F050.png",
+      "sha256": "cb993001143e88ea83eb94cb1df681584c442eb0ccbe7946ae64650148c5a4de",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F051.png",
+      "sha256": "0c4cc5665f63c2f8a5a4c11b37ba639862b99018d7d1c76c2de067bffde5ee79",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F052.png",
+      "sha256": "0c4cc5665f63c2f8a5a4c11b37ba639862b99018d7d1c76c2de067bffde5ee79",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F053.png",
+      "sha256": "0c4cc5665f63c2f8a5a4c11b37ba639862b99018d7d1c76c2de067bffde5ee79",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F054.png",
+      "sha256": "a9af9c4c61c83f33e7c0d16f06ac78398eaab6f51711f13cf8db259ec393fa83",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F055.png",
+      "sha256": "a9af9c4c61c83f33e7c0d16f06ac78398eaab6f51711f13cf8db259ec393fa83",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F056.png",
+      "sha256": "a9af9c4c61c83f33e7c0d16f06ac78398eaab6f51711f13cf8db259ec393fa83",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F057.png",
+      "sha256": "16a60c3ff0598679a6f43732ff4237b446dcefe1bec65a328829a079870f0902",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F058.png",
+      "sha256": "16a60c3ff0598679a6f43732ff4237b446dcefe1bec65a328829a079870f0902",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F059.png",
+      "sha256": "16a60c3ff0598679a6f43732ff4237b446dcefe1bec65a328829a079870f0902",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F060.png",
+      "sha256": "5347db2bf1d96cf310023a1d685f41cf720851baeb639744a700f8fd307d4ecd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F061.png",
+      "sha256": "5347db2bf1d96cf310023a1d685f41cf720851baeb639744a700f8fd307d4ecd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F062.png",
+      "sha256": "5347db2bf1d96cf310023a1d685f41cf720851baeb639744a700f8fd307d4ecd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F063.png",
+      "sha256": "87a9c12ded332131fb32da49dbbbbcdddb17318f78be6356055e4bba07fb9dca",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F064.png",
+      "sha256": "87a9c12ded332131fb32da49dbbbbcdddb17318f78be6356055e4bba07fb9dca",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F065.png",
+      "sha256": "87a9c12ded332131fb32da49dbbbbcdddb17318f78be6356055e4bba07fb9dca",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F066.png",
+      "sha256": "878e68c619e2b4bd004be5ff439af5cb40f8df4f063353111cbbe2bfb522ca48",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F067.png",
+      "sha256": "878e68c619e2b4bd004be5ff439af5cb40f8df4f063353111cbbe2bfb522ca48",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F068.png",
+      "sha256": "878e68c619e2b4bd004be5ff439af5cb40f8df4f063353111cbbe2bfb522ca48",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F069.png",
+      "sha256": "fec0f136b5392c9e2406ee9d46825f0e8479bd2b624a18d1cf7a146a1045ce9f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F070.png",
+      "sha256": "fec0f136b5392c9e2406ee9d46825f0e8479bd2b624a18d1cf7a146a1045ce9f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F071.png",
+      "sha256": "fec0f136b5392c9e2406ee9d46825f0e8479bd2b624a18d1cf7a146a1045ce9f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/keyframes.png",
+      "sha256": "6611a2038ed8c3d26346e2156a222ea088033cb42edf4ce3e367e42346c61bd2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/source/render_s01.py",
+      "sha256": "c407256dbd152757a87a7422c0a380d6838fef798afd4b01d58fe1f89de33d75",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/source/verify.py",
+      "sha256": "64357a984eb8fe3eba0d18a7f97a506452275aef883482c9d64683b0a6f456b7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "sha256": "9c8a83f30aa0fe02daceb04d3e8570637875bc85f8acc4231db3abf9e171668d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/protected_files.json",
+      "sha256": "431a478f9ccc803c060746a60e6f7e6229a28bd09fbfca6ace48c55b88014df0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/reference_media_checks.json",
+      "sha256": "295e4d1c96560196047b1f1fcefaaa1d35e088f9d863ee8b94df212e9e85c15d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/technical_checks.json",
+      "sha256": "9fbbb19e15fbc80522cb13ed1affbeecb6548f8e8fd58f35834bd52edf6c85d0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/video/S01_silence_DRAFT_24fps.mp4",
+      "sha256": "0a97d3ca6e379cba6f69ec0f6e893d14748ee5d0153fd61a55ff6525fb114b58",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "sha256": "9eb7665ad0e191e5e2400b616ec0c6b164d64de995db7a8372704c2f8758f4f9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/README.md",
+      "sha256": "4c08ede069bd4c4d0a1f0f5745db8f3374e58f1733b0171d9c9850a85afac3ac",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/S02_independent_DRAFT_review.zip",
+      "sha256": "81f3d7c650802bedeee0b6f175a7f273cfe359df170f583b90f9de5bb57a7d42",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/SCOPE_AND_SOURCES.md",
+      "sha256": "f85ae39606cd7c3bf655cee18835db22ec1d75e8ed314d5673a6dc3e975c865a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/SHA256.json",
+      "sha256": "0ebf53eac16c033cd39c3cfaaa1d3fefd6a6a44e48834d2d88f6f8ed5adf4c23",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/ZIP_INTEGRITY.json",
+      "sha256": "b63cb66e064743ef2a76005d0811b065227602c70465ed9896234d16dc93f88c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/boundary_comparison.png",
+      "sha256": "82981d1cd9bc3140e817d2dd437c3e3c35e11bd20f8b0a58b6feb82537a57176",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/exposure_sheet.csv",
+      "sha256": "686dd5f935a0ad32f3a9159ab7d66d463c2a1feab3b9ce3ebda391cfe46a44bd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/footwork_detail.png",
+      "sha256": "76400b51aa20293d7e1d9ab5114dac944de964c0e2f1a023b7c572d145293280",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F000.png",
+      "sha256": "a8282a5b03590d6e3020077965063232ab1c7a0e38193e4a1b4b7cde30aa87cb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F001.png",
+      "sha256": "a8282a5b03590d6e3020077965063232ab1c7a0e38193e4a1b4b7cde30aa87cb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F002.png",
+      "sha256": "5436279fb62ba88760caaff40b5f138c3593cfa08b13a71e0d032d46ed432732",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F003.png",
+      "sha256": "5436279fb62ba88760caaff40b5f138c3593cfa08b13a71e0d032d46ed432732",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F004.png",
+      "sha256": "e2ff476214e02ae81fb4864899e9eb09317ec319ca5218526112393847617a88",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F005.png",
+      "sha256": "e2ff476214e02ae81fb4864899e9eb09317ec319ca5218526112393847617a88",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F006.png",
+      "sha256": "0878ae674f88b936847fa2c0095087879874de59486fde762598a02770fab1d1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F007.png",
+      "sha256": "0878ae674f88b936847fa2c0095087879874de59486fde762598a02770fab1d1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F008.png",
+      "sha256": "301bf280285cead80da68777eb3fa8a7ecc6519396d9f1efba6510e0a9a61751",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F009.png",
+      "sha256": "301bf280285cead80da68777eb3fa8a7ecc6519396d9f1efba6510e0a9a61751",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F010.png",
+      "sha256": "b79eb45694d4fc1fd118c4a086ca42a80e2375e1460b79842fac66b257335e59",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F011.png",
+      "sha256": "b79eb45694d4fc1fd118c4a086ca42a80e2375e1460b79842fac66b257335e59",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F012.png",
+      "sha256": "7f44c2d79b81dc58bc308658526ebc15eea332dd9c2fcc02084c9fd9613498a3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F013.png",
+      "sha256": "7f44c2d79b81dc58bc308658526ebc15eea332dd9c2fcc02084c9fd9613498a3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F014.png",
+      "sha256": "86af7856a66f0a21ea2bb6ff0e6fbb5f549d4fd4f7a3e6420743ad9c4f5e4109",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F015.png",
+      "sha256": "86af7856a66f0a21ea2bb6ff0e6fbb5f549d4fd4f7a3e6420743ad9c4f5e4109",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F016.png",
+      "sha256": "4eefdcc4190a45351620acbf0e31d5f84d3d643ae4d54a74c24054143bdd2dc2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F017.png",
+      "sha256": "4eefdcc4190a45351620acbf0e31d5f84d3d643ae4d54a74c24054143bdd2dc2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F018.png",
+      "sha256": "cd9c25b1cc7f983df97efa40da3ff03de1e2c47171fce05c5f456135f7dda9bb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F019.png",
+      "sha256": "cd9c25b1cc7f983df97efa40da3ff03de1e2c47171fce05c5f456135f7dda9bb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F020.png",
+      "sha256": "4123ad5fe75a68f2d6c41fc0d1ded552a9dee70dd35a2ec339ba553f3ae5e7f2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F021.png",
+      "sha256": "4123ad5fe75a68f2d6c41fc0d1ded552a9dee70dd35a2ec339ba553f3ae5e7f2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F022.png",
+      "sha256": "65ec5d6aa9bd5733002ffd0c2564bed0a3193e16583d1fac838d99588a89beb5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F023.png",
+      "sha256": "65ec5d6aa9bd5733002ffd0c2564bed0a3193e16583d1fac838d99588a89beb5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F024.png",
+      "sha256": "9770a7a9241dd8034784d4bcf3391dcbce99fdf6d1fb7865ddee2e5d283da55e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F025.png",
+      "sha256": "9770a7a9241dd8034784d4bcf3391dcbce99fdf6d1fb7865ddee2e5d283da55e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F026.png",
+      "sha256": "073ce9f46679aa8062fff8cb8add56faaab2185672b83f6147df86dd1dfa3b29",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F027.png",
+      "sha256": "073ce9f46679aa8062fff8cb8add56faaab2185672b83f6147df86dd1dfa3b29",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F028.png",
+      "sha256": "62dc44e5ac4da66e0f7d0a7aeae0537f8e0fc3e2e626ce4c449e49451313d1c4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F029.png",
+      "sha256": "62dc44e5ac4da66e0f7d0a7aeae0537f8e0fc3e2e626ce4c449e49451313d1c4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F030.png",
+      "sha256": "cafb6d367e25ace089d56c71cc6519e6ca8e3b75196d04be325d99e8474093d8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F031.png",
+      "sha256": "cafb6d367e25ace089d56c71cc6519e6ca8e3b75196d04be325d99e8474093d8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F032.png",
+      "sha256": "d7c93e2791f005b94faef92f7ba37a65f4b295abe575ab2a850928a995440f77",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F033.png",
+      "sha256": "d7c93e2791f005b94faef92f7ba37a65f4b295abe575ab2a850928a995440f77",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F034.png",
+      "sha256": "fc4ac3e766c345f9ed455effb37b06df3370ee520295654d948c6f691979c50a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F035.png",
+      "sha256": "fc4ac3e766c345f9ed455effb37b06df3370ee520295654d948c6f691979c50a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F036.png",
+      "sha256": "dbaa5fbd74375c696bfcf183f6629b89fdf47f64ab2d04da495245a431ec5861",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F037.png",
+      "sha256": "dbaa5fbd74375c696bfcf183f6629b89fdf47f64ab2d04da495245a431ec5861",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F038.png",
+      "sha256": "ce70a572d2d5d1de352c2edc5415bbdeec9bf913357d01f29952b14026428bec",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F039.png",
+      "sha256": "ce70a572d2d5d1de352c2edc5415bbdeec9bf913357d01f29952b14026428bec",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F040.png",
+      "sha256": "96421eff814dfb91bc71ce33fefd28504e84d94d2b3c5ae199462ca8b07200c8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F041.png",
+      "sha256": "96421eff814dfb91bc71ce33fefd28504e84d94d2b3c5ae199462ca8b07200c8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F042.png",
+      "sha256": "95d4a8a276621cc56ef33202aeda683ea5a5e5c954bdf8002397e12bb6ac3f04",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F043.png",
+      "sha256": "95d4a8a276621cc56ef33202aeda683ea5a5e5c954bdf8002397e12bb6ac3f04",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F044.png",
+      "sha256": "c963ea1ec018a7a9e9add261d8bca4f76a999ac711022c3a18ce40536d3f677e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F045.png",
+      "sha256": "c963ea1ec018a7a9e9add261d8bca4f76a999ac711022c3a18ce40536d3f677e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F046.png",
+      "sha256": "470f2719e549f90bbaf92ea590dcd11661aea3ebda3f7346c68e6fb1b529d8e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F047.png",
+      "sha256": "470f2719e549f90bbaf92ea590dcd11661aea3ebda3f7346c68e6fb1b529d8e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F048.png",
+      "sha256": "75c4ecf0e67facbe0f4638f975bb6dccbc9f869aa193b52a6dceb166c720d786",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F049.png",
+      "sha256": "75c4ecf0e67facbe0f4638f975bb6dccbc9f869aa193b52a6dceb166c720d786",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F050.png",
+      "sha256": "52cec95d776c63ee1800d9954cdd6c0a2f13e0a1b5603b92c52e01dc0849ddbb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F051.png",
+      "sha256": "52cec95d776c63ee1800d9954cdd6c0a2f13e0a1b5603b92c52e01dc0849ddbb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F052.png",
+      "sha256": "bd2be4df3a94dd71b5c7e4896bee1999c03e8acf8f7595aa1eb0a64e8f82a148",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F053.png",
+      "sha256": "bd2be4df3a94dd71b5c7e4896bee1999c03e8acf8f7595aa1eb0a64e8f82a148",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F054.png",
+      "sha256": "3ec8ff805cb1d01587c785c07e44cb44b30f60ef18cbea9e13ba37f189bd5356",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F055.png",
+      "sha256": "3ec8ff805cb1d01587c785c07e44cb44b30f60ef18cbea9e13ba37f189bd5356",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F056.png",
+      "sha256": "f78ca3416f719e171e68d624abdc3d6909c861a840ecd3f770fb5b0daf4f1dfb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F057.png",
+      "sha256": "f78ca3416f719e171e68d624abdc3d6909c861a840ecd3f770fb5b0daf4f1dfb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F058.png",
+      "sha256": "4cfa5e59d01c2cf18ac7c1ca5da8152d5251d2db77e7916603efa78721cb12ae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F059.png",
+      "sha256": "4cfa5e59d01c2cf18ac7c1ca5da8152d5251d2db77e7916603efa78721cb12ae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F060.png",
+      "sha256": "e30c8b527bf84a488dd45bb3bca5e95a9ca2153312d13c197475b001f1b3c007",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F061.png",
+      "sha256": "e30c8b527bf84a488dd45bb3bca5e95a9ca2153312d13c197475b001f1b3c007",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F062.png",
+      "sha256": "14880b23223a24b010f0e66fba97f30f098f35cb3b1145b07b31ad141b7a457a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F063.png",
+      "sha256": "14880b23223a24b010f0e66fba97f30f098f35cb3b1145b07b31ad141b7a457a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F064.png",
+      "sha256": "950bf45632b3d8bc511d56b09d2262fc1ad0b9bcf01b8f1042a224ce32cb0090",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F065.png",
+      "sha256": "950bf45632b3d8bc511d56b09d2262fc1ad0b9bcf01b8f1042a224ce32cb0090",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F066.png",
+      "sha256": "2216c51319644fc748a1fa1438293932e82df8f97d7030b318da094ff6261846",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F067.png",
+      "sha256": "2216c51319644fc748a1fa1438293932e82df8f97d7030b318da094ff6261846",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F068.png",
+      "sha256": "9c69ebfa4e5163a70a2095b5125366bb60084b1c7ee9f95bb596c84fbd96ba13",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F069.png",
+      "sha256": "9c69ebfa4e5163a70a2095b5125366bb60084b1c7ee9f95bb596c84fbd96ba13",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F070.png",
+      "sha256": "9dae4f154b6788c3a9a67aeec43cbfb8e1636e9e2dbf1dbdfc91793f58241d41",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F071.png",
+      "sha256": "9dae4f154b6788c3a9a67aeec43cbfb8e1636e9e2dbf1dbdfc91793f58241d41",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/keyframes.png",
+      "sha256": "9df0dd85ea039d550217537c23cabf12296a4a851428e32376862d70afe5a295",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/source/render_s02.py",
+      "sha256": "ba192d35e2c34c1aed81cd4529c075cce3d73598413f4705e0089648882c3474",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/source/verify.py",
+      "sha256": "611e87ebc5a7fd1fab9f01d65014b6d662796f7df5a9484f58fd5dd458189153",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "sha256": "1af48a18d04b8244808f2b93af3e66e35d0eee9041443b6fe7cdeed7ae5703c6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/protected_files.json",
+      "sha256": "2ce4688cbf4707f078491722fb299f6011f0b72394d2784084a8f1b542ec47c6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/remote_refs_before.txt",
+      "sha256": "e23383d2b6146a05c8aa9a4e8769fe9e03b7b40bc48ee786f01569266228976e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/source_documents.json",
+      "sha256": "d57548e4e1c8c063afb804beabe5ab87232bfdf808d4faad40c9255a0b0d5946",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/technical_checks.json",
+      "sha256": "c6e9705cf20e695767c8e0a256efd5b66185f38d711984ec33760d7c560f952d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/video/S02_stance_step_DRAFT_24fps.mp4",
+      "sha256": "faf0827df6797b33207e8aaefbcd28b322c97bd050a3ef8f5466a944ae4dc20e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "sha256": "f11024fc28c51206777a2558e522ced9d7cf692534d4aca31260fc6c450e881f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/README.md",
+      "sha256": "bbb0857d15657242aaf2c957aa65a23250db25e4debca3067e6c8927a7cbf2a0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/S03_independent_DRAFT_review.zip",
+      "sha256": "87ad1628488f8f0dc1290c32a1aaecbabfd6366675d34bfe50e6daab372b5e80",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/exposure_sheet.csv",
+      "sha256": "d208f9b65c2be45674ea662de05ece18755e7ada8dc43e58ecee68d32c74c73a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F000.png",
+      "sha256": "d6c420409c0b69195abce6c58fb7cfe9142ed67a446c3274e7aac3272fe1faf2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F001.png",
+      "sha256": "d6c420409c0b69195abce6c58fb7cfe9142ed67a446c3274e7aac3272fe1faf2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F002.png",
+      "sha256": "7c71588ac27c36576e161b55e56e4db3893fd3e99591afd139c1b986f4e927b1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F003.png",
+      "sha256": "7c71588ac27c36576e161b55e56e4db3893fd3e99591afd139c1b986f4e927b1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F004.png",
+      "sha256": "ec1672625fc4deda3e4ac0549c4ae61f06df415fa3f8d5ba5e93c3557b6d30f6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F005.png",
+      "sha256": "ec1672625fc4deda3e4ac0549c4ae61f06df415fa3f8d5ba5e93c3557b6d30f6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F006.png",
+      "sha256": "083758cbacab70853b8c8407c94e6a2bb3a960417520af6480f9b4bb5075e52e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F007.png",
+      "sha256": "083758cbacab70853b8c8407c94e6a2bb3a960417520af6480f9b4bb5075e52e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F008.png",
+      "sha256": "8213f80fd1a84009bc59dca031d4a9cd6c69acc9cc24146ca9377c8b6aeb6e9a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F009.png",
+      "sha256": "8213f80fd1a84009bc59dca031d4a9cd6c69acc9cc24146ca9377c8b6aeb6e9a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F010.png",
+      "sha256": "a9e0db6c447f839b92ff66dbf976f367b345a629fc7eee303e378f9b9426057a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F011.png",
+      "sha256": "a9e0db6c447f839b92ff66dbf976f367b345a629fc7eee303e378f9b9426057a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F012.png",
+      "sha256": "527302983f62f15846c91a6d27bd9684a1231429fca7eade1ee3ac4933d1c3ac",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F013.png",
+      "sha256": "527302983f62f15846c91a6d27bd9684a1231429fca7eade1ee3ac4933d1c3ac",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F014.png",
+      "sha256": "f425a51ac9f6427e15b8712815057330c402ec7e9a249449379e1d315f29c886",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F015.png",
+      "sha256": "f425a51ac9f6427e15b8712815057330c402ec7e9a249449379e1d315f29c886",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F016.png",
+      "sha256": "accba9f4d3100d254a55c4c5670d5da0bfe714c211f74499fb061ff7c189f51c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F017.png",
+      "sha256": "accba9f4d3100d254a55c4c5670d5da0bfe714c211f74499fb061ff7c189f51c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F018.png",
+      "sha256": "40c9d7de87e473bcccedbb37de1c8366f2848c17cdd9543158f29c76533cc9a2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F019.png",
+      "sha256": "40c9d7de87e473bcccedbb37de1c8366f2848c17cdd9543158f29c76533cc9a2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F020.png",
+      "sha256": "de0f87a4296dba08491835ffbcf70875d96bf2f5a21e781668a6421c6fc46191",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F021.png",
+      "sha256": "de0f87a4296dba08491835ffbcf70875d96bf2f5a21e781668a6421c6fc46191",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F022.png",
+      "sha256": "a2f4b668d41706dab43ad1816eb721e4c26bf32b08ac8e3816efb4113319bbc3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F023.png",
+      "sha256": "a2f4b668d41706dab43ad1816eb721e4c26bf32b08ac8e3816efb4113319bbc3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F024.png",
+      "sha256": "3528917dfba505018bfc67b0039df120c05198778ed3f5e0095f47c401642318",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F025.png",
+      "sha256": "3528917dfba505018bfc67b0039df120c05198778ed3f5e0095f47c401642318",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F026.png",
+      "sha256": "c2fc5f58d42410cf8db04884b5f14df0284c89b72c681332f576b711d5db6e7b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F027.png",
+      "sha256": "c2fc5f58d42410cf8db04884b5f14df0284c89b72c681332f576b711d5db6e7b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F028.png",
+      "sha256": "6d5b1382f1d28d242fefd1c9bfeca73339ed29fcde08927ac4cd132e733d18e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F029.png",
+      "sha256": "6d5b1382f1d28d242fefd1c9bfeca73339ed29fcde08927ac4cd132e733d18e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F030.png",
+      "sha256": "0a8cc2010c06014ddcda012e095162cf5d5a43e35aabf62c733a09c6f4c4cf07",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F031.png",
+      "sha256": "0a8cc2010c06014ddcda012e095162cf5d5a43e35aabf62c733a09c6f4c4cf07",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F032.png",
+      "sha256": "3e98a1d50bc6b77d3ba87e263bfd7668171bbc929e939728233a4ae7e783f870",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F033.png",
+      "sha256": "3e98a1d50bc6b77d3ba87e263bfd7668171bbc929e939728233a4ae7e783f870",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F034.png",
+      "sha256": "7c7b2716b874e84975f58f26ee81ce5d02cf58197bf93e957d4ee11b4b11cc4c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F035.png",
+      "sha256": "7c7b2716b874e84975f58f26ee81ce5d02cf58197bf93e957d4ee11b4b11cc4c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F036.png",
+      "sha256": "06e9f984efe887d35b90cfcfa863ff9102c65295c8a8517859a4bff4b279d32c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F037.png",
+      "sha256": "06e9f984efe887d35b90cfcfa863ff9102c65295c8a8517859a4bff4b279d32c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F038.png",
+      "sha256": "0e90009f00d62bee34db741fc3e0615a09450d577c1c959356ec8f763cc2acd7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F039.png",
+      "sha256": "0e90009f00d62bee34db741fc3e0615a09450d577c1c959356ec8f763cc2acd7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F040.png",
+      "sha256": "f7bedffe9844a765dc1359fdc98667dff1be35c2566ae9633ac62aea9fe4dc03",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F041.png",
+      "sha256": "f7bedffe9844a765dc1359fdc98667dff1be35c2566ae9633ac62aea9fe4dc03",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F042.png",
+      "sha256": "43e92a0dd33269ac072501ed00276e3418e8ad8858f5ff713d3545dbd8ac9ca5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F043.png",
+      "sha256": "43e92a0dd33269ac072501ed00276e3418e8ad8858f5ff713d3545dbd8ac9ca5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F044.png",
+      "sha256": "92e476f5fe4c792ed1b63fc6e5d9b69bf83fc143f3577075dd828fc11499819b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F045.png",
+      "sha256": "92e476f5fe4c792ed1b63fc6e5d9b69bf83fc143f3577075dd828fc11499819b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F046.png",
+      "sha256": "619867888f1d3a87a912b029b52e09ebae4dfec08ca55192c0b15f80e3374b64",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F047.png",
+      "sha256": "619867888f1d3a87a912b029b52e09ebae4dfec08ca55192c0b15f80e3374b64",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F048.png",
+      "sha256": "e29f5684ef462fd1a294b8516f2eaf6ec6be689ef40288f2bd32cdd021200282",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F049.png",
+      "sha256": "e29f5684ef462fd1a294b8516f2eaf6ec6be689ef40288f2bd32cdd021200282",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F050.png",
+      "sha256": "9972bb70e42be7e5223826270ca2a1a294966e29ef4c24c03f412155b371835e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F051.png",
+      "sha256": "9972bb70e42be7e5223826270ca2a1a294966e29ef4c24c03f412155b371835e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F052.png",
+      "sha256": "96fd34a9fe962819af340446271030416957e1ff86779508d28942be594809d7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F053.png",
+      "sha256": "96fd34a9fe962819af340446271030416957e1ff86779508d28942be594809d7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F054.png",
+      "sha256": "e2fc387d4b5772816721226193bf78b95f70c655bb978b8ee73387c0a174c478",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F055.png",
+      "sha256": "e2fc387d4b5772816721226193bf78b95f70c655bb978b8ee73387c0a174c478",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F056.png",
+      "sha256": "c4af5edce474a3d906d91d45843834f8a2043b5806d3702c5c808bea5deacad5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F057.png",
+      "sha256": "c4af5edce474a3d906d91d45843834f8a2043b5806d3702c5c808bea5deacad5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F058.png",
+      "sha256": "cd75f1640966d09db5f9f73b76342dc6cdd587a445239aa03dc22234f52c6018",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F059.png",
+      "sha256": "cd75f1640966d09db5f9f73b76342dc6cdd587a445239aa03dc22234f52c6018",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F060.png",
+      "sha256": "05a5ceecb575f42464d17ad6a89ebe3548126bff204b4fc1ae609dc9824516e7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F061.png",
+      "sha256": "05a5ceecb575f42464d17ad6a89ebe3548126bff204b4fc1ae609dc9824516e7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F062.png",
+      "sha256": "07267a9bc80554b020bdb1a75003c09f4c3a679856337a5f6ba3173d38c21bf2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F063.png",
+      "sha256": "07267a9bc80554b020bdb1a75003c09f4c3a679856337a5f6ba3173d38c21bf2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F064.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F065.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F066.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F067.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F068.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F069.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F070.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F071.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/keyframes.png",
+      "sha256": "aa747b3d8198382209c1ae20dce03cc7d6e31b3e1eaa682c5ac619f3beedf3a1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/source/render_s03.py",
+      "sha256": "d2500b466039cffadb643717b6114dbce2afb66cb052b18e790ab899a67e5a9a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/source/verify.py",
+      "sha256": "cf698f61ca98065d5c5d404b1e3cea8728220f1d837b2f0be2d8e3c247954315",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "sha256": "b8df6a4595363b2a9b0f311364dc78db224113e3d2484125df9e39df0f0dd8aa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/verification/protected_files.json",
+      "sha256": "92df9f03572b1eeb96af5d6def6f30c48a18dec8dd6fac23044287567f0b0dfa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/verification/technical_checks.json",
+      "sha256": "ff52479108af52ad4e53d738cc580bd56ad283eacc132c312be29fa22cfce2e0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/video/S03_pre_dash_tension_DRAFT_24fps.mp4",
+      "sha256": "7086a3270637617f86d128dcde346046596d2bd7201beb5ad9d042a84f4dc266",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "sha256": "0216c4defb8503530a57e85677a2de6f8cc2dcf7105a3adf0757140458468a21",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/README.md",
+      "sha256": "8ab2937e0d23e2e9ed4441085c1ee1fe2b53d6b580376e3bc9d65b837460c3dd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/S04_evasion_DRAFT_review.zip",
+      "sha256": "262b02812173ec6c6ebd60a8a3874915e0c1761d057107620bcc72cba4275e9a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/exposure_sheet.csv",
+      "sha256": "bedbfcb58dab16273d8dbf0c72b4453e9d36216abc11878a00e78b4a8391b426",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F000.png",
+      "sha256": "e1176b8f6e8d14d38429490877c62b967bd6573f2fa43b2dce9a48f6e858e7de",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F001.png",
+      "sha256": "2a2f4ae9d034a79da99ae030541fc67e02f636aa6cf0820ae7a68146258c9fb6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F002.png",
+      "sha256": "cb7228b8e7464861f454836741b6c80bafb362d90b41d429b968e82d30441fb0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F003.png",
+      "sha256": "3a90ac16048173855a3b7f1f3fe8ef30978e51d02ded5175c5e96f2a7ca300df",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F004.png",
+      "sha256": "37235661a27297723a2bf7c179fe4547af77b784a2bc48dffb7615bbbfc51aa6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F005.png",
+      "sha256": "55e717d9d4d7f00f0688f8ce78800d70c046f3415a7b6b2fe4320da2777c103a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F006.png",
+      "sha256": "3638ec320ba74775b14bd5a11a46ca633b660244c244a5acb5b076240c7b4163",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F007.png",
+      "sha256": "ac68b4efb23c8ce9b0b799e6bee3d3141e0771664e87146786d9302311e186ef",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F008.png",
+      "sha256": "882e676f6a0dd61505c82f4d6d3df4e05e2276f6ebf0f576037e5f211db311fc",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F009.png",
+      "sha256": "50340202e191cd96c8b8e14b16cc32e7f3878943176c737ded5857904cc3e6ad",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F010.png",
+      "sha256": "c829e6087b28505441375ad5dfa002b2847a6695d3c9f50770e0f11db0aa636d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F011.png",
+      "sha256": "a31308101a31474f2b4c000fdb180bc1e5d57691ccd31ef4994e07c979f3e985",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F012.png",
+      "sha256": "a31835d0c804eef93a90966742edbdb02a2fed7fe571d80a41b7252838f94b39",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F013.png",
+      "sha256": "ca05f675c66732d61cb8722551d65a026a7fd9b7d0efc27bf88e3ac6c2163e78",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F014.png",
+      "sha256": "ccfd1fc11f5759e8a40290f9b4e6a16b52578b2c72eb0a97f4e38aa4d6d7d0f4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F015.png",
+      "sha256": "0e71a34fa945197809c31ad36b9d5c040b3c737809ec8a4bac40d6acaa2a86b2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes.png",
+      "sha256": "3fe444daef87c63ecac589399e5de480110a4f0be754cc6e47b4807852ff07a7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F230_L000.png",
+      "sha256": "e1176b8f6e8d14d38429490877c62b967bd6573f2fa43b2dce9a48f6e858e7de",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F233_L003.png",
+      "sha256": "3a90ac16048173855a3b7f1f3fe8ef30978e51d02ded5175c5e96f2a7ca300df",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F235_L005.png",
+      "sha256": "55e717d9d4d7f00f0688f8ce78800d70c046f3415a7b6b2fe4320da2777c103a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F237_L007.png",
+      "sha256": "ac68b4efb23c8ce9b0b799e6bee3d3141e0771664e87146786d9302311e186ef",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F239_L009.png",
+      "sha256": "50340202e191cd96c8b8e14b16cc32e7f3878943176c737ded5857904cc3e6ad",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F240_L010.png",
+      "sha256": "c829e6087b28505441375ad5dfa002b2847a6695d3c9f50770e0f11db0aa636d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F242_L012.png",
+      "sha256": "a31835d0c804eef93a90966742edbdb02a2fed7fe571d80a41b7252838f94b39",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F245_L015.png",
+      "sha256": "0e71a34fa945197809c31ad36b9d5c040b3c737809ec8a4bac40d6acaa2a86b2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/source/render_s04_evasion.py",
+      "sha256": "bc5203e8fab348ca40d1ed4c2e8c68ba473853842d1a9da62e90b617ffb05b56",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/source/verify.py",
+      "sha256": "7b03052a3c22554cd908ac5a7d84d54b7044a758bb09050a42eaf6610693f80c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/baseline_sha256.json",
+      "sha256": "fa7d73cde443d02e198f6301c5c5dae1345f488de95656ed8d34e987a683abe7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/connection.png",
+      "sha256": "c1a17a63c255e373fb71651e1896c638c7cceb0cddfec4dc658238bf79278624",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "sha256": "2fe5364fdcc2ce0ad74e83aeab32981d30514371704f801087775dce9e878406",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/protected_files.json",
+      "sha256": "797a187422c755260e7f12683c7d45a276e1a200a13883d2257874effc9e1ee7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/technical_checks.json",
+      "sha256": "9dcb8fa7adbe7005f6c516e5acef2102d6581e5256d4702ecd1368ccb55f90f6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/video/S04_evasion_DRAFT_24fps.mp4",
+      "sha256": "3bdeea8d18b3a06bf0545cc614f48510e4fc2f3d08bdec3909f0bf739c06c94f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "sha256": "1581ba67b0b2405016f5bd787a83961f51302a9e6ae056de9e0c710dd10c9327",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/README.md",
+      "sha256": "f5284bbe59f7ae5e6620458490a8d6853b2eec89d92ff69a08278cc189a4346c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/exposure_sheet.csv",
+      "sha256": "3347632e3718cacc1f03933e6c796eb074de6c75c05cc4da1f27c70e13980def",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F000.png",
+      "sha256": "ec46dd66862a35b0f3178c35db8a173325f1a1785792d9daddebff21f3161433",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F001.png",
+      "sha256": "c4498761abd62a8d920c59f9e08614b00c32e8efc21dea05c30a087df71a6bde",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F002.png",
+      "sha256": "588a9242995105243b5788c5d40e1f8df903990402048038ff44650fe9bf488b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F003.png",
+      "sha256": "3fe5aba4c99dda5e6536898e4af74410e6d5f39113a30d341fad55da6b6632a7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F004.png",
+      "sha256": "dfd37ccc032764598537d01f07cf2327fcb1ede4fbb31d657ac0884b44aeee27",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F005.png",
+      "sha256": "cce8905c7a87fc6dd6ff73d4fc17f1ba843db3e536e69583a38e0e08593794e5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F006.png",
+      "sha256": "e80828d6cf1f41d7520773518ac59917854c4b68876dec5d6542ba44c4953caa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F007.png",
+      "sha256": "3a7453898fdf4a222a61c3082291cc3cccd56d7a16dc932b00fea60a3d9942e9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F008.png",
+      "sha256": "e1767caccc413b618407105426e46b81fb64d39bde5be930d2b8c60aceb9a779",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F009.png",
+      "sha256": "d7927e73c649c6e541b49ae451b3a37d06075edb9f773e1619a6df98ebcea05e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F010.png",
+      "sha256": "b26f6dd4a9c8370a1bfbc1cb005e3ce30d249409b2a2cb22044ecc0d113ea98c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F011.png",
+      "sha256": "ab97203ad9f31564671fefb093cbfdf9c8a96779645d972dda43cf41a47fed41",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F012.png",
+      "sha256": "676f90fdfba1b7210bc9949fd84052b8ad0dd685ec7293caaf31453426222d2e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F013.png",
+      "sha256": "66ce6692087c291ffa1264985b932dba8301ee8ce518bcf127757088fd699df2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/keyframes.png",
+      "sha256": "48a96c9223933982f14b212a5d21f22ba8e2dea8c1b39456f8a718216a622c6d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/source/render_s04.py",
+      "sha256": "9b99dd4094699bae8c1518957e4d16c89bb5c0d778e65b24fe19b4d602670ed6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/source/verify.py",
+      "sha256": "dd569508e775965e5dcbda69d32e689fcb68dc0ef6137a848b1f229a3f3e7201",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "sha256": "514502b3ba9f5ce39b6115cb4107956ad5b76e646d79ca8514d730fe7960392e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/verification/protected_files.json",
+      "sha256": "f8f0dfbb231cd83fe4a3849c9ebda7c18162fdbbd2e9b390b266e66d99f2b38a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/verification/technical_checks.json",
+      "sha256": "5d13efb008e0afe1e7f3e0fc747a602a37f26919f8de5a86f4d16676d7ba2efe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/video/S04_combat_step_DRAFT_24fps.mp4",
+      "sha256": "8afbad0515b74688a80c4826b599cd2756999534906d0af147ba1c0b69c13399",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/CONTINUITY_CHECKLIST_DRAFT.md",
+      "sha256": "554508a9fe5209f99ba58d993c4f16909ebe8039faf2983b15cea3c00906c062",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/NEXT_STEPS_DRAFT.md",
+      "sha256": "88f022a60a1b4429219b368a557cbd36c153e9e2c7ab16944a1c7a238c4d6ee0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/PRODUCTION_LOG_DRAFT.md",
+      "sha256": "7fd1cdaa4e5e84a742cd206188ba67e5b2a8ded2930cf68346482337bf8ceece",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/README.md",
+      "sha256": "ac024416ee5d915841d03d21be73d3466c120801a0ef74afdb75bd6305cf705a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SHA256.json",
+      "sha256": "7d77005c20157ca53691c6943bd2059dc1907400f2e547a0da63a7821d45bba3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SOUND_CUES_DRAFT.md",
+      "sha256": "9dc40c0b680e6925b566aab08ecca28c1c9cb0285c93fab3d7db5e447010a8ba",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SOURCES_AND_STATUS.md",
+      "sha256": "99a4f2a0c7dcf64d09600deb354cfc0ab548b18b37e6aac9e99f4801bfca2260",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/TIMELINE_DRAFT.md",
+      "sha256": "698abd9bc9a9bd9424cc3c8318aba65e02b38e595ca3dff68eaa3d8378eaccc5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/ZERO_CODE_pilot15_preparation_DRAFT.zip",
+      "sha256": "4c853893d3c1d0ba7e4c98a18afb388bbe79a6099fd882d0a1362c8837ad0b9a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/ZIP_INTEGRITY.json",
+      "sha256": "e3423839cd1fc7c871b6582e464424ab85b8ae8afe24d35d79546fa1e8230727",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/sound_cues_draft.csv",
+      "sha256": "4ae337fe68db02a0a2b89402d5f42b9af10943949fd4be1f42d45c9d5889ddde",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/source/check_plan.py",
+      "sha256": "cac8500d4508e5821c37902663a495b0782682afdf58e957320ae0167c3bdffd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/source/inspect_media.py",
+      "sha256": "60ddc54922852a9407d06e909cf89e3357791b567cbe5c2945910565326a31a2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/timeline_draft.csv",
+      "sha256": "a57816818da5347e36bd8763acc16ba3cfa1aa08b9d2e7aa55c19c0f17337ae5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/design04_inspection.json",
+      "sha256": "576327406b70cbef98d3530f002c8ec84686d5dda7249cdb41f265fa2527c54b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/negative_profile_check.json",
+      "sha256": "b652ca2fa8400050dca0b33dcf7271dfaa00ca5e88d31650125d690ebf90bdd2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/plan_checks.json",
+      "sha256": "cb53bd9fd6a7556342ee9ad089ef513782f623fe9022957f7b634a6e1a4966f6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/preparation_checks.json",
+      "sha256": "329011381575520eb0cebe35e4d215a503f7c53e1f09e9dd758704ad86670827",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/source_documents.json",
+      "sha256": "dab90f84f622c873cb10fa10d8a0f4ef6e6af4e732cc213690c488a2f24727b2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/source_media_checks.json",
+      "sha256": "7947de256ef9086409e10d3270c969fdf04c4381037710630bf5616c2e650a94",
+      "unchanged": true
+    }
+  ]
+}

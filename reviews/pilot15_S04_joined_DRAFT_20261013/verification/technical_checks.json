@@ -1,0 +1,282 @@
+{
+  "status": "PASS",
+  "checks": {
+    "resolution": true,
+    "fps": true,
+    "frames": true,
+    "duration": true,
+    "no_audio": true,
+    "full_decode": true,
+    "all_30_pngs_exact_to_pinned_commits": true,
+    "no_drop_repeat_or_interpolation": true,
+    "boundary_pose_parameters": true,
+    "all_prior_tracked_files_unchanged": true,
+    "decoded_rgb_30_frames": true,
+    "all_output_psnr_above_40db": true
+  },
+  "boundary_parameters": {
+    "root_dx": {
+      "F229": 85,
+      "F230": 85,
+      "equal": true
+    },
+    "root_dy": {
+      "F229": 14,
+      "F230": 14,
+      "equal": true
+    },
+    "right_foot_dx": {
+      "F229": 136,
+      "F230": 136,
+      "equal": true
+    },
+    "right_foot_dy": {
+      "F229": -104.0,
+      "F230": -104,
+      "equal": true
+    },
+    "bag_lag_y": {
+      "F229": -8.572527594031472e-16,
+      "F230": 0,
+      "equal": true
+    }
+  },
+  "encoding_psnr": [
+    {
+      "local_frame": 0,
+      "pilot_frame": 216,
+      "psnr_db": 42.7738
+    },
+    {
+      "local_frame": 1,
+      "pilot_frame": 217,
+      "psnr_db": 42.7688
+    },
+    {
+      "local_frame": 2,
+      "pilot_frame": 218,
+      "psnr_db": 42.7694
+    },
+    {
+      "local_frame": 3,
+      "pilot_frame": 219,
+      "psnr_db": 42.77
+    },
+    {
+      "local_frame": 4,
+      "pilot_frame": 220,
+      "psnr_db": 42.7732
+    },
+    {
+      "local_frame": 5,
+      "pilot_frame": 221,
+      "psnr_db": 42.7678
+    },
+    {
+      "local_frame": 6,
+      "pilot_frame": 222,
+      "psnr_db": 42.7716
+    },
+    {
+      "local_frame": 7,
+      "pilot_frame": 223,
+      "psnr_db": 42.7688
+    },
+    {
+      "local_frame": 8,
+      "pilot_frame": 224,
+      "psnr_db": 42.7795
+    },
+    {
+      "local_frame": 9,
+      "pilot_frame": 225,
+      "psnr_db": 42.7714
+    },
+    {
+      "local_frame": 10,
+      "pilot_frame": 226,
+      "psnr_db": 42.7739
+    },
+    {
+      "local_frame": 11,
+      "pilot_frame": 227,
+      "psnr_db": 42.7746
+    },
+    {
+      "local_frame": 12,
+      "pilot_frame": 228,
+      "psnr_db": 42.784
+    },
+    {
+      "local_frame": 13,
+      "pilot_frame": 229,
+      "psnr_db": 42.7827
+    },
+    {
+      "local_frame": 14,
+      "pilot_frame": 230,
+      "psnr_db": 42.7833
+    },
+    {
+      "local_frame": 15,
+      "pilot_frame": 231,
+      "psnr_db": 42.7794
+    },
+    {
+      "local_frame": 16,
+      "pilot_frame": 232,
+      "psnr_db": 42.7824
+    },
+    {
+      "local_frame": 17,
+      "pilot_frame": 233,
+      "psnr_db": 42.7795
+    },
+    {
+      "local_frame": 18,
+      "pilot_frame": 234,
+      "psnr_db": 42.7804
+    },
+    {
+      "local_frame": 19,
+      "pilot_frame": 235,
+      "psnr_db": 42.7778
+    },
+    {
+      "local_frame": 20,
+      "pilot_frame": 236,
+      "psnr_db": 42.7812
+    },
+    {
+      "local_frame": 21,
+      "pilot_frame": 237,
+      "psnr_db": 42.777
+    },
+    {
+      "local_frame": 22,
+      "pilot_frame": 238,
+      "psnr_db": 42.7788
+    },
+    {
+      "local_frame": 23,
+      "pilot_frame": 239,
+      "psnr_db": 42.7747
+    },
+    {
+      "local_frame": 24,
+      "pilot_frame": 240,
+      "psnr_db": 42.7865
+    },
+    {
+      "local_frame": 25,
+      "pilot_frame": 241,
+      "psnr_db": 42.7761
+    },
+    {
+      "local_frame": 26,
+      "pilot_frame": 242,
+      "psnr_db": 42.7751
+    },
+    {
+      "local_frame": 27,
+      "pilot_frame": 243,
+      "psnr_db": 42.7715
+    },
+    {
+      "local_frame": 28,
+      "pilot_frame": 244,
+      "psnr_db": 42.7671
+    },
+    {
+      "local_frame": 29,
+      "pilot_frame": 245,
+      "psnr_db": 42.7616
+    }
+  ],
+  "ffprobe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.640032",
+        "width": 1080,
+        "height": 1920,
+        "coded_width": 1088,
+        "coded_height": 1920,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "level": 50,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 5,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "time_base": "1/12288",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 15360,
+        "duration": "1.250000",
+        "bit_rate": "1313747",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "30",
+        "nb_read_frames": "30",
+        "extradata_size": 47,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "encoder": "Lavc63.1.102 libx264"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/Users/hagakengo/Documents/Codex/2026-10-13/referenced-chatgpt-conversation-this-is-an-34/work/lane_a/reviews/pilot15_S04_joined_DRAFT_20261013/video/S04_joined_F216-245_DRAFT_24fps.mp4",
+      "nb_streams": 1,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "1.250000",
+      "size": "206492",
+      "bit_rate": "1321548",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf63.1.102"
+      }
+    }
+  },
+  "direction_status": "UNDETERMINED: no real-time continuous viewing, phone review, or director approval",
+  "note": "Exact PNG source sequence. Standard H.264 yuv420p MP4 is lossy; PSNR checks encoding only, not artistic continuity."
+}
