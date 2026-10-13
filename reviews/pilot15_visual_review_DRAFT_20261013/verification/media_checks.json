@@ -1,0 +1,67 @@
+[
+  {
+    "source": "S01",
+    "sha256": "0a97d3ca6e379cba6f69ec0f6e893d14748ee5d0153fd61a55ff6525fb114b58",
+    "resolution": [
+      1080,
+      1920
+    ],
+    "fps": "24/1",
+    "count": 72,
+    "expected_count": 72,
+    "full_decode": true,
+    "technical_pass": true
+  },
+  {
+    "source": "S02",
+    "sha256": "faf0827df6797b33207e8aaefbcd28b322c97bd050a3ef8f5466a944ae4dc20e",
+    "resolution": [
+      1080,
+      1920
+    ],
+    "fps": "24/1",
+    "count": 72,
+    "expected_count": 72,
+    "full_decode": true,
+    "technical_pass": true
+  },
+  {
+    "source": "S03",
+    "sha256": "7086a3270637617f86d128dcde346046596d2bd7201beb5ad9d042a84f4dc266",
+    "resolution": [
+      1080,
+      1920
+    ],
+    "fps": "24/1",
+    "count": 72,
+    "expected_count": 72,
+    "full_decode": true,
+    "technical_pass": true
+  },
+  {
+    "source": "S04",
+    "sha256": "9f550d79a8a665436876e3d775be444337ca6c1e3e958edd58819a1764001d49",
+    "resolution": [
+      1080,
+      1920
+    ],
+    "fps": "24/1",
+    "count": 30,
+    "expected_count": 30,
+    "full_decode": true,
+    "technical_pass": true
+  },
+  {
+    "source": "B",
+    "sha256": "3f34b082ddf7ad1a9cd65b0749c1e262e3f41158e626c61b8b0b1fd39bca6f0b",
+    "resolution": [
+      1080,
+      1920
+    ],
+    "fps": "24/1",
+    "count": 144,
+    "expected_count": 144,
+    "full_decode": true,
+    "technical_pass": true
+  }
+]

@@ -1,0 +1,2967 @@
+{
+  "base": "54e200c50053c9746c553c66b742de092809fe52",
+  "count": 740,
+  "all_unchanged": true,
+  "files": [
+    {
+      "path": ".cursor/rules/zero-code-director-guidance.mdc",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "unchanged": true
+    },
+    {
+      "path": ".gitignore",
+      "unchanged": true
+    },
+    {
+      "path": "AGENTS.md",
+      "unchanged": true
+    },
+    {
+      "path": "DIRECTOR_GUIDELINES.md",
+      "unchanged": true
+    },
+    {
+      "path": "PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "PROJECT_CONTEXT.md",
+      "unchanged": true
+    },
+    {
+      "path": "README.md",
+      "unchanged": true
+    },
+    {
+      "path": "ROADMAP.md",
+      "unchanged": true
+    },
+    {
+      "path": "ZERO_CODE_RULES.md",
+      "unchanged": true
+    },
+    {
+      "path": "archive/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "archive/failed_generations/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "archive/prototypes/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "archive/rejected/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env.example",
+      "unchanged": true
+    },
+    {
+      "path": "backend/api/index.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/__init__.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/buffer.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/main.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/youtube.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/migrate_sqlite_to_postgres.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/requirements-dev.txt",
+      "unchanged": true
+    },
+    {
+      "path": "backend/requirements.txt",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_api.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_buffer.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_progression.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_public_status.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_youtube.py",
+      "unchanged": true
+    },
+    {
+      "path": "backend/vercel.json",
+      "unchanged": true
+    },
+    {
+      "path": "backend/youtube_authorize.py",
+      "unchanged": true
+    },
+    {
+      "path": "bible/VISUAL_BIBLE.md",
+      "unchanged": true
+    },
+    {
+      "path": "bible/WORLD_LORE.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/CODEX_PHASE1_TASK.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/CODEX_PHASE4_5_REMOTE_ACCESS.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ZERO_CODE_OS_V0_1_SPEC.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ZERO_CODE_PHILOSOPHY.md",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/EP01/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/TEASER00/CAPCUT_EDIT_GUIDE.md",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/TEASER00/TEASER00_SCRIPT.md",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/.env.example",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/globals.css",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/layout.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/page.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/next-env.d.ts",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/next.config.ts",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/package.json",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/postcss.config.js",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/tailwind.config.ts",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/ASSET_IMPORT_MANIFEST.md",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/D1_CONTINUITY_TEST_PROTOCOL.md",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/TEST_A_BACK_CLOSEUP_PROMPT.md",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/environments/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/protagonist/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/ui/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/REVIEW_SUBMISSION_STANDARD.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/ZERO_CODE_counterattack_design_01_review.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/comparison/footwork_before_after.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/comparison/r15_1_vs_r15_2_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/design_keyposes.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/verification/submission_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/video/counterattack_retreat_design_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/SHA256.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/ZERO_CODE_counterattack_design_02_review.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P020.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P040.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P042.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P044.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P048.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P055.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/design_keyposes_02.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P014.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P016.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P017.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P018.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P019.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P020.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P021.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P022.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P027.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P029.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P030.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P032.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P033.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P034.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P036.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P037.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P038.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P039.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P040.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P041.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P042.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P043.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P044.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P045.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P047.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P048.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P049.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P052.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P053.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P054.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P055.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P056.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P057.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P058.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P059.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P060.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P061.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P062.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P063.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P064.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P065.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P066.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P067.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P068.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P069.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P070.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P071.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/baseline.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/baseline_poses.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/build_design_02.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/package_review.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/verify_review.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/all_72_frames.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/motion_design_02.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/protected_hashes.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/submission_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/zip_integrity.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/video/counterattack_design_02_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/SHA256.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/ZERO_CODE_counterattack_design_03_review.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/design_keyposes_03.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P014.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P016.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P017.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P018.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P019.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P020.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P021.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P022.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P027.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P029.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P030.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P032.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P033.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P034.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P036.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P037.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P038.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P039.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P040.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P041.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P042.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P043.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P044.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P045.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P047.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P048.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P049.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P052.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P053.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P054.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P055.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P056.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P057.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P058.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P059.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P060.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P061.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P062.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P063.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P064.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P065.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P066.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P067.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P068.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P069.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P070.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P071.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/baseline.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/build_design_03.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/poses03.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/all_72_frames.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/protected_files.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/submission_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/video/counterattack_design_03_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/SHA256.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/ZERO_CODE_counterattack_design_04_review.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P040.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/design_keyposes_04.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P014.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P016.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P017.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P018.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P019.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P020.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P021.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P022.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P027.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P029.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P030.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P032.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P033.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P034.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P036.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P037.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P038.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P039.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P040.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P041.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P042.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P043.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P044.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P045.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P047.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P048.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P049.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P052.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P053.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P054.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P055.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P056.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P057.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P058.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P059.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P060.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P061.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P062.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P063.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P064.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P065.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P066.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P067.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P068.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P069.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P070.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P071.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/baseline.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/build_design_04.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/poses04.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/all_72_frames.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/protected_files.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/submission_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/temporal_analysis.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/video/counterattack_design_04_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/S01_independent_DRAFT_review.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/SHA256.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F014.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F016.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F017.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F018.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F019.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F020.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F021.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F022.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F027.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F029.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F030.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F032.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F033.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F034.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F036.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F037.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F038.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F039.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F040.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F041.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F042.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F043.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F044.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F045.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F047.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F048.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F049.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F052.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F053.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F054.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F055.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F056.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F057.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F058.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F059.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F060.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F061.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F062.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F063.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F064.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F065.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F066.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F067.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F068.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F069.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F070.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F071.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/keyframes.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/source/render_s01.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/source/verify.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/protected_files.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/reference_media_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/technical_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/video/S01_silence_DRAFT_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/S02_independent_DRAFT_review.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/SCOPE_AND_SOURCES.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/SHA256.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/ZIP_INTEGRITY.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/boundary_comparison.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/exposure_sheet.csv",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/footwork_detail.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F014.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F016.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F017.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F018.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F019.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F020.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F021.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F022.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F027.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F029.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F030.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F032.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F033.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F034.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F036.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F037.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F038.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F039.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F040.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F041.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F042.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F043.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F044.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F045.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F047.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F048.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F049.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F052.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F053.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F054.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F055.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F056.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F057.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F058.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F059.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F060.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F061.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F062.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F063.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F064.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F065.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F066.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F067.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F068.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F069.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F070.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F071.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/keyframes.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/source/render_s02.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/source/verify.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/protected_files.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/remote_refs_before.txt",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/source_documents.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/technical_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/video/S02_stance_step_DRAFT_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/S03_independent_DRAFT_review.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/exposure_sheet.csv",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F014.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F016.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F017.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F018.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F019.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F020.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F021.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F022.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F027.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F029.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F030.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F031.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F032.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F033.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F034.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F035.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F036.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F037.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F038.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F039.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F040.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F041.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F042.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F043.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F044.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F045.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F046.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F047.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F048.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F049.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F050.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F051.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F052.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F053.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F054.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F055.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F056.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F057.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F058.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F059.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F060.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F061.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F062.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F063.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F064.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F065.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F066.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F067.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F068.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F069.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F070.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/frames/F071.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/keyframes.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/source/render_s03.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/source/verify.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/verification/protected_files.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/verification/technical_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S03_independent_DRAFT_20261013/video/S03_pre_dash_tension_DRAFT_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/S04_evasion_DRAFT_review.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/exposure_sheet.csv",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F014.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/frames/F015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F230_L000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F233_L003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F235_L005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F237_L007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F239_L009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F240_L010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F242_L012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/keyframes/F245_L015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/source/render_s04_evasion.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/source/verify.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/baseline_sha256.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/connection.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/protected_files.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/verification/technical_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_evasion_independent_DRAFT_20261013/video/S04_evasion_DRAFT_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/exposure_sheet.csv",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F014.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F015.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F016.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F017.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F018.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F019.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F020.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F021.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F022.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F023.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F024.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F025.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F026.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F027.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F028.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/frames/F029.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/keyframes.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/source/build_review.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/verification/connection.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/verification/protected_files.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/verification/technical_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_joined_DRAFT_20261013/video/S04_joined_F216-245_DRAFT_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/exposure_sheet.csv",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F000.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F001.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F002.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F003.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F004.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F005.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F006.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F007.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F008.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F009.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F010.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F011.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F012.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/frames/F013.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/keyframes.png",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/source/render_s04.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/source/verify.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/verification/protected_files.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/verification/technical_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S04_step_independent_DRAFT_20261013/video/S04_combat_step_DRAFT_24fps.mp4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/CONTINUITY_CHECKLIST_DRAFT.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/NEXT_STEPS_DRAFT.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/PRODUCTION_LOG_DRAFT.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SHA256.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SOUND_CUES_DRAFT.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SOURCES_AND_STATUS.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/TIMELINE_DRAFT.md",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/ZERO_CODE_pilot15_preparation_DRAFT.zip",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/ZIP_INTEGRITY.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/sound_cues_draft.csv",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/source/check_plan.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/source/inspect_media.py",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/timeline_draft.csv",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/design04_inspection.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/negative_profile_check.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/plan_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/preparation_checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/source_documents.json",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/source_media_checks.json",
+      "unchanged": true
+    }
+  ]
+}
