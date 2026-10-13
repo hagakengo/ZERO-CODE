@@ -1,0 +1,38 @@
+{
+  "left_contact_segments": [
+    {
+      "frames": [
+        216,
+        226
+      ],
+      "world_anchor_drift_m": 0.0
+    },
+    {
+      "frames": [
+        240,
+        245
+      ],
+      "world_anchor_drift_m": 0.0
+    }
+  ],
+  "right_contact_segments": [
+    {
+      "frames": [
+        216,
+        217
+      ],
+      "world_anchor_drift_m": 0.0
+    },
+    {
+      "frames": [
+        233,
+        245
+      ],
+      "world_anchor_drift_m": 0.0
+    }
+  ],
+  "max_segment_length_error_m": 1.1102230246251565e-16,
+  "max_shoulder_pelvis_yaw_difference_deg": 31.58600583090379,
+  "contact_shoe_orientation": "Constant during stance. No toe-off articulation. Left shoe changes heading after release.",
+  "caveat": "Kinematic contact/IK checks only. No mass, force, friction, collision or cloth simulation. Not a body-weight quality PASS."
+}

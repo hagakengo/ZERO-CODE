@@ -1,0 +1,5 @@
+{
+  "max_contact_sole_landmark_residual_px": 101.05245964761927,
+  "mean_contact_sole_landmark_residual_px": 19.445022256244105,
+  "warning": "Approximate manual landmarks, held 2 frames. Both soles not solved simultaneously. Not a motion quality PASS."
+}

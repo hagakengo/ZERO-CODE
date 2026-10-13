@@ -1,0 +1,74 @@
+{
+  "S04_2D_half.mp4": {
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "60",
+    "duration": "2.500000",
+    "pix_fmt": "yuv420p",
+    "full_decode": "PASS"
+  },
+  "S04_2D_normal.mp4": {
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "30",
+    "duration": "1.250000",
+    "pix_fmt": "yuv420p",
+    "full_decode": "PASS"
+  },
+  "S04_guide_half.mp4": {
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "60",
+    "duration": "2.500000",
+    "pix_fmt": "yuv420p",
+    "full_decode": "PASS"
+  },
+  "comparison_half.mp4": {
+    "width": 1080,
+    "height": 640,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "60",
+    "duration": "2.500000",
+    "pix_fmt": "yuv420p",
+    "full_decode": "PASS"
+  },
+  "S04_cel_normal.mp4": {
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "30",
+    "duration": "1.250000",
+    "pix_fmt": "yuv420p",
+    "full_decode": "PASS"
+  },
+  "comparison_6loops.mp4": {
+    "width": 1080,
+    "height": 640,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "180",
+    "duration": "7.500000",
+    "pix_fmt": "yuv420p",
+    "full_decode": "PASS"
+  },
+  "S04_guide_normal.mp4": {
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "30",
+    "duration": "1.250000",
+    "pix_fmt": "yuv420p",
+    "full_decode": "PASS"
+  },
+  "comparison_old_guide_2D.mp4": {
+    "width": 1080,
+    "height": 640,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "30",
+    "duration": "1.250000",
+    "pix_fmt": "yuv420p",
+    "full_decode": "PASS"
+  }
+}
