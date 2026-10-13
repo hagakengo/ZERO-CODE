@@ -1,0 +1,56 @@
+{
+  "S04_drawn_DRAFT_24fps.mp4": {
+    "codec_name": "h264",
+    "pix_fmt": "yuv420p",
+    "width": 1080,
+    "height": 1920,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "30",
+    "duration": "1.250000",
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "9:16",
+    "decode": "PASS"
+  },
+  "comparison_half.mp4": {
+    "codec_name": "h264",
+    "pix_fmt": "yuv420p",
+    "width": 1080,
+    "height": 960,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "60",
+    "duration": "2.500000",
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "9:8",
+    "decode": "PASS"
+  },
+  "comparison_normal.mp4": {
+    "codec_name": "h264",
+    "pix_fmt": "yuv420p",
+    "width": 1080,
+    "height": 960,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "30",
+    "duration": "1.250000",
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "9:8",
+    "decode": "PASS"
+  },
+  "comparison_normal_6loops.mp4": {
+    "codec_name": "h264",
+    "pix_fmt": "yuv420p",
+    "width": 1080,
+    "height": 960,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "180",
+    "duration": "7.500000",
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "9:8",
+    "decode": "PASS"
+  },
+  "drawings": 18,
+  "exposure_total": 30,
+  "direction": "UNJUDGED: no continuous visual playback by agent",
+  "motion_quality": "not inferred from automated tests",
+  "pngs_exposure_hashes": "PASS",
+  "no_audio": true
+}
