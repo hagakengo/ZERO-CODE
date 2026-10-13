@@ -1,0 +1,9 @@
+{
+  "zip": "S02_independent_DRAFT_review.zip",
+  "sha256": "e346fa3bb77373c4f92767b9e9f5e52e6f0ddb20ec2b3240657fc8cbaf7929f5",
+  "bytes": 5849978,
+  "all_entries_crc_pass": true,
+  "manifest_match": true,
+  "payload_files": 87,
+  "note": "ZIP excludes itself and this outer integrity report; includes SHA256.json."
+}
