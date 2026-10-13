@@ -1,0 +1,13 @@
+status,cue,start_frame,end_frame_exclusive,category,direction,rights_source,dependency
+DRAFT,A01,0,72,静寂・空間,任意の微小環境音。デジタル無音とは区別,未確認／未取得,independent
+DRAFT,A02,72,144,接近足音,接地フレーム未確定。仮の等間隔反復を完成音としない,未確認／未取得,visual-sync-pending
+DRAFT,A03,144,209,衣擦れ・構え,布の小さな動作。台詞・警告文を追加しない,未確認／未取得,visual-sync-pending
+DRAFT,A04,209,216,静寂,7f=0.291667秒、全音レイヤー停止の提案,音源不要,independent
+DRAFT,A05,216,230,踏み込み足音,荷重・接地へ同期。低音で絵の不足を隠さない,未確認／未取得,visual-sync-pending
+DRAFT,A06,230,246,回避・衣擦れ,接触なし。打撃音を置かない,未確認／未取得,visual-sync-pending
+DRAFT,A07,246,253,反撃予備・衣擦れ,攻守・動作承認後に再同期,未確認／未取得,design04-HOLD
+DRAFT,A08,253,257,打撃・接触予約,F253は仮。案04P024の採用や映像接触の確定ではない,未確認／未取得,design04-HOLD
+DRAFT,A09,257,282,反応,呼気・身体反応候補。声や台詞は未決定,未確認／未取得,design04-HOLD
+DRAFT,A10,282,300,後退足音・衣擦れ,接地とバッグの布擦れを分離,未確認／未取得,visual-sync-pending
+DRAFT,A11,300,309,収束・余韻,短い残響の候補。次の無音へ尾を残さない,未確認／未取得,visual-sync-pending
+DRAFT,A12,309,360,静寂・末尾余韻,全レイヤーをデジタル無音にする提案。新規HUD音なし,音源不要,independent

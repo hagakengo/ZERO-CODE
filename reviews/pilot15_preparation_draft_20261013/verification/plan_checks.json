@@ -1,0 +1,11 @@
+{
+  "status": "DRAFT",
+  "arithmetic_pass": true,
+  "shots": 7,
+  "total_frames": 360,
+  "fps": 24,
+  "duration_seconds": 15.0,
+  "cues": 12,
+  "errors": [],
+  "director_approval": "NOT_ASSESSED"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "DRAFT technical evidence",
+  "date": "2026-10-13 JST",
+  "baseline": "57215e29f7dbd7671c06aba7681283c8a3c5d0c8",
+  "base_tracked_files_checked": 361,
+  "base_files_changed": [],
+  "source_media_rechecks": [
+    {
+      "file": "reviews/counterattack_design_02/video/counterattack_design_02_24fps.mp4",
+      "sha256_unchanged": true
+    },
+    {
+      "file": "reviews/counterattack_design_03/video/counterattack_design_03_24fps.mp4",
+      "sha256_unchanged": true
+    },
+    {
+      "file": "reviews/counterattack_design_04/video/counterattack_design_04_24fps.mp4",
+      "sha256_unchanged": true
+    },
+    {
+      "file": "reviews/counterattack_design_01/video/counterattack_retreat_design_24fps.mp4",
+      "sha256_unchanged": true
+    },
+    {
+      "file": "/Users/hagakengo/Documents/Codex/2026-10-11/referenced-chatgpt-conversation-this-is-an-31/outputs/ZERO_CODE_EP01_pilot15_animatic_v01.mp4",
+      "sha256_unchanged": true
+    },
+    {
+      "file": "/Users/hagakengo/Documents/Codex/2026-10-11/referenced-chatgpt-conversation-this-is-an-32/outputs/ZERO_CODE_EP01_pilot15_animatic_v02.mp4",
+      "sha256_unchanged": true
+    }
+  ],
+  "broken_relative_links": [],
+  "plan_arithmetic_pass": true,
+  "inspector_positive_case_pass": true,
+  "inspector_negative_case_rejected": true,
+  "negative_case": "72f design04 rejected as 360f pilot-silent; expected exit 1",
+  "main_local_ref": "745fb7099461167457de5eb109868b2d8bd204de",
+  "director_approval": "NOT_GRANTED",
+  "local_r15_2": "Not accessed or modified during this task; existing repository comparison files included in baseline byte check",
+  "new_video_and_sound": "NOT_CREATED"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "DRAFT evidence inventory",
+  "sources": [
+    {
+      "path": "/Users/hagakengo/Documents/Codex/2026-10-11/referenced-chatgpt-conversation-this-is-an-31/outputs/制作結果.md",
+      "sha256": "296456c6b9bc14df09d693cf77ee803e53d71b4cd7171f75caba976b60c25971",
+      "read": "full text",
+      "status": "historical report; not approval"
+    },
+    {
+      "path": "/Users/hagakengo/Documents/Codex/2026-10-11/referenced-chatgpt-conversation-this-is-an-32/outputs/比較レビュー_v02.md",
+      "sha256": "bc2103d301c15ea5a224912a38ad477aab1672ef37f865549b30a6acb67929d8",
+      "read": "full text",
+      "status": "historical report; not approval"
+    }
+  ]
+}

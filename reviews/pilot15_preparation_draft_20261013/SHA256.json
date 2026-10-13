@@ -1,0 +1,78 @@
+{
+  "status": "DRAFT",
+  "excludes": [
+    "SHA256.json",
+    "ZIP_INTEGRITY.json",
+    "ZERO_CODE_pilot15_preparation_DRAFT.zip"
+  ],
+  "files": {
+    "CONTINUITY_CHECKLIST_DRAFT.md": {
+      "bytes": 3175,
+      "sha256": "554508a9fe5209f99ba58d993c4f16909ebe8039faf2983b15cea3c00906c062"
+    },
+    "NEXT_STEPS_DRAFT.md": {
+      "bytes": 3941,
+      "sha256": "88f022a60a1b4429219b368a557cbd36c153e9e2c7ab16944a1c7a238c4d6ee0"
+    },
+    "PRODUCTION_LOG_DRAFT.md": {
+      "bytes": 1549,
+      "sha256": "7fd1cdaa4e5e84a742cd206188ba67e5b2a8ded2930cf68346482337bf8ceece"
+    },
+    "README.md": {
+      "bytes": 3878,
+      "sha256": "ac024416ee5d915841d03d21be73d3466c120801a0ef74afdb75bd6305cf705a"
+    },
+    "SOUND_CUES_DRAFT.md": {
+      "bytes": 2856,
+      "sha256": "9dc40c0b680e6925b566aab08ecca28c1c9cb0285c93fab3d7db5e447010a8ba"
+    },
+    "SOURCES_AND_STATUS.md": {
+      "bytes": 5684,
+      "sha256": "99a4f2a0c7dcf64d09600deb354cfc0ab548b18b37e6aac9e99f4801bfca2260"
+    },
+    "TIMELINE_DRAFT.md": {
+      "bytes": 2916,
+      "sha256": "698abd9bc9a9bd9424cc3c8318aba65e02b38e595ca3dff68eaa3d8378eaccc5"
+    },
+    "sound_cues_draft.csv": {
+      "bytes": 1634,
+      "sha256": "4ae337fe68db02a0a2b89402d5f42b9af10943949fd4be1f42d45c9d5889ddde"
+    },
+    "source/check_plan.py": {
+      "bytes": 1438,
+      "sha256": "cac8500d4508e5821c37902663a495b0782682afdf58e957320ae0167c3bdffd"
+    },
+    "source/inspect_media.py": {
+      "bytes": 3803,
+      "sha256": "60ddc54922852a9407d06e909cf89e3357791b567cbe5c2945910565326a31a2"
+    },
+    "timeline_draft.csv": {
+      "bytes": 1564,
+      "sha256": "a57816818da5347e36bd8763acc16ba3cfa1aa08b9d2e7aa55c19c0f17337ae5"
+    },
+    "verification/design04_inspection.json": {
+      "bytes": 2422,
+      "sha256": "576327406b70cbef98d3530f002c8ec84686d5dda7249cdb41f265fa2527c54b"
+    },
+    "verification/negative_profile_check.json": {
+      "bytes": 2431,
+      "sha256": "b652ca2fa8400050dca0b33dcf7271dfaa00ca5e88d31650125d690ebf90bdd2"
+    },
+    "verification/plan_checks.json": {
+      "bytes": 198,
+      "sha256": "cb53bd9fd6a7556342ee9ad089ef513782f623fe9022957f7b634a6e1a4966f6"
+    },
+    "verification/preparation_checks.json": {
+      "bytes": 1665,
+      "sha256": "329011381575520eb0cebe35e4d215a503f7c53e1f09e9dd758704ad86670827"
+    },
+    "verification/source_documents.json": {
+      "bytes": 682,
+      "sha256": "dab90f84f622c873cb10fa10d8a0f4ef6e6af4e732cc213690c488a2f24727b2"
+    },
+    "verification/source_media_checks.json": {
+      "bytes": 21626,
+      "sha256": "7947de256ef9086409e10d3270c969fdf04c4381037710630bf5616c2e650a94"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "DRAFT",
+  "zip_bytes": 26235,
+  "zip_sha256": "4c853893d3c1d0ba7e4c98a18afb388bbe79a6099fd882d0a1362c8837ad0b9a",
+  "members": 18,
+  "all_member_bytes_match_external_files": true,
+  "crc_test": "PASS",
+  "excludes": "Archive itself and post-package ZIP_INTEGRITY.json"
+}
