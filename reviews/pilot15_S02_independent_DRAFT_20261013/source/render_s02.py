@@ -162,7 +162,7 @@ subprocess.run(['ffmpeg','-y','-v','error','-framerate','24','-i',str(R/'frames/
 (R/'verification/exposure_sheet.json').write_text(json.dumps(records,indent=2))
 import csv
 with (R/'exposure_sheet.csv').open('w') as f:
-    w=csv.DictWriter(f,fieldnames=list(records[0])); w.writeheader(); w.writerows(records)
+    w=csv.DictWriter(f,fieldnames=list(records[0]),lineterminator="\n"); w.writeheader(); w.writerows(records)
 board=Image.new('RGB',(1080,1080),(222,224,223)); bd=ImageDraw.Draw(board)
 for j,n in enumerate([0,16,24,34,42,44,48,68]):
     thumb=Image.open(R/'frames'/f'F{n:03}.png').resize((243,432)); x=15+(j%4)*270; yy=35+(j//4)*520
