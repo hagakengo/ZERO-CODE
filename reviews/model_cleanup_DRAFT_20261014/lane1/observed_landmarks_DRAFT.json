@@ -1,0 +1,105 @@
+{
+  "status": "DRAFT/HOLD",
+  "coordinate_space": "2172x724 pixels; approximate manual observations",
+  "warning": "2D observed points only; no solved common skull, exact angle, or hair correspondence certification",
+  "views": {
+    "front": {
+      "nose_root": [
+        402,
+        294
+      ],
+      "inner_eye_screen_left": [
+        376,
+        297
+      ],
+      "inner_eye_screen_right": [
+        430,
+        291
+      ],
+      "ear_attach_screen_left": [
+        288,
+        393
+      ],
+      "ear_attach_screen_right": [
+        568,
+        297
+      ],
+      "chin": [
+        422,
+        477
+      ],
+      "bang_red": [
+        253,
+        104
+      ],
+      "bang_blue": [
+        212,
+        205
+      ],
+      "bang_green": [
+        170,
+        310
+      ]
+    },
+    "right45": {
+      "nose_root": [
+        1232,
+        311
+      ],
+      "inner_eye_visible": [
+        1206,
+        298
+      ],
+      "ear_attach": [
+        961,
+        322
+      ],
+      "chin": [
+        1214,
+        474
+      ],
+      "bang_red": [
+        965,
+        100
+      ],
+      "bang_blue": [
+        914,
+        208
+      ],
+      "bang_green": [
+        1322,
+        341
+      ]
+    },
+    "right90": {
+      "nose_root": [
+        1998,
+        321
+      ],
+      "inner_eye_visible": [
+        1977,
+        303
+      ],
+      "ear_attach": [
+        1721,
+        297
+      ],
+      "chin": [
+        1954,
+        483
+      ],
+      "bang_red": [
+        2060,
+        204
+      ],
+      "bang_blue": [
+        2070,
+        288
+      ],
+      "bang_green": [
+        2054,
+        341
+      ]
+    }
+  }
+}

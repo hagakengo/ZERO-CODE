@@ -1,0 +1,25 @@
+frame,time_s,key,source,crop_xywh,method
+1,0.0,0,lane1/head_model_v2_DRAFT.png,"(0, 0, 724, 600)",held drawing; no interpolation
+2,0.041667,0,lane1/head_model_v2_DRAFT.png,"(0, 0, 724, 600)",held drawing; no interpolation
+3,0.083333,0,lane1/head_model_v2_DRAFT.png,"(0, 0, 724, 600)",held drawing; no interpolation
+4,0.125,0,lane1/head_model_v2_DRAFT.png,"(0, 0, 724, 600)",held drawing; no interpolation
+5,0.166667,0,lane1/head_model_v2_DRAFT.png,"(0, 0, 724, 600)",held drawing; no interpolation
+6,0.208333,0,lane1/head_model_v2_DRAFT.png,"(0, 0, 724, 600)",held drawing; no interpolation
+7,0.25,0,lane1/head_model_v2_DRAFT.png,"(0, 0, 724, 600)",held drawing; no interpolation
+8,0.291667,0,lane1/head_model_v2_DRAFT.png,"(0, 0, 724, 600)",held drawing; no interpolation
+9,0.333333,1,lane1/head_model_v2_DRAFT.png,"(724, 0, 724, 600)",held drawing; no interpolation
+10,0.375,1,lane1/head_model_v2_DRAFT.png,"(724, 0, 724, 600)",held drawing; no interpolation
+11,0.416667,1,lane1/head_model_v2_DRAFT.png,"(724, 0, 724, 600)",held drawing; no interpolation
+12,0.458333,1,lane1/head_model_v2_DRAFT.png,"(724, 0, 724, 600)",held drawing; no interpolation
+13,0.5,1,lane1/head_model_v2_DRAFT.png,"(724, 0, 724, 600)",held drawing; no interpolation
+14,0.541667,1,lane1/head_model_v2_DRAFT.png,"(724, 0, 724, 600)",held drawing; no interpolation
+15,0.583333,1,lane1/head_model_v2_DRAFT.png,"(724, 0, 724, 600)",held drawing; no interpolation
+16,0.625,1,lane1/head_model_v2_DRAFT.png,"(724, 0, 724, 600)",held drawing; no interpolation
+17,0.666667,2,lane1/head_model_v2_DRAFT.png,"(1448, 0, 724, 600)",held drawing; no interpolation
+18,0.708333,2,lane1/head_model_v2_DRAFT.png,"(1448, 0, 724, 600)",held drawing; no interpolation
+19,0.75,2,lane1/head_model_v2_DRAFT.png,"(1448, 0, 724, 600)",held drawing; no interpolation
+20,0.791667,2,lane1/head_model_v2_DRAFT.png,"(1448, 0, 724, 600)",held drawing; no interpolation
+21,0.833333,2,lane1/head_model_v2_DRAFT.png,"(1448, 0, 724, 600)",held drawing; no interpolation
+22,0.875,2,lane1/head_model_v2_DRAFT.png,"(1448, 0, 724, 600)",held drawing; no interpolation
+23,0.916667,2,lane1/head_model_v2_DRAFT.png,"(1448, 0, 724, 600)",held drawing; no interpolation
+24,0.958333,2,lane1/head_model_v2_DRAFT.png,"(1448, 0, 724, 600)",held drawing; no interpolation

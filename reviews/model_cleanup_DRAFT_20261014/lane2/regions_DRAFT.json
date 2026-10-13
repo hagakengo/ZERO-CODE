@@ -1,0 +1,107 @@
+{
+  "source": "expression_cleanup_sheet_DRAFT.png",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "status": "DRAFT/HOLD",
+  "type": "manually located clipped raster regions, no warp",
+  "regions": {
+    "face_neutral": [
+      12,
+      95,
+      490,
+      380
+    ],
+    "face_soft_smile": [
+      521,
+      95,
+      490,
+      380
+    ],
+    "face_notice": [
+      1033,
+      95,
+      490,
+      380
+    ],
+    "eyelids_open_INCOMPLETE": [
+      25,
+      554,
+      345,
+      83
+    ],
+    "eyelids_half_INCOMPLETE": [
+      425,
+      554,
+      345,
+      83
+    ],
+    "eyelids_closed": [
+      817,
+      554,
+      350,
+      83
+    ],
+    "iris_left": [
+      1250,
+      564,
+      85,
+      80
+    ],
+    "iris_right": [
+      1400,
+      564,
+      85,
+      80
+    ],
+    "brows_neutral": [
+      25,
+      762,
+      230,
+      55
+    ],
+    "brows_soft": [
+      282,
+      762,
+      230,
+      55
+    ],
+    "brows_notice": [
+      537,
+      762,
+      230,
+      55
+    ],
+    "mouth_neutral": [
+      825,
+      773,
+      155,
+      50
+    ],
+    "mouth_smile": [
+      1057,
+      773,
+      176,
+      50
+    ],
+    "mouth_notice": [
+      1330,
+      773,
+      145,
+      50
+    ],
+    "cheek_faint": [
+      308,
+      943,
+      175,
+      47
+    ],
+    "cheek_strong": [
+      563,
+      943,
+      178,
+      47
+    ]
+  }
+}

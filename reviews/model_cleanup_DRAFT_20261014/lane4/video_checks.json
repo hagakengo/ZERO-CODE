@@ -1,0 +1,166 @@
+{
+  "status": "DRAFT/HOLD",
+  "continuous_playback": "NOT WATCHED",
+  "results": [
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/blink_key_replacement_DRAFT/half_speed_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        640,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 48,
+      "duration": 2.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 48,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/blink_key_replacement_DRAFT/normal_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        640,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 24,
+      "duration": 1.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 24,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/expression_exposure_DRAFT/half_speed_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        640,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 48,
+      "duration": 2.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 48,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/expression_exposure_DRAFT/normal_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        640,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 24,
+      "duration": 1.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 24,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/head_angle_comparison_DRAFT/half_speed_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        640,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 48,
+      "duration": 2.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 48,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/head_angle_comparison_DRAFT/normal_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        640,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 24,
+      "duration": 1.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 24,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/old_new_blink_comparison_DRAFT_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        1280,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 24,
+      "duration": 1.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 24,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/old_new_expression_comparison_DRAFT_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        1280,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 24,
+      "duration": 1.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 24,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/old_new_expression_comparison_DRAFT_half_speed.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        1280,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 48,
+      "duration": 2.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 48,
+      "technical_pass": true
+    },
+    {
+      "file": "reviews/model_cleanup_DRAFT_20261014/lane3/old_new_head_comparison_DRAFT_24fps.mp4",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "size": [
+        1280,
+        576
+      ],
+      "fps": "24/1",
+      "frames": 24,
+      "duration": 1.0,
+      "decode_exit": 0,
+      "decode_error": "",
+      "expected_frames": 24,
+      "technical_pass": true
+    }
+  ]
+}

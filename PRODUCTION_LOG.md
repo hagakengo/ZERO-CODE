@@ -551,3 +551,23 @@ This preserves mystery and gives the ZERO CODE emblem unique visual authority.
 The earlier episode attempt is not official final canon footage.
 
 It may provide usable material, but official EP.01 should be rebuilt to current quality standards.
+
+## 2026-10-14 — C/FILM model/expression cleanup and drawn blink keys
+
+**Status:** DRAFT / HOLD — identity, animation quality and performance not approved.
+
+**Tool / Model:** Built-in imagegen for raster cleanup/drawn expression keys; SVG clipped raster regions for editable layout; FFmpeg for diagnostic exposures and comparison. Exact generation is not deterministic.
+
+**Asset / Version:** `reviews/model_cleanup_DRAFT_20261014/`, based on `cc09f124e792b7b9a9f04b59d0aba3dfbcd4cbaf`. Original SHA256 independently matched `bc3697df6c3c080985b226b285627d449124f1b9b58c9326ea6a316890057fad`.
+
+**Goal:** Preserve C/FILM identity across a level front, same-side 3/4/profile and drawn expression components; demonstrate in short 24fps videos.
+
+**What we tried:** Maximum 4 active slots: root video/integration, head cleanup, expression cleanup, independent QA. Head/expression share references; video depends on their output; final technical QA follows rendering. Saved initial wrong-facing 45-degree draft and corrected v2. Generated half-lid/closing/closed keys rather than pixel-warping eyelids. Assembled 1-second held-key diagnostics, half-speed versions, and previous/new comparisons.
+
+**Result:** Progress in readable drawn closed eyelids and corrected side direction. All drawings remain HOLD. Not a natural head turn or finished animation. Normal-speed continuous playback was not viewed by production or QA; inspected stills/extracted frames and full decode are separate evidence. Final mechanical results are in the linked QA folder.
+
+**What failed:** Front retains small tilt; guide heights and common hair/face correspondences are not reliable. C identity is unproven. Expression sheet OPEN/HALF difference is weak, pupils/brows remain mixed into eyelid regions. SVG contains white-background raster clips, not transparent independent drawing layers. Three-key face replacement shows local hair/neck/shoulder differences. Independent QA detected 47-frame comparison half-speed output; forced 48-frame output fixes this mechanical defect only.
+
+**Change / Why:** Used explicit diagnostic comparisons instead of claiming natural animation; preserved failed v1 and editable-region limitations so human corrections remain reviewable. No original, prior version, MASTER or old face-hidden pilot overwritten. This face-visible test is confined to the user's approved exploratory scope; no canon changes.
+
+**Next action:** Human correction of C front axis/eye line, linked nose/ear/chin/hair structure across angles, truly separated transparent eyelids/brows/pupils/mouth, and inbetween drawings. User actual-view review required before any approval. See `reviews/model_cleanup_DRAFT_20261014/README.md` and `lane4/QA.md`.
