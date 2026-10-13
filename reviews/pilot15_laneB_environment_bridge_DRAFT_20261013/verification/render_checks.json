@@ -1,0 +1,9 @@
+{
+  "character_holdouts_exact_match_frames": 144,
+  "enemy_holdouts_exact_match_frames": 144,
+  "source_pose_math": "verbatim; rain compositing disabled only",
+  "rain_tick_F071": 23,
+  "rain_tick_F072": 24,
+  "previous_S02_start_tick": 23,
+  "normal_speed_visual_review": "NOT PERFORMED"
+}

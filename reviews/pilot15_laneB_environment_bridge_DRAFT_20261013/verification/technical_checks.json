@@ -1,0 +1,17 @@
+{
+  "status": "TECHNICAL PASS",
+  "width": 1080,
+  "height": 1920,
+  "fps": "24/1",
+  "sar": "1:1",
+  "dar": "9:16",
+  "frames": 144,
+  "seconds": 6,
+  "full_decode": "PASS",
+  "png_read": "PASS",
+  "original_character_pose_records_exact_match": 144,
+  "original_character_exposures": "S01 threes; S02 twos",
+  "rain": "global threes 0..47",
+  "protected_files": 701,
+  "visual_performance": "UNJUDGED; no normal speed viewing"
+}

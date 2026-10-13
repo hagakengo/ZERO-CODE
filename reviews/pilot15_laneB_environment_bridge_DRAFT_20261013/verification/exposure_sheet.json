@@ -1,0 +1,2666 @@
+[
+  {
+    "pilot_frame": 0,
+    "shot": "S01",
+    "local_frame": 0,
+    "rain_drawing": 0,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 0,
+      "drawing": 0,
+      "hold": 3,
+      "shoulder_y": -0.0,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 1,
+    "shot": "S01",
+    "local_frame": 1,
+    "rain_drawing": 0,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 1,
+      "drawing": 0,
+      "hold": 3,
+      "shoulder_y": -0.0,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 2,
+    "shot": "S01",
+    "local_frame": 2,
+    "rain_drawing": 0,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 2,
+      "drawing": 0,
+      "hold": 3,
+      "shoulder_y": -0.0,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 3,
+    "shot": "S01",
+    "local_frame": 3,
+    "rain_drawing": 1,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 3,
+      "drawing": 1,
+      "hold": 3,
+      "shoulder_y": -0.1112,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 4,
+    "shot": "S01",
+    "local_frame": 4,
+    "rain_drawing": 1,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 4,
+      "drawing": 1,
+      "hold": 3,
+      "shoulder_y": -0.1112,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 5,
+    "shot": "S01",
+    "local_frame": 5,
+    "rain_drawing": 1,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 5,
+      "drawing": 1,
+      "hold": 3,
+      "shoulder_y": -0.1112,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 6,
+    "shot": "S01",
+    "local_frame": 6,
+    "rain_drawing": 2,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 6,
+      "drawing": 2,
+      "hold": 3,
+      "shoulder_y": -0.4367,
+      "bag_y": -0.0023,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 7,
+    "shot": "S01",
+    "local_frame": 7,
+    "rain_drawing": 2,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 7,
+      "drawing": 2,
+      "hold": 3,
+      "shoulder_y": -0.4367,
+      "bag_y": -0.0023,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 8,
+    "shot": "S01",
+    "local_frame": 8,
+    "rain_drawing": 2,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 8,
+      "drawing": 2,
+      "hold": 3,
+      "shoulder_y": -0.4367,
+      "bag_y": -0.0023,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 9,
+    "shot": "S01",
+    "local_frame": 9,
+    "rain_drawing": 3,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 9,
+      "drawing": 3,
+      "hold": 3,
+      "shoulder_y": -0.9523,
+      "bag_y": -0.1175,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 10,
+    "shot": "S01",
+    "local_frame": 10,
+    "rain_drawing": 3,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 10,
+      "drawing": 3,
+      "hold": 3,
+      "shoulder_y": -0.9523,
+      "bag_y": -0.1175,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 11,
+    "shot": "S01",
+    "local_frame": 11,
+    "rain_drawing": 3,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 11,
+      "drawing": 3,
+      "hold": 3,
+      "shoulder_y": -0.9523,
+      "bag_y": -0.1175,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 12,
+    "shot": "S01",
+    "local_frame": 12,
+    "rain_drawing": 4,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 12,
+      "drawing": 4,
+      "hold": 3,
+      "shoulder_y": -1.6198,
+      "bag_y": -0.3975,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 13,
+    "shot": "S01",
+    "local_frame": 13,
+    "rain_drawing": 4,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 13,
+      "drawing": 4,
+      "hold": 3,
+      "shoulder_y": -1.6198,
+      "bag_y": -0.3975,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 14,
+    "shot": "S01",
+    "local_frame": 14,
+    "rain_drawing": 4,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 14,
+      "drawing": 4,
+      "hold": 3,
+      "shoulder_y": -1.6198,
+      "bag_y": -0.3975,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 15,
+    "shot": "S01",
+    "local_frame": 15,
+    "rain_drawing": 5,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 15,
+      "drawing": 5,
+      "hold": 3,
+      "shoulder_y": -2.3896,
+      "bag_y": -0.8177,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 16,
+    "shot": "S01",
+    "local_frame": 16,
+    "rain_drawing": 5,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 16,
+      "drawing": 5,
+      "hold": 3,
+      "shoulder_y": -2.3896,
+      "bag_y": -0.8177,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 17,
+    "shot": "S01",
+    "local_frame": 17,
+    "rain_drawing": 5,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 17,
+      "drawing": 5,
+      "hold": 3,
+      "shoulder_y": -2.3896,
+      "bag_y": -0.8177,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 18,
+    "shot": "S01",
+    "local_frame": 18,
+    "rain_drawing": 6,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 18,
+      "drawing": 6,
+      "hold": 3,
+      "shoulder_y": -3.2047,
+      "bag_y": -1.3414,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 19,
+    "shot": "S01",
+    "local_frame": 19,
+    "rain_drawing": 6,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 19,
+      "drawing": 6,
+      "hold": 3,
+      "shoulder_y": -3.2047,
+      "bag_y": -1.3414,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 20,
+    "shot": "S01",
+    "local_frame": 20,
+    "rain_drawing": 6,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 20,
+      "drawing": 6,
+      "hold": 3,
+      "shoulder_y": -3.2047,
+      "bag_y": -1.3414,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 21,
+    "shot": "S01",
+    "local_frame": 21,
+    "rain_drawing": 7,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 21,
+      "drawing": 7,
+      "hold": 3,
+      "shoulder_y": -4.0046,
+      "bag_y": -1.9228,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 22,
+    "shot": "S01",
+    "local_frame": 22,
+    "rain_drawing": 7,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 22,
+      "drawing": 7,
+      "hold": 3,
+      "shoulder_y": -4.0046,
+      "bag_y": -1.9228,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 23,
+    "shot": "S01",
+    "local_frame": 23,
+    "rain_drawing": 7,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 23,
+      "drawing": 7,
+      "hold": 3,
+      "shoulder_y": -4.0046,
+      "bag_y": -1.9228,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 24,
+    "shot": "S01",
+    "local_frame": 24,
+    "rain_drawing": 8,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 24,
+      "drawing": 8,
+      "hold": 3,
+      "shoulder_y": -4.73,
+      "bag_y": -2.5109,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 25,
+    "shot": "S01",
+    "local_frame": 25,
+    "rain_drawing": 8,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 25,
+      "drawing": 8,
+      "hold": 3,
+      "shoulder_y": -4.73,
+      "bag_y": -2.5109,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 26,
+    "shot": "S01",
+    "local_frame": 26,
+    "rain_drawing": 8,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 26,
+      "drawing": 8,
+      "hold": 3,
+      "shoulder_y": -4.73,
+      "bag_y": -2.5109,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 27,
+    "shot": "S01",
+    "local_frame": 27,
+    "rain_drawing": 9,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 27,
+      "drawing": 9,
+      "hold": 3,
+      "shoulder_y": -5.3271,
+      "bag_y": -3.0543,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 28,
+    "shot": "S01",
+    "local_frame": 28,
+    "rain_drawing": 9,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 28,
+      "drawing": 9,
+      "hold": 3,
+      "shoulder_y": -5.3271,
+      "bag_y": -3.0543,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 29,
+    "shot": "S01",
+    "local_frame": 29,
+    "rain_drawing": 9,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 29,
+      "drawing": 9,
+      "hold": 3,
+      "shoulder_y": -5.3271,
+      "bag_y": -3.0543,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 30,
+    "shot": "S01",
+    "local_frame": 30,
+    "rain_drawing": 10,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 30,
+      "drawing": 10,
+      "hold": 3,
+      "shoulder_y": -5.7516,
+      "bag_y": -3.5055,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 31,
+    "shot": "S01",
+    "local_frame": 31,
+    "rain_drawing": 10,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 31,
+      "drawing": 10,
+      "hold": 3,
+      "shoulder_y": -5.7516,
+      "bag_y": -3.5055,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 32,
+    "shot": "S01",
+    "local_frame": 32,
+    "rain_drawing": 10,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 32,
+      "drawing": 10,
+      "hold": 3,
+      "shoulder_y": -5.7516,
+      "bag_y": -3.5055,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 33,
+    "shot": "S01",
+    "local_frame": 33,
+    "rain_drawing": 11,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 33,
+      "drawing": 11,
+      "hold": 3,
+      "shoulder_y": -5.9721,
+      "bag_y": -3.8248,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 34,
+    "shot": "S01",
+    "local_frame": 34,
+    "rain_drawing": 11,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 34,
+      "drawing": 11,
+      "hold": 3,
+      "shoulder_y": -5.9721,
+      "bag_y": -3.8248,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 35,
+    "shot": "S01",
+    "local_frame": 35,
+    "rain_drawing": 11,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 35,
+      "drawing": 11,
+      "hold": 3,
+      "shoulder_y": -5.9721,
+      "bag_y": -3.8248,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 36,
+    "shot": "S01",
+    "local_frame": 36,
+    "rain_drawing": 12,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 36,
+      "drawing": 12,
+      "hold": 3,
+      "shoulder_y": -5.9721,
+      "bag_y": -3.9845,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 37,
+    "shot": "S01",
+    "local_frame": 37,
+    "rain_drawing": 12,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 37,
+      "drawing": 12,
+      "hold": 3,
+      "shoulder_y": -5.9721,
+      "bag_y": -3.9845,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 38,
+    "shot": "S01",
+    "local_frame": 38,
+    "rain_drawing": 12,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 38,
+      "drawing": 12,
+      "hold": 3,
+      "shoulder_y": -5.9721,
+      "bag_y": -3.9845,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 39,
+    "shot": "S01",
+    "local_frame": 39,
+    "rain_drawing": 13,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 39,
+      "drawing": 13,
+      "hold": 3,
+      "shoulder_y": -5.7516,
+      "bag_y": -3.9704,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 40,
+    "shot": "S01",
+    "local_frame": 40,
+    "rain_drawing": 13,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 40,
+      "drawing": 13,
+      "hold": 3,
+      "shoulder_y": -5.7516,
+      "bag_y": -3.9704,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 41,
+    "shot": "S01",
+    "local_frame": 41,
+    "rain_drawing": 13,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 41,
+      "drawing": 13,
+      "hold": 3,
+      "shoulder_y": -5.7516,
+      "bag_y": -3.9704,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 42,
+    "shot": "S01",
+    "local_frame": 42,
+    "rain_drawing": 14,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 42,
+      "drawing": 14,
+      "hold": 3,
+      "shoulder_y": -5.3271,
+      "bag_y": -3.7839,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 43,
+    "shot": "S01",
+    "local_frame": 43,
+    "rain_drawing": 14,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 43,
+      "drawing": 14,
+      "hold": 3,
+      "shoulder_y": -5.3271,
+      "bag_y": -3.7839,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 44,
+    "shot": "S01",
+    "local_frame": 44,
+    "rain_drawing": 14,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 44,
+      "drawing": 14,
+      "hold": 3,
+      "shoulder_y": -5.3271,
+      "bag_y": -3.7839,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 45,
+    "shot": "S01",
+    "local_frame": 45,
+    "rain_drawing": 15,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 45,
+      "drawing": 15,
+      "hold": 3,
+      "shoulder_y": -4.73,
+      "bag_y": -3.4412,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 46,
+    "shot": "S01",
+    "local_frame": 46,
+    "rain_drawing": 15,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 46,
+      "drawing": 15,
+      "hold": 3,
+      "shoulder_y": -4.73,
+      "bag_y": -3.4412,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 47,
+    "shot": "S01",
+    "local_frame": 47,
+    "rain_drawing": 15,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 47,
+      "drawing": 15,
+      "hold": 3,
+      "shoulder_y": -4.73,
+      "bag_y": -3.4412,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 48,
+    "shot": "S01",
+    "local_frame": 48,
+    "rain_drawing": 16,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 48,
+      "drawing": 16,
+      "hold": 3,
+      "shoulder_y": -4.0046,
+      "bag_y": -2.9724,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 49,
+    "shot": "S01",
+    "local_frame": 49,
+    "rain_drawing": 16,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 49,
+      "drawing": 16,
+      "hold": 3,
+      "shoulder_y": -4.0046,
+      "bag_y": -2.9724,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 50,
+    "shot": "S01",
+    "local_frame": 50,
+    "rain_drawing": 16,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 50,
+      "drawing": 16,
+      "hold": 3,
+      "shoulder_y": -4.0046,
+      "bag_y": -2.9724,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 51,
+    "shot": "S01",
+    "local_frame": 51,
+    "rain_drawing": 17,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 51,
+      "drawing": 17,
+      "hold": 3,
+      "shoulder_y": -3.2047,
+      "bag_y": -2.4185,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 52,
+    "shot": "S01",
+    "local_frame": 52,
+    "rain_drawing": 17,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 52,
+      "drawing": 17,
+      "hold": 3,
+      "shoulder_y": -3.2047,
+      "bag_y": -2.4185,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 53,
+    "shot": "S01",
+    "local_frame": 53,
+    "rain_drawing": 17,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 53,
+      "drawing": 17,
+      "hold": 3,
+      "shoulder_y": -3.2047,
+      "bag_y": -2.4185,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 54,
+    "shot": "S01",
+    "local_frame": 54,
+    "rain_drawing": 18,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 54,
+      "drawing": 18,
+      "hold": 3,
+      "shoulder_y": -2.3896,
+      "bag_y": -1.828,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 55,
+    "shot": "S01",
+    "local_frame": 55,
+    "rain_drawing": 18,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 55,
+      "drawing": 18,
+      "hold": 3,
+      "shoulder_y": -2.3896,
+      "bag_y": -1.828,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 56,
+    "shot": "S01",
+    "local_frame": 56,
+    "rain_drawing": 18,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 56,
+      "drawing": 18,
+      "hold": 3,
+      "shoulder_y": -2.3896,
+      "bag_y": -1.828,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 57,
+    "shot": "S01",
+    "local_frame": 57,
+    "rain_drawing": 19,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 57,
+      "drawing": 19,
+      "hold": 3,
+      "shoulder_y": -1.6198,
+      "bag_y": -1.2525,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 58,
+    "shot": "S01",
+    "local_frame": 58,
+    "rain_drawing": 19,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 58,
+      "drawing": 19,
+      "hold": 3,
+      "shoulder_y": -1.6198,
+      "bag_y": -1.2525,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 59,
+    "shot": "S01",
+    "local_frame": 59,
+    "rain_drawing": 19,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 59,
+      "drawing": 19,
+      "hold": 3,
+      "shoulder_y": -1.6198,
+      "bag_y": -1.2525,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 60,
+    "shot": "S01",
+    "local_frame": 60,
+    "rain_drawing": 20,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 60,
+      "drawing": 20,
+      "hold": 3,
+      "shoulder_y": -0.9523,
+      "bag_y": -0.7424,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 61,
+    "shot": "S01",
+    "local_frame": 61,
+    "rain_drawing": 20,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 61,
+      "drawing": 20,
+      "hold": 3,
+      "shoulder_y": -0.9523,
+      "bag_y": -0.7424,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 62,
+    "shot": "S01",
+    "local_frame": 62,
+    "rain_drawing": 20,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 62,
+      "drawing": 20,
+      "hold": 3,
+      "shoulder_y": -0.9523,
+      "bag_y": -0.7424,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 63,
+    "shot": "S01",
+    "local_frame": 63,
+    "rain_drawing": 21,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 63,
+      "drawing": 21,
+      "hold": 3,
+      "shoulder_y": -0.4367,
+      "bag_y": -0.3424,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 64,
+    "shot": "S01",
+    "local_frame": 64,
+    "rain_drawing": 21,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 64,
+      "drawing": 21,
+      "hold": 3,
+      "shoulder_y": -0.4367,
+      "bag_y": -0.3424,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 65,
+    "shot": "S01",
+    "local_frame": 65,
+    "rain_drawing": 21,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 65,
+      "drawing": 21,
+      "hold": 3,
+      "shoulder_y": -0.4367,
+      "bag_y": -0.3424,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 66,
+    "shot": "S01",
+    "local_frame": 66,
+    "rain_drawing": 22,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 66,
+      "drawing": 22,
+      "hold": 3,
+      "shoulder_y": -0.1112,
+      "bag_y": -0.0875,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 67,
+    "shot": "S01",
+    "local_frame": 67,
+    "rain_drawing": 22,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 67,
+      "drawing": 22,
+      "hold": 3,
+      "shoulder_y": -0.1112,
+      "bag_y": -0.0875,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 68,
+    "shot": "S01",
+    "local_frame": 68,
+    "rain_drawing": 22,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 68,
+      "drawing": 22,
+      "hold": 3,
+      "shoulder_y": -0.1112,
+      "bag_y": -0.0875,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 69,
+    "shot": "S01",
+    "local_frame": 69,
+    "rain_drawing": 23,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 69,
+      "drawing": 23,
+      "hold": 3,
+      "shoulder_y": -0.0,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 70,
+    "shot": "S01",
+    "local_frame": 70,
+    "rain_drawing": 23,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 70,
+      "drawing": 23,
+      "hold": 3,
+      "shoulder_y": -0.0,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 71,
+    "shot": "S01",
+    "local_frame": 71,
+    "rain_drawing": 23,
+    "rain_hold": 3,
+    "character_pose": {
+      "frame": 71,
+      "drawing": 23,
+      "hold": 3,
+      "shoulder_y": -0.0,
+      "bag_y": -0.0,
+      "feet_fixed": true
+    }
+  },
+  {
+    "pilot_frame": 72,
+    "shot": "S02",
+    "local_frame": 0,
+    "rain_drawing": 24,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 0,
+      "pilot_frame": 72,
+      "drawing": 0,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": 0,
+      "root_dy": 0,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 73,
+    "shot": "S02",
+    "local_frame": 1,
+    "rain_drawing": 24,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 1,
+      "pilot_frame": 73,
+      "drawing": 0,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": 0,
+      "root_dy": 0,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 74,
+    "shot": "S02",
+    "local_frame": 2,
+    "rain_drawing": 24,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 2,
+      "pilot_frame": 74,
+      "drawing": 1,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": 0,
+      "root_dy": 0,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 75,
+    "shot": "S02",
+    "local_frame": 3,
+    "rain_drawing": 25,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 3,
+      "pilot_frame": 75,
+      "drawing": 1,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": 0,
+      "root_dy": 0,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 76,
+    "shot": "S02",
+    "local_frame": 4,
+    "rain_drawing": 25,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 4,
+      "pilot_frame": 76,
+      "drawing": 2,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": 0,
+      "root_dy": 0,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 77,
+    "shot": "S02",
+    "local_frame": 5,
+    "rain_drawing": 25,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 5,
+      "pilot_frame": 77,
+      "drawing": 2,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": 0,
+      "root_dy": 0,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 78,
+    "shot": "S02",
+    "local_frame": 6,
+    "rain_drawing": 26,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 6,
+      "pilot_frame": 78,
+      "drawing": 3,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -0.6093294460641399,
+      "root_dy": 0.7201166180758017,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 79,
+    "shot": "S02",
+    "local_frame": 7,
+    "rain_drawing": 26,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 7,
+      "pilot_frame": 79,
+      "drawing": 3,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -0.6093294460641399,
+      "root_dy": 0.7201166180758017,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 80,
+    "shot": "S02",
+    "local_frame": 8,
+    "rain_drawing": 26,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 8,
+      "pilot_frame": 80,
+      "drawing": 4,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -2.1807580174927113,
+      "root_dy": 2.577259475218659,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 81,
+    "shot": "S02",
+    "local_frame": 9,
+    "rain_drawing": 27,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 9,
+      "pilot_frame": 81,
+      "drawing": 4,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -2.1807580174927113,
+      "root_dy": 2.577259475218659,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 82,
+    "shot": "S02",
+    "local_frame": 10,
+    "rain_drawing": 27,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 10,
+      "pilot_frame": 82,
+      "drawing": 5,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -4.329446064139941,
+      "root_dy": 5.116618075801749,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 83,
+    "shot": "S02",
+    "local_frame": 11,
+    "rain_drawing": 27,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 11,
+      "pilot_frame": 83,
+      "drawing": 5,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -4.329446064139941,
+      "root_dy": 5.116618075801749,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 84,
+    "shot": "S02",
+    "local_frame": 12,
+    "rain_drawing": 28,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 12,
+      "pilot_frame": 84,
+      "drawing": 6,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -6.670553935860058,
+      "root_dy": 7.8833819241982495,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 85,
+    "shot": "S02",
+    "local_frame": 13,
+    "rain_drawing": 28,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 13,
+      "pilot_frame": 85,
+      "drawing": 6,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -6.670553935860058,
+      "root_dy": 7.8833819241982495,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 86,
+    "shot": "S02",
+    "local_frame": 14,
+    "rain_drawing": 28,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 14,
+      "pilot_frame": 86,
+      "drawing": 7,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -8.819241982507288,
+      "root_dy": 10.422740524781341,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 87,
+    "shot": "S02",
+    "local_frame": 15,
+    "rain_drawing": 29,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 15,
+      "pilot_frame": 87,
+      "drawing": 7,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -8.819241982507288,
+      "root_dy": 10.422740524781341,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 88,
+    "shot": "S02",
+    "local_frame": 16,
+    "rain_drawing": 29,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 16,
+      "pilot_frame": 88,
+      "drawing": 8,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -10.39067055393586,
+      "root_dy": 12.279883381924199,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 89,
+    "shot": "S02",
+    "local_frame": 17,
+    "rain_drawing": 29,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 17,
+      "pilot_frame": 89,
+      "drawing": 8,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -10.39067055393586,
+      "root_dy": 12.279883381924199,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 90,
+    "shot": "S02",
+    "local_frame": 18,
+    "rain_drawing": 30,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 18,
+      "pilot_frame": 90,
+      "drawing": 9,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -11,
+      "root_dy": 13,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 91,
+    "shot": "S02",
+    "local_frame": 19,
+    "rain_drawing": 30,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 19,
+      "pilot_frame": 91,
+      "drawing": 9,
+      "exposure": 2,
+      "beat": "anticipation",
+      "root_dx": -11,
+      "root_dy": 13,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 92,
+    "shot": "S02",
+    "local_frame": 20,
+    "rain_drawing": 30,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 20,
+      "pilot_frame": 92,
+      "drawing": 10,
+      "exposure": 2,
+      "beat": "weight_transfer",
+      "root_dx": -11,
+      "root_dy": 13,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 93,
+    "shot": "S02",
+    "local_frame": 21,
+    "rain_drawing": 31,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 21,
+      "pilot_frame": 93,
+      "drawing": 10,
+      "exposure": 2,
+      "beat": "weight_transfer",
+      "root_dx": -11,
+      "root_dy": 13,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 94,
+    "shot": "S02",
+    "local_frame": 22,
+    "rain_drawing": 31,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 22,
+      "pilot_frame": 94,
+      "drawing": 11,
+      "exposure": 2,
+      "beat": "weight_transfer",
+      "root_dx": -11,
+      "root_dy": 12.69921875,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 95,
+    "shot": "S02",
+    "local_frame": 23,
+    "rain_drawing": 31,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 23,
+      "pilot_frame": 95,
+      "drawing": 11,
+      "exposure": 2,
+      "beat": "weight_transfer",
+      "root_dx": -11,
+      "root_dy": 12.69921875,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 96,
+    "shot": "S02",
+    "local_frame": 24,
+    "rain_drawing": 32,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 24,
+      "pilot_frame": 96,
+      "drawing": 12,
+      "exposure": 2,
+      "beat": "weight_transfer",
+      "root_dx": -11,
+      "root_dy": 11.90625,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 97,
+    "shot": "S02",
+    "local_frame": 25,
+    "rain_drawing": 32,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 25,
+      "pilot_frame": 97,
+      "drawing": 12,
+      "exposure": 2,
+      "beat": "weight_transfer",
+      "root_dx": -11,
+      "root_dy": 11.90625,
+      "right_foot_dx": 0,
+      "right_foot_dy": 0.0,
+      "swing_lift": 0.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 98,
+    "shot": "S02",
+    "local_frame": 26,
+    "rain_drawing": 32,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 26,
+      "pilot_frame": 98,
+      "drawing": 13,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": -10.244,
+      "root_dy": 10.78515625,
+      "right_foot_dx": 1.0080000000000002,
+      "right_foot_dy": -3.7796846999715523,
+      "swing_lift": 2.547684699971552,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 99,
+    "shot": "S02",
+    "local_frame": 27,
+    "rain_drawing": 33,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 27,
+      "pilot_frame": 99,
+      "drawing": 13,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": -10.244,
+      "root_dy": 10.78515625,
+      "right_foot_dx": 1.0080000000000002,
+      "right_foot_dy": -3.7796846999715523,
+      "swing_lift": 2.547684699971552,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 100,
+    "shot": "S02",
+    "local_frame": 28,
+    "rain_drawing": 33,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 28,
+      "pilot_frame": 100,
+      "drawing": 14,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": -8.192,
+      "root_dy": 9.5,
+      "right_foot_dx": 3.7440000000000007,
+      "right_foot_dy": -13.883364684409077,
+      "swing_lift": 9.307364684409077,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 101,
+    "shot": "S02",
+    "local_frame": 29,
+    "rain_drawing": 33,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 29,
+      "pilot_frame": 101,
+      "drawing": 14,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": -8.192,
+      "root_dy": 9.5,
+      "right_foot_dx": 3.7440000000000007,
+      "right_foot_dy": -13.883364684409077,
+      "swing_lift": 9.307364684409077,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 102,
+    "shot": "S02",
+    "local_frame": 30,
+    "rain_drawing": 34,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 30,
+      "pilot_frame": 102,
+      "drawing": 15,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": -5.168,
+      "root_dy": 8.21484375,
+      "right_foot_dx": 7.776,
+      "right_foot_dy": -27.70704947743031,
+      "swing_lift": 18.203049477430312,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 103,
+    "shot": "S02",
+    "local_frame": 31,
+    "rain_drawing": 34,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 31,
+      "pilot_frame": 103,
+      "drawing": 15,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": -5.168,
+      "root_dy": 8.21484375,
+      "right_foot_dx": 7.776,
+      "right_foot_dy": -27.70704947743031,
+      "swing_lift": 18.203049477430312,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 104,
+    "shot": "S02",
+    "local_frame": 32,
+    "rain_drawing": 34,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 32,
+      "pilot_frame": 104,
+      "drawing": 16,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": -1.4959999999999969,
+      "root_dy": 7.09375,
+      "right_foot_dx": 12.672000000000004,
+      "right_foot_dy": -41.409401300386655,
+      "swing_lift": 25.921401300386652,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 105,
+    "shot": "S02",
+    "local_frame": 33,
+    "rain_drawing": 35,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 33,
+      "pilot_frame": 105,
+      "drawing": 16,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": -1.4959999999999969,
+      "root_dy": 7.09375,
+      "right_foot_dx": 12.672000000000004,
+      "right_foot_dy": -41.409401300386655,
+      "swing_lift": 25.921401300386652,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 106,
+    "shot": "S02",
+    "local_frame": 34,
+    "rain_drawing": 35,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 34,
+      "pilot_frame": 106,
+      "drawing": 17,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 2.5,
+      "root_dy": 6.30078125,
+      "right_foot_dx": 18.0,
+      "right_foot_dy": -51.0,
+      "swing_lift": 29.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 107,
+    "shot": "S02",
+    "local_frame": 35,
+    "rain_drawing": 35,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 35,
+      "pilot_frame": 107,
+      "drawing": 17,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 2.5,
+      "root_dy": 6.30078125,
+      "right_foot_dx": 18.0,
+      "right_foot_dy": -51.0,
+      "swing_lift": 29.0,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 108,
+    "shot": "S02",
+    "local_frame": 36,
+    "rain_drawing": 36,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 36,
+      "pilot_frame": 108,
+      "drawing": 18,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 6.496000000000002,
+      "root_dy": 6,
+      "right_foot_dx": 23.328,
+      "right_foot_dy": -54.43340130038665,
+      "swing_lift": 25.921401300386652,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 109,
+    "shot": "S02",
+    "local_frame": 37,
+    "rain_drawing": 36,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 37,
+      "pilot_frame": 109,
+      "drawing": 18,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 6.496000000000002,
+      "root_dy": 6,
+      "right_foot_dx": 23.328,
+      "right_foot_dy": -54.43340130038665,
+      "swing_lift": 25.921401300386652,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 110,
+    "shot": "S02",
+    "local_frame": 38,
+    "rain_drawing": 36,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 38,
+      "pilot_frame": 110,
+      "drawing": 19,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 10.168,
+      "root_dy": 6,
+      "right_foot_dx": 28.223999999999997,
+      "right_foot_dy": -52.69904947743032,
+      "swing_lift": 18.203049477430326,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 111,
+    "shot": "S02",
+    "local_frame": 39,
+    "rain_drawing": 37,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 39,
+      "pilot_frame": 111,
+      "drawing": 19,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 10.168,
+      "root_dy": 6,
+      "right_foot_dx": 28.223999999999997,
+      "right_foot_dy": -52.69904947743032,
+      "swing_lift": 18.203049477430326,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 112,
+    "shot": "S02",
+    "local_frame": 40,
+    "rain_drawing": 37,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 40,
+      "pilot_frame": 112,
+      "drawing": 20,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 13.192000000000004,
+      "root_dy": 6,
+      "right_foot_dx": 32.25600000000001,
+      "right_foot_dy": -48.73136468440907,
+      "swing_lift": 9.307364684409068,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 113,
+    "shot": "S02",
+    "local_frame": 41,
+    "rain_drawing": 37,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 41,
+      "pilot_frame": 113,
+      "drawing": 20,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 13.192000000000004,
+      "root_dy": 6,
+      "right_foot_dx": 32.25600000000001,
+      "right_foot_dy": -48.73136468440907,
+      "swing_lift": 9.307364684409068,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 114,
+    "shot": "S02",
+    "local_frame": 42,
+    "rain_drawing": 38,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 42,
+      "pilot_frame": 114,
+      "drawing": 21,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 15.244,
+      "root_dy": 6,
+      "right_foot_dx": 34.992,
+      "right_foot_dy": -45.315684699971555,
+      "swing_lift": 2.5476846999715512,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 115,
+    "shot": "S02",
+    "local_frame": 43,
+    "rain_drawing": 38,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 43,
+      "pilot_frame": 115,
+      "drawing": 21,
+      "exposure": 2,
+      "beat": "swing",
+      "root_dx": 15.244,
+      "root_dy": 6,
+      "right_foot_dx": 34.992,
+      "right_foot_dy": -45.315684699971555,
+      "swing_lift": 2.5476846999715512,
+      "left_foot_fixed": true,
+      "right_contact": false,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 116,
+    "shot": "S02",
+    "local_frame": 44,
+    "rain_drawing": 38,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 44,
+      "pilot_frame": 116,
+      "drawing": 22,
+      "exposure": 2,
+      "beat": "contact_compression",
+      "root_dx": 16,
+      "root_dy": 8.592592592592592,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 117,
+    "shot": "S02",
+    "local_frame": 45,
+    "rain_drawing": 39,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 45,
+      "pilot_frame": 117,
+      "drawing": 22,
+      "exposure": 2,
+      "beat": "contact_compression",
+      "root_dx": 16,
+      "root_dy": 8.592592592592592,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -0.0
+    }
+  },
+  {
+    "pilot_frame": 118,
+    "shot": "S02",
+    "local_frame": 46,
+    "rain_drawing": 39,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 46,
+      "pilot_frame": 118,
+      "drawing": 23,
+      "exposure": 2,
+      "beat": "contact_compression",
+      "root_dx": 16,
+      "root_dy": 13.407407407407407,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -0.37064632462156727
+    }
+  },
+  {
+    "pilot_frame": 119,
+    "shot": "S02",
+    "local_frame": 47,
+    "rain_drawing": 39,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 47,
+      "pilot_frame": 119,
+      "drawing": 23,
+      "exposure": 2,
+      "beat": "contact_compression",
+      "root_dx": 16,
+      "root_dy": 13.407407407407407,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -0.37064632462156727
+    }
+  },
+  {
+    "pilot_frame": 120,
+    "shot": "S02",
+    "local_frame": 48,
+    "rain_drawing": 40,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 48,
+      "pilot_frame": 120,
+      "drawing": 24,
+      "exposure": 2,
+      "beat": "contact_compression",
+      "root_dx": 16,
+      "root_dy": 16,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -1.3836952244546408
+    }
+  },
+  {
+    "pilot_frame": 121,
+    "shot": "S02",
+    "local_frame": 49,
+    "rain_drawing": 40,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 49,
+      "pilot_frame": 121,
+      "drawing": 24,
+      "exposure": 2,
+      "beat": "contact_compression",
+      "root_dx": 16,
+      "root_dy": 16,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -1.3836952244546408
+    }
+  },
+  {
+    "pilot_frame": 122,
+    "shot": "S02",
+    "local_frame": 50,
+    "rain_drawing": 40,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 50,
+      "pilot_frame": 122,
+      "drawing": 25,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 16,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -2.8283804209559857
+    }
+  },
+  {
+    "pilot_frame": 123,
+    "shot": "S02",
+    "local_frame": 51,
+    "rain_drawing": 41,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 51,
+      "pilot_frame": 123,
+      "drawing": 25,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 16,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -2.8283804209559857
+    }
+  },
+  {
+    "pilot_frame": 124,
+    "shot": "S02",
+    "local_frame": 52,
+    "rain_drawing": 41,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 52,
+      "pilot_frame": 124,
+      "drawing": 26,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 15.556851311953352,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -4.364241849438292
+    }
+  },
+  {
+    "pilot_frame": 125,
+    "shot": "S02",
+    "local_frame": 53,
+    "rain_drawing": 41,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 53,
+      "pilot_frame": 125,
+      "drawing": 26,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 15.556851311953352,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -4.364241849438292
+    }
+  },
+  {
+    "pilot_frame": 126,
+    "shot": "S02",
+    "local_frame": 54,
+    "rain_drawing": 42,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 54,
+      "pilot_frame": 126,
+      "drawing": 27,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 14.41399416909621,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -5.5515893895654385
+    }
+  },
+  {
+    "pilot_frame": 127,
+    "shot": "S02",
+    "local_frame": 55,
+    "rain_drawing": 42,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 55,
+      "pilot_frame": 127,
+      "drawing": 27,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 14.41399416909621,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -5.5515893895654385
+    }
+  },
+  {
+    "pilot_frame": 128,
+    "shot": "S02",
+    "local_frame": 56,
+    "rain_drawing": 42,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 56,
+      "pilot_frame": 128,
+      "drawing": 28,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 12.85131195335277,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -6.0
+    }
+  },
+  {
+    "pilot_frame": 129,
+    "shot": "S02",
+    "local_frame": 57,
+    "rain_drawing": 43,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 57,
+      "pilot_frame": 129,
+      "drawing": 28,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 12.85131195335277,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -6.0
+    }
+  },
+  {
+    "pilot_frame": 130,
+    "shot": "S02",
+    "local_frame": 58,
+    "rain_drawing": 43,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 58,
+      "pilot_frame": 130,
+      "drawing": 29,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 11.14868804664723,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -5.5515893895654385
+    }
+  },
+  {
+    "pilot_frame": 131,
+    "shot": "S02",
+    "local_frame": 59,
+    "rain_drawing": 43,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 59,
+      "pilot_frame": 131,
+      "drawing": 29,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 11.14868804664723,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -5.5515893895654385
+    }
+  },
+  {
+    "pilot_frame": 132,
+    "shot": "S02",
+    "local_frame": 60,
+    "rain_drawing": 44,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 60,
+      "pilot_frame": 132,
+      "drawing": 30,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 9.58600583090379,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -4.364241849438293
+    }
+  },
+  {
+    "pilot_frame": 133,
+    "shot": "S02",
+    "local_frame": 61,
+    "rain_drawing": 44,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 61,
+      "pilot_frame": 133,
+      "drawing": 30,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 9.58600583090379,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -4.364241849438293
+    }
+  },
+  {
+    "pilot_frame": 134,
+    "shot": "S02",
+    "local_frame": 62,
+    "rain_drawing": 44,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 62,
+      "pilot_frame": 134,
+      "drawing": 31,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8.443148688046648,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -2.828380420955987
+    }
+  },
+  {
+    "pilot_frame": 135,
+    "shot": "S02",
+    "local_frame": 63,
+    "rain_drawing": 45,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 63,
+      "pilot_frame": 135,
+      "drawing": 31,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8.443148688046648,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -2.828380420955987
+    }
+  },
+  {
+    "pilot_frame": 136,
+    "shot": "S02",
+    "local_frame": 64,
+    "rain_drawing": 45,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 64,
+      "pilot_frame": 136,
+      "drawing": 32,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -1.3836952244546392
+    }
+  },
+  {
+    "pilot_frame": 137,
+    "shot": "S02",
+    "local_frame": 65,
+    "rain_drawing": 45,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 65,
+      "pilot_frame": 137,
+      "drawing": 32,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -1.3836952244546392
+    }
+  },
+  {
+    "pilot_frame": 138,
+    "shot": "S02",
+    "local_frame": 66,
+    "rain_drawing": 46,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 66,
+      "pilot_frame": 138,
+      "drawing": 33,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -0.3706463246215671
+    }
+  },
+  {
+    "pilot_frame": 139,
+    "shot": "S02",
+    "local_frame": 67,
+    "rain_drawing": 46,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 67,
+      "pilot_frame": 139,
+      "drawing": 33,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -0.3706463246215671
+    }
+  },
+  {
+    "pilot_frame": 140,
+    "shot": "S02",
+    "local_frame": 68,
+    "rain_drawing": 46,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 68,
+      "pilot_frame": 140,
+      "drawing": 34,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -7.347880794884119e-16
+    }
+  },
+  {
+    "pilot_frame": 141,
+    "shot": "S02",
+    "local_frame": 69,
+    "rain_drawing": 47,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 69,
+      "pilot_frame": 141,
+      "drawing": 34,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -7.347880794884119e-16
+    }
+  },
+  {
+    "pilot_frame": 142,
+    "shot": "S02",
+    "local_frame": 70,
+    "rain_drawing": 47,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 70,
+      "pilot_frame": 142,
+      "drawing": 35,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -7.347880794884119e-16
+    }
+  },
+  {
+    "pilot_frame": 143,
+    "shot": "S02",
+    "local_frame": 71,
+    "rain_drawing": 47,
+    "rain_hold": 3,
+    "character_pose": {
+      "local_frame": 71,
+      "pilot_frame": 143,
+      "drawing": 35,
+      "exposure": 2,
+      "beat": "rebound_settle",
+      "root_dx": 16,
+      "root_dy": 8,
+      "right_foot_dx": 36,
+      "right_foot_dy": -44.0,
+      "swing_lift": 3.5514757175273244e-15,
+      "left_foot_fixed": true,
+      "right_contact": true,
+      "bag_lag_y": -7.347880794884119e-16
+    }
+  }
+]
