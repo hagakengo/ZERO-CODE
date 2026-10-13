@@ -1,0 +1,58 @@
+[
+  {
+    "file": "lane2/expression_DRAFT_24fps.mp4",
+    "sha256": "460887cf2e19b005d631f402fe2b5555be4e841fe5ba98f795a4f8bccaee1a0f",
+    "frame_count": "24",
+    "fps": "24/1",
+    "duration": "1.000000",
+    "width": 1024,
+    "height": 680,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "all_frames_decoded": true,
+    "decode_stderr": "",
+    "continuous_playback_watched": false
+  },
+  {
+    "file": "lane2/expression_DRAFT_half_speed.mp4",
+    "sha256": "f6a1f1f021560437a56c667d5f43d12ed0f0f87d91f5e537190288010af25e42",
+    "frame_count": "48",
+    "fps": "24/1",
+    "duration": "2.000000",
+    "width": 1024,
+    "height": 680,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "all_frames_decoded": true,
+    "decode_stderr": "",
+    "continuous_playback_watched": false
+  },
+  {
+    "file": "lane3/head_turn_VOLUME_TEST_DRAFT_24fps.mp4",
+    "sha256": "906d1557b6aaaa536744593696745b96d3bdfc4bc6041de3d01622de425db920",
+    "frame_count": "24",
+    "fps": "24/1",
+    "duration": "1.000000",
+    "width": 960,
+    "height": 720,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "all_frames_decoded": true,
+    "decode_stderr": "",
+    "continuous_playback_watched": false
+  },
+  {
+    "file": "lane3/head_turn_VOLUME_TEST_DRAFT_half_speed.mp4",
+    "sha256": "0ccc6de2ed8b3be3e420398564f877fe0320f7c7b2fae286726afd50b996b3f2",
+    "frame_count": "48",
+    "fps": "24/1",
+    "duration": "2.000000",
+    "width": 960,
+    "height": 720,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "all_frames_decoded": true,
+    "decode_stderr": "",
+    "continuous_playback_watched": false
+  }
+]

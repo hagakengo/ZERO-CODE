@@ -1,0 +1,54 @@
+{
+  "status": "DRAFT/HOLD; GENERIC, NOT C/FILM FIT",
+  "landmarks": {
+    "eye_L": [
+      -0.31,
+      0.18,
+      0.6
+    ],
+    "eye_R": [
+      0.31,
+      0.18,
+      0.6
+    ],
+    "nose_root": [
+      0,
+      0.27,
+      0.7
+    ],
+    "nose_tip": [
+      0,
+      -0.02,
+      1.02
+    ],
+    "ear_L": [
+      -0.83,
+      0.04,
+      -0.04
+    ],
+    "ear_R": [
+      0.83,
+      0.04,
+      -0.04
+    ],
+    "chin": [
+      0,
+      -1.12,
+      0
+    ],
+    "mouth": [
+      0,
+      -0.39,
+      0.61
+    ],
+    "crown": [
+      0,
+      1.12,
+      0
+    ]
+  },
+  "skull": "ellipsoid with tapered lower jaw; 24x48 quads",
+  "yaw": "0 to 85 degrees, quintic smoothstep frames 4-22",
+  "hair": "generic cap and 7 wedges; 2-frame delayed yaw",
+  "camera": "fixed orthographic; 152 px/unit"
+}

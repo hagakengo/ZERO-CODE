@@ -1,0 +1,25 @@
+frame,time_seconds,head_yaw_degrees,hair_yaw_degrees,gaze_lead_degrees,phase,drawing_method,expression,identity_status
+1,0.000000,0.000000,0.000000,0.000000,eye lead,single immutable mesh projection,fixed semi-open,not C/FILM
+2,0.041667,0.000000,0.000000,1.242188,eye lead,single immutable mesh projection,fixed semi-open,not C/FILM
+3,0.083333,0.000000,0.000000,6.000000,eye lead,single immutable mesh projection,fixed semi-open,not C/FILM
+4,0.125000,0.000000,0.000000,10.757812,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+5,0.166667,0.133872,0.000000,12.000000,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+6,0.208333,0.980288,0.000000,12.000000,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+7,0.250000,3.016975,0.133872,12.000000,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+8,0.291667,6.494945,0.980288,12.000000,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+9,0.333333,11.470876,3.016975,11.960820,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+10,0.375000,17.839506,6.494945,11.720831,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+11,0.416667,25.366020,11.470876,11.166240,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+12,0.458333,33.718437,17.839506,10.263581,head acceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+13,0.500000,42.500000,25.366020,9.043643,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+14,0.541667,51.281563,33.718437,7.585411,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+15,0.583333,59.633980,42.500000,6.000000,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+16,0.625000,67.160494,51.281563,4.414589,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+17,0.666667,73.529124,59.633980,2.956357,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+18,0.708333,78.505055,67.160494,1.736419,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+19,0.750000,81.983025,73.529124,0.833760,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+20,0.791667,84.019712,78.505055,0.279169,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+21,0.833333,84.866128,81.983025,0.039180,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+22,0.875000,85.000000,84.019712,0.000000,head deceleration,single immutable mesh projection,fixed semi-open,not C/FILM
+23,0.916667,85.000000,84.866128,0.000000,hair settle,single immutable mesh projection,fixed semi-open,not C/FILM
+24,0.958333,85.000000,85.000000,0.000000,hair settle,single immutable mesh projection,fixed semi-open,not C/FILM

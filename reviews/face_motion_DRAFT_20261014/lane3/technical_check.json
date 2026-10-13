@@ -1,0 +1,40 @@
+{
+  "frames": 24,
+  "max_head_step_degrees": 8.781562999999998,
+  "reverse_head_steps": 0,
+  "immutable_local_landmarks": true,
+  "max_projected_nose_step_px": 20.0,
+  "c_likeness": "NOT IMPLEMENTED",
+  "artwork_status": "HOLD",
+  "continuous_playback": "NOT WATCHED",
+  "head_turn_VOLUME_TEST_DRAFT_24fps.mp4": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1",
+        "duration": "1.000000",
+        "nb_read_frames": "24"
+      }
+    ]
+  },
+  "head_turn_VOLUME_TEST_DRAFT_half_speed.mp4": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1",
+        "duration": "2.000000",
+        "nb_read_frames": "48"
+      }
+    ]
+  }
+}

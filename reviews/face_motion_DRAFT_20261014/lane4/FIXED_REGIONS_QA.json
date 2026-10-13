@@ -1,0 +1,32 @@
+{
+  "upper_hair": {
+    "roi_xyxy": [
+      280,
+      50,
+      710,
+      160
+    ],
+    "max_channel_difference": 0,
+    "scope": "lossless source frame pixel constancy, not recovered anatomy"
+  },
+  "clothing": {
+    "roi_xyxy": [
+      30,
+      520,
+      990,
+      625
+    ],
+    "max_channel_difference": 0,
+    "scope": "lossless source frame pixel constancy, not recovered anatomy"
+  },
+  "jaw_chin": {
+    "roi_xyxy": [
+      450,
+      370,
+      560,
+      430
+    ],
+    "max_channel_difference": 2,
+    "scope": "lossless source frame pixel constancy, not recovered anatomy"
+  }
+}

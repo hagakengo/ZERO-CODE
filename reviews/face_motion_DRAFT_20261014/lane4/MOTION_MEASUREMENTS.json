@@ -1,0 +1,16 @@
+{
+  "scope": "generic 3D probe only, NOT C facial landmark accuracy",
+  "max_head_yaw_step_deg": 8.781562999999998,
+  "max_hair_head_lag_deg": 17.563125999999997,
+  "screen_landmark_max_step_px": {
+    "eye_L": 16.0,
+    "eye_R": 9.0,
+    "nose_root": 13.0,
+    "nose_tip": 20.0,
+    "ear_L": 15.0,
+    "ear_R": 16.0,
+    "chin": 0.0,
+    "mouth": 12.0,
+    "crown": 0.0
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "status": "DRAFT/HOLD",
+  "source_commit": "2b0f541ea9156b8e4c29e1299dbb7ede9eb783c4",
+  "source_path": "reviews/parallel_production_DRAFT_20261014/lane1/A_C_FILM_MODEL_SHEET_DRAFT.png",
+  "source_sha256": "97f7a2e6eeeccdcd4c545234f0aa66f2d35dde9b1a6c1a43d806857b2de2be6a",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "source pixels x right / y down",
+  "measurement_method": "manual visual annotations; not automated detection; points approximate +/-4 px",
+  "views": {
+    "FRONT_LABEL_TILTED": {
+      "crop": [
+        115,
+        70,
+        411,
+        300
+      ],
+      "points": {
+        "eye_image_left": [
+          232,
+          183
+        ],
+        "eye_image_right": [
+          300,
+          158
+        ],
+        "nose_tip": [
+          263,
+          201
+        ],
+        "mouth_center": [
+          279,
+          221
+        ],
+        "chin": [
+          282,
+          265
+        ],
+        "ear_visible": [
+          352,
+          174
+        ],
+        "fringe_center_tip": [
+          267,
+          186
+        ]
+      },
+      "yaw": "not zero; not an orthographic front",
+      "occluded": [
+        "left ear",
+        "cranial contour",
+        "hair roots"
+      ],
+      "observed_eye_line_degrees": -20.19
+    },
+    "THREE_QUARTER": {
+      "crop": [
+        602,
+        70,
+        892,
+        300
+      ],
+      "points": {
+        "eye_image_left": [
+          693,
+          185
+        ],
+        "eye_image_right": [
+          744,
+          155
+        ],
+        "nose_tip": [
+          714,
+          204
+        ],
+        "mouth_center": [
+          726,
+          218
+        ],
+        "chin": [
+          740,
+          258
+        ],
+        "ear_visible": [
+          818,
+          167
+        ],
+        "fringe_center_tip": [
+          711,
+          178
+        ]
+      },
+      "yaw": "oblique; angle not calibrated",
+      "occluded": [
+        "far ear",
+        "cranial contour",
+        "hair roots"
+      ],
+      "observed_eye_line_degrees": -30.47
+    },
+    "PROFILE": {
+      "crop": [
+        1128,
+        70,
+        1452,
+        300
+      ],
+      "points": {
+        "eye_visible": [
+          1345,
+          168
+        ],
+        "nose_tip": [
+          1398,
+          210
+        ],
+        "mouth_center": [
+          1364,
+          229
+        ],
+        "chin": [
+          1345,
+          268
+        ],
+        "ear_visible": [
+          1252,
+          180
+        ],
+        "fringe_center_tip": [
+          1376,
+          191
+        ]
+      },
+      "yaw": "profile-like; angle not calibrated",
+      "occluded": [
+        "far eye",
+        "far ear",
+        "cranial contour",
+        "hair roots"
+      ]
+    }
+  },
+  "identity_constraints": {
+    "fixed": "Use one selected source drawing for expression tests; never regenerate each frame. Freeze chin, nose, ears, hair silhouette and costume. Eyelid, iris, brow and mouth deformation are bounded separate controls.",
+    "cross_view": "No inferred 3D landmark identity is certified. Existing drawings have uncalibrated camera, roll and expression; cannot claim a solved model."
+  }
+}
