@@ -1,0 +1,3337 @@
+{
+  "base": "e90af4bc6c06234e33a8ca62a9ff6ed76001e168",
+  "count": 555,
+  "all_unchanged": true,
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "baseline_blob": "e5cf914e1671008bf1990fc6b49ef031b2193eaf",
+      "actual_blob": "e5cf914e1671008bf1990fc6b49ef031b2193eaf",
+      "unchanged": true
+    },
+    {
+      "path": ".gitignore",
+      "baseline_blob": "dd7a44db1d4d4057f05a47b90ddf8373f3ab0965",
+      "actual_blob": "dd7a44db1d4d4057f05a47b90ddf8373f3ab0965",
+      "unchanged": true
+    },
+    {
+      "path": "AGENTS.md",
+      "baseline_blob": "e526a12aa931372ca8da58ef64208768459c7379",
+      "actual_blob": "e526a12aa931372ca8da58ef64208768459c7379",
+      "unchanged": true
+    },
+    {
+      "path": "PRODUCTION_LOG.md",
+      "baseline_blob": "3e08376c76bef87b58f91fada04f1b05c5b882bf",
+      "actual_blob": "3e08376c76bef87b58f91fada04f1b05c5b882bf",
+      "unchanged": true
+    },
+    {
+      "path": "PROJECT_CONTEXT.md",
+      "baseline_blob": "b8586759d792e9803c984a864d398bf02582d34c",
+      "actual_blob": "b8586759d792e9803c984a864d398bf02582d34c",
+      "unchanged": true
+    },
+    {
+      "path": "README.md",
+      "baseline_blob": "241799be6ed46ebe689991033a83db7fd7625f1b",
+      "actual_blob": "241799be6ed46ebe689991033a83db7fd7625f1b",
+      "unchanged": true
+    },
+    {
+      "path": "ROADMAP.md",
+      "baseline_blob": "17b16154f3525193bde890b1270c1ea845dded2e",
+      "actual_blob": "17b16154f3525193bde890b1270c1ea845dded2e",
+      "unchanged": true
+    },
+    {
+      "path": "ZERO_CODE_RULES.md",
+      "baseline_blob": "d63b1fa8165a5669481eafd267e7acad97fe9ae3",
+      "actual_blob": "d63b1fa8165a5669481eafd267e7acad97fe9ae3",
+      "unchanged": true
+    },
+    {
+      "path": "archive/README.md",
+      "baseline_blob": "13ca3e5f1c404cd6fabf1a1012a48688b1a547ca",
+      "actual_blob": "13ca3e5f1c404cd6fabf1a1012a48688b1a547ca",
+      "unchanged": true
+    },
+    {
+      "path": "archive/failed_generations/.gitkeep",
+      "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "archive/prototypes/.gitkeep",
+      "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "archive/rejected/.gitkeep",
+      "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "backend/.env.example",
+      "baseline_blob": "404bfa444f0707027ed944d257479309af8175ff",
+      "actual_blob": "404bfa444f0707027ed944d257479309af8175ff",
+      "unchanged": true
+    },
+    {
+      "path": "backend/api/index.py",
+      "baseline_blob": "7436e6323980129bb9a6bdac24111c9cf90668a7",
+      "actual_blob": "7436e6323980129bb9a6bdac24111c9cf90668a7",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/__init__.py",
+      "baseline_blob": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "actual_blob": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/buffer.py",
+      "baseline_blob": "201b361c882be5239df6e6a796145a2d4eca7efd",
+      "actual_blob": "201b361c882be5239df6e6a796145a2d4eca7efd",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/main.py",
+      "baseline_blob": "dc23e815a74c562c03568c9abee43e77de9f8f88",
+      "actual_blob": "dc23e815a74c562c03568c9abee43e77de9f8f88",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/youtube.py",
+      "baseline_blob": "ae8b8ec6ba691e3d0f11c59b6f516daafb80c31d",
+      "actual_blob": "ae8b8ec6ba691e3d0f11c59b6f516daafb80c31d",
+      "unchanged": true
+    },
+    {
+      "path": "backend/migrate_sqlite_to_postgres.py",
+      "baseline_blob": "96f03558f7b52878d57a6c1f361c595c1dc0867e",
+      "actual_blob": "96f03558f7b52878d57a6c1f361c595c1dc0867e",
+      "unchanged": true
+    },
+    {
+      "path": "backend/requirements-dev.txt",
+      "baseline_blob": "f3d63975e42d6914096a09a43b11af113c7f0110",
+      "actual_blob": "f3d63975e42d6914096a09a43b11af113c7f0110",
+      "unchanged": true
+    },
+    {
+      "path": "backend/requirements.txt",
+      "baseline_blob": "4c5bbda8e5bc09de474888551b410dc72b36e8fe",
+      "actual_blob": "4c5bbda8e5bc09de474888551b410dc72b36e8fe",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_api.py",
+      "baseline_blob": "6a6f4a58724c11a3b6de37d959081c62a2fc2ba1",
+      "actual_blob": "6a6f4a58724c11a3b6de37d959081c62a2fc2ba1",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_buffer.py",
+      "baseline_blob": "f12af4815c8097ba87b4ec4345663ff7bc482674",
+      "actual_blob": "f12af4815c8097ba87b4ec4345663ff7bc482674",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_progression.py",
+      "baseline_blob": "e8992a4d7df1a949e4a4d75532dd02d08b34c0ed",
+      "actual_blob": "e8992a4d7df1a949e4a4d75532dd02d08b34c0ed",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_public_status.py",
+      "baseline_blob": "a714d87ab798357f78ed7f5b5735266296363aee",
+      "actual_blob": "a714d87ab798357f78ed7f5b5735266296363aee",
+      "unchanged": true
+    },
+    {
+      "path": "backend/test_youtube.py",
+      "baseline_blob": "5facb93ace1027e30f7978bee0ccca058a05a119",
+      "actual_blob": "5facb93ace1027e30f7978bee0ccca058a05a119",
+      "unchanged": true
+    },
+    {
+      "path": "backend/vercel.json",
+      "baseline_blob": "63e743a02a37e4b693e30eeb8c14190fdd4af5ea",
+      "actual_blob": "63e743a02a37e4b693e30eeb8c14190fdd4af5ea",
+      "unchanged": true
+    },
+    {
+      "path": "backend/youtube_authorize.py",
+      "baseline_blob": "c96f59a55cbfe6be6d06c972d4b7c933b00b2f11",
+      "actual_blob": "c96f59a55cbfe6be6d06c972d4b7c933b00b2f11",
+      "unchanged": true
+    },
+    {
+      "path": "bible/VISUAL_BIBLE.md",
+      "baseline_blob": "73ebf5c099d06e805f90c824e991d2e16ea48b27",
+      "actual_blob": "73ebf5c099d06e805f90c824e991d2e16ea48b27",
+      "unchanged": true
+    },
+    {
+      "path": "bible/WORLD_LORE.md",
+      "baseline_blob": "be2d73607eb9631795bbf76abdbf288a65d6b022",
+      "actual_blob": "be2d73607eb9631795bbf76abdbf288a65d6b022",
+      "unchanged": true
+    },
+    {
+      "path": "docs/CODEX_PHASE1_TASK.md",
+      "baseline_blob": "e56038b39a2b381909977853f27de3280c2578da",
+      "actual_blob": "e56038b39a2b381909977853f27de3280c2578da",
+      "unchanged": true
+    },
+    {
+      "path": "docs/CODEX_PHASE4_5_REMOTE_ACCESS.md",
+      "baseline_blob": "69a17e1dfcfb655d2853706b6ac4c4cef2230a2d",
+      "actual_blob": "69a17e1dfcfb655d2853706b6ac4c4cef2230a2d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ZERO_CODE_OS_V0_1_SPEC.md",
+      "baseline_blob": "6bfe17c0ffd9e41cb9590423614c42ca7f00eb2a",
+      "actual_blob": "6bfe17c0ffd9e41cb9590423614c42ca7f00eb2a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ZERO_CODE_PHILOSOPHY.md",
+      "baseline_blob": "1628e1f68ad569882df90aaea9b2d781da849b59",
+      "actual_blob": "1628e1f68ad569882df90aaea9b2d781da849b59",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/EP01/README.md",
+      "baseline_blob": "b4dec12e97e0041a8f926f1ef39bd907f8eab687",
+      "actual_blob": "b4dec12e97e0041a8f926f1ef39bd907f8eab687",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/TEASER00/CAPCUT_EDIT_GUIDE.md",
+      "baseline_blob": "5f52b3bb326f9ab56a6dee909e948d3e2d1d5da9",
+      "actual_blob": "5f52b3bb326f9ab56a6dee909e948d3e2d1d5da9",
+      "unchanged": true
+    },
+    {
+      "path": "episodes/TEASER00/TEASER00_SCRIPT.md",
+      "baseline_blob": "86e11ab3a38317b4e16fe54dc68ea7902adb514e",
+      "actual_blob": "86e11ab3a38317b4e16fe54dc68ea7902adb514e",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/.env.example",
+      "baseline_blob": "600de8dfef0cf0e78b0dbe1655db075cf166bcda",
+      "actual_blob": "600de8dfef0cf0e78b0dbe1655db075cf166bcda",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/globals.css",
+      "baseline_blob": "66c34d6a4821564c0f0d625a23edb3f414e0b935",
+      "actual_blob": "66c34d6a4821564c0f0d625a23edb3f414e0b935",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/layout.tsx",
+      "baseline_blob": "b0466deee068346f1b9d6812db99dfd0f1209ec6",
+      "actual_blob": "b0466deee068346f1b9d6812db99dfd0f1209ec6",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/app/page.tsx",
+      "baseline_blob": "0d03a8a220b4fc3d121cf7e105a70955607c3d68",
+      "actual_blob": "0d03a8a220b4fc3d121cf7e105a70955607c3d68",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/next-env.d.ts",
+      "baseline_blob": "830fb594ca2970a827555c28a253b097367e08d8",
+      "actual_blob": "830fb594ca2970a827555c28a253b097367e08d8",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/next.config.ts",
+      "baseline_blob": "c2b3d9968a3bdc2ab5423246b72639219b6d5aeb",
+      "actual_blob": "c2b3d9968a3bdc2ab5423246b72639219b6d5aeb",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "baseline_blob": "be27b24c08ddb9e8b9f707d2856f973db8ec19ac",
+      "actual_blob": "be27b24c08ddb9e8b9f707d2856f973db8ec19ac",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/package.json",
+      "baseline_blob": "f8bb27549cd6b3fc49db3bd9f90c72bdfe9c93fe",
+      "actual_blob": "f8bb27549cd6b3fc49db3bd9f90c72bdfe9c93fe",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/postcss.config.js",
+      "baseline_blob": "cce4985fbec1db93c0e8e5479b3bb64e349352a3",
+      "actual_blob": "cce4985fbec1db93c0e8e5479b3bb64e349352a3",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/tailwind.config.ts",
+      "baseline_blob": "65ccf631ce61f2b7766e29873258544d135222e1",
+      "actual_blob": "65ccf631ce61f2b7766e29873258544d135222e1",
+      "unchanged": true
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "baseline_blob": "44e543016553488664aea4a9694dc251a06fc5a1",
+      "actual_blob": "44e543016553488664aea4a9694dc251a06fc5a1",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/ASSET_IMPORT_MANIFEST.md",
+      "baseline_blob": "b978023608cac46ede10901cdd051352fd2b7961",
+      "actual_blob": "b978023608cac46ede10901cdd051352fd2b7961",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/README.md",
+      "baseline_blob": "50d10b55e407fc77054261aa7d1d5cc8785784b9",
+      "actual_blob": "50d10b55e407fc77054261aa7d1d5cc8785784b9",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/.gitkeep",
+      "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/D1_CONTINUITY_TEST_PROTOCOL.md",
+      "baseline_blob": "f6d69a5e2e3f1d0aa5087aa4f6aab8381c0d721b",
+      "actual_blob": "f6d69a5e2e3f1d0aa5087aa4f6aab8381c0d721b",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/emblem/D1_v1.1/TEST_A_BACK_CLOSEUP_PROMPT.md",
+      "baseline_blob": "c225896b8221275b3e771631b8b6f70b78999df8",
+      "actual_blob": "c225896b8221275b3e771631b8b6f70b78999df8",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/environments/.gitkeep",
+      "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/protagonist/.gitkeep",
+      "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "master_assets/ui/.gitkeep",
+      "baseline_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/README.md",
+      "baseline_blob": "80fe9a32e675542b9d5053f264eb6873106d5ba9",
+      "actual_blob": "80fe9a32e675542b9d5053f264eb6873106d5ba9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/REVIEW_SUBMISSION_STANDARD.md",
+      "baseline_blob": "30fca7968b8ea6c408a73434afc1735c9c0ee4b7",
+      "actual_blob": "30fca7968b8ea6c408a73434afc1735c9c0ee4b7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/ZERO_CODE_counterattack_design_01_review.zip",
+      "baseline_blob": "b206ae15baeceb6f0d6ec0cd97cf63789f0887c1",
+      "actual_blob": "b206ae15baeceb6f0d6ec0cd97cf63789f0887c1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/comparison/footwork_before_after.png",
+      "baseline_blob": "a598dd02fb39d7493bbf48c18ebdab795089d6f4",
+      "actual_blob": "a598dd02fb39d7493bbf48c18ebdab795089d6f4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/comparison/r15_1_vs_r15_2_24fps.mp4",
+      "baseline_blob": "e9f881a387e8e9659cf66a3155950221dcc194b2",
+      "actual_blob": "e9f881a387e8e9659cf66a3155950221dcc194b2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/design_keyposes.png",
+      "baseline_blob": "acdbb99a8976a9469aed6c24181d355ebf4d50ae",
+      "actual_blob": "acdbb99a8976a9469aed6c24181d355ebf4d50ae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/verification/submission_checks.json",
+      "baseline_blob": "7a7cafc08575d428409a71fc28216cb29cba3802",
+      "actual_blob": "7a7cafc08575d428409a71fc28216cb29cba3802",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_01/video/counterattack_retreat_design_24fps.mp4",
+      "baseline_blob": "470e8ababee961d677a220e01a5d71ef9fda1b4e",
+      "actual_blob": "470e8ababee961d677a220e01a5d71ef9fda1b4e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/PRODUCTION_LOG.md",
+      "baseline_blob": "b83d1caf6e8fe6895d4da28369e6435d5476cbce",
+      "actual_blob": "b83d1caf6e8fe6895d4da28369e6435d5476cbce",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/README.md",
+      "baseline_blob": "0670d77d67e994a36a1e7e30300a86922109abfb",
+      "actual_blob": "0670d77d67e994a36a1e7e30300a86922109abfb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/SHA256.json",
+      "baseline_blob": "9bef053c88149626b635bfb2f282d949f29f9d57",
+      "actual_blob": "9bef053c88149626b635bfb2f282d949f29f9d57",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/ZERO_CODE_counterattack_design_02_review.zip",
+      "baseline_blob": "9e108fd790bc16a3f669bd5fbf3575f1294bbde7",
+      "actual_blob": "9e108fd790bc16a3f669bd5fbf3575f1294bbde7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_24fps.mp4",
+      "baseline_blob": "8a46b331881ae99d547adbd57529a18c87837ce4",
+      "actual_blob": "8a46b331881ae99d547adbd57529a18c87837ce4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P020.png",
+      "baseline_blob": "448ca57c09f9b4ef2c45c6104c2888d92488b1b0",
+      "actual_blob": "448ca57c09f9b4ef2c45c6104c2888d92488b1b0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P023.png",
+      "baseline_blob": "7ef64dcf69697b12b0399120dcfddb8100196c4e",
+      "actual_blob": "7ef64dcf69697b12b0399120dcfddb8100196c4e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P024.png",
+      "baseline_blob": "b2db5e4b31d9a717c5116eb48bcab8dbc5d790d9",
+      "actual_blob": "b2db5e4b31d9a717c5116eb48bcab8dbc5d790d9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P025.png",
+      "baseline_blob": "bf1069b9906b1fdc9e6d732e88358110229c4278",
+      "actual_blob": "bf1069b9906b1fdc9e6d732e88358110229c4278",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P026.png",
+      "baseline_blob": "b34bba2af01fcd3f8695f3bb84e9d93a43aa4644",
+      "actual_blob": "b34bba2af01fcd3f8695f3bb84e9d93a43aa4644",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P028.png",
+      "baseline_blob": "f0ee614277df84599c318cfa864e0ce2fa35509f",
+      "actual_blob": "f0ee614277df84599c318cfa864e0ce2fa35509f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P031.png",
+      "baseline_blob": "245935b943ea79753838cf0829abcc4518cab243",
+      "actual_blob": "245935b943ea79753838cf0829abcc4518cab243",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P035.png",
+      "baseline_blob": "617c3960e4b41afed0e10d850961b69f8dff63b4",
+      "actual_blob": "617c3960e4b41afed0e10d850961b69f8dff63b4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P040.png",
+      "baseline_blob": "9d450f056053d8de0920c2cc0a7b98b513f01754",
+      "actual_blob": "9d450f056053d8de0920c2cc0a7b98b513f01754",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P042.png",
+      "baseline_blob": "82ab79a57231d08f28f44e2fe054c0a7a3ddd359",
+      "actual_blob": "82ab79a57231d08f28f44e2fe054c0a7a3ddd359",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P044.png",
+      "baseline_blob": "7a42ebe4afc5552c253374812989f8392a5df112",
+      "actual_blob": "7a42ebe4afc5552c253374812989f8392a5df112",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P046.png",
+      "baseline_blob": "b3c96dcaebef4068510b136435c414659a35e7c5",
+      "actual_blob": "b3c96dcaebef4068510b136435c414659a35e7c5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P048.png",
+      "baseline_blob": "d26bc2211c1f5193fb45fcc6312e190a473b158e",
+      "actual_blob": "d26bc2211c1f5193fb45fcc6312e190a473b158e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P050.png",
+      "baseline_blob": "f09e059c18b922a1112fa3c099700014e13c883c",
+      "actual_blob": "f09e059c18b922a1112fa3c099700014e13c883c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P051.png",
+      "baseline_blob": "e6be90e52e377bcd56659f15ce5650b326886136",
+      "actual_blob": "e6be90e52e377bcd56659f15ce5650b326886136",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/comparison/01_vs_02_P055.png",
+      "baseline_blob": "e0e8e866a1389ac724260bbc7a72c13f17e9218b",
+      "actual_blob": "e0e8e866a1389ac724260bbc7a72c13f17e9218b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/design_keyposes_02.png",
+      "baseline_blob": "962f06c2d8b09977361ee7261a7cc3e6d3045bac",
+      "actual_blob": "962f06c2d8b09977361ee7261a7cc3e6d3045bac",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P000.png",
+      "baseline_blob": "b6e9c7ce8679bf5e1fcfc1a11599854cce8532df",
+      "actual_blob": "b6e9c7ce8679bf5e1fcfc1a11599854cce8532df",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P001.png",
+      "baseline_blob": "3891d51d8585f1be2fa7e4a20746a29a2cec3915",
+      "actual_blob": "3891d51d8585f1be2fa7e4a20746a29a2cec3915",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P002.png",
+      "baseline_blob": "e63b3ec7a60b77ef5c17832c5bc50e9a885a0ff2",
+      "actual_blob": "e63b3ec7a60b77ef5c17832c5bc50e9a885a0ff2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P003.png",
+      "baseline_blob": "8c736325c72f730dc56317d42d3d1f14eb58e7e1",
+      "actual_blob": "8c736325c72f730dc56317d42d3d1f14eb58e7e1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P004.png",
+      "baseline_blob": "99eab7ddf4ed315064b0015374452de0ed18d485",
+      "actual_blob": "99eab7ddf4ed315064b0015374452de0ed18d485",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P005.png",
+      "baseline_blob": "2c93da5999777283bcf2da1f7032ec525e33a2e9",
+      "actual_blob": "2c93da5999777283bcf2da1f7032ec525e33a2e9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P006.png",
+      "baseline_blob": "04f4304b0640893ce2ac99c68bdab9640f6a0007",
+      "actual_blob": "04f4304b0640893ce2ac99c68bdab9640f6a0007",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P007.png",
+      "baseline_blob": "e88bebfd840af90cf9ec63c881438c0d35d591f4",
+      "actual_blob": "e88bebfd840af90cf9ec63c881438c0d35d591f4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P008.png",
+      "baseline_blob": "d6e0e6b8e647d9245e75b70a6db2437c45ba3ee3",
+      "actual_blob": "d6e0e6b8e647d9245e75b70a6db2437c45ba3ee3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P009.png",
+      "baseline_blob": "0d48df463c4bfc4e1aee9ba97c9be9222d352986",
+      "actual_blob": "0d48df463c4bfc4e1aee9ba97c9be9222d352986",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P010.png",
+      "baseline_blob": "4a9579eada8e3bd39060de59b59281eb6cb92c30",
+      "actual_blob": "4a9579eada8e3bd39060de59b59281eb6cb92c30",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P011.png",
+      "baseline_blob": "48b6a40b44b0cb7a5ee1daed29cc0183bc8ab7f8",
+      "actual_blob": "48b6a40b44b0cb7a5ee1daed29cc0183bc8ab7f8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P012.png",
+      "baseline_blob": "d24d2f913fa7b61038e86f82cc1b2bf669b2cbbe",
+      "actual_blob": "d24d2f913fa7b61038e86f82cc1b2bf669b2cbbe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P013.png",
+      "baseline_blob": "a848114085f660beb9d74aa08f53fcb90caf244b",
+      "actual_blob": "a848114085f660beb9d74aa08f53fcb90caf244b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P014.png",
+      "baseline_blob": "2d9b0669dff2bfb082e1ba68f91fd6bb3b4ce139",
+      "actual_blob": "2d9b0669dff2bfb082e1ba68f91fd6bb3b4ce139",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P015.png",
+      "baseline_blob": "12e2970262d95a5b7a5a85c1300cf8c9dc7adf5f",
+      "actual_blob": "12e2970262d95a5b7a5a85c1300cf8c9dc7adf5f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P016.png",
+      "baseline_blob": "be0a29f129fcfcb2f742b82741af4d80c6b7e6ec",
+      "actual_blob": "be0a29f129fcfcb2f742b82741af4d80c6b7e6ec",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P017.png",
+      "baseline_blob": "6be21ea2a4c5387c9bcfed89879bd9b9ec2ca88a",
+      "actual_blob": "6be21ea2a4c5387c9bcfed89879bd9b9ec2ca88a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P018.png",
+      "baseline_blob": "8814b41e73f10e694ad3ae981d54636ec3f00497",
+      "actual_blob": "8814b41e73f10e694ad3ae981d54636ec3f00497",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P019.png",
+      "baseline_blob": "6b845b0b323ae26cc59b60e651dfd515c3cdeb26",
+      "actual_blob": "6b845b0b323ae26cc59b60e651dfd515c3cdeb26",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P020.png",
+      "baseline_blob": "2457673f098e3cb1aeeb4cb0c0e5958be7818760",
+      "actual_blob": "2457673f098e3cb1aeeb4cb0c0e5958be7818760",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P021.png",
+      "baseline_blob": "e4c81c849586cc19d03132465db930a6e68c7900",
+      "actual_blob": "e4c81c849586cc19d03132465db930a6e68c7900",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P022.png",
+      "baseline_blob": "027bf81277038d5508fa78b0487d7d74af2ef491",
+      "actual_blob": "027bf81277038d5508fa78b0487d7d74af2ef491",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P023.png",
+      "baseline_blob": "10686a29da156c0f4268d318a53b51459afa4f6a",
+      "actual_blob": "10686a29da156c0f4268d318a53b51459afa4f6a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P024.png",
+      "baseline_blob": "934cef8402e5c0218f4b481e63c7d8296233cb31",
+      "actual_blob": "934cef8402e5c0218f4b481e63c7d8296233cb31",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P025.png",
+      "baseline_blob": "f4ee75fdff107a042ca9f50e654a82a36f6f7420",
+      "actual_blob": "f4ee75fdff107a042ca9f50e654a82a36f6f7420",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P026.png",
+      "baseline_blob": "3ea14093f6ccbcaf84a4c1eafdb2d525de4adf5b",
+      "actual_blob": "3ea14093f6ccbcaf84a4c1eafdb2d525de4adf5b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P027.png",
+      "baseline_blob": "99f3c770ba82dfbc2e76d8098ed0753449cf80ba",
+      "actual_blob": "99f3c770ba82dfbc2e76d8098ed0753449cf80ba",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P028.png",
+      "baseline_blob": "8013000e8a98d3864d8912a8c7933033dc1792f9",
+      "actual_blob": "8013000e8a98d3864d8912a8c7933033dc1792f9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P029.png",
+      "baseline_blob": "fb4026a8c97506f325d64a153c74a7c6b8c1d685",
+      "actual_blob": "fb4026a8c97506f325d64a153c74a7c6b8c1d685",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P030.png",
+      "baseline_blob": "4eaf2df297b66a081e1d3f7a1fdbb69d75e608c2",
+      "actual_blob": "4eaf2df297b66a081e1d3f7a1fdbb69d75e608c2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P031.png",
+      "baseline_blob": "068a0fdbe242040fbe6b398849e871fd3bd253b4",
+      "actual_blob": "068a0fdbe242040fbe6b398849e871fd3bd253b4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P032.png",
+      "baseline_blob": "9cae490e4ccdcbcb9c1288eeae5dbc4430836aec",
+      "actual_blob": "9cae490e4ccdcbcb9c1288eeae5dbc4430836aec",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P033.png",
+      "baseline_blob": "df2708be7820466588411f88011d402419f30118",
+      "actual_blob": "df2708be7820466588411f88011d402419f30118",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P034.png",
+      "baseline_blob": "2930cffdbf57f1e7113e4aa790b1a26a58238688",
+      "actual_blob": "2930cffdbf57f1e7113e4aa790b1a26a58238688",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P035.png",
+      "baseline_blob": "4697aa9feeda6d4876d18d111bc0130167d1ce35",
+      "actual_blob": "4697aa9feeda6d4876d18d111bc0130167d1ce35",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P036.png",
+      "baseline_blob": "e7b2da405eec3fc7615151ce16cdb6cc0dccb3b3",
+      "actual_blob": "e7b2da405eec3fc7615151ce16cdb6cc0dccb3b3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P037.png",
+      "baseline_blob": "d4987e626cfb360fba4d8a8cc25d80a79d1ac928",
+      "actual_blob": "d4987e626cfb360fba4d8a8cc25d80a79d1ac928",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P038.png",
+      "baseline_blob": "dae74499cf2478d81f91b0cba3f99a11ec9ca1fd",
+      "actual_blob": "dae74499cf2478d81f91b0cba3f99a11ec9ca1fd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P039.png",
+      "baseline_blob": "ba40f362a394b31b10e06ce04c5440b7095c83ce",
+      "actual_blob": "ba40f362a394b31b10e06ce04c5440b7095c83ce",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P040.png",
+      "baseline_blob": "bdf42a94180fcb9397c8daaeea00583780e273a1",
+      "actual_blob": "bdf42a94180fcb9397c8daaeea00583780e273a1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P041.png",
+      "baseline_blob": "ad66e312db369c7500524413b8bb06577bfd4bf9",
+      "actual_blob": "ad66e312db369c7500524413b8bb06577bfd4bf9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P042.png",
+      "baseline_blob": "6cf42e67ee1d567824072c43018b705d48ae3526",
+      "actual_blob": "6cf42e67ee1d567824072c43018b705d48ae3526",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P043.png",
+      "baseline_blob": "011e6f7de54cbd3d16a7d13d82f9f24c4e39640d",
+      "actual_blob": "011e6f7de54cbd3d16a7d13d82f9f24c4e39640d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P044.png",
+      "baseline_blob": "5e57a342c167999fbaae5e281f32ae0404b456aa",
+      "actual_blob": "5e57a342c167999fbaae5e281f32ae0404b456aa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P045.png",
+      "baseline_blob": "81786779e456f682533ea5eda2516ea06abd78cd",
+      "actual_blob": "81786779e456f682533ea5eda2516ea06abd78cd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P046.png",
+      "baseline_blob": "63861dd34c1e74cb58743ff9b33705fd3945cdb6",
+      "actual_blob": "63861dd34c1e74cb58743ff9b33705fd3945cdb6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P047.png",
+      "baseline_blob": "54f8d8a2850f6be45468506428f66d3e5f11b067",
+      "actual_blob": "54f8d8a2850f6be45468506428f66d3e5f11b067",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P048.png",
+      "baseline_blob": "b75ee6f5a06beba4df6f1ee2ac3560a5eb513437",
+      "actual_blob": "b75ee6f5a06beba4df6f1ee2ac3560a5eb513437",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P049.png",
+      "baseline_blob": "2e1b2d76248578b9f7d2cd3dd54317e85b8c2a7f",
+      "actual_blob": "2e1b2d76248578b9f7d2cd3dd54317e85b8c2a7f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P050.png",
+      "baseline_blob": "4cac6f3f1cadb52d71bfa7e3845cb378a12f04c9",
+      "actual_blob": "4cac6f3f1cadb52d71bfa7e3845cb378a12f04c9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P051.png",
+      "baseline_blob": "f750f0b49d94d9bbe56d6eb75df10c9de63feed8",
+      "actual_blob": "f750f0b49d94d9bbe56d6eb75df10c9de63feed8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P052.png",
+      "baseline_blob": "1e1267b6f7d53267f80cbd1a95b3ddc39a207372",
+      "actual_blob": "1e1267b6f7d53267f80cbd1a95b3ddc39a207372",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P053.png",
+      "baseline_blob": "9c9c9808557b7734d0ffde1239dcdcbb39e66857",
+      "actual_blob": "9c9c9808557b7734d0ffde1239dcdcbb39e66857",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P054.png",
+      "baseline_blob": "e018cec8df3d27678a5333bd9cf6f0a633457edb",
+      "actual_blob": "e018cec8df3d27678a5333bd9cf6f0a633457edb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P055.png",
+      "baseline_blob": "052fcc187a40d7717fc21c8fa76354213ed4e964",
+      "actual_blob": "052fcc187a40d7717fc21c8fa76354213ed4e964",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P056.png",
+      "baseline_blob": "b0aec77c1d408c8af2a57f017dca5d462a234061",
+      "actual_blob": "b0aec77c1d408c8af2a57f017dca5d462a234061",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P057.png",
+      "baseline_blob": "aa5b4aaaaa2380b2c0e9b51ca2940f0743a33062",
+      "actual_blob": "aa5b4aaaaa2380b2c0e9b51ca2940f0743a33062",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P058.png",
+      "baseline_blob": "36ed45f556b338ecb7c26787f9e09d2fa83105b6",
+      "actual_blob": "36ed45f556b338ecb7c26787f9e09d2fa83105b6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P059.png",
+      "baseline_blob": "049f01fb0a4f63d743bb1fa7aa050602cc76c7c0",
+      "actual_blob": "049f01fb0a4f63d743bb1fa7aa050602cc76c7c0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P060.png",
+      "baseline_blob": "d9bb892ec8cc5f6cc7c8c2b961105d07a59b11d8",
+      "actual_blob": "d9bb892ec8cc5f6cc7c8c2b961105d07a59b11d8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P061.png",
+      "baseline_blob": "8802e9c6fd66360cfe85c8d39d238fd1d583d365",
+      "actual_blob": "8802e9c6fd66360cfe85c8d39d238fd1d583d365",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P062.png",
+      "baseline_blob": "ab65a688277edd9c473fe0fe3fdeadda261a2fc8",
+      "actual_blob": "ab65a688277edd9c473fe0fe3fdeadda261a2fc8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P063.png",
+      "baseline_blob": "1ab9c02eccf9c43ef21d85856683bdd948727fcb",
+      "actual_blob": "1ab9c02eccf9c43ef21d85856683bdd948727fcb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P064.png",
+      "baseline_blob": "2e61966b27973400e147f5bf31edc6cc137cc13d",
+      "actual_blob": "2e61966b27973400e147f5bf31edc6cc137cc13d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P065.png",
+      "baseline_blob": "5d38ae2a9b46f21c66a2d0ed4632fb482005f407",
+      "actual_blob": "5d38ae2a9b46f21c66a2d0ed4632fb482005f407",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P066.png",
+      "baseline_blob": "ed81364e8554f9a813f9cf88f908f59b74c6a3da",
+      "actual_blob": "ed81364e8554f9a813f9cf88f908f59b74c6a3da",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P067.png",
+      "baseline_blob": "a4f2efc08696e43dafc843b7c4930de6382bbd5a",
+      "actual_blob": "a4f2efc08696e43dafc843b7c4930de6382bbd5a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P068.png",
+      "baseline_blob": "fdce902922a96622296505afcbb0a61bd7967957",
+      "actual_blob": "fdce902922a96622296505afcbb0a61bd7967957",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P069.png",
+      "baseline_blob": "e39e86b3b593fbfcb62e3d504df2ad9071ca5a41",
+      "actual_blob": "e39e86b3b593fbfcb62e3d504df2ad9071ca5a41",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P070.png",
+      "baseline_blob": "d40de89bfd9b7dccd91b494c1b096734434f86b7",
+      "actual_blob": "d40de89bfd9b7dccd91b494c1b096734434f86b7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/frames/P071.png",
+      "baseline_blob": "8f7bed7c45c016c0dcd04eb39be56ac96e52761a",
+      "actual_blob": "8f7bed7c45c016c0dcd04eb39be56ac96e52761a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/baseline.py",
+      "baseline_blob": "853f57cebaf516d4410207b065bacf538e46691b",
+      "actual_blob": "853f57cebaf516d4410207b065bacf538e46691b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/baseline_poses.json",
+      "baseline_blob": "d32706b8f114135c7630de95356657605f7b774a",
+      "actual_blob": "d32706b8f114135c7630de95356657605f7b774a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/build_design_02.py",
+      "baseline_blob": "4d909972c3c127aaa89dbb090c8b8c5a0908763b",
+      "actual_blob": "4d909972c3c127aaa89dbb090c8b8c5a0908763b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/package_review.py",
+      "baseline_blob": "96af958c40b2e3b75f200e735ac2a6ad97f348bb",
+      "actual_blob": "96af958c40b2e3b75f200e735ac2a6ad97f348bb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/source/verify_review.py",
+      "baseline_blob": "2c47efd2b668bf147ddfef2bef2a93a105bea097",
+      "actual_blob": "2c47efd2b668bf147ddfef2bef2a93a105bea097",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/all_72_frames.png",
+      "baseline_blob": "4c0c4db29e58db921ee9832c4bc616347f9fa24a",
+      "actual_blob": "4c0c4db29e58db921ee9832c4bc616347f9fa24a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/motion_design_02.json",
+      "baseline_blob": "72a982dba22358a360e0325e9149e0e9dc815a34",
+      "actual_blob": "72a982dba22358a360e0325e9149e0e9dc815a34",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/protected_hashes.json",
+      "baseline_blob": "aecff9f7511e696edff60deffea8946b36c76868",
+      "actual_blob": "aecff9f7511e696edff60deffea8946b36c76868",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/submission_checks.json",
+      "baseline_blob": "8094a2952205417c10d043b305f468c706f11ea4",
+      "actual_blob": "8094a2952205417c10d043b305f468c706f11ea4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/verification/zip_integrity.json",
+      "baseline_blob": "367683690241498a34d62df3f59be5245f9aa25d",
+      "actual_blob": "367683690241498a34d62df3f59be5245f9aa25d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_02/video/counterattack_design_02_24fps.mp4",
+      "baseline_blob": "f99260d4c506fbaf23b5b872284cc86d63fc939d",
+      "actual_blob": "f99260d4c506fbaf23b5b872284cc86d63fc939d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/PRODUCTION_LOG.md",
+      "baseline_blob": "1dd7f6201734ee046b3aaf00f92ab43478ebf33f",
+      "actual_blob": "1dd7f6201734ee046b3aaf00f92ab43478ebf33f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/README.md",
+      "baseline_blob": "acaa19ec590092e557f29b96aea9166b17f6dfd2",
+      "actual_blob": "acaa19ec590092e557f29b96aea9166b17f6dfd2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/SHA256.json",
+      "baseline_blob": "b084fb18b8a45a601039416f5c10f2f4ec0e06f1",
+      "actual_blob": "b084fb18b8a45a601039416f5c10f2f4ec0e06f1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/ZERO_CODE_counterattack_design_03_review.zip",
+      "baseline_blob": "c8e8960be706e97a3fc1ce0efd6f74a725e126d4",
+      "actual_blob": "c8e8960be706e97a3fc1ce0efd6f74a725e126d4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_24fps.mp4",
+      "baseline_blob": "817f56905f437ee1ba5eb29d7494ecd72e91fdcd",
+      "actual_blob": "817f56905f437ee1ba5eb29d7494ecd72e91fdcd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P023.png",
+      "baseline_blob": "23a2d6674fd226180e2f2b22cd35d00ae76919e6",
+      "actual_blob": "23a2d6674fd226180e2f2b22cd35d00ae76919e6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P024.png",
+      "baseline_blob": "4c57d1cd9dfc7eef0e878e5364711c636bd205ce",
+      "actual_blob": "4c57d1cd9dfc7eef0e878e5364711c636bd205ce",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P025.png",
+      "baseline_blob": "13bdf81e8bbf13194137d93ff48973ee63c9b4a2",
+      "actual_blob": "13bdf81e8bbf13194137d93ff48973ee63c9b4a2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P026.png",
+      "baseline_blob": "19841bce29c57452e248a97739532e713c0f70a1",
+      "actual_blob": "19841bce29c57452e248a97739532e713c0f70a1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P028.png",
+      "baseline_blob": "f28811908ea42b42aef3c4bd6048d0729101f329",
+      "actual_blob": "f28811908ea42b42aef3c4bd6048d0729101f329",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P031.png",
+      "baseline_blob": "1be273e24b025c414537479c4a1fcdeae9272adf",
+      "actual_blob": "1be273e24b025c414537479c4a1fcdeae9272adf",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P035.png",
+      "baseline_blob": "088e70c12ed1d8f2417b983b7112a21c6bada8d8",
+      "actual_blob": "088e70c12ed1d8f2417b983b7112a21c6bada8d8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P046.png",
+      "baseline_blob": "4c6e5852554a6b66a36a0674516c3bba2993887a",
+      "actual_blob": "4c6e5852554a6b66a36a0674516c3bba2993887a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P050.png",
+      "baseline_blob": "04bd73b9becb285ea2e0cbbc9e83cc7b828ecced",
+      "actual_blob": "04bd73b9becb285ea2e0cbbc9e83cc7b828ecced",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/comparison/02_vs_03_P051.png",
+      "baseline_blob": "ca290d467b04715a619328cbbaed9a2639e830e4",
+      "actual_blob": "ca290d467b04715a619328cbbaed9a2639e830e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/design_keyposes_03.png",
+      "baseline_blob": "60f3e14dd3e5bc34227d7cfc35c1519bae6c6c3e",
+      "actual_blob": "60f3e14dd3e5bc34227d7cfc35c1519bae6c6c3e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P000.png",
+      "baseline_blob": "361fa31056f93a80b6da1ebee68d9584d00a6671",
+      "actual_blob": "361fa31056f93a80b6da1ebee68d9584d00a6671",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P001.png",
+      "baseline_blob": "fcf42bfd6b1acceef5a0aedeefb8ba4ca27564eb",
+      "actual_blob": "fcf42bfd6b1acceef5a0aedeefb8ba4ca27564eb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P002.png",
+      "baseline_blob": "0d107d41ba60c5097899ca4684d1fd0b68c87487",
+      "actual_blob": "0d107d41ba60c5097899ca4684d1fd0b68c87487",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P003.png",
+      "baseline_blob": "d8a31ceaa089a89d58123d18918a8ec76e657550",
+      "actual_blob": "d8a31ceaa089a89d58123d18918a8ec76e657550",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P004.png",
+      "baseline_blob": "148b6ee0d57d2270369c907c78508bca7e9f03ea",
+      "actual_blob": "148b6ee0d57d2270369c907c78508bca7e9f03ea",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P005.png",
+      "baseline_blob": "7714d3cf64359ba338707365d0e43b1a76256670",
+      "actual_blob": "7714d3cf64359ba338707365d0e43b1a76256670",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P006.png",
+      "baseline_blob": "0341345c7cdb90e9106fbe61a8ecd132ff017a95",
+      "actual_blob": "0341345c7cdb90e9106fbe61a8ecd132ff017a95",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P007.png",
+      "baseline_blob": "eeb80dbbc91d1a3d79989164da3af05fa24b4274",
+      "actual_blob": "eeb80dbbc91d1a3d79989164da3af05fa24b4274",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P008.png",
+      "baseline_blob": "50a37a571fa7f69697d9c4642fd71d9581939d2f",
+      "actual_blob": "50a37a571fa7f69697d9c4642fd71d9581939d2f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P009.png",
+      "baseline_blob": "9f0bbd2b7fbcf46abd4c0621c30669c87be6739a",
+      "actual_blob": "9f0bbd2b7fbcf46abd4c0621c30669c87be6739a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P010.png",
+      "baseline_blob": "1e53daf0a31cc11c761894ac43a9d797b2dac201",
+      "actual_blob": "1e53daf0a31cc11c761894ac43a9d797b2dac201",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P011.png",
+      "baseline_blob": "54f623131d3eb9c1a5894f9d2af48b1f1ecc2ba2",
+      "actual_blob": "54f623131d3eb9c1a5894f9d2af48b1f1ecc2ba2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P012.png",
+      "baseline_blob": "9da140e9fd7e6dc046b7d101c2eeeebeec99b1be",
+      "actual_blob": "9da140e9fd7e6dc046b7d101c2eeeebeec99b1be",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P013.png",
+      "baseline_blob": "5f6e2fb76365ac6a79e4cebb8df7814d707da2f9",
+      "actual_blob": "5f6e2fb76365ac6a79e4cebb8df7814d707da2f9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P014.png",
+      "baseline_blob": "c0ce14695347e74ed6f079d89bfedce186183138",
+      "actual_blob": "c0ce14695347e74ed6f079d89bfedce186183138",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P015.png",
+      "baseline_blob": "0cb22e3e3b40baabe5df5d9ba088e8a4e61b919c",
+      "actual_blob": "0cb22e3e3b40baabe5df5d9ba088e8a4e61b919c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P016.png",
+      "baseline_blob": "b67204ccccfb79c029107c33cf8239b88bf27e70",
+      "actual_blob": "b67204ccccfb79c029107c33cf8239b88bf27e70",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P017.png",
+      "baseline_blob": "28208913f72c27a1b0c2cb1a74c81e7f32658f4d",
+      "actual_blob": "28208913f72c27a1b0c2cb1a74c81e7f32658f4d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P018.png",
+      "baseline_blob": "35a1ca5445d77acbe133720571fc12435b541f7f",
+      "actual_blob": "35a1ca5445d77acbe133720571fc12435b541f7f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P019.png",
+      "baseline_blob": "63452f1bfc4ae86dbe23aca1f8d905d4503099b1",
+      "actual_blob": "63452f1bfc4ae86dbe23aca1f8d905d4503099b1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P020.png",
+      "baseline_blob": "222d1312b61532d7d26d4fa60616479b3ad56285",
+      "actual_blob": "222d1312b61532d7d26d4fa60616479b3ad56285",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P021.png",
+      "baseline_blob": "c8d41c2f980a0870a029811d2d54286e17ab19bf",
+      "actual_blob": "c8d41c2f980a0870a029811d2d54286e17ab19bf",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P022.png",
+      "baseline_blob": "a16e50823815af002afe0341857263b514d704aa",
+      "actual_blob": "a16e50823815af002afe0341857263b514d704aa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P023.png",
+      "baseline_blob": "06c58e8af8e7b7a10720e7f5ac716c827697c9d6",
+      "actual_blob": "06c58e8af8e7b7a10720e7f5ac716c827697c9d6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P024.png",
+      "baseline_blob": "7e1a019c7f5dfc5ae05057c0ad44845940a2ab26",
+      "actual_blob": "7e1a019c7f5dfc5ae05057c0ad44845940a2ab26",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P025.png",
+      "baseline_blob": "8843b09c33727b79f28698ba38d499a1bad7385c",
+      "actual_blob": "8843b09c33727b79f28698ba38d499a1bad7385c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P026.png",
+      "baseline_blob": "24a50c9ccb40e26206d8198ff79845ccdf091868",
+      "actual_blob": "24a50c9ccb40e26206d8198ff79845ccdf091868",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P027.png",
+      "baseline_blob": "afcbb14798b776b314ecc31bb40fe1361d04dfad",
+      "actual_blob": "afcbb14798b776b314ecc31bb40fe1361d04dfad",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P028.png",
+      "baseline_blob": "65d9ce1cca915ccfd4fec29f0c8130233916e305",
+      "actual_blob": "65d9ce1cca915ccfd4fec29f0c8130233916e305",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P029.png",
+      "baseline_blob": "df83a13574196614b838399b405b35817c539d2f",
+      "actual_blob": "df83a13574196614b838399b405b35817c539d2f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P030.png",
+      "baseline_blob": "5955c78663d72e47fdfcce43d6509a929e4f4eb1",
+      "actual_blob": "5955c78663d72e47fdfcce43d6509a929e4f4eb1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P031.png",
+      "baseline_blob": "314d6d9ca02f7bdebfb3c41c5e224087804b3cf9",
+      "actual_blob": "314d6d9ca02f7bdebfb3c41c5e224087804b3cf9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P032.png",
+      "baseline_blob": "741f498a0ca5153d4755f9c565bd5f91027ff9ac",
+      "actual_blob": "741f498a0ca5153d4755f9c565bd5f91027ff9ac",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P033.png",
+      "baseline_blob": "92d058ee371c4ac84029a6fcbb6fd1b8a478a8f5",
+      "actual_blob": "92d058ee371c4ac84029a6fcbb6fd1b8a478a8f5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P034.png",
+      "baseline_blob": "06bec0d8908dc6e634880280ac5f20cc98406dcc",
+      "actual_blob": "06bec0d8908dc6e634880280ac5f20cc98406dcc",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P035.png",
+      "baseline_blob": "e1a2d9ed05d3801b7a2b795f972fc4ee18a461f0",
+      "actual_blob": "e1a2d9ed05d3801b7a2b795f972fc4ee18a461f0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P036.png",
+      "baseline_blob": "4b5589a75a803264017adaae4883db949224cbee",
+      "actual_blob": "4b5589a75a803264017adaae4883db949224cbee",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P037.png",
+      "baseline_blob": "40a985987b5c025aa3357e791fb19af5e2906527",
+      "actual_blob": "40a985987b5c025aa3357e791fb19af5e2906527",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P038.png",
+      "baseline_blob": "2f99ac34b1dfe66da6bcb7852ff47c7c1b542920",
+      "actual_blob": "2f99ac34b1dfe66da6bcb7852ff47c7c1b542920",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P039.png",
+      "baseline_blob": "baab201ef582d0e4d9bd2155251c9d59c9309855",
+      "actual_blob": "baab201ef582d0e4d9bd2155251c9d59c9309855",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P040.png",
+      "baseline_blob": "4febbb12a48eadec1f98adef948564f759c55870",
+      "actual_blob": "4febbb12a48eadec1f98adef948564f759c55870",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P041.png",
+      "baseline_blob": "5a617dd966ac8e8d591c15871e38a773590cfc06",
+      "actual_blob": "5a617dd966ac8e8d591c15871e38a773590cfc06",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P042.png",
+      "baseline_blob": "c5902cd3c575d2c52f0099343aba800b8204f234",
+      "actual_blob": "c5902cd3c575d2c52f0099343aba800b8204f234",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P043.png",
+      "baseline_blob": "f7470df283a208390da2e499547438ed9d8169d8",
+      "actual_blob": "f7470df283a208390da2e499547438ed9d8169d8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P044.png",
+      "baseline_blob": "9fba3f88f08ec8349eba80e7e4be0a198e7c9030",
+      "actual_blob": "9fba3f88f08ec8349eba80e7e4be0a198e7c9030",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P045.png",
+      "baseline_blob": "0f0346b79dfc81d68adac731a4d501edd7ea3c9d",
+      "actual_blob": "0f0346b79dfc81d68adac731a4d501edd7ea3c9d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P046.png",
+      "baseline_blob": "6642bb578829d275efd0f0042071ba7ca2376190",
+      "actual_blob": "6642bb578829d275efd0f0042071ba7ca2376190",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P047.png",
+      "baseline_blob": "f1583179a93657445323305520ea0d417642fefb",
+      "actual_blob": "f1583179a93657445323305520ea0d417642fefb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P048.png",
+      "baseline_blob": "988882d32fadd7d8162f00c551e4ef8b793ac1aa",
+      "actual_blob": "988882d32fadd7d8162f00c551e4ef8b793ac1aa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P049.png",
+      "baseline_blob": "2e44adf2ceb1441ffa6b435af856dae287f15bcc",
+      "actual_blob": "2e44adf2ceb1441ffa6b435af856dae287f15bcc",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P050.png",
+      "baseline_blob": "a36fae1b56d542dd00279d640dccb37fa91c2489",
+      "actual_blob": "a36fae1b56d542dd00279d640dccb37fa91c2489",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P051.png",
+      "baseline_blob": "a45d5ff5b3ad27ce62fd8a6e1e41fee9f582e903",
+      "actual_blob": "a45d5ff5b3ad27ce62fd8a6e1e41fee9f582e903",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P052.png",
+      "baseline_blob": "18f8180db49288ae0e7864636bca627531bb30a2",
+      "actual_blob": "18f8180db49288ae0e7864636bca627531bb30a2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P053.png",
+      "baseline_blob": "7ab4c0d794e31a857eea70449db25829e661197c",
+      "actual_blob": "7ab4c0d794e31a857eea70449db25829e661197c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P054.png",
+      "baseline_blob": "80e90c79c0b5dd062fa3090e26abd6d3c8f5e8f0",
+      "actual_blob": "80e90c79c0b5dd062fa3090e26abd6d3c8f5e8f0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P055.png",
+      "baseline_blob": "4bdad040f8050e2bf55567987a3bca1e92a698d0",
+      "actual_blob": "4bdad040f8050e2bf55567987a3bca1e92a698d0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P056.png",
+      "baseline_blob": "06ec97715746ff480bc64e4abfe432f56d5593fa",
+      "actual_blob": "06ec97715746ff480bc64e4abfe432f56d5593fa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P057.png",
+      "baseline_blob": "013c8e859e57658fcaa839e1e4f7356636a1e509",
+      "actual_blob": "013c8e859e57658fcaa839e1e4f7356636a1e509",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P058.png",
+      "baseline_blob": "591e0abf38a1a5c0cf161be1ec3df51e0296af0d",
+      "actual_blob": "591e0abf38a1a5c0cf161be1ec3df51e0296af0d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P059.png",
+      "baseline_blob": "e44a170ef4afb7a6c7ce948068103134930d9c4f",
+      "actual_blob": "e44a170ef4afb7a6c7ce948068103134930d9c4f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P060.png",
+      "baseline_blob": "2722160941c62cf576eb3a608d1f6346bcd79b1c",
+      "actual_blob": "2722160941c62cf576eb3a608d1f6346bcd79b1c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P061.png",
+      "baseline_blob": "6a344dbe5ecb57495f9555f72c3a719b9514779b",
+      "actual_blob": "6a344dbe5ecb57495f9555f72c3a719b9514779b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P062.png",
+      "baseline_blob": "892daac9584cb9155ec82b5f37f10df1455da919",
+      "actual_blob": "892daac9584cb9155ec82b5f37f10df1455da919",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P063.png",
+      "baseline_blob": "970b421ec2e7988cf94c76296d30c5ed536ca1c7",
+      "actual_blob": "970b421ec2e7988cf94c76296d30c5ed536ca1c7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P064.png",
+      "baseline_blob": "1510b8fa0e2228b6ba09e826bc21f21191c371cd",
+      "actual_blob": "1510b8fa0e2228b6ba09e826bc21f21191c371cd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P065.png",
+      "baseline_blob": "7ca2c3cdaba489e8da74fbacf406d4e9d9ac8699",
+      "actual_blob": "7ca2c3cdaba489e8da74fbacf406d4e9d9ac8699",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P066.png",
+      "baseline_blob": "8e23c2e570e977ff85ec108cb5e74d8a504f108f",
+      "actual_blob": "8e23c2e570e977ff85ec108cb5e74d8a504f108f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P067.png",
+      "baseline_blob": "40842becf51e78835410120fb5d731d508846bfa",
+      "actual_blob": "40842becf51e78835410120fb5d731d508846bfa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P068.png",
+      "baseline_blob": "4cd1df8852e68f0f00bb9c262ffd48a7766869a2",
+      "actual_blob": "4cd1df8852e68f0f00bb9c262ffd48a7766869a2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P069.png",
+      "baseline_blob": "28143bb294817589461db98792320ab6a24a42ec",
+      "actual_blob": "28143bb294817589461db98792320ab6a24a42ec",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P070.png",
+      "baseline_blob": "d43e5508a23e6bc85cd722b3f199b73164ad18d8",
+      "actual_blob": "d43e5508a23e6bc85cd722b3f199b73164ad18d8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/frames/P071.png",
+      "baseline_blob": "509e02f4859ff624b6aa32fae29acd8188d045de",
+      "actual_blob": "509e02f4859ff624b6aa32fae29acd8188d045de",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/baseline.py",
+      "baseline_blob": "853f57cebaf516d4410207b065bacf538e46691b",
+      "actual_blob": "853f57cebaf516d4410207b065bacf538e46691b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/build_design_03.py",
+      "baseline_blob": "5bbc720752f6b2c723a4560b924d15747b9b2d6f",
+      "actual_blob": "5bbc720752f6b2c723a4560b924d15747b9b2d6f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/source/poses03.json",
+      "baseline_blob": "6c53a3101f93889db7f8ea3be8b7cb428bc34fe5",
+      "actual_blob": "6c53a3101f93889db7f8ea3be8b7cb428bc34fe5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/all_72_frames.png",
+      "baseline_blob": "a5e62d3c8795be17dfc1cc09bbb659b5e0e5a1aa",
+      "actual_blob": "a5e62d3c8795be17dfc1cc09bbb659b5e0e5a1aa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/protected_files.json",
+      "baseline_blob": "ffb34f5812d182a94852148604947e3144f06bba",
+      "actual_blob": "ffb34f5812d182a94852148604947e3144f06bba",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/verification/submission_checks.json",
+      "baseline_blob": "0d037d4c5d96733ff8806d6a9f7c269d4fd5dacc",
+      "actual_blob": "0d037d4c5d96733ff8806d6a9f7c269d4fd5dacc",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_03/video/counterattack_design_03_24fps.mp4",
+      "baseline_blob": "be040e02ac4b9f3a864aaf7b4a8740a4df48f442",
+      "actual_blob": "be040e02ac4b9f3a864aaf7b4a8740a4df48f442",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/PRODUCTION_LOG.md",
+      "baseline_blob": "af6ca0ec17a6c9322165d46157886cdb92915221",
+      "actual_blob": "af6ca0ec17a6c9322165d46157886cdb92915221",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/README.md",
+      "baseline_blob": "babbc8701deda9bdb34d39407129329e9d216a03",
+      "actual_blob": "babbc8701deda9bdb34d39407129329e9d216a03",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/SHA256.json",
+      "baseline_blob": "ba795491e88434b6cb98718f447dd2215540f67e",
+      "actual_blob": "ba795491e88434b6cb98718f447dd2215540f67e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/ZERO_CODE_counterattack_design_04_review.zip",
+      "baseline_blob": "e67b3158edf3a15434720e130626e5624c774552",
+      "actual_blob": "e67b3158edf3a15434720e130626e5624c774552",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_24fps.mp4",
+      "baseline_blob": "a07db1205cd03c176456d6c4f6eb4a1bb59f1266",
+      "actual_blob": "a07db1205cd03c176456d6c4f6eb4a1bb59f1266",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P023.png",
+      "baseline_blob": "ddef3f5d03756ed189118ab664ae16aae4b0bb22",
+      "actual_blob": "ddef3f5d03756ed189118ab664ae16aae4b0bb22",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P024.png",
+      "baseline_blob": "3324e7ef92947d7fcbdbdcaf4f257ceb67f07cd5",
+      "actual_blob": "3324e7ef92947d7fcbdbdcaf4f257ceb67f07cd5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P025.png",
+      "baseline_blob": "d6c5cd38775d89e760d88d16103f34b0696b785c",
+      "actual_blob": "d6c5cd38775d89e760d88d16103f34b0696b785c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P026.png",
+      "baseline_blob": "2cbaee8141e824f03857c597bc721401ac0bffd7",
+      "actual_blob": "2cbaee8141e824f03857c597bc721401ac0bffd7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P028.png",
+      "baseline_blob": "15a5838940e628546dc26c2a56a0511342932eaa",
+      "actual_blob": "15a5838940e628546dc26c2a56a0511342932eaa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P031.png",
+      "baseline_blob": "aa13959e3b9c927ee5d525aea6ee81d8bd8d9db8",
+      "actual_blob": "aa13959e3b9c927ee5d525aea6ee81d8bd8d9db8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P035.png",
+      "baseline_blob": "80d265db969f88bed75a3b25e320c577aa61bfc4",
+      "actual_blob": "80d265db969f88bed75a3b25e320c577aa61bfc4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P040.png",
+      "baseline_blob": "3b86090dfee4f5205d7453f9f91c22f9e10a3bbb",
+      "actual_blob": "3b86090dfee4f5205d7453f9f91c22f9e10a3bbb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P046.png",
+      "baseline_blob": "971537e8e79efde03cd17aae93fd252a1b2f55d6",
+      "actual_blob": "971537e8e79efde03cd17aae93fd252a1b2f55d6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P050.png",
+      "baseline_blob": "3a756cc29aa771e4983a0a6c12dfbe9e6c1631bc",
+      "actual_blob": "3a756cc29aa771e4983a0a6c12dfbe9e6c1631bc",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/comparison/03_vs_04_P051.png",
+      "baseline_blob": "ca058753a3bc03a42d3b4c69d014b8b8e5a36145",
+      "actual_blob": "ca058753a3bc03a42d3b4c69d014b8b8e5a36145",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/design_keyposes_04.png",
+      "baseline_blob": "f7bcffcc7ab9fdedd040f6914948937a284fcf3b",
+      "actual_blob": "f7bcffcc7ab9fdedd040f6914948937a284fcf3b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P000.png",
+      "baseline_blob": "85c8981cd0091e4d8679a30509a237ac59220a1d",
+      "actual_blob": "85c8981cd0091e4d8679a30509a237ac59220a1d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P001.png",
+      "baseline_blob": "826e4068ca74e718a2b1f1059787fe2ccec2c862",
+      "actual_blob": "826e4068ca74e718a2b1f1059787fe2ccec2c862",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P002.png",
+      "baseline_blob": "6a6f501be148b2a54be7362871b31471c3626fdf",
+      "actual_blob": "6a6f501be148b2a54be7362871b31471c3626fdf",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P003.png",
+      "baseline_blob": "bcd54848e4efb7d1dfd8d3618c8b18e83f58dd1b",
+      "actual_blob": "bcd54848e4efb7d1dfd8d3618c8b18e83f58dd1b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P004.png",
+      "baseline_blob": "9c5b6a94f92960938de835aa8d9c314d38787488",
+      "actual_blob": "9c5b6a94f92960938de835aa8d9c314d38787488",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P005.png",
+      "baseline_blob": "1876c3dd81b5ceba02c18a524a27b4cb75e97f5d",
+      "actual_blob": "1876c3dd81b5ceba02c18a524a27b4cb75e97f5d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P006.png",
+      "baseline_blob": "827142629b50e324b3e2c06684a4421efe88f729",
+      "actual_blob": "827142629b50e324b3e2c06684a4421efe88f729",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P007.png",
+      "baseline_blob": "17727cb1ef56b307041638aa9ebad4b36428fbb2",
+      "actual_blob": "17727cb1ef56b307041638aa9ebad4b36428fbb2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P008.png",
+      "baseline_blob": "ae78121dd7bef647e7a69488fab0dfc874e2b38b",
+      "actual_blob": "ae78121dd7bef647e7a69488fab0dfc874e2b38b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P009.png",
+      "baseline_blob": "0759d35190d76e82ed8470befa54c9a7345e10cb",
+      "actual_blob": "0759d35190d76e82ed8470befa54c9a7345e10cb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P010.png",
+      "baseline_blob": "ddb3cbb7352638b467dae0f0e803d1eb738d01fe",
+      "actual_blob": "ddb3cbb7352638b467dae0f0e803d1eb738d01fe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P011.png",
+      "baseline_blob": "ad720dbb59a57b05859c494e66d807b4e4f80d1e",
+      "actual_blob": "ad720dbb59a57b05859c494e66d807b4e4f80d1e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P012.png",
+      "baseline_blob": "72261c058bd89357c308e13f203ded09d3915941",
+      "actual_blob": "72261c058bd89357c308e13f203ded09d3915941",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P013.png",
+      "baseline_blob": "99ffb25f61dd9c61d3bba3df73b27d9aa6a54fa6",
+      "actual_blob": "99ffb25f61dd9c61d3bba3df73b27d9aa6a54fa6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P014.png",
+      "baseline_blob": "438f6d037e392b095eb0abfb74fc6c562fbc0513",
+      "actual_blob": "438f6d037e392b095eb0abfb74fc6c562fbc0513",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P015.png",
+      "baseline_blob": "f53cb669ae85489ed943457c4ecdcaeb39333890",
+      "actual_blob": "f53cb669ae85489ed943457c4ecdcaeb39333890",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P016.png",
+      "baseline_blob": "334e45fe818d3954e93563aeef2b47939f0b3e7f",
+      "actual_blob": "334e45fe818d3954e93563aeef2b47939f0b3e7f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P017.png",
+      "baseline_blob": "49b55659f0544bc49a5eb1ac36d563dbbd43da3a",
+      "actual_blob": "49b55659f0544bc49a5eb1ac36d563dbbd43da3a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P018.png",
+      "baseline_blob": "ca22b444635eaf7c9fccc0e2d4d0c6eec52fb8a4",
+      "actual_blob": "ca22b444635eaf7c9fccc0e2d4d0c6eec52fb8a4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P019.png",
+      "baseline_blob": "80a2cf1f54321492de6da00e12a9d5f7be645297",
+      "actual_blob": "80a2cf1f54321492de6da00e12a9d5f7be645297",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P020.png",
+      "baseline_blob": "831141d8386c4ea1dcab35991a65196a1c0547b0",
+      "actual_blob": "831141d8386c4ea1dcab35991a65196a1c0547b0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P021.png",
+      "baseline_blob": "f7b378b8a2bc2360e475fb9677c0877e2c8dd482",
+      "actual_blob": "f7b378b8a2bc2360e475fb9677c0877e2c8dd482",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P022.png",
+      "baseline_blob": "de1656d5020f273bef4afed431aa119d30af21ad",
+      "actual_blob": "de1656d5020f273bef4afed431aa119d30af21ad",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P023.png",
+      "baseline_blob": "b284dc17a62a11ff40b6b7fcbc64dc46e54cb949",
+      "actual_blob": "b284dc17a62a11ff40b6b7fcbc64dc46e54cb949",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P024.png",
+      "baseline_blob": "e20922539a46d022a3c535275fc966cb85741f0b",
+      "actual_blob": "e20922539a46d022a3c535275fc966cb85741f0b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P025.png",
+      "baseline_blob": "3bb5efb87464a96ac1f8201ae640ac34d6083444",
+      "actual_blob": "3bb5efb87464a96ac1f8201ae640ac34d6083444",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P026.png",
+      "baseline_blob": "8e2593d9d459d865d7aba1e804ce0f4912b2c592",
+      "actual_blob": "8e2593d9d459d865d7aba1e804ce0f4912b2c592",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P027.png",
+      "baseline_blob": "1d9a276d92d3ab012ab50ae0b76ba524a7d95fba",
+      "actual_blob": "1d9a276d92d3ab012ab50ae0b76ba524a7d95fba",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P028.png",
+      "baseline_blob": "a8ad3f4f22836865169fbcab0261ff0da6bf83e3",
+      "actual_blob": "a8ad3f4f22836865169fbcab0261ff0da6bf83e3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P029.png",
+      "baseline_blob": "ac7ba2d3b182dda13163b6991478ca1af900adc4",
+      "actual_blob": "ac7ba2d3b182dda13163b6991478ca1af900adc4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P030.png",
+      "baseline_blob": "c9f38aaec98326fbff0207c27e7334bdb3df05dd",
+      "actual_blob": "c9f38aaec98326fbff0207c27e7334bdb3df05dd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P031.png",
+      "baseline_blob": "7621b761bec4af37ba54c3ab4fbd378fb1f67a6b",
+      "actual_blob": "7621b761bec4af37ba54c3ab4fbd378fb1f67a6b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P032.png",
+      "baseline_blob": "54b3fd3bd0af84aec5b44e77383305949be79b2c",
+      "actual_blob": "54b3fd3bd0af84aec5b44e77383305949be79b2c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P033.png",
+      "baseline_blob": "53abaeb04b38e9282cd2a7fb836fe8bfa748ba1e",
+      "actual_blob": "53abaeb04b38e9282cd2a7fb836fe8bfa748ba1e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P034.png",
+      "baseline_blob": "5c725be873b86659fd8451325b6ac4cecaebf150",
+      "actual_blob": "5c725be873b86659fd8451325b6ac4cecaebf150",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P035.png",
+      "baseline_blob": "37904ed8047ae5db19abd674eaac665dff1887b9",
+      "actual_blob": "37904ed8047ae5db19abd674eaac665dff1887b9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P036.png",
+      "baseline_blob": "16589bf771b210dd7e05db8f748a1b0be51d0346",
+      "actual_blob": "16589bf771b210dd7e05db8f748a1b0be51d0346",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P037.png",
+      "baseline_blob": "502fda37c2e522845b16e1e35fdd22744090f0e8",
+      "actual_blob": "502fda37c2e522845b16e1e35fdd22744090f0e8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P038.png",
+      "baseline_blob": "2e8293a27abf7f11dbc10544fbfccefcc4e64626",
+      "actual_blob": "2e8293a27abf7f11dbc10544fbfccefcc4e64626",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P039.png",
+      "baseline_blob": "a17e50923bfbc24f65645af7e923ba7edd90d537",
+      "actual_blob": "a17e50923bfbc24f65645af7e923ba7edd90d537",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P040.png",
+      "baseline_blob": "b999f21aae1444aa47c36999c424eb72a5679e9f",
+      "actual_blob": "b999f21aae1444aa47c36999c424eb72a5679e9f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P041.png",
+      "baseline_blob": "4c602ce9959978606fd18d256594410bcc6570fb",
+      "actual_blob": "4c602ce9959978606fd18d256594410bcc6570fb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P042.png",
+      "baseline_blob": "ee72b435e0bf0f48392455ec5644e234818dda3c",
+      "actual_blob": "ee72b435e0bf0f48392455ec5644e234818dda3c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P043.png",
+      "baseline_blob": "51dea76df0eb2f84958b7efc5a35dc88d3e2452e",
+      "actual_blob": "51dea76df0eb2f84958b7efc5a35dc88d3e2452e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P044.png",
+      "baseline_blob": "2f2d788add4d6df4b2f9d9b66e7595879d800f6e",
+      "actual_blob": "2f2d788add4d6df4b2f9d9b66e7595879d800f6e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P045.png",
+      "baseline_blob": "7c297416b4a444323c79694de42340c7cfe66e3e",
+      "actual_blob": "7c297416b4a444323c79694de42340c7cfe66e3e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P046.png",
+      "baseline_blob": "241c8b5578850f61c3fdb2eaf01ccbd802e53f99",
+      "actual_blob": "241c8b5578850f61c3fdb2eaf01ccbd802e53f99",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P047.png",
+      "baseline_blob": "9118121a4cdccc5e7b128e5fb227f978eb75a56e",
+      "actual_blob": "9118121a4cdccc5e7b128e5fb227f978eb75a56e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P048.png",
+      "baseline_blob": "51532d692110d3149b2713078744cb5b9cb37aed",
+      "actual_blob": "51532d692110d3149b2713078744cb5b9cb37aed",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P049.png",
+      "baseline_blob": "e91d6c92a9bbce964cedb2573c6b2564f363ecd3",
+      "actual_blob": "e91d6c92a9bbce964cedb2573c6b2564f363ecd3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P050.png",
+      "baseline_blob": "684215e6380d1cf83ffa74c83c5727cc7d097539",
+      "actual_blob": "684215e6380d1cf83ffa74c83c5727cc7d097539",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P051.png",
+      "baseline_blob": "508b36f9cce18fd9f6e74be762c2c6d46d0c7a23",
+      "actual_blob": "508b36f9cce18fd9f6e74be762c2c6d46d0c7a23",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P052.png",
+      "baseline_blob": "9450dc96bae89f33d1d4afda3c8cfe07b4f74a6a",
+      "actual_blob": "9450dc96bae89f33d1d4afda3c8cfe07b4f74a6a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P053.png",
+      "baseline_blob": "5da81ea7fa8eea1576b64a1ad9f33e09d482f5e6",
+      "actual_blob": "5da81ea7fa8eea1576b64a1ad9f33e09d482f5e6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P054.png",
+      "baseline_blob": "5221787029711cec438e71b0b4d7686879a981d5",
+      "actual_blob": "5221787029711cec438e71b0b4d7686879a981d5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P055.png",
+      "baseline_blob": "06249754b445062af10c031cace78463f8c9f736",
+      "actual_blob": "06249754b445062af10c031cace78463f8c9f736",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P056.png",
+      "baseline_blob": "7640af79376a1d0531ddbe78751f6919851ef2b5",
+      "actual_blob": "7640af79376a1d0531ddbe78751f6919851ef2b5",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P057.png",
+      "baseline_blob": "74e41420ad6d9c13efa4049732797cf6658df2ef",
+      "actual_blob": "74e41420ad6d9c13efa4049732797cf6658df2ef",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P058.png",
+      "baseline_blob": "14a990e5f3150586752048448fb8d8c7c7eebd41",
+      "actual_blob": "14a990e5f3150586752048448fb8d8c7c7eebd41",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P059.png",
+      "baseline_blob": "e3f8a16e29636d9c7f78297cef9695ad097e34cb",
+      "actual_blob": "e3f8a16e29636d9c7f78297cef9695ad097e34cb",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P060.png",
+      "baseline_blob": "7fbdedb638bd36d5c3996f1aa9f14c324d1e835b",
+      "actual_blob": "7fbdedb638bd36d5c3996f1aa9f14c324d1e835b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P061.png",
+      "baseline_blob": "fbc78839688c7aa3981f9c59e729bc3bfc16cdc6",
+      "actual_blob": "fbc78839688c7aa3981f9c59e729bc3bfc16cdc6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P062.png",
+      "baseline_blob": "3a4666f117acbf79d3aa5d97828bdb7c7a7c234b",
+      "actual_blob": "3a4666f117acbf79d3aa5d97828bdb7c7a7c234b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P063.png",
+      "baseline_blob": "934dfbd8fde05403660cea5da9a2bf9c68b565c6",
+      "actual_blob": "934dfbd8fde05403660cea5da9a2bf9c68b565c6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P064.png",
+      "baseline_blob": "7e1c2065af4ddb4bfa9fc644e5cf9e8b7f4f83b2",
+      "actual_blob": "7e1c2065af4ddb4bfa9fc644e5cf9e8b7f4f83b2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P065.png",
+      "baseline_blob": "4f70227b85e0758aedc6073f4e38a2b9f1d06438",
+      "actual_blob": "4f70227b85e0758aedc6073f4e38a2b9f1d06438",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P066.png",
+      "baseline_blob": "fae9506f3ecca0a514d83240eff68072394fb384",
+      "actual_blob": "fae9506f3ecca0a514d83240eff68072394fb384",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P067.png",
+      "baseline_blob": "da99c89a0893b39d4b55025224ae770baf4465b1",
+      "actual_blob": "da99c89a0893b39d4b55025224ae770baf4465b1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P068.png",
+      "baseline_blob": "56aafe7d55fabe50d8416d7d54ea1e370016b256",
+      "actual_blob": "56aafe7d55fabe50d8416d7d54ea1e370016b256",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P069.png",
+      "baseline_blob": "211f16c34ef0fd9c0b6d0c5d31585aa1485d7ba4",
+      "actual_blob": "211f16c34ef0fd9c0b6d0c5d31585aa1485d7ba4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P070.png",
+      "baseline_blob": "9cc06b9b851295e9626e93e27562c052c93f6ff1",
+      "actual_blob": "9cc06b9b851295e9626e93e27562c052c93f6ff1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/frames/P071.png",
+      "baseline_blob": "841b4ae0d69d14523a63bd69648fbe9c43467df7",
+      "actual_blob": "841b4ae0d69d14523a63bd69648fbe9c43467df7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/baseline.py",
+      "baseline_blob": "853f57cebaf516d4410207b065bacf538e46691b",
+      "actual_blob": "853f57cebaf516d4410207b065bacf538e46691b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/build_design_04.py",
+      "baseline_blob": "61c445571cc4ed3b6f35e960dad3fa3a24ba2818",
+      "actual_blob": "61c445571cc4ed3b6f35e960dad3fa3a24ba2818",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/source/poses04.json",
+      "baseline_blob": "a080e1cbdd069f3465dc83a56dca01e3e031f43c",
+      "actual_blob": "a080e1cbdd069f3465dc83a56dca01e3e031f43c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/all_72_frames.png",
+      "baseline_blob": "a2cb9a99b9e0d8a8e7bd36b6a02965936f391a9f",
+      "actual_blob": "a2cb9a99b9e0d8a8e7bd36b6a02965936f391a9f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/protected_files.json",
+      "baseline_blob": "baff5829799f01b27c7166c34d3b4041e5702552",
+      "actual_blob": "baff5829799f01b27c7166c34d3b4041e5702552",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/submission_checks.json",
+      "baseline_blob": "fbd272374e149e5dfe667ceba3e5cc307a16ec93",
+      "actual_blob": "fbd272374e149e5dfe667ceba3e5cc307a16ec93",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/verification/temporal_analysis.json",
+      "baseline_blob": "c3bb7095e45efd4912991719d614a381ef095386",
+      "actual_blob": "c3bb7095e45efd4912991719d614a381ef095386",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/counterattack_design_04/video/counterattack_design_04_24fps.mp4",
+      "baseline_blob": "d573be047d2baa21e6e9a0931d1eee2da93829e0",
+      "actual_blob": "d573be047d2baa21e6e9a0931d1eee2da93829e0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "baseline_blob": "e0c34f473296f08925236afc4649b004fbaf4bf2",
+      "actual_blob": "e0c34f473296f08925236afc4649b004fbaf4bf2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/README.md",
+      "baseline_blob": "cfdeb90e121542ea03f4ca8b91579e8eef90bd1a",
+      "actual_blob": "cfdeb90e121542ea03f4ca8b91579e8eef90bd1a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/S01_independent_DRAFT_review.zip",
+      "baseline_blob": "5cb404ea71cf84b1c433d7b10049ab0dd538c58c",
+      "actual_blob": "5cb404ea71cf84b1c433d7b10049ab0dd538c58c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/SHA256.json",
+      "baseline_blob": "f60ca4e6b8ef87886658d510aac828afdb44387e",
+      "actual_blob": "f60ca4e6b8ef87886658d510aac828afdb44387e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F000.png",
+      "baseline_blob": "308f99f9e6d8cb65745612beba272241fcce5cfe",
+      "actual_blob": "308f99f9e6d8cb65745612beba272241fcce5cfe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F001.png",
+      "baseline_blob": "308f99f9e6d8cb65745612beba272241fcce5cfe",
+      "actual_blob": "308f99f9e6d8cb65745612beba272241fcce5cfe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F002.png",
+      "baseline_blob": "308f99f9e6d8cb65745612beba272241fcce5cfe",
+      "actual_blob": "308f99f9e6d8cb65745612beba272241fcce5cfe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F003.png",
+      "baseline_blob": "966d5971d50d7794dcba73d857f53fc0c804e221",
+      "actual_blob": "966d5971d50d7794dcba73d857f53fc0c804e221",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F004.png",
+      "baseline_blob": "966d5971d50d7794dcba73d857f53fc0c804e221",
+      "actual_blob": "966d5971d50d7794dcba73d857f53fc0c804e221",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F005.png",
+      "baseline_blob": "966d5971d50d7794dcba73d857f53fc0c804e221",
+      "actual_blob": "966d5971d50d7794dcba73d857f53fc0c804e221",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F006.png",
+      "baseline_blob": "9ca08197340d51cd943325465d878e0835a175d9",
+      "actual_blob": "9ca08197340d51cd943325465d878e0835a175d9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F007.png",
+      "baseline_blob": "9ca08197340d51cd943325465d878e0835a175d9",
+      "actual_blob": "9ca08197340d51cd943325465d878e0835a175d9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F008.png",
+      "baseline_blob": "9ca08197340d51cd943325465d878e0835a175d9",
+      "actual_blob": "9ca08197340d51cd943325465d878e0835a175d9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F009.png",
+      "baseline_blob": "b67b12fea162125027e41a401b2e4e7002902932",
+      "actual_blob": "b67b12fea162125027e41a401b2e4e7002902932",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F010.png",
+      "baseline_blob": "b67b12fea162125027e41a401b2e4e7002902932",
+      "actual_blob": "b67b12fea162125027e41a401b2e4e7002902932",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F011.png",
+      "baseline_blob": "b67b12fea162125027e41a401b2e4e7002902932",
+      "actual_blob": "b67b12fea162125027e41a401b2e4e7002902932",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F012.png",
+      "baseline_blob": "15fdc7831da2a891cc278d0becfb19eba5de3574",
+      "actual_blob": "15fdc7831da2a891cc278d0becfb19eba5de3574",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F013.png",
+      "baseline_blob": "15fdc7831da2a891cc278d0becfb19eba5de3574",
+      "actual_blob": "15fdc7831da2a891cc278d0becfb19eba5de3574",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F014.png",
+      "baseline_blob": "15fdc7831da2a891cc278d0becfb19eba5de3574",
+      "actual_blob": "15fdc7831da2a891cc278d0becfb19eba5de3574",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F015.png",
+      "baseline_blob": "70ac39342544ffa92875c57f6c751eab08e059bd",
+      "actual_blob": "70ac39342544ffa92875c57f6c751eab08e059bd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F016.png",
+      "baseline_blob": "70ac39342544ffa92875c57f6c751eab08e059bd",
+      "actual_blob": "70ac39342544ffa92875c57f6c751eab08e059bd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F017.png",
+      "baseline_blob": "70ac39342544ffa92875c57f6c751eab08e059bd",
+      "actual_blob": "70ac39342544ffa92875c57f6c751eab08e059bd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F018.png",
+      "baseline_blob": "dd963cd6703a8f07a1cd15e9a678a483cecfcb31",
+      "actual_blob": "dd963cd6703a8f07a1cd15e9a678a483cecfcb31",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F019.png",
+      "baseline_blob": "dd963cd6703a8f07a1cd15e9a678a483cecfcb31",
+      "actual_blob": "dd963cd6703a8f07a1cd15e9a678a483cecfcb31",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F020.png",
+      "baseline_blob": "dd963cd6703a8f07a1cd15e9a678a483cecfcb31",
+      "actual_blob": "dd963cd6703a8f07a1cd15e9a678a483cecfcb31",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F021.png",
+      "baseline_blob": "b725001fa5d4f11efca1fdf686467592dca2d746",
+      "actual_blob": "b725001fa5d4f11efca1fdf686467592dca2d746",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F022.png",
+      "baseline_blob": "b725001fa5d4f11efca1fdf686467592dca2d746",
+      "actual_blob": "b725001fa5d4f11efca1fdf686467592dca2d746",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F023.png",
+      "baseline_blob": "b725001fa5d4f11efca1fdf686467592dca2d746",
+      "actual_blob": "b725001fa5d4f11efca1fdf686467592dca2d746",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F024.png",
+      "baseline_blob": "34f5b4322b6d22762c800289192187d3ed55cd46",
+      "actual_blob": "34f5b4322b6d22762c800289192187d3ed55cd46",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F025.png",
+      "baseline_blob": "34f5b4322b6d22762c800289192187d3ed55cd46",
+      "actual_blob": "34f5b4322b6d22762c800289192187d3ed55cd46",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F026.png",
+      "baseline_blob": "34f5b4322b6d22762c800289192187d3ed55cd46",
+      "actual_blob": "34f5b4322b6d22762c800289192187d3ed55cd46",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F027.png",
+      "baseline_blob": "c169bc48523ae0d0116d11bf6ebd4f28b2a67235",
+      "actual_blob": "c169bc48523ae0d0116d11bf6ebd4f28b2a67235",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F028.png",
+      "baseline_blob": "c169bc48523ae0d0116d11bf6ebd4f28b2a67235",
+      "actual_blob": "c169bc48523ae0d0116d11bf6ebd4f28b2a67235",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F029.png",
+      "baseline_blob": "c169bc48523ae0d0116d11bf6ebd4f28b2a67235",
+      "actual_blob": "c169bc48523ae0d0116d11bf6ebd4f28b2a67235",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F030.png",
+      "baseline_blob": "7ec9c9d32ee7c17f130ec461ca7ee23bd531f1a1",
+      "actual_blob": "7ec9c9d32ee7c17f130ec461ca7ee23bd531f1a1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F031.png",
+      "baseline_blob": "7ec9c9d32ee7c17f130ec461ca7ee23bd531f1a1",
+      "actual_blob": "7ec9c9d32ee7c17f130ec461ca7ee23bd531f1a1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F032.png",
+      "baseline_blob": "7ec9c9d32ee7c17f130ec461ca7ee23bd531f1a1",
+      "actual_blob": "7ec9c9d32ee7c17f130ec461ca7ee23bd531f1a1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F033.png",
+      "baseline_blob": "1c4d60c0ff89393a70798d92229469aa2a27401a",
+      "actual_blob": "1c4d60c0ff89393a70798d92229469aa2a27401a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F034.png",
+      "baseline_blob": "1c4d60c0ff89393a70798d92229469aa2a27401a",
+      "actual_blob": "1c4d60c0ff89393a70798d92229469aa2a27401a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F035.png",
+      "baseline_blob": "1c4d60c0ff89393a70798d92229469aa2a27401a",
+      "actual_blob": "1c4d60c0ff89393a70798d92229469aa2a27401a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F036.png",
+      "baseline_blob": "6194ea7c956b6804440dc504050fd8a2cdc69e0a",
+      "actual_blob": "6194ea7c956b6804440dc504050fd8a2cdc69e0a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F037.png",
+      "baseline_blob": "6194ea7c956b6804440dc504050fd8a2cdc69e0a",
+      "actual_blob": "6194ea7c956b6804440dc504050fd8a2cdc69e0a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F038.png",
+      "baseline_blob": "6194ea7c956b6804440dc504050fd8a2cdc69e0a",
+      "actual_blob": "6194ea7c956b6804440dc504050fd8a2cdc69e0a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F039.png",
+      "baseline_blob": "0636f0334c854290b7209dc9a6ed77d7d3f89314",
+      "actual_blob": "0636f0334c854290b7209dc9a6ed77d7d3f89314",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F040.png",
+      "baseline_blob": "0636f0334c854290b7209dc9a6ed77d7d3f89314",
+      "actual_blob": "0636f0334c854290b7209dc9a6ed77d7d3f89314",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F041.png",
+      "baseline_blob": "0636f0334c854290b7209dc9a6ed77d7d3f89314",
+      "actual_blob": "0636f0334c854290b7209dc9a6ed77d7d3f89314",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F042.png",
+      "baseline_blob": "a381f5c09922c05fc53298f02a81bba7b85ea5c7",
+      "actual_blob": "a381f5c09922c05fc53298f02a81bba7b85ea5c7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F043.png",
+      "baseline_blob": "a381f5c09922c05fc53298f02a81bba7b85ea5c7",
+      "actual_blob": "a381f5c09922c05fc53298f02a81bba7b85ea5c7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F044.png",
+      "baseline_blob": "a381f5c09922c05fc53298f02a81bba7b85ea5c7",
+      "actual_blob": "a381f5c09922c05fc53298f02a81bba7b85ea5c7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F045.png",
+      "baseline_blob": "b1f38f6ef68085f6f60d195c12fbaf042c585981",
+      "actual_blob": "b1f38f6ef68085f6f60d195c12fbaf042c585981",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F046.png",
+      "baseline_blob": "b1f38f6ef68085f6f60d195c12fbaf042c585981",
+      "actual_blob": "b1f38f6ef68085f6f60d195c12fbaf042c585981",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F047.png",
+      "baseline_blob": "b1f38f6ef68085f6f60d195c12fbaf042c585981",
+      "actual_blob": "b1f38f6ef68085f6f60d195c12fbaf042c585981",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F048.png",
+      "baseline_blob": "7d8166a5cb1e8192ecc3833e2b5200269e7236a7",
+      "actual_blob": "7d8166a5cb1e8192ecc3833e2b5200269e7236a7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F049.png",
+      "baseline_blob": "7d8166a5cb1e8192ecc3833e2b5200269e7236a7",
+      "actual_blob": "7d8166a5cb1e8192ecc3833e2b5200269e7236a7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F050.png",
+      "baseline_blob": "7d8166a5cb1e8192ecc3833e2b5200269e7236a7",
+      "actual_blob": "7d8166a5cb1e8192ecc3833e2b5200269e7236a7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F051.png",
+      "baseline_blob": "b7bdb3598ee218bf1c55b03c4b71ba06585a5124",
+      "actual_blob": "b7bdb3598ee218bf1c55b03c4b71ba06585a5124",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F052.png",
+      "baseline_blob": "b7bdb3598ee218bf1c55b03c4b71ba06585a5124",
+      "actual_blob": "b7bdb3598ee218bf1c55b03c4b71ba06585a5124",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F053.png",
+      "baseline_blob": "b7bdb3598ee218bf1c55b03c4b71ba06585a5124",
+      "actual_blob": "b7bdb3598ee218bf1c55b03c4b71ba06585a5124",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F054.png",
+      "baseline_blob": "8a42dadbfd3493b1b167475bd52a45ce2f5ac4a8",
+      "actual_blob": "8a42dadbfd3493b1b167475bd52a45ce2f5ac4a8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F055.png",
+      "baseline_blob": "8a42dadbfd3493b1b167475bd52a45ce2f5ac4a8",
+      "actual_blob": "8a42dadbfd3493b1b167475bd52a45ce2f5ac4a8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F056.png",
+      "baseline_blob": "8a42dadbfd3493b1b167475bd52a45ce2f5ac4a8",
+      "actual_blob": "8a42dadbfd3493b1b167475bd52a45ce2f5ac4a8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F057.png",
+      "baseline_blob": "b48984e5938f3cc977899237d8035b14e9174507",
+      "actual_blob": "b48984e5938f3cc977899237d8035b14e9174507",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F058.png",
+      "baseline_blob": "b48984e5938f3cc977899237d8035b14e9174507",
+      "actual_blob": "b48984e5938f3cc977899237d8035b14e9174507",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F059.png",
+      "baseline_blob": "b48984e5938f3cc977899237d8035b14e9174507",
+      "actual_blob": "b48984e5938f3cc977899237d8035b14e9174507",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F060.png",
+      "baseline_blob": "d04900cfd70407b68d56481a38b521e4db357a4a",
+      "actual_blob": "d04900cfd70407b68d56481a38b521e4db357a4a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F061.png",
+      "baseline_blob": "d04900cfd70407b68d56481a38b521e4db357a4a",
+      "actual_blob": "d04900cfd70407b68d56481a38b521e4db357a4a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F062.png",
+      "baseline_blob": "d04900cfd70407b68d56481a38b521e4db357a4a",
+      "actual_blob": "d04900cfd70407b68d56481a38b521e4db357a4a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F063.png",
+      "baseline_blob": "68f6e9827e735f96206d72ccc888fa66a876f7d4",
+      "actual_blob": "68f6e9827e735f96206d72ccc888fa66a876f7d4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F064.png",
+      "baseline_blob": "68f6e9827e735f96206d72ccc888fa66a876f7d4",
+      "actual_blob": "68f6e9827e735f96206d72ccc888fa66a876f7d4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F065.png",
+      "baseline_blob": "68f6e9827e735f96206d72ccc888fa66a876f7d4",
+      "actual_blob": "68f6e9827e735f96206d72ccc888fa66a876f7d4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F066.png",
+      "baseline_blob": "da6c23b883933409c05c53e57c7d87b0410154e2",
+      "actual_blob": "da6c23b883933409c05c53e57c7d87b0410154e2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F067.png",
+      "baseline_blob": "da6c23b883933409c05c53e57c7d87b0410154e2",
+      "actual_blob": "da6c23b883933409c05c53e57c7d87b0410154e2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F068.png",
+      "baseline_blob": "da6c23b883933409c05c53e57c7d87b0410154e2",
+      "actual_blob": "da6c23b883933409c05c53e57c7d87b0410154e2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F069.png",
+      "baseline_blob": "34397a922688a216234a441591d1710556255d8f",
+      "actual_blob": "34397a922688a216234a441591d1710556255d8f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F070.png",
+      "baseline_blob": "34397a922688a216234a441591d1710556255d8f",
+      "actual_blob": "34397a922688a216234a441591d1710556255d8f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F071.png",
+      "baseline_blob": "34397a922688a216234a441591d1710556255d8f",
+      "actual_blob": "34397a922688a216234a441591d1710556255d8f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/keyframes.png",
+      "baseline_blob": "4683e11ebb0c3a7dad6cc9f87ef3fa518c4fd183",
+      "actual_blob": "4683e11ebb0c3a7dad6cc9f87ef3fa518c4fd183",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/source/render_s01.py",
+      "baseline_blob": "522ae255cdc4ec41f6d1aabd27eb661a6a7a80ab",
+      "actual_blob": "522ae255cdc4ec41f6d1aabd27eb661a6a7a80ab",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/source/verify.py",
+      "baseline_blob": "ca713d4ca50a22207b68fb81f46153bf03fcff4a",
+      "actual_blob": "ca713d4ca50a22207b68fb81f46153bf03fcff4a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "baseline_blob": "f94ea50d450efc84e79a57daee8509b7220465a3",
+      "actual_blob": "f94ea50d450efc84e79a57daee8509b7220465a3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/protected_files.json",
+      "baseline_blob": "3843b9251a1e0683e822cb644170a1f74a00a12a",
+      "actual_blob": "3843b9251a1e0683e822cb644170a1f74a00a12a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/reference_media_checks.json",
+      "baseline_blob": "6f44e7c26721bd1dcfe36acad43d5a715babb354",
+      "actual_blob": "6f44e7c26721bd1dcfe36acad43d5a715babb354",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/verification/technical_checks.json",
+      "baseline_blob": "73fff5c4db73596cf5ef92f820bd4eef2aa80dbd",
+      "actual_blob": "73fff5c4db73596cf5ef92f820bd4eef2aa80dbd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S01_independent_DRAFT_20261013/video/S01_silence_DRAFT_24fps.mp4",
+      "baseline_blob": "4f3eb8dec1a189e99c33b4cb81bbba67bad629bd",
+      "actual_blob": "4f3eb8dec1a189e99c33b4cb81bbba67bad629bd",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/PRODUCTION_LOG.md",
+      "baseline_blob": "d3881707f9282392a1db21ad9de849eade0b1bc7",
+      "actual_blob": "d3881707f9282392a1db21ad9de849eade0b1bc7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/README.md",
+      "baseline_blob": "4bf8bc9c893b54eb32f883bad7af05d87072afd4",
+      "actual_blob": "4bf8bc9c893b54eb32f883bad7af05d87072afd4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/S02_independent_DRAFT_review.zip",
+      "baseline_blob": "decbc617bdc168bb60bf14158c595facd0075245",
+      "actual_blob": "decbc617bdc168bb60bf14158c595facd0075245",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/SCOPE_AND_SOURCES.md",
+      "baseline_blob": "bd383626cf0ca2ea0e65f60fb42beb9cd6637e4c",
+      "actual_blob": "bd383626cf0ca2ea0e65f60fb42beb9cd6637e4c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/SHA256.json",
+      "baseline_blob": "ea2c17857218ff6fcca9aa60210f3eb7a6711d92",
+      "actual_blob": "ea2c17857218ff6fcca9aa60210f3eb7a6711d92",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/ZIP_INTEGRITY.json",
+      "baseline_blob": "decc476c39d8a037bbf2173b6bd149a742eabbd4",
+      "actual_blob": "decc476c39d8a037bbf2173b6bd149a742eabbd4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/boundary_comparison.png",
+      "baseline_blob": "0d4f052249c679d26fcd5a555d0b2d178afa4957",
+      "actual_blob": "0d4f052249c679d26fcd5a555d0b2d178afa4957",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/exposure_sheet.csv",
+      "baseline_blob": "1a78bfcbb416d71e8524a38add49509bcef52b07",
+      "actual_blob": "1a78bfcbb416d71e8524a38add49509bcef52b07",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/footwork_detail.png",
+      "baseline_blob": "dd0b277aec1a9192a39b78ebe401b4650b786588",
+      "actual_blob": "dd0b277aec1a9192a39b78ebe401b4650b786588",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F000.png",
+      "baseline_blob": "87c503a3052cf2ff5036e62a0f04a8535e3c141c",
+      "actual_blob": "87c503a3052cf2ff5036e62a0f04a8535e3c141c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F001.png",
+      "baseline_blob": "87c503a3052cf2ff5036e62a0f04a8535e3c141c",
+      "actual_blob": "87c503a3052cf2ff5036e62a0f04a8535e3c141c",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F002.png",
+      "baseline_blob": "9f772654e0ad8acaa3fec4ef40fa849688b237a3",
+      "actual_blob": "9f772654e0ad8acaa3fec4ef40fa849688b237a3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F003.png",
+      "baseline_blob": "9f772654e0ad8acaa3fec4ef40fa849688b237a3",
+      "actual_blob": "9f772654e0ad8acaa3fec4ef40fa849688b237a3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F004.png",
+      "baseline_blob": "3fc255ce198807b66d487099c474795d9c715cf1",
+      "actual_blob": "3fc255ce198807b66d487099c474795d9c715cf1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F005.png",
+      "baseline_blob": "3fc255ce198807b66d487099c474795d9c715cf1",
+      "actual_blob": "3fc255ce198807b66d487099c474795d9c715cf1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F006.png",
+      "baseline_blob": "1f9d363baf33f7e79a320d74c8d3d2584639d1fa",
+      "actual_blob": "1f9d363baf33f7e79a320d74c8d3d2584639d1fa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F007.png",
+      "baseline_blob": "1f9d363baf33f7e79a320d74c8d3d2584639d1fa",
+      "actual_blob": "1f9d363baf33f7e79a320d74c8d3d2584639d1fa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F008.png",
+      "baseline_blob": "507911465640bde909850ae3cc894540e99da249",
+      "actual_blob": "507911465640bde909850ae3cc894540e99da249",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F009.png",
+      "baseline_blob": "507911465640bde909850ae3cc894540e99da249",
+      "actual_blob": "507911465640bde909850ae3cc894540e99da249",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F010.png",
+      "baseline_blob": "a64eecb1a9d59517605b5483594a60dd716423a0",
+      "actual_blob": "a64eecb1a9d59517605b5483594a60dd716423a0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F011.png",
+      "baseline_blob": "a64eecb1a9d59517605b5483594a60dd716423a0",
+      "actual_blob": "a64eecb1a9d59517605b5483594a60dd716423a0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F012.png",
+      "baseline_blob": "be7d7d69455e940a22ca4fb6e68f53230d8e7921",
+      "actual_blob": "be7d7d69455e940a22ca4fb6e68f53230d8e7921",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F013.png",
+      "baseline_blob": "be7d7d69455e940a22ca4fb6e68f53230d8e7921",
+      "actual_blob": "be7d7d69455e940a22ca4fb6e68f53230d8e7921",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F014.png",
+      "baseline_blob": "b43d95b58b25d3cec03317587d0ac0de169b4265",
+      "actual_blob": "b43d95b58b25d3cec03317587d0ac0de169b4265",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F015.png",
+      "baseline_blob": "b43d95b58b25d3cec03317587d0ac0de169b4265",
+      "actual_blob": "b43d95b58b25d3cec03317587d0ac0de169b4265",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F016.png",
+      "baseline_blob": "2c06027da6ae2acce03730e0368aa9b5e12eb5f3",
+      "actual_blob": "2c06027da6ae2acce03730e0368aa9b5e12eb5f3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F017.png",
+      "baseline_blob": "2c06027da6ae2acce03730e0368aa9b5e12eb5f3",
+      "actual_blob": "2c06027da6ae2acce03730e0368aa9b5e12eb5f3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F018.png",
+      "baseline_blob": "8a8a08eb2423205ddbe9731615d85458ad006276",
+      "actual_blob": "8a8a08eb2423205ddbe9731615d85458ad006276",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F019.png",
+      "baseline_blob": "8a8a08eb2423205ddbe9731615d85458ad006276",
+      "actual_blob": "8a8a08eb2423205ddbe9731615d85458ad006276",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F020.png",
+      "baseline_blob": "80db8106b2786787be0f9578b798764da1028dea",
+      "actual_blob": "80db8106b2786787be0f9578b798764da1028dea",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F021.png",
+      "baseline_blob": "80db8106b2786787be0f9578b798764da1028dea",
+      "actual_blob": "80db8106b2786787be0f9578b798764da1028dea",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F022.png",
+      "baseline_blob": "eec614e39222114ee30972bed4a30cb1b0865b44",
+      "actual_blob": "eec614e39222114ee30972bed4a30cb1b0865b44",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F023.png",
+      "baseline_blob": "eec614e39222114ee30972bed4a30cb1b0865b44",
+      "actual_blob": "eec614e39222114ee30972bed4a30cb1b0865b44",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F024.png",
+      "baseline_blob": "4413dfac52ac98d7ab28bf3e4f22d757157ddac2",
+      "actual_blob": "4413dfac52ac98d7ab28bf3e4f22d757157ddac2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F025.png",
+      "baseline_blob": "4413dfac52ac98d7ab28bf3e4f22d757157ddac2",
+      "actual_blob": "4413dfac52ac98d7ab28bf3e4f22d757157ddac2",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F026.png",
+      "baseline_blob": "4ad7d348a13668c15e29415072783d8196e3b6e4",
+      "actual_blob": "4ad7d348a13668c15e29415072783d8196e3b6e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F027.png",
+      "baseline_blob": "4ad7d348a13668c15e29415072783d8196e3b6e4",
+      "actual_blob": "4ad7d348a13668c15e29415072783d8196e3b6e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F028.png",
+      "baseline_blob": "d0fe2e9171442a63b358c1a22327b0fdf62c1591",
+      "actual_blob": "d0fe2e9171442a63b358c1a22327b0fdf62c1591",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F029.png",
+      "baseline_blob": "d0fe2e9171442a63b358c1a22327b0fdf62c1591",
+      "actual_blob": "d0fe2e9171442a63b358c1a22327b0fdf62c1591",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F030.png",
+      "baseline_blob": "2687ff6dce3a96d21c552b267e75f8cfa8bf3a71",
+      "actual_blob": "2687ff6dce3a96d21c552b267e75f8cfa8bf3a71",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F031.png",
+      "baseline_blob": "2687ff6dce3a96d21c552b267e75f8cfa8bf3a71",
+      "actual_blob": "2687ff6dce3a96d21c552b267e75f8cfa8bf3a71",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F032.png",
+      "baseline_blob": "a1df551e523f7a3cec003a1f6a904a509aba2abe",
+      "actual_blob": "a1df551e523f7a3cec003a1f6a904a509aba2abe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F033.png",
+      "baseline_blob": "a1df551e523f7a3cec003a1f6a904a509aba2abe",
+      "actual_blob": "a1df551e523f7a3cec003a1f6a904a509aba2abe",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F034.png",
+      "baseline_blob": "5c4c6f9303988b263f4062fc911fc45b0ad5df4b",
+      "actual_blob": "5c4c6f9303988b263f4062fc911fc45b0ad5df4b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F035.png",
+      "baseline_blob": "5c4c6f9303988b263f4062fc911fc45b0ad5df4b",
+      "actual_blob": "5c4c6f9303988b263f4062fc911fc45b0ad5df4b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F036.png",
+      "baseline_blob": "a81872218a61976d2516ea07e12f50e9d1e5b564",
+      "actual_blob": "a81872218a61976d2516ea07e12f50e9d1e5b564",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F037.png",
+      "baseline_blob": "a81872218a61976d2516ea07e12f50e9d1e5b564",
+      "actual_blob": "a81872218a61976d2516ea07e12f50e9d1e5b564",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F038.png",
+      "baseline_blob": "68a257ad355ff38b4770b7896cab46e0e5b1800f",
+      "actual_blob": "68a257ad355ff38b4770b7896cab46e0e5b1800f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F039.png",
+      "baseline_blob": "68a257ad355ff38b4770b7896cab46e0e5b1800f",
+      "actual_blob": "68a257ad355ff38b4770b7896cab46e0e5b1800f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F040.png",
+      "baseline_blob": "07dc2dcfce763d65f37d31f42384a3438c7ade64",
+      "actual_blob": "07dc2dcfce763d65f37d31f42384a3438c7ade64",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F041.png",
+      "baseline_blob": "07dc2dcfce763d65f37d31f42384a3438c7ade64",
+      "actual_blob": "07dc2dcfce763d65f37d31f42384a3438c7ade64",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F042.png",
+      "baseline_blob": "58816d64b21ca7c2d4b9224009a770ff1aabc9ad",
+      "actual_blob": "58816d64b21ca7c2d4b9224009a770ff1aabc9ad",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F043.png",
+      "baseline_blob": "58816d64b21ca7c2d4b9224009a770ff1aabc9ad",
+      "actual_blob": "58816d64b21ca7c2d4b9224009a770ff1aabc9ad",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F044.png",
+      "baseline_blob": "a886d555699e7c4e5f3de0c2ad2db3cd35e6fe95",
+      "actual_blob": "a886d555699e7c4e5f3de0c2ad2db3cd35e6fe95",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F045.png",
+      "baseline_blob": "a886d555699e7c4e5f3de0c2ad2db3cd35e6fe95",
+      "actual_blob": "a886d555699e7c4e5f3de0c2ad2db3cd35e6fe95",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F046.png",
+      "baseline_blob": "7d88e9db0a8a064b77be6448d861bc13bc210697",
+      "actual_blob": "7d88e9db0a8a064b77be6448d861bc13bc210697",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F047.png",
+      "baseline_blob": "7d88e9db0a8a064b77be6448d861bc13bc210697",
+      "actual_blob": "7d88e9db0a8a064b77be6448d861bc13bc210697",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F048.png",
+      "baseline_blob": "576b7fb7e3648c4acfd5b47163512a56eb8f3aae",
+      "actual_blob": "576b7fb7e3648c4acfd5b47163512a56eb8f3aae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F049.png",
+      "baseline_blob": "576b7fb7e3648c4acfd5b47163512a56eb8f3aae",
+      "actual_blob": "576b7fb7e3648c4acfd5b47163512a56eb8f3aae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F050.png",
+      "baseline_blob": "f151743bf75a892a04387397f5b41e81efe8c6fa",
+      "actual_blob": "f151743bf75a892a04387397f5b41e81efe8c6fa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F051.png",
+      "baseline_blob": "f151743bf75a892a04387397f5b41e81efe8c6fa",
+      "actual_blob": "f151743bf75a892a04387397f5b41e81efe8c6fa",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F052.png",
+      "baseline_blob": "7df58a6818db460b8c6fe591a85f65dd5638ffd4",
+      "actual_blob": "7df58a6818db460b8c6fe591a85f65dd5638ffd4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F053.png",
+      "baseline_blob": "7df58a6818db460b8c6fe591a85f65dd5638ffd4",
+      "actual_blob": "7df58a6818db460b8c6fe591a85f65dd5638ffd4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F054.png",
+      "baseline_blob": "cde57c0ee033679a2e2da6fd2fa68513af857f4a",
+      "actual_blob": "cde57c0ee033679a2e2da6fd2fa68513af857f4a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F055.png",
+      "baseline_blob": "cde57c0ee033679a2e2da6fd2fa68513af857f4a",
+      "actual_blob": "cde57c0ee033679a2e2da6fd2fa68513af857f4a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F056.png",
+      "baseline_blob": "c9e273aa5a7a8037e42e355c466ca05fdb12f4d0",
+      "actual_blob": "c9e273aa5a7a8037e42e355c466ca05fdb12f4d0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F057.png",
+      "baseline_blob": "c9e273aa5a7a8037e42e355c466ca05fdb12f4d0",
+      "actual_blob": "c9e273aa5a7a8037e42e355c466ca05fdb12f4d0",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F058.png",
+      "baseline_blob": "cfabbf7df049548308c777b328069bfbf8eb384e",
+      "actual_blob": "cfabbf7df049548308c777b328069bfbf8eb384e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F059.png",
+      "baseline_blob": "cfabbf7df049548308c777b328069bfbf8eb384e",
+      "actual_blob": "cfabbf7df049548308c777b328069bfbf8eb384e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F060.png",
+      "baseline_blob": "8ee6845cef40ad2097cc67431107f665779634ae",
+      "actual_blob": "8ee6845cef40ad2097cc67431107f665779634ae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F061.png",
+      "baseline_blob": "8ee6845cef40ad2097cc67431107f665779634ae",
+      "actual_blob": "8ee6845cef40ad2097cc67431107f665779634ae",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F062.png",
+      "baseline_blob": "ea5cc54748b9dbfccfa03bc0a7c924df434ab221",
+      "actual_blob": "ea5cc54748b9dbfccfa03bc0a7c924df434ab221",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F063.png",
+      "baseline_blob": "ea5cc54748b9dbfccfa03bc0a7c924df434ab221",
+      "actual_blob": "ea5cc54748b9dbfccfa03bc0a7c924df434ab221",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F064.png",
+      "baseline_blob": "4d5dd0bec8e2125fa720ee234c2960c5a926c94a",
+      "actual_blob": "4d5dd0bec8e2125fa720ee234c2960c5a926c94a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F065.png",
+      "baseline_blob": "4d5dd0bec8e2125fa720ee234c2960c5a926c94a",
+      "actual_blob": "4d5dd0bec8e2125fa720ee234c2960c5a926c94a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F066.png",
+      "baseline_blob": "085d2ad5a1f394ccb65bc533c3dd536e27ab0b1f",
+      "actual_blob": "085d2ad5a1f394ccb65bc533c3dd536e27ab0b1f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F067.png",
+      "baseline_blob": "085d2ad5a1f394ccb65bc533c3dd536e27ab0b1f",
+      "actual_blob": "085d2ad5a1f394ccb65bc533c3dd536e27ab0b1f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F068.png",
+      "baseline_blob": "c99ee9f7be1367c74cece980e0c842ef085e49c1",
+      "actual_blob": "c99ee9f7be1367c74cece980e0c842ef085e49c1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F069.png",
+      "baseline_blob": "c99ee9f7be1367c74cece980e0c842ef085e49c1",
+      "actual_blob": "c99ee9f7be1367c74cece980e0c842ef085e49c1",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F070.png",
+      "baseline_blob": "d0dd72b83825a1af4d0b460621762df55fb44c79",
+      "actual_blob": "d0dd72b83825a1af4d0b460621762df55fb44c79",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/frames/F071.png",
+      "baseline_blob": "d0dd72b83825a1af4d0b460621762df55fb44c79",
+      "actual_blob": "d0dd72b83825a1af4d0b460621762df55fb44c79",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/keyframes.png",
+      "baseline_blob": "e60de6477661de81a7f8b609099bec77d07b03f6",
+      "actual_blob": "e60de6477661de81a7f8b609099bec77d07b03f6",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/source/render_s02.py",
+      "baseline_blob": "fbf26438685c5c66cef5deb09f1c0c708f3ed6a3",
+      "actual_blob": "fbf26438685c5c66cef5deb09f1c0c708f3ed6a3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/source/verify.py",
+      "baseline_blob": "5112703808fda91b5c82b1344aa9b28a589f9018",
+      "actual_blob": "5112703808fda91b5c82b1344aa9b28a589f9018",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/exposure_sheet.json",
+      "baseline_blob": "e9df99e28f5bda8c5003db6ecd7228206682db10",
+      "actual_blob": "e9df99e28f5bda8c5003db6ecd7228206682db10",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/protected_files.json",
+      "baseline_blob": "c8533401a1113b91caadcf802a7af20a3ec580e4",
+      "actual_blob": "c8533401a1113b91caadcf802a7af20a3ec580e4",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/remote_refs_before.txt",
+      "baseline_blob": "9d0502e3e8d22cc50bfd413ba95073ef2ddc6e44",
+      "actual_blob": "9d0502e3e8d22cc50bfd413ba95073ef2ddc6e44",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/source_documents.json",
+      "baseline_blob": "30adc8487416041296b21cf0e1ba89c6c212d617",
+      "actual_blob": "30adc8487416041296b21cf0e1ba89c6c212d617",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/verification/technical_checks.json",
+      "baseline_blob": "a7739390c6ae6069f6a239570a0514895ba27fec",
+      "actual_blob": "a7739390c6ae6069f6a239570a0514895ba27fec",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_S02_independent_DRAFT_20261013/video/S02_stance_step_DRAFT_24fps.mp4",
+      "baseline_blob": "398b4b600ea65a701592843f7f46f874870f1334",
+      "actual_blob": "398b4b600ea65a701592843f7f46f874870f1334",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/CONTINUITY_CHECKLIST_DRAFT.md",
+      "baseline_blob": "220ce7d7a635bf9ccdde05aaf2b086c6ce8522f9",
+      "actual_blob": "220ce7d7a635bf9ccdde05aaf2b086c6ce8522f9",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/NEXT_STEPS_DRAFT.md",
+      "baseline_blob": "044f4a9dcdb88c54baf9a51f8ef2c7a27e403da3",
+      "actual_blob": "044f4a9dcdb88c54baf9a51f8ef2c7a27e403da3",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/PRODUCTION_LOG_DRAFT.md",
+      "baseline_blob": "e6a2fa049de04d5807189a8eb708d80fdad61b85",
+      "actual_blob": "e6a2fa049de04d5807189a8eb708d80fdad61b85",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/README.md",
+      "baseline_blob": "d0465358778ca61d1b34c279615abd4fa804af33",
+      "actual_blob": "d0465358778ca61d1b34c279615abd4fa804af33",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SHA256.json",
+      "baseline_blob": "0b2b93025c6a9392fc56336b8500f2a3f38e2d7b",
+      "actual_blob": "0b2b93025c6a9392fc56336b8500f2a3f38e2d7b",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SOUND_CUES_DRAFT.md",
+      "baseline_blob": "c377c2e1412ff0e3a62dd7a900d22be3c6c3ed25",
+      "actual_blob": "c377c2e1412ff0e3a62dd7a900d22be3c6c3ed25",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/SOURCES_AND_STATUS.md",
+      "baseline_blob": "d1ac92d77a312348d7570bdffaba01120616d80d",
+      "actual_blob": "d1ac92d77a312348d7570bdffaba01120616d80d",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/TIMELINE_DRAFT.md",
+      "baseline_blob": "acf13f47842da5397413c8a4ca6ac7aa94bd7f0a",
+      "actual_blob": "acf13f47842da5397413c8a4ca6ac7aa94bd7f0a",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/ZERO_CODE_pilot15_preparation_DRAFT.zip",
+      "baseline_blob": "3e843969fe6aef184d37ec892ed98e35457692d7",
+      "actual_blob": "3e843969fe6aef184d37ec892ed98e35457692d7",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/ZIP_INTEGRITY.json",
+      "baseline_blob": "af49f5a3ba25402f070aa0548ac85ec465a7fd44",
+      "actual_blob": "af49f5a3ba25402f070aa0548ac85ec465a7fd44",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/sound_cues_draft.csv",
+      "baseline_blob": "4bdee6a333c5781fa16b24bbfba9c75181fc61ac",
+      "actual_blob": "4bdee6a333c5781fa16b24bbfba9c75181fc61ac",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/source/check_plan.py",
+      "baseline_blob": "9c37e86cba7a5730b5e300e212b758b4b37abb74",
+      "actual_blob": "9c37e86cba7a5730b5e300e212b758b4b37abb74",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/source/inspect_media.py",
+      "baseline_blob": "80e19f25358264964b75c8ed14965256935aacb8",
+      "actual_blob": "80e19f25358264964b75c8ed14965256935aacb8",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/timeline_draft.csv",
+      "baseline_blob": "eedc68440a5b32231708d9133b1c9aca1249c088",
+      "actual_blob": "eedc68440a5b32231708d9133b1c9aca1249c088",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/design04_inspection.json",
+      "baseline_blob": "ab9e7d752838677f4b5ae560ee3eb5a180ee1314",
+      "actual_blob": "ab9e7d752838677f4b5ae560ee3eb5a180ee1314",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/negative_profile_check.json",
+      "baseline_blob": "422b8954358d48739055e5b3caccd7b101a36a3f",
+      "actual_blob": "422b8954358d48739055e5b3caccd7b101a36a3f",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/plan_checks.json",
+      "baseline_blob": "eb543675e980816019e70963ce852fee08f17e67",
+      "actual_blob": "eb543675e980816019e70963ce852fee08f17e67",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/preparation_checks.json",
+      "baseline_blob": "5d57dd49fab708e23799edfefb6a3c777baba27e",
+      "actual_blob": "5d57dd49fab708e23799edfefb6a3c777baba27e",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/source_documents.json",
+      "baseline_blob": "4a385ebead9a7366dfef133aadfa88d26d5b73ff",
+      "actual_blob": "4a385ebead9a7366dfef133aadfa88d26d5b73ff",
+      "unchanged": true
+    },
+    {
+      "path": "reviews/pilot15_preparation_draft_20261013/verification/source_media_checks.json",
+      "baseline_blob": "9b7ab56b25b349e5fa0186c501f0d899d6cc48f9",
+      "actual_blob": "9b7ab56b25b349e5fa0186c501f0d899d6cc48f9",
+      "unchanged": true
+    }
+  ]
+}
