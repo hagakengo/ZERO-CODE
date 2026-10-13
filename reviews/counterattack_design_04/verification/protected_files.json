@@ -1,0 +1,7 @@
+{
+  "base_commit": "173886a9c6d823267c1bd31477b4c159b16815c1",
+  "tracked_files_checked": 264,
+  "changed": [],
+  "result": "PASS",
+  "scope": "Every tracked file from baseline byte-identical. External r15.2 not accessed. No main or original branch writes."
+}
