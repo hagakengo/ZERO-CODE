@@ -1,7 +1,7 @@
 {
   "PRODUCTION_LOG.md": "c9e296a503b186d0502b4ee81fa5cf72368e8caab0eb85f3c8f58ea6dbd4bd71",
   "README.md": "4f1a1a85cedd8343cf10c0e0678364ef1661528b160424db6a3b0a9b2170cf9e",
-  "exposure_sheet.csv": "05bcf7eec177062335c39b7e75322475ec570d8437f2a4b3bd261b4759597bfa",
+  "exposure_sheet.csv": "da559064b1c0eeea1df21647c775f619648ddd644a586505c90549a60d8367cf",
   "frames/Q000.png": "cfd3d4ce15b39661c3bb1f28ff6b7754f47411d1966a657b0c6d8b2dabc0e920",
   "frames/Q001.png": "9eb646ef51d92c2b7605eafd21c3b2b0695e23c73caf20660889ea42275a8c6f",
   "frames/Q002.png": "ac6b11ee19edfdf512cff1b33689c68e17e16c50b0ec406c7deda1458174fc9a",
@@ -89,7 +89,7 @@
   "keyframes/Q051.png": "1d594e5239c99ab2f384cf630dded6877b7c53c9ce815c8067afd0fc08cc717b",
   "keyframes/Q071.png": "df06168e9bc57959d14cfa2b3ed981832feab8cad0d84c8994c3b245161f7261",
   "keyframes.png": "72681a721f8b4eba42cc37553f88e135aa448def9469c45edd49d2f4a3335b18",
-  "source/build.py": "a91b935526926dc0b976e225721be824d04c3a4f00445286dc28ba173061f679",
+  "source/build.py": "85689e1e0dcc3a11643ba130859f64b4fd1ad5e7800f97f09bf8fbdb401aee72",
   "source/poses_alternative.json": "b8c1e4bb98d5a174787eda5ea84ad3404a3197bf81fde6386192070ea7a1bf5d",
   "source/reference_poses04.json": "38dfff5a3a7570916dcbd7993b337156b6082d3f2252d600bdc78961f6f39049",
   "source/rig_reference.py": "afd3b3e0a7516411b867d68b96095ef807cddb8dc733d8bc3cf895572ba86843",

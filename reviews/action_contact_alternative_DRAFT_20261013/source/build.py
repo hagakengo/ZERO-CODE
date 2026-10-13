@@ -3,12 +3,11 @@ import json,copy,inspect,math,subprocess,hashlib,csv
 from PIL import Image,ImageDraw,ImageFont
 import rig_reference as b
 O=Path(__file__).resolve().parents[1];R=O.parents[1]
-BASE=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip()
+BASE='f12ce0246ad152dbce62873d3893dde3c0e87745'
 for n in ['frames','video','verification','keyframes']:(O/n).mkdir(exist_ok=True)
 reference=json.loads((O/'source/reference_poses04.json').read_text())
 b.font=ImageFont.truetype('/System/Library/Fonts/Helvetica.ttc',25);b.small=ImageFont.truetype('/System/Library/Fonts/Helvetica.ttc',21)
 src=inspect.getsource(b.render)
-src=src.replace('angle=','angle=')
 src=src.replace('up=[dx/l,dy/l];back=[dy/l,-dx/l]',"angle=p.get('bag_angle',0); dx,dy=dx*math.cos(angle)-dy*math.sin(angle),dx*math.sin(angle)+dy*math.cos(angle);up=[dx/l,dy/l];back=[dy/l,-dx/l]")
 src=src.replace('h[0]+back[0]*24','h[0]+back[0]*24+p.get("bag_offset",0)')
 src=src.replace('[h[0]+20,h[1]+6],[h[0]-20,h[1]+6]',"[s[0]+20,s[1]+35],[h[0]+20-p.get('indent',0) if who=='hero' else h[0]+20,h[1]-45],[h[0]+20,h[1]+6],[h[0]-20,h[1]+6]")
@@ -36,7 +35,7 @@ for q,ref in enumerate(map_p):
  contour=2*(p['hero']['joints']['hip'][0]+20-p['indent']);fist_left=2*p['enemy']['joints']['fist'][0]-24
  rows.append(dict(Q=q,source_design04_P=ref,pilot_F='UNASSIGNED',seconds=q/24,phase=p['phase'],fist_left_px=fist_left,abdomen_contour_px=contour,gap_px=fist_left-contour,indent_px=2*p['indent'],bag_angle_rad=p['bag_angle'],bag_offset_px=2*p['bag_offset'],hero_ground_contacts='|'.join(p['hero']['contacts']),image_sha256=hashlib.sha256((O/'frames'/f'Q{q:03}.png').read_bytes()).hexdigest()))
 with (O/'exposure_sheet.csv').open('w') as f:
- w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
+ w=csv.DictWriter(f,fieldnames=rows[0],lineterminator='\n');w.writeheader();w.writerows(rows)
 (O/'source/poses_alternative.json').write_text(json.dumps(poses,indent=2))
 video=O/'video/contact_alternative_DRAFT_24fps.mp4'
 subprocess.run(['ffmpeg','-v','error','-y','-framerate','24','-i',str(O/'frames/Q%03d.png'),'-frames:v','72','-an','-c:v','libx264','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(video)],check=True)
