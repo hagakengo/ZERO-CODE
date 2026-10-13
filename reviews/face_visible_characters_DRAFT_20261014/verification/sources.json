@@ -1,0 +1,24 @@
+{
+  "commit": "6a8860ecff01a40ac2a95dfc4461880dc7d6336d",
+  "main_at_start": "745fb7099461167457de5eb109868b2d8bd204de",
+  "files": {
+    "AGENTS.md": "18ccef8cd4e16f465b72e219c052836ec8bbe9249b13ec49cb663cccb57773c5",
+    "DIRECTOR_GUIDELINES.md": "39a8dcc1cd7bc03cf8f2ed10b675292b4874378e13731b2474840a6f29b9e7ce",
+    "ZERO_CODE_RULES.md": "0190a47ffa72659bcaf871c8ebd54f116b8f9d17b26ca3df10c2541a3278fc8f",
+    "PROJECT_CONTEXT.md": "37e4ad1db6f95ed10760fb8f45086d1bd8a7e2520b5b24c44e23b9dffc3c5abd",
+    "README.md": "6e8df51a6885e177678de47d2ec7c16f3c303e8ca5cf8238aad4f5cf6af5b834",
+    "PRODUCTION_LOG.md": "91a2b40ac46238dbfd995951f19be6414c91fb7cee56f62d033e624589da6308",
+    "ROADMAP.md": "bc4bf58c6c2682b7a73bf19ab9cd08efce933b8c0f86326cbb53ba408210a729",
+    "bible/VISUAL_BIBLE.md": "85ada3431f3d81c742c6815a225f498a23c75df47c5e29a07a633ce8aa0cba29",
+    "bible/WORLD_LORE.md": "b12f14392ce7e4a4586a9f04fa72747d2e827db2b9127e26de72f8bc451d7104",
+    "docs/ZERO_CODE_PHILOSOPHY.md": "1ddf7699665b2ecf300b75f621b9ad7f24086a0284b00fd7bf641d488fb8e13b",
+    "episodes/EP01/README.md": "b264edb987a62b163f9b1572b748385d1753efb57aba3b78273ba486c92e927d",
+    "master_assets/ASSET_IMPORT_MANIFEST.md": "8423ae413c3f45891a4774c30512cdad044a4af4481256187f027394655ccd29",
+    "reviews/pilot15_preparation_draft_20261013/TIMELINE_DRAFT.md": "698abd9bc9a9bd9424cc3c8318aba65e02b38e595ca3dff68eaa3d8378eaccc5",
+    "reviews/S04_volume_DRAFT_20261014/README.md": "c1159f30c8eaa88cccbc338ce9f212126143fe8fdee6f69bb3a4da08105f6cf1",
+    "reviews/S04_volume_DRAFT_20261014/technical_validation.json": "5dc6b5e477f31240a7abc0184804dad7405a2ef570f88ce88cd96d394018f822",
+    "reviews/S04_volume_DRAFT_20261014/drawing_sheet_DRAFT.png": "2ee75831fe26379c86c991d4149d7ffb5d0e6ff2a4107d40fcdd5cff4edd1532"
+  },
+  "story_brief": "Current human user request, 2026-10-14 JST; cached reference conversation 6acc2987-c368-83ec-9b38-38fea2425163 treated as contextual data; no claim of retrieved 10/12 original full transcript.",
+  "scope": "main and latest S04 review branch; not every historical chat or every branch reviewed"
+}

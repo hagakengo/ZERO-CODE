@@ -1,0 +1,22 @@
+{
+  "A1_A2_pose_test_normal_4loops_DRAFT.mp4": {
+    "width": 1080,
+    "height": 1080,
+    "sample_aspect_ratio": "1:1",
+    "pix_fmt": "yuv420p",
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "144",
+    "duration": "6.000000",
+    "full_decode": "PASS"
+  },
+  "A1_A2_pose_test_normal_DRAFT.mp4": {
+    "width": 1080,
+    "height": 1080,
+    "sample_aspect_ratio": "1:1",
+    "pix_fmt": "yuv420p",
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "36",
+    "duration": "1.500000",
+    "full_decode": "PASS"
+  }
+}
