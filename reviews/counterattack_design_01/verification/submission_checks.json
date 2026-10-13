@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-13 JST",
+  "files": {
+    "video/counterattack_retreat_design_24fps.mp4": {
+      "bytes": 268858,
+      "sha256": "868811f38269c6c61fb6fdc32db13af1a659f5ccb2526f5c42f9ec19b86087a2",
+      "identical_to_zip": true,
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "mime_codec_string": "avc1.640028",
+            "width": 1080,
+            "height": 1920,
+            "coded_width": 1088,
+            "coded_height": 1920,
+            "has_b_frames": 2,
+            "pix_fmt": "yuv420p",
+            "level": 40,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 4,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "time_base": "1/24000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 72000,
+            "duration": "3.000000",
+            "bit_rate": "712381",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "72",
+            "nb_read_frames": "72",
+            "extradata_size": 47,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "filename": "reviews/counterattack_design_01/video/counterattack_retreat_design_24fps.mp4",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "3.000000",
+          "size": "268858",
+          "bit_rate": "716954",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      },
+      "full_decode": "PASS"
+    },
+    "comparison/r15_1_vs_r15_2_24fps.mp4": {
+      "bytes": 138706,
+      "sha256": "dd4eaa25cd06c01d2fd4fd6ab322f35b1c2c64e078e1af451bf9a7e23bf5e190",
+      "identical_to_zip": true,
+      "probe": {
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "mime_codec_string": "avc1.640032",
+            "width": 2160,
+            "height": 1920,
+            "coded_width": 2160,
+            "coded_height": 1920,
+            "has_b_frames": 2,
+            "pix_fmt": "yuv420p",
+            "level": 50,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 4,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "time_base": "1/24000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 8000,
+            "duration": "0.333333",
+            "bit_rate": "3306816",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "8",
+            "nb_read_frames": "8",
+            "extradata_size": 46,
+            "disposition": {
+              "default": 1,
+              "dub": 0,
+              "original": 0,
+              "comment": 0,
+              "lyrics": 0,
+              "karaoke": 0,
+              "forced": 0,
+              "hearing_impaired": 0,
+              "visual_impaired": 0,
+              "clean_effects": 0,
+              "attached_pic": 0,
+              "timed_thumbnails": 0,
+              "non_diegetic": 0,
+              "captions": 0,
+              "descriptions": 0,
+              "metadata": 0,
+              "dependent": 0,
+              "still_image": 0,
+              "multilayer": 0
+            },
+            "tags": {
+              "language": "und",
+              "handler_name": "VideoHandler",
+              "encoder": "Lavc63.1.102 libx264"
+            }
+          }
+        ],
+        "format": {
+          "filename": "reviews/counterattack_design_01/comparison/r15_1_vs_r15_2_24fps.mp4",
+          "nb_streams": 1,
+          "nb_programs": 0,
+          "nb_stream_groups": 0,
+          "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+          "format_long_name": "QuickTime / MOV",
+          "start_time": "0.000000",
+          "duration": "0.333333",
+          "size": "138706",
+          "bit_rate": "3328947",
+          "probe_score": 100,
+          "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf63.1.102"
+          }
+        }
+      },
+      "full_decode": "PASS"
+    },
+    "comparison/footwork_before_after.png": {
+      "bytes": 450937,
+      "sha256": "012c0cb245e02dbf4e4945ed18f862b3e71c067857acadc9fbe68d4c8f57da32",
+      "identical_to_zip": true
+    },
+    "design_keyposes.png": {
+      "bytes": 358849,
+      "sha256": "4693ebb4e3eefd66c7ac6aa3cccead032dad621592b9035baedcbf47692c11bc",
+      "identical_to_zip": true
+    }
+  },
+  "zip_sha256": "26f9d88a545e3e5955785f9a7640ebfb9a8e2a382e98297309fa47e1e0effedb",
+  "browser_playback": "未検証（ローカル全フレームデコードのみ）"
+}
