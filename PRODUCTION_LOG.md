@@ -551,3 +551,13 @@ This preserves mystery and gives the ZERO CODE emblem unique visual authority.
 The earlier episode attempt is not official final canon footage.
 
 It may provide usable material, but official EP.01 should be rebuilt to current quality standards.
+
+## 2026-10-14 — 主人公A 基準設定画 DRAFT/HOLD
+
+**Status:** DRAFT / HOLD — Executive Producer review pending
+**Tool / Model:** Built-in Image Gen, one invocation; model name not exposed by the tool.
+**Asset / Version:** `reviews/protagonist_A_model_sheet_DRAFT_20261014/protagonist_A_model_sheet_DRAFT_HOLD.png` (1536×1024 px).
+**Goal:** Make one sheet for comparing the same A across front, three-quarter, side, daily, and focused views.
+**References:** Existing A+B board as identity and outfit source; C/FILM crop for line and shadow only; A1 for clothing construction only. Originals were not changed.
+**Result:** Five views created. Initial visual inspection confirms the requested views are present; identity consistency and drawing repeatability remain pending review.
+**Next action:** Complete the checklist in `reviews/protagonist_A_model_sheet_DRAFT_20261014/REVIEW.md`. Do not use in animation or promote to MASTER before approval.
