@@ -1,0 +1,14 @@
+{
+  "status": "DRAFT/HOLD; visual proposals after frame 9 inspection, not rendered art approval",
+  "left_cover_polygon": [[205,109],[211,103],[221,99],[231,97],[236,99],[234,105],[227,112],[219,116],[211,116],[205,113]],
+  "right_cover_polygon": [[263,81],[270,76],[280,72],[291,68],[299,68],[300,73],[295,78],[285,84],[275,88],[266,87]],
+  "sampled_source_skin_colors": {
+    "left_above": {"xy":[211,98],"rgb":[148,121,113]},
+    "left_edge_shadow": {"xy":[231,108],"rgb":[130,103,103]},
+    "left_lower_cheek": {"xy":[225,116],"rgb":[155,127,119]},
+    "right_above_shadow": {"xy":[277,70],"rgb":[138,112,104]},
+    "right_lower_cheek": {"xy":[280,88],"rgb":[162,134,125]}
+  },
+  "native_GP_suggestion": "Use layered shaded polygons top shadow to bottom cheek instead of a single flat tan fill. Restore specific original fringe contours above coverage; existing foreground raster has eye-band cutouts and cannot alone repair all hair. Lower original eye arcs must be fully covered during closed key. No raster retouch.",
+  "limitations": "Bounds include occluding hair and require fringe mask/GP restoration. Coordinates uncertain +/-3px. Cover proposals do not constitute a clean reconstructed face. Visible patch edges and original eye remnants are HOLD."
+}

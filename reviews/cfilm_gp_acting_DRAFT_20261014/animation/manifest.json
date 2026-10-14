@@ -1,0 +1,39 @@
+{
+  "tool": "4.5.14 LTS",
+  "status": "DRAFT/HOLD",
+  "fps": 24,
+  "frames": 24,
+  "chosen_feature_poses": 13,
+  "GP_layer_drawing_counts": {
+    "01_source_eye_coverage_DRAFT": 1,
+    "02_sclera_drawing_keys": 13,
+    "03_gaze_drawing_keys": 13,
+    "04_upper_lower_and_closed_lids": 13
+  },
+  "human_hand_drawn_count": 0,
+  "procedural_vector_poses": 13,
+  "interpolated_drawings": 0,
+  "held_exposure_frames": 11,
+  "raster_source": "reference_C_crop.png",
+  "closed_lid_frames": [
+    9,
+    10
+  ],
+  "head_hair_neck_motion": false,
+  "upper_contour_categories": [
+    "neutral",
+    "quarter_close",
+    "half_close",
+    "closed",
+    "notice"
+  ],
+  "explicit_contour_pairs": 5,
+  "feature_pose_count": 13,
+  "GP_skin_cover_quadrilaterals": 776,
+  "drawing_method": "5 explicitly specified cubic upper-lid pairs + lower support, programmatic iris clipping/gaze; 13 feature poses and held exposure. Not human hand drawing.",
+  "quality_limitations": [
+    "Skin coverage borders remain visible, eye cleanup not artist-approved",
+    "Fixed source head/neck/hair; no 3second extension",
+    "No continuous normal-speed human visual approval"
+  ]
+}

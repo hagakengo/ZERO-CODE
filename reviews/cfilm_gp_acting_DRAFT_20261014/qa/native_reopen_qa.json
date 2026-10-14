@@ -1,0 +1,157 @@
+{
+  "reopen_pass": true,
+  "blender": "4.5.14 LTS",
+  "frame_start": 1,
+  "frame_end": 24,
+  "fps": 24,
+  "objects": [
+    {
+      "name": "C_FACE_editable_GP_DRAFT",
+      "type": "GREASEPENCIL",
+      "layers": [
+        {
+          "name": "01_source_eye_coverage_DRAFT",
+          "drawing_frames": [
+            1
+          ],
+          "drawings": 1,
+          "strokes_per_drawing": [
+            776
+          ]
+        },
+        {
+          "name": "02_sclera_drawing_keys",
+          "drawing_frames": [
+            1,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            16,
+            18,
+            20
+          ],
+          "drawings": 13,
+          "strokes_per_drawing": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "name": "03_gaze_drawing_keys",
+          "drawing_frames": [
+            1,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            16,
+            18,
+            20
+          ],
+          "drawings": 13,
+          "strokes_per_drawing": [
+            6,
+            6,
+            6,
+            6,
+            4,
+            4,
+            0,
+            4,
+            6,
+            6,
+            6,
+            6,
+            6
+          ]
+        },
+        {
+          "name": "04_upper_lower_and_closed_lids",
+          "drawing_frames": [
+            1,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            16,
+            18,
+            20
+          ],
+          "drawings": 13,
+          "strokes_per_drawing": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            2,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Existing_foreground_hair_raster_DRAFT",
+      "type": "MESH"
+    },
+    {
+      "name": "locked_C_angle",
+      "type": "CAMERA"
+    },
+    {
+      "name": "SOURCE_C_fixed_identity_raster",
+      "type": "MESH"
+    }
+  ],
+  "images": [
+    {
+      "name": "foreground_hair_existing_DRAFT.png",
+      "packed": true,
+      "size": [
+        512,
+        283
+      ]
+    },
+    {
+      "name": "reference_C_crop.png",
+      "packed": true,
+      "size": [
+        512,
+        283
+      ]
+    }
+  ]
+}

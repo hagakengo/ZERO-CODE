@@ -1,0 +1,277 @@
+{
+  "method": "exact rendered PNG pixels against F1; bounded changes support fixed head/hair claim, do not assess identity by themselves",
+  "frames": [
+    {
+      "frame": 1,
+      "changed_pixels_vs_F1": 0,
+      "bbox_xyxy": null
+    },
+    {
+      "frame": 2,
+      "changed_pixels_vs_F1": 0,
+      "bbox_xyxy": null
+    },
+    {
+      "frame": 3,
+      "changed_pixels_vs_F1": 0,
+      "bbox_xyxy": null
+    },
+    {
+      "frame": 4,
+      "changed_pixels_vs_F1": 203,
+      "bbox_xyxy": [
+        432,
+        182,
+        576,
+        255
+      ]
+    },
+    {
+      "frame": 5,
+      "changed_pixels_vs_F1": 375,
+      "bbox_xyxy": [
+        431,
+        181,
+        578,
+        255
+      ]
+    },
+    {
+      "frame": 6,
+      "changed_pixels_vs_F1": 473,
+      "bbox_xyxy": [
+        431,
+        181,
+        579,
+        255
+      ]
+    },
+    {
+      "frame": 7,
+      "changed_pixels_vs_F1": 1278,
+      "bbox_xyxy": [
+        406,
+        175,
+        597,
+        258
+      ]
+    },
+    {
+      "frame": 8,
+      "changed_pixels_vs_F1": 1542,
+      "bbox_xyxy": [
+        406,
+        175,
+        597,
+        258
+      ]
+    },
+    {
+      "frame": 9,
+      "changed_pixels_vs_F1": 1851,
+      "bbox_xyxy": [
+        406,
+        175,
+        598,
+        263
+      ]
+    },
+    {
+      "frame": 10,
+      "changed_pixels_vs_F1": 1851,
+      "bbox_xyxy": [
+        406,
+        175,
+        598,
+        263
+      ]
+    },
+    {
+      "frame": 11,
+      "changed_pixels_vs_F1": 1542,
+      "bbox_xyxy": [
+        406,
+        175,
+        597,
+        258
+      ]
+    },
+    {
+      "frame": 12,
+      "changed_pixels_vs_F1": 1278,
+      "bbox_xyxy": [
+        406,
+        175,
+        597,
+        258
+      ]
+    },
+    {
+      "frame": 13,
+      "changed_pixels_vs_F1": 473,
+      "bbox_xyxy": [
+        431,
+        181,
+        579,
+        255
+      ]
+    },
+    {
+      "frame": 14,
+      "changed_pixels_vs_F1": 473,
+      "bbox_xyxy": [
+        431,
+        181,
+        579,
+        255
+      ]
+    },
+    {
+      "frame": 15,
+      "changed_pixels_vs_F1": 473,
+      "bbox_xyxy": [
+        431,
+        181,
+        579,
+        255
+      ]
+    },
+    {
+      "frame": 16,
+      "changed_pixels_vs_F1": 473,
+      "bbox_xyxy": [
+        431,
+        181,
+        579,
+        255
+      ]
+    },
+    {
+      "frame": 17,
+      "changed_pixels_vs_F1": 473,
+      "bbox_xyxy": [
+        431,
+        181,
+        579,
+        255
+      ]
+    },
+    {
+      "frame": 18,
+      "changed_pixels_vs_F1": 1248,
+      "bbox_xyxy": [
+        406,
+        174,
+        597,
+        257
+      ]
+    },
+    {
+      "frame": 19,
+      "changed_pixels_vs_F1": 1248,
+      "bbox_xyxy": [
+        406,
+        174,
+        597,
+        257
+      ]
+    },
+    {
+      "frame": 20,
+      "changed_pixels_vs_F1": 1224,
+      "bbox_xyxy": [
+        406,
+        174,
+        597,
+        257
+      ]
+    },
+    {
+      "frame": 21,
+      "changed_pixels_vs_F1": 1224,
+      "bbox_xyxy": [
+        406,
+        174,
+        597,
+        257
+      ]
+    },
+    {
+      "frame": 22,
+      "changed_pixels_vs_F1": 1224,
+      "bbox_xyxy": [
+        406,
+        174,
+        597,
+        257
+      ]
+    },
+    {
+      "frame": 23,
+      "changed_pixels_vs_F1": 1224,
+      "bbox_xyxy": [
+        406,
+        174,
+        597,
+        257
+      ]
+    },
+    {
+      "frame": 24,
+      "changed_pixels_vs_F1": 1224,
+      "bbox_xyxy": [
+        406,
+        174,
+        597,
+        257
+      ]
+    }
+  ],
+  "unique_full_frame_images": 10,
+  "identical_frame_groups": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      4
+    ],
+    [
+      5
+    ],
+    [
+      6,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    [
+      7
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      12
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21,
+      22,
+      23,
+      24
+    ]
+  ]
+}

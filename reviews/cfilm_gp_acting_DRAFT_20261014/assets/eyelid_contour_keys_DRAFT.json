@@ -1,0 +1,248 @@
+{
+  "status": "DRAFT/HOLD",
+  "coordinate_system": "source 512x283 px, x right y down; screen L/R",
+  "method": "5 explicitly specified cubic upper-lid contour pairs. No image warp; no human hand drawing. These are correction candidates, not artist-approved drawings.",
+  "upper_lid_keys": {
+    "neutral": {
+      "L": [
+        [
+          204,
+          110
+        ],
+        [
+          211,
+          103
+        ],
+        [
+          225,
+          99
+        ],
+        [
+          234,
+          99
+        ]
+      ],
+      "R": [
+        [
+          263,
+          83
+        ],
+        [
+          273,
+          76
+        ],
+        [
+          287,
+          70
+        ],
+        [
+          298,
+          70
+        ]
+      ]
+    },
+    "quarter_close": {
+      "L": [
+        [
+          204,
+          110
+        ],
+        [
+          213,
+          106
+        ],
+        [
+          225,
+          102
+        ],
+        [
+          234,
+          99
+        ]
+      ],
+      "R": [
+        [
+          263,
+          83
+        ],
+        [
+          274,
+          79
+        ],
+        [
+          288,
+          73
+        ],
+        [
+          298,
+          70
+        ]
+      ]
+    },
+    "half_close": {
+      "L": [
+        [
+          204,
+          110
+        ],
+        [
+          214,
+          108
+        ],
+        [
+          227,
+          104
+        ],
+        [
+          234,
+          99
+        ]
+      ],
+      "R": [
+        [
+          263,
+          83
+        ],
+        [
+          274,
+          82
+        ],
+        [
+          289,
+          76
+        ],
+        [
+          298,
+          70
+        ]
+      ]
+    },
+    "closed": {
+      "L": [
+        [
+          204,
+          110
+        ],
+        [
+          215,
+          112
+        ],
+        [
+          228,
+          106
+        ],
+        [
+          234,
+          99
+        ]
+      ],
+      "R": [
+        [
+          263,
+          83
+        ],
+        [
+          274,
+          85
+        ],
+        [
+          290,
+          78
+        ],
+        [
+          298,
+          70
+        ]
+      ]
+    },
+    "notice": {
+      "L": [
+        [
+          204,
+          110
+        ],
+        [
+          211,
+          101
+        ],
+        [
+          225,
+          97
+        ],
+        [
+          234,
+          99
+        ]
+      ],
+      "R": [
+        [
+          263,
+          83
+        ],
+        [
+          273,
+          74
+        ],
+        [
+          287,
+          68
+        ],
+        [
+          298,
+          70
+        ]
+      ]
+    }
+  },
+  "lower_lid_support": {
+    "L": [
+      [
+        204,
+        110
+      ],
+      [
+        214,
+        113
+      ],
+      [
+        228,
+        106
+      ],
+      [
+        234,
+        99
+      ]
+    ],
+    "R": [
+      [
+        263,
+        83
+      ],
+      [
+        274,
+        87
+      ],
+      [
+        290,
+        78
+      ],
+      [
+        298,
+        70
+      ]
+    ]
+  },
+  "iris_centers": {
+    "L": [
+      221,
+      106
+    ],
+    "R": [
+      282,
+      77
+    ]
+  },
+  "gaze_max_displacement_px": 2,
+  "closed_key_rule": "omit iris/eye fill entirely, draw closed contour once; retain independent hair occlusion",
+  "uncertainty_px": 3
+}

@@ -1,0 +1,96 @@
+{
+  "status": "DRAFT/HOLD",
+  "source_original": "../reference/user_reference_original.png",
+  "source_original_sha256": "bc3697df6c3c080985b226b285627d449124f1b9b58c9326ea6a316890057fad",
+  "C_FILM_source": "../reference/A_B_C_comparison_DRAFT.png",
+  "C_FILM_source_sha256": "35e61d728ca2c6b9e7c0f3246157167687abe03552b8955ceee2549b99bf5a21",
+  "crop_box_xyxy": [
+    1024,
+    49,
+    1536,
+    332
+  ],
+  "crop_size": [
+    512,
+    283
+  ],
+  "coordinate_system": "pixel x right, y down; source native resolution; screen left/right",
+  "view": "existing tilted three-quarter pose; NOT approved neutral frontal",
+  "landmarks_observed": {
+    "left_eye_outer": [
+      204,
+      110
+    ],
+    "left_eye_inner": [
+      234,
+      99
+    ],
+    "left_iris": [
+      221,
+      106
+    ],
+    "right_eye_inner": [
+      263,
+      83
+    ],
+    "right_eye_outer": [
+      298,
+      70
+    ],
+    "right_iris": [
+      282,
+      77
+    ],
+    "nose_tip": [
+      249,
+      117
+    ],
+    "mouth_left": [
+      250,
+      141
+    ],
+    "mouth_right": [
+      283,
+      130
+    ],
+    "chin": [
+      276,
+      176
+    ],
+    "left_brow_anchor": [
+      212,
+      85
+    ],
+    "right_brow_anchor": [
+      269,
+      60
+    ],
+    "bang_cross_nose": [
+      261,
+      103
+    ],
+    "bang_over_left_eye": [
+      223,
+      91
+    ],
+    "bang_right_tip": [
+      309,
+      107
+    ],
+    "ear_right": [
+      333,
+      93
+    ]
+  },
+  "measurement_uncertainty_pixels": 3,
+  "eye_axis_angle_degrees": -25.4,
+  "tolerances_PROVISIONAL_not_design_approval": {
+    "static_chin_nose_hair_outline_displacement_px": 0,
+    "eye_corner_displacement_px": 1,
+    "iris_gaze_offset_max_px": 2,
+    "brow_emotion_offset_max_px": 2,
+    "mouth_corner_emotion_offset_max_px": 2,
+    "hair_lock_roots_and_tips_displacement_px": 0
+  },
+  "tolerance_meaning": "Engineering guardrails for same-pose A/B test; not artist-approved anatomical limits. Manual points uncertain +/-3 px; measure dynamic drift against the same source, never infer true front proportions from tilted face."
+}

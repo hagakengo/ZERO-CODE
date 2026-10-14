@@ -1,0 +1,49 @@
+{
+  "status": "DRAFT/HOLD",
+  "videos": [
+    {
+      "file": "animation/C_gaze_blink_half_24fps_DRAFT.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1024,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "duration": "2.000000",
+            "nb_read_frames": "48"
+          }
+        ]
+      },
+      "full_decode_pass": true,
+      "decode_error": "",
+      "sha256": "de823657752a6cac2c526bde1580983e5824dabad6ff4d2d0dcd6d5b11822e85"
+    },
+    {
+      "file": "animation/C_gaze_blink_normal_24fps_DRAFT.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1024,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "duration": "1.000000",
+            "nb_read_frames": "24"
+          }
+        ]
+      },
+      "full_decode_pass": true,
+      "decode_error": "",
+      "sha256": "24cd437ab580b7a101f9886c1c044a0666b83b10f811e212c0c2116ebc0c0192"
+    }
+  ]
+}
