@@ -561,3 +561,16 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **References:** Existing A+B board as identity and outfit source; C/FILM crop for line and shadow only; A1 for clothing construction only. Originals were not changed.
 **Result:** Five views created. Initial visual inspection confirms the requested views are present; identity consistency and drawing repeatability remain pending review.
 **Next action:** Complete the checklist in `reviews/protagonist_A_model_sheet_DRAFT_20261014/REVIEW.md`. Do not use in animation or promote to MASTER before approval.
+
+## 2026-10-14 — 主人公A 2秒演技・原画露出テスト v01
+
+**Status:** DRAFT / HOLD — intermediate test, not production-ready; user playback approval pending.
+**Authorization:** User explicitly authorized a two-second internal acting test using the c4122d5 model sheet. This supersedes the earlier animation-test hold for this task only; no canon or MASTER promotion.
+**Tool / Model:** Built-in Image Gen once (model ID not exposed), Python stdlib + FFmpeg 9.0.2. No Astra claim, subagents, paid video service, paid API or purchases.
+**References / Prompt:** Exact model sheet at c4122d55d48826e66f8be906a20e20b0cfe38871; original A+B board and C/FILM at fcd6b31f58e77e04fee11e51b3601a5e7db40d7e. See `reviews/protagonist_A_2s_acting_DRAFT_20261014/source/references.json` and `source/prompt_v01.txt`.
+**Goal:** Lethargic lowered gaze → detects anomaly → raises gaze/head, while preserving A's identity and costume.
+**Result:** Eight added key drawings, exposed over 48 frames at 24fps / 2.000 seconds, 384×512 H.264. Full decode and frame-count checks pass. Reference comparison and sampled decoded frames inspected.
+**Worked:** A visible sequence of eye/head pose changes, preserving major asymmetric hair and dark costume motifs. Rebuildable source and exposures retained.
+**Failed / Limited:** Eyes, jaw, neck shading, hair strands, hood and strap details are not strictly locked; shoulder/hair follow-through is insufficient. Native cell resolution is limited. Full-speed user review not performed. No finished-animation claim.
+**Changes / Reason:** Added only a review test package and this log, to retain useful evidence without promoting incomplete work. Reference assets and MASTER are preserved.
+**Next action:** Correct consistent key drawings and connected in-betweens before another motion-quality assessment; require explicit user approval before adoption. See package `QA.md`.

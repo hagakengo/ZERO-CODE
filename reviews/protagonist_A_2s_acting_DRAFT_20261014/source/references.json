@@ -1,0 +1,23 @@
+[
+  {
+    "name": "model_sheet",
+    "commit": "c4122d55d48826e66f8be906a20e20b0cfe38871",
+    "path": "reviews/protagonist_A_model_sheet_DRAFT_20261014/protagonist_A_model_sheet_DRAFT_HOLD.png",
+    "sha256": "ecdb37bb315973e645889d2d1a19815e0c1357104c6b0f317b0e3f2461d34d9e",
+    "local": "reference/model_sheet.png"
+  },
+  {
+    "name": "original_board",
+    "commit": "fcd6b31f58e77e04fee11e51b3601a5e7db40d7e",
+    "path": "reviews/protagonist_A_style_DRAFT_20261014/source/user_reference_original.png",
+    "sha256": "bc3697df6c3c080985b226b285627d449124f1b9b58c9326ea6a316890057fad",
+    "local": "reference/original_board.png"
+  },
+  {
+    "name": "cfilm_style",
+    "commit": "fcd6b31f58e77e04fee11e51b3601a5e7db40d7e",
+    "path": "reviews/protagonist_A_style_DRAFT_20261014/A_B_C_comparison_DRAFT.png",
+    "sha256": "35e61d728ca2c6b9e7c0f3246157167687abe03552b8955ceee2549b99bf5a21",
+    "local": "reference/cfilm_style.png"
+  }
+]

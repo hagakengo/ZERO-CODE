@@ -1,0 +1,15 @@
+Use case: identity-preserve.
+Asset type: one coherent animation key-drawing sprite sheet for ZERO CODE protagonist A, adapted from the supplied existing model sheet. NOT a redesign.
+Input 1 is the authoritative five-view character model sheet (edit target / exact identity and costume). Input 2 is the original A+B board, supporting A costume reference only; never draw B. Input 3 is the C/FILM style comparison; only its right-hand C/FILM column supports shading, never mix characters.
+Create ONE sheet of EXACTLY eight consecutive animation drawings, arranged 4 columns x 2 rows, read left to right then next row. Equal rectangular cells, ideally total 3072x2048. NO margins, NO gutters, NO borders, NO text. Plain identical very light gray background throughout. Each cell has exactly the same locked camera, focal length, scale, chest-up crop, and character placement. Keep full top of hair within every cell. Do not shift torso position or alter the backpack strap/buckle design between cells.
+The character MUST be precisely A from input 1: long asymmetric black bangs hanging across his eye, irregular outward flicks, longer nape, narrow gray eyes, slender pointed but natural jaw, same dark layered hoodie/jacket, dark undershirt and two black backpack straps with identical rectangular metal buckles, small red jacket tab. Preserve the specific hairstyle, eyes, face contour, garment construction and bag. Warm restrained light from upper right exactly as reference. Fine Japanese anime ink and controlled shaded colors. No 3D, no simplified mascot, no pasted face or skin patches.
+Animation action over 2 seconds: lethargic lowered gaze -> notices something -> raises eyes and head a modest amount toward an offscreen point above him -> alert quiet settle. Nearly frontal slightly three-quarter view for ALL EIGHT cells; do not rotate to profile or change shot. Acting change, not new faces.
+Cell 1: head slightly bowed, relaxed shoulders, heavy half-lidded eyes looking down, neutral closed mouth.
+Cell 2: same head and torso, eyelids subtly react and pupils first glance upward; anticipation only.
+Cell 3: begins lifting chin 2 degrees, neck follows, shoulders delayed, bangs lag slightly.
+Cell 4: chin up 4 degrees, eyes tracking upper-front, slight neck extension, shoulder posture starts to follow.
+Cell 5: chin up 7 degrees, alert eyes still narrow (not big round surprised eyes), shoulders subtly straighten, same mouth closed.
+Cell 6: peak lift 9 degrees, very subtle hair-tip follow-through, no wind, no lateral head turn.
+Cell 7: settles back to 8 degrees, hair and shoulders gently settling.
+Cell 8: settled attentive gaze up, chin at 8 degrees, head-neck-shoulder anatomy coherent, same identity and clothing.
+Critical continuity: These are sequential key drawings of ONE actor within ONE shot. Copy/retain all unchanged costume geometry and facial identity across the sheet. Maintain fixed body/chest scale and placement; only anatomically necessary articulations. No independently redesigned people in different panels. No repeated identical pictures, no camera pan/zoom, no text/labels.
