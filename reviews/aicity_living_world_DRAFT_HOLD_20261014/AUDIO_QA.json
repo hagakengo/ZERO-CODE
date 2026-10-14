@@ -1,0 +1,33 @@
+{
+  "status": "DRAFT/HOLD",
+  "duration_seconds": 3,
+  "sample_rate_hz": 48000,
+  "channels": 2,
+  "pcm_bits": 16,
+  "samples_per_channel": 144000,
+  "peak_dbfs": -18.991145931110314,
+  "rms_dbfs": -33.15184390527823,
+  "clipped_samples": 0,
+  "sha256": "99ddef003d89d18a94abf63f8f0f8076bd02a0847c4901ce3b4c5151529ecef3",
+  "vehicle_se_seconds": [
+    0,
+    3
+  ],
+  "footstep_contacts_seconds": [
+    0.14,
+    0.5,
+    0.86,
+    1.45
+  ],
+  "electric_fault_seconds": [
+    1.05,
+    1.25,
+    1.5,
+    1.8,
+    2.0
+  ],
+  "local_grid_ambience_after_2_seconds_gain": 0.2,
+  "listening": "UNVERIFIED: no auditory listening performed",
+  "perceptual_sync": "UNVERIFIED: Footsteps/faults scheduled; final picture not auditioned",
+  "provenance": "Original procedural Python standard-library synthesis, fixed seed. No external service, samples, uploads, music or voice."
+}

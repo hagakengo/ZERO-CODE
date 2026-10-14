@@ -1,0 +1,40 @@
+{
+  "status": "DRAFT/HOLD",
+  "adopted_seconds": 0,
+  "candidate_seconds": 3,
+  "video": {
+    "container": "MP4",
+    "video_codec": "H.264",
+    "audio_codec": "AAC",
+    "width": 1080,
+    "height": 1920,
+    "fps": "24/1",
+    "frames": 72,
+    "video_duration_s": 3.0,
+    "audio_duration_s": 3.0,
+    "audio_sample_rate_hz": 48000,
+    "audio_channels": 2,
+    "decode": "ffmpeg full-file decode completed without reported errors",
+    "rendered_frames": "72/72, every adjacent pair differs"
+  },
+  "production": {
+    "cost_yen": 0,
+    "external_generation_or_upload": false,
+    "camera": "locked",
+    "b_background": "approved hand-painted B image reused unchanged as packed source",
+    "scene": "existing 2.5D production scene reused; fixed projection and shallow depth occlusion",
+    "pedestrian": "anonymous hand-drawn cel, 72 editable RGBA poses; no character A/B canon",
+    "audio_events_s": {
+      "footsteps": [0.14, 0.5, 0.86, 1.45],
+      "electrical_fault_and_light_changes": [1.05, 1.25, 1.5, 1.8],
+      "local_grid_drop": 2.0,
+      "rain_and_vehicle_continue": [0.0, 3.0]
+    }
+  },
+  "unverified": [
+    "normal-speed continuous video review",
+    "actual audio listening",
+    "perceptual audio/video synchronization",
+    "producer acceptance"
+  ]
+}
