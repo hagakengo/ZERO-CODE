@@ -78,7 +78,7 @@ for f in range(24):
   for n,s in p.items():
    (O/'parts'/f'{n}.svg').write_text(wrap(s));cairosvg.svg2png(bytestring=wrap(s).encode(),write_to=str(O/'parts'/f'{n}.png'))
 with (O/'exposure.csv').open('w') as out:
- w=csv.writer(out);w.writerow(['frame','time_seconds','beat','source','method']);w.writerows(rows)
+ w=csv.writer(out,lineterminator="\n");w.writerow(['frame','time_seconds','beat','source','method']);w.writerows(rows)
 for name,vf in [('normal_24fps.mp4',None),('half_speed_24fps.mp4','setpts=2*PTS,fps=24')]:
  cmd=['ffmpeg','-v','error','-y','-framerate','24','-i',str(O/'frames/%03d.png')]
  if vf:cmd+=['-vf',vf]

@@ -112,7 +112,7 @@ for f in range(24):
   lo=max(k for k in authored if k<f);hi=min(k for k in authored if k>f);t=(f-lo)/(hi-lo);vals=[x+(y-x)*t for x,y in zip(authored[lo],authored[hi])]
  kind=render(f,vals);rows.append([f+1,f/24,kind,*vals])
 with (OUT/'exposure.csv').open('w') as fh:
- w=csv.writer(fh);w.writerow(['frame_1based','time_s','drawing_method','upper_lid','lower_lid','gaze','mouth_curve','brow_parameter_UNUSED']);w.writerows(rows)
+ w=csv.writer(fh,lineterminator="\n");w.writerow(['frame_1based','time_s','drawing_method','upper_lid','lower_lid','gaze','mouth_curve','brow_parameter_UNUSED']);w.writerows(rows)
 (OUT/'authored_contours.json').write_text(json.dumps({'status':'DRAFT/HOLD','source':str(SRC),'crop':[1024,49,1536,332],'authored_frame_0based':authored,'key_frames_0based':sorted(keyframes),'authored_key_count':6,'authored_vector_inbetween_count':9,'procedural_interpolation_frame_count':9,'traditional_hand_drawn_count':0,'direct_authored_inbetween_controls':inbetween_controls},indent=2))
 for name,flt in [('normal_24fps.mp4','null'),('half_speed_24fps.mp4','setpts=2*PTS,fps=24')]:
  subprocess.run(['ffmpeg','-y','-loglevel','error','-framerate','24','-i',str(OUT/'frames/%03d.png'),'-vf',flt,'-frames:v','24' if name.startswith('normal') else '48','-c:v','libx264','-crf','18','-pix_fmt','yuv420p',str(OUT/name)],check=True)
