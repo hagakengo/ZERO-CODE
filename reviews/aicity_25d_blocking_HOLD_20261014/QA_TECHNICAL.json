@@ -1,0 +1,31 @@
+{
+  "status": "DRAFT/HOLD",
+  "adopted_seconds": 0,
+  "technical_video": "spec + complete decode verified",
+  "screen_anchor_displacement_px": {
+    "near_anchor_px": 90.513,
+    "mid_anchor_px": 19.1,
+    "far_anchor_px": 7.272
+  },
+  "torso_center_blocked_frames": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+  ],
+  "frame_time": "(frame-1)/24 seconds",
+  "normal_speed_perception": "UNVERIFIED; user review required",
+  "audio": "NONE; intentional geometry test",
+  "rendered_png_count": 72,
+  "blender": "4.5.14 LTS",
+  "model": "Astra selected per user; runtime model ID unavailable"
+}
