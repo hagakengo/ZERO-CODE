@@ -551,3 +551,7 @@ This preserves mystery and gives the ZERO CODE emblem unique visual authority.
 The earlier episode attempt is not official final canon footage.
 
 It may provide usable material, but official EP.01 should be rebuilt to current quality standards.
+
+## 2026-10-14 — AI CITY B 24fps / 60fps comparison
+
+Version: reviews/aicity_fps_comparison_HOLD_20261014. Tool: local Python/Pillow/numpy/FFmpeg; no video generation model or external material upload. Input: approved B e9bde71; baseline 6bd930f. Prompt: user FPS comparison request, implemented as source/render.py v1. Goal: isolate temporal sampling after removing independent pillar sliding. Changed: whole-painting continuous push, no cutout or edge fill; shared render(t), 72/180 independent frames, identical audio. Result: technical PASS (full decode, spec, 36 common-time RGB matches, unique frames and audio hash); independent artistic HOLD. Worked: B preserved and pillar/beam connected. Limitations: single-image zoom, baked rain, no calculated depth occlusion; normal-speed viewing/listening and perceptual sync unverified. Status: DRAFT/HOLD, adopted 0 seconds. New method 1 trial, prior+current 3 <=5, 1 workday <=3; stop further automatic trials. Next: user compares both original MP4s at normal speed; no MASTER promotion. Evidence: review QA.md, QA_TECHNICAL.json, QA_INDEPENDENT.md and representative comparison.
