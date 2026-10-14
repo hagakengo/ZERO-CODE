@@ -39,7 +39,7 @@ def main():
             rows.append([frame, f'{(frame-1)/FPS:.6f}', key, hashlib.sha256(dest.read_bytes()).hexdigest()])
             frame += 1
     with (ROOT / 'source/exposure_sheet.csv').open('w') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator='\n')
         writer.writerow(['frame_1based', 'start_seconds', 'key_drawing', 'png_sha256'])
         writer.writerows(rows)
     movie = ROOT / 'protagonist_A_2s_KEY_TEST_DRAFT_HOLD.mp4'
