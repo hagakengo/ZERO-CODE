@@ -1,0 +1,10 @@
+{
+  "peak_dbfs": -16.875195666310404,
+  "rms_dbfs": -29.706955809141938,
+  "clipped_samples": 0,
+  "sample_rate": 48000,
+  "samples_per_channel": 144000,
+  "listening": "UNVERIFIED",
+  "cue_center_s": 2.22,
+  "source_sha256": "029121b8851ef3daa0de73d5074f68985643124b0c5e676cfc476fe2858b4a67"
+}
