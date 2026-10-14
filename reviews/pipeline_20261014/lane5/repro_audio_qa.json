@@ -1,0 +1,36 @@
+{
+  "native_frame36_byte_match": false,
+  "native_frame36_pixel_match": true,
+  "png_count": 72,
+  "unique_png_hashes": 72,
+  "audio": [
+    {
+      "file": "stem_air_DRAFT.wav",
+      "frames": 144000,
+      "rate": 48000,
+      "channels": 2,
+      "sample_width": 2
+    },
+    {
+      "file": "stem_city_hum_DRAFT.wav",
+      "frames": 144000,
+      "rate": 48000,
+      "channels": 2,
+      "sample_width": 2
+    },
+    {
+      "file": "mix_3s_DRAFT.wav",
+      "frames": 144000,
+      "rate": 48000,
+      "channels": 2,
+      "sample_width": 2
+    },
+    {
+      "file": "stem_notice_cue_DRAFT.wav",
+      "frames": 144000,
+      "rate": 48000,
+      "channels": 2,
+      "sample_width": 2
+    }
+  ]
+}

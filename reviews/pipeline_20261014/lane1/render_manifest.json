@@ -1,0 +1,16 @@
+{
+  "tool": "4.5.14 LTS",
+  "object_type": "GREASEPENCIL",
+  "layers": 1,
+  "drawing_keys": 72,
+  "method": "actual GP strokes; deterministic point coordinates; not human hand drawing",
+  "frames": 72,
+  "fps": 24,
+  "duration_seconds": 3,
+  "resolution": [
+    360,
+    640
+  ],
+  "identity": "not tested; generic ball/ribbon",
+  "status": "DRAFT/HOLD"
+}

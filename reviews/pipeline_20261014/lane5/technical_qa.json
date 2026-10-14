@@ -1,0 +1,28 @@
+{
+  "videos": [
+    {
+      "path": "lane1/gp_timing_DRAFT.mp4",
+      "width": 360,
+      "height": 640,
+      "fps": "24/1",
+      "frames": "72",
+      "duration": "3.000000",
+      "decode_pass": true,
+      "errors": ""
+    }
+  ],
+  "svg": [
+    "lane4/AI_CITY_background_DRAFT.svg",
+    "lane3/layer_template_DRAFT.svg",
+    "lane2/storyboard_DRAFT.svg"
+  ],
+  "native": [
+    {
+      "path": "lane1/gp_timing_DRAFT.blend",
+      "bytes": 644716
+    }
+  ],
+  "protected_diff": [],
+  "status": "DRAFT/HOLD",
+  "continuous_playback": "not performed; user normal-speed review required"
+}

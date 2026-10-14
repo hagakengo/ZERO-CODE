@@ -1,0 +1,26 @@
+{
+  "status": "PLANNING_TECHNICAL_PASS; DRAWING_HOLD",
+  "csv_rows": 72,
+  "fps_plan": 24,
+  "duration_seconds_plan": 3,
+  "svg_xml_parse": "PASS",
+  "original_hash": "MATCH",
+  "native_project_import": "NOT_TESTED",
+  "C_artwork": "NOT_CREATED",
+  "normal_speed_viewing": "NOT_PERFORMED",
+  "storyboard_svg_dimensions": [
+    1400,
+    1150
+  ],
+  "staging_panel_dimensions": [
+    180,
+    320
+  ],
+  "layer_template_dimensions": [
+    1080,
+    1920
+  ],
+  "storyboard_png_render": "PASS via rsvg-convert",
+  "storyboard_static_visual_check": "PASS readable; schematic actor only",
+  "sound_lane_alignment": "F025 1-based = 1.000 s"
+}

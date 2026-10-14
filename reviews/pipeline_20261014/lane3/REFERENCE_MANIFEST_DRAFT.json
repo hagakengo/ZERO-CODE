@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-14 JST",
+  "base_commit": "2e6147a",
+  "status": "DRAFT/HOLD",
+  "C_crop": "No C crop performed in this lane; right column in comparison sheet is a derived C candidate, distinct from original A/DENSE.",
+  "inputs": [
+    {
+      "repository_path": "reviews/model_cleanup_DRAFT_20261014/reference/user_reference_original.png",
+      "sha256": "bc3697df6c3c080985b226b285627d449124f1b9b58c9326ea6a316890057fad",
+      "bytes": 2623635
+    },
+    {
+      "repository_path": "reviews/model_cleanup_DRAFT_20261014/reference/A_B_C_comparison_DRAFT.png",
+      "sha256": "35e61d728ca2c6b9e7c0f3246157167687abe03552b8955ceee2549b99bf5a21",
+      "bytes": 2415734
+    },
+    {
+      "repository_path": "reviews/model_cleanup_DRAFT_20261014/lane1/head_model_v2_DRAFT.png",
+      "sha256": "519ab055a436cd48482a7dcc608d0b7f258a40c575e3a278c33dae75a4fcc8ea",
+      "bytes": 2108463
+    },
+    {
+      "repository_path": "reviews/model_cleanup_DRAFT_20261014/lane2/expression_parts_layered_DRAFT.svg",
+      "sha256": "2d5b6951914a4b2ab53e204912a2785fe42ef0e5d043e3664481f3c5626759a5",
+      "bytes": 2335199
+    }
+  ]
+}

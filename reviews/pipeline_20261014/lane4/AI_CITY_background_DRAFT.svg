@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="1080" height="1920" viewBox="0 0 1080 1920"><title>AI CITY environment layout — DRAFT / HOLD</title><desc>Original vector layout prototype. No character, logo, enemy, HUD or story event. Central acting space deliberately reserved. Not approved production background.</desc><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#060c19"/><stop offset="1" stop-color="#203c55"/></linearGradient><linearGradient id="road" x2="0" y2="1"><stop stop-color="#132b3d"/><stop offset="1" stop-color="#060b13"/></linearGradient><linearGradient id="fog" x2="0" y2="1"><stop stop-color="#57819b" stop-opacity="0"/><stop offset=".6" stop-color="#57819b" stop-opacity=".2"/><stop offset="1" stop-color="#57819b" stop-opacity="0"/></linearGradient></defs>
+<g id="01_sky" data-layer="01_sky">
+<rect width="1080" height="1920" fill="url(#sky)"/>
+</g>
+<g id="02_distant_towers" data-layer="02_distant_towers">
+<rect x="100" y="450" width="100" height="780" fill="#142a3d"/><path d="M192 475v745" stroke="#297c96" stroke-width="3"/>
+<rect x="250" y="280" width="110" height="930" fill="#142a3d"/><path d="M352 305v895" stroke="#297c96" stroke-width="3"/>
+<rect x="420" y="650" width="75" height="530" fill="#142a3d"/><path d="M487 675v495" stroke="#297c96" stroke-width="3"/>
+<rect x="570" y="350" width="95" height="860" fill="#142a3d"/><path d="M657 375v825" stroke="#297c96" stroke-width="3"/>
+<rect x="700" y="530" width="90" height="690" fill="#142a3d"/><path d="M782 555v655" stroke="#297c96" stroke-width="3"/>
+<rect x="840" y="180" width="140" height="1040" fill="#142a3d"/><path d="M972 205v1005" stroke="#297c96" stroke-width="3"/>
+</g>
+<g id="03_mid_architecture" data-layer="03_mid_architecture">
+<polygon points="0,50 240,160 240,1280 0,1500" fill="#0a1523" stroke="#223a4d" stroke-width="3"/>
+<polygon points="1080,0 810,200 810,1280 1080,1500" fill="#0a1523" stroke="#223a4d" stroke-width="3"/>
+<polygon points="40,360 170,400 170,1260 40,1350" fill="#0a1523" stroke="#223a4d" stroke-width="3"/>
+<polygon points="1040,370 905,420 905,1300 1040,1420" fill="#0a1523" stroke="#223a4d" stroke-width="3"/>
+<path d="M230 480H825V535H230Z" fill="#0a1420" stroke="#26485d" stroke-width="3"/><path d="M240 538H810" stroke="#39a4b8" stroke-opacity=".65" stroke-width="4"/>
+<path d="M70 490h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M70 600h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M70 710h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M70 820h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M70 930h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M70 1040h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M70 1150h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M130 490h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M130 600h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M130 710h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M130 820h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M130 930h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M130 1040h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M130 1150h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M940 490h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M940 600h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M940 710h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M940 820h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M940 930h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M940 1040h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M940 1150h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M1000 490h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M1000 600h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M1000 710h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M1000 820h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M1000 930h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M1000 1040h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+<path d="M1000 1150h16v35h-16Z" fill="#2b6179" opacity=".5"/>
+</g>
+<g id="04_wet_street" data-layer="04_wet_street">
+<path d="M0 1920V1400L435 1180H650L1080 1400V1920Z" fill="url(#road)"/>
+<path d="M540 1180L-300 1920" stroke="#243e50" stroke-width="3"/>
+<path d="M540 1180L0 1920" stroke="#243e50" stroke-width="3"/>
+<path d="M540 1180L270 1920" stroke="#243e50" stroke-width="3"/>
+<path d="M540 1180L810 1920" stroke="#243e50" stroke-width="3"/>
+<path d="M540 1180L1080 1920" stroke="#243e50" stroke-width="3"/>
+<path d="M540 1180L1380 1920" stroke="#243e50" stroke-width="3"/>
+<path d="M0 1260H1080" stroke="#1c3447" stroke-width="3"/>
+<path d="M0 1370H1080" stroke="#1c3447" stroke-width="3"/>
+<path d="M0 1550H1080" stroke="#1c3447" stroke-width="3"/>
+<path d="M0 1820H1080" stroke="#1c3447" stroke-width="3"/>
+<path d="M200 1450h110l-25 13h-110Z" fill="#38a0b8" opacity=".22"/>
+<path d="M750 1510h130l-25 13h-130Z" fill="#38a0b8" opacity=".22"/>
+<path d="M130 1720h130l-25 13h-130Z" fill="#38a0b8" opacity=".22"/>
+<path d="M860 1820h170l-25 13h-170Z" fill="#38a0b8" opacity=".22"/>
+<path d="M330 1300h60l-25 13h-60Z" fill="#38a0b8" opacity=".22"/>
+</g>
+<g id="05_foreground_occlusion" data-layer="05_foreground_occlusion">
+<path d="M0 1920V1380L120 1320V1920Z M1080 1920V1350L990 1305V1920Z" fill="#040912"/>
+</g>
+<g id="06_environment_lights" data-layer="06_environment_lights">
+<path d="M228 700v410M820 750v350" stroke="#3bb8ca" opacity=".6" stroke-width="5"/><rect x="930" y="1230" width="9" height="25" fill="#bd794d"/>
+</g>
+<g id="07_fog" data-layer="07_fog">
+<rect y="850" width="1080" height="700" fill="url(#fog)"/>
+</g>
+</svg>

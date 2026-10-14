@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1150" viewBox="0 0 1400 1150">
+<rect width="1400" height="1150" fill="#101923"/>
+<style>text{font-family:Arial,sans-serif;fill:#e7edf3}.note{font-size:19px}.title{font-size:29px;font-weight:bold}.ink{fill:none;stroke:#d6e0e9;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}</style>
+<text x="35" y="44" class="title">TEST_AC01 / 3 s acting storyboard / DRAFT + HOLD</text>
+<text x="35" y="75" class="note">ONE locked shot, FOUR moments. Schematic actor: NOT C/FILM likeness or final drawing.</text>
+<g id="moment_1" transform="translate(35,105)"><rect width="640" height="470" rx="9" fill="#192632" stroke="#516574"/><text x="20" y="31" class="title">NEUTRAL</text><text x="20" y="60" class="note">F001–012 / 0–0.5 s</text>
+<g id="frame_9x16" transform="translate(22,78)"><rect width="180" height="320" fill="#0b121b" stroke="#91a4b2"/><path d="M0 270L90 180L180 270M0 310L90 180L180 310M90 0V180" stroke="#344655" fill="none"/><path d="M8 45H55V245H8ZM125 15H170V240H125Z" fill="#18232d"/><path d="M15 95V190M155 55V220" stroke="#395d6b" stroke-width="3"/>
+<g id="schematic_actor" class="ink"><path d="M40 320L46 248Q65 228 74 224L75 204M105 204L107 224Q130 228 141 252L150 320"/><ellipse cx="90" cy="174" rx="35" ry="43"/><path d="M58 157Q63 123 87 126Q122 128 124 158M62 153L70 174L83 147L92 170L105 143L118 168"/>
+<path d="M66 177L81 176M96 176L112 177"/><circle cx="75" cy="178" r="2" fill="#d6e0e9"/><circle cx="102" cy="178" r="2" fill="#d6e0e9"/>
+<path d="M81 198L102 198"/>
+</g></g>
+<text x="230" y="115" class="note">Half-lidded gaze</text>
+<text x="230" y="300" class="note">9:16 / 1080 x 1920 / 24 fps</text><text x="230" y="334" class="note">See CSV for each exposure frame.</text><text x="230" y="368" class="note">Identity / acting: HOLD</text></g>
+<g id="moment_2" transform="translate(725,105)"><rect width="640" height="470" rx="9" fill="#192632" stroke="#516574"/><text x="20" y="31" class="title">SMALL SMILE</text><text x="20" y="60" class="note">F013–024 / 0.5–1 s</text>
+<g id="frame_9x16" transform="translate(22,78)"><rect width="180" height="320" fill="#0b121b" stroke="#91a4b2"/><path d="M0 270L90 180L180 270M0 310L90 180L180 310M90 0V180" stroke="#344655" fill="none"/><path d="M8 45H55V245H8ZM125 15H170V240H125Z" fill="#18232d"/><path d="M15 95V190M155 55V220" stroke="#395d6b" stroke-width="3"/>
+<g id="schematic_actor" class="ink"><path d="M40 320L46 248Q65 228 74 224L75 204M105 204L107 224Q130 228 141 252L150 320"/><ellipse cx="90" cy="174" rx="35" ry="43"/><path d="M58 157Q63 123 87 126Q122 128 124 158M62 153L70 174L83 147L92 170L105 143L118 168"/>
+<path d="M66 177L81 176M96 176L112 177"/><circle cx="75" cy="178" r="2" fill="#d6e0e9"/><circle cx="102" cy="178" r="2" fill="#d6e0e9"/>
+<path d="M81 197Q91 202 103 195"/>
+</g></g>
+<text x="230" y="115" class="note">Mouth corner then cheek / lower lid follow.</text>
+<text x="230" y="300" class="note">9:16 / 1080 x 1920 / 24 fps</text><text x="230" y="334" class="note">See CSV for each exposure frame.</text><text x="230" y="368" class="note">Identity / acting: HOLD</text></g>
+<g id="moment_3" transform="translate(35,605)"><rect width="640" height="470" rx="9" fill="#192632" stroke="#516574"/><text x="20" y="31" class="title">EYES FIRST</text><text x="20" y="60" class="note">F025–030 / 1–1.25 s</text>
+<g id="frame_9x16" transform="translate(22,78)"><rect width="180" height="320" fill="#0b121b" stroke="#91a4b2"/><path d="M0 270L90 180L180 270M0 310L90 180L180 310M90 0V180" stroke="#344655" fill="none"/><path d="M8 45H55V245H8ZM125 15H170V240H125Z" fill="#18232d"/><path d="M15 95V190M155 55V220" stroke="#395d6b" stroke-width="3"/>
+<g id="schematic_actor" class="ink"><path d="M40 320L46 248Q65 228 74 224L75 204M105 204L107 224Q130 228 141 252L150 320"/><ellipse cx="90" cy="174" rx="35" ry="43"/><path d="M58 157Q63 123 87 126Q122 128 124 158M62 153L70 174L83 147L92 170L105 143L118 168"/>
+<path d="M66 177L81 176M96 176L112 177"/><circle cx="81" cy="178" r="2" fill="#d6e0e9"/><circle cx="108" cy="178" r="2" fill="#d6e0e9"/>
+<path d="M81 198L102 198"/>
+</g></g>
+<text x="230" y="115" class="note">Cue at 1.000 s. Eyes right</text>
+<path d="M240 165H530L515 155M530 165L515 175" stroke="#74c9d6" fill="none" stroke-width="3"/><text x="230" y="200" class="note">Gaze only. No head movement yet.</text>
+<text x="230" y="300" class="note">9:16 / 1080 x 1920 / 24 fps</text><text x="230" y="334" class="note">See CSV for each exposure frame.</text><text x="230" y="368" class="note">Identity / acting: HOLD</text></g>
+<g id="moment_4" transform="translate(725,605)"><rect width="640" height="470" rx="9" fill="#192632" stroke="#516574"/><text x="20" y="31" class="title">NECK → HAIR → HOLD</text><text x="20" y="60" class="note">F031–072 / 1.25–3 s</text>
+<g id="frame_9x16" transform="translate(22,78)"><rect width="180" height="320" fill="#0b121b" stroke="#91a4b2"/><path d="M0 270L90 180L180 270M0 310L90 180L180 310M90 0V180" stroke="#344655" fill="none"/><path d="M8 45H55V245H8ZM125 15H170V240H125Z" fill="#18232d"/><path d="M15 95V190M155 55V220" stroke="#395d6b" stroke-width="3"/>
+<g id="schematic_actor" class="ink"><path d="M40 320L46 248Q65 228 74 224L75 204M105 204L107 224Q130 228 141 252L150 320"/><ellipse cx="90" cy="174" rx="35" ry="43"/><path d="M58 157Q63 123 87 126Q122 128 124 158M62 153L70 174L83 147L92 170L105 143L118 168"/>
+<path d="M66 177L81 176M96 176L112 177"/><circle cx="81" cy="178" r="2" fill="#d6e0e9"/><circle cx="108" cy="178" r="2" fill="#d6e0e9"/>
+<path d="M81 198L102 198"/>
+</g></g>
+<text x="230" y="115" class="note">Shallow turn</text>
+<text x="230" y="160" class="note">F031 neck onset / F037 shoulders</text><text x="230" y="195" class="note">F045 tips overshoot / F055 settle</text><text x="230" y="230" class="note">No enemy / no power / no HUD.</text>
+<text x="230" y="300" class="note">9:16 / 1080 x 1920 / 24 fps</text><text x="230" y="334" class="note">See CSV for each exposure frame.</text><text x="230" y="368" class="note">Identity / acting: HOLD</text></g>
+<text x="35" y="1130" class="note">72 frames is duration, not 72 unique drawings. No finished character animation has been claimed.</text></svg>

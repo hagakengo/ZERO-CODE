@@ -1,0 +1,21 @@
+{
+  "status": "DRAFT/HOLD",
+  "audio_seconds": 3,
+  "sample_rate": 48000,
+  "channels": 2,
+  "samples_per_channel": 144000,
+  "peak_dbfs": -22.91352473362467,
+  "rms_dbfs": -37.90184304226819,
+  "cue_onset_seconds": 1.0,
+  "cue_onset_frame_24fps_zero_based": 24,
+  "cue_onset_frame_one_based": 25,
+  "seed": 20261014,
+  "rights": "Original procedural synthesis; no samples, recordings, melody or external media.",
+  "sha256": {
+    "AI_CITY_background_DRAFT.svg": "4d5d7d6e0ba5f4c833929441f4d7339d1d027baf9c3c5348fa929bb87b481a5d",
+    "mix_3s_DRAFT.wav": "50afc3ce8b17ef73cf0bdcda99ce5961e0c2286c134e44388d9a9ba978816b7c",
+    "stem_air_DRAFT.wav": "b8059306e5b9deba55cd8235a77d29f397204a712eb22eb4b1b8eac1c6bdf215",
+    "stem_city_hum_DRAFT.wav": "329ac183411ca67a5e1486fef343bc3527d8665a41a25571c10ede89a81afc66",
+    "stem_notice_cue_DRAFT.wav": "22531b2fa2e9629d333381df7f35a62846b878b8ef1769106c1bf3844282ccd6"
+  }
+}

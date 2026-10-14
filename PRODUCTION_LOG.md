@@ -571,3 +571,19 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **Change / Why:** Used explicit diagnostic comparisons instead of claiming natural animation; preserved failed v1 and editable-region limitations so human corrections remain reviewable. No original, prior version, MASTER or old face-hidden pilot overwritten. This face-visible test is confined to the user's approved exploratory scope; no canon changes.
 
 **Next action:** Human correction of C front axis/eye line, linked nose/ear/chin/hair structure across angles, truly separated transparent eyelids/brows/pupils/mouth, and inbetween drawings. User actual-view review required before any approval. See `reviews/model_cleanup_DRAFT_20261014/README.md` and `lane4/QA.md`.
+
+## 2026-10-14 — 2D制作方針更新と実ツール工程検証
+
+**Status:** DRAFT / HOLD。技術試験成立、本編3秒完成・本人一致・演技承認は未達。
+
+**Goal / Authority:** ユーザー明示の継続制作、長期的な本格2D品質、Blender Grease Pencil/OpenToonz/Krita利用可に従いDIRECTOR_GUIDELINESへ更新。基点2e6147a。C/FILM第一候補未正式採用、A/DENSEグッズ候補、B/TV参考を維持。
+
+**Tool / Inputs:** 公式Blender4.5.14 LTSをworkspace内に取得、checksum一致。実GREASEPENCILデータ生成、72PNG、FFmpeg MP4。C原本SHA256 bc3697df6c3c080985b226b285627d449124f1b9b58c9326ea6a316890057fadを参照確認。SVGコンテ/背景、透明空レイヤー設計、標準Python合成音。生成画像・他者音楽不使用。
+
+**Parallelism:** 最大4実枠：root QA/方針/統合、子1ツール、子2演出+資産設計、子3背景音響。5担当同時ではない。ネイティブ保存後に独立再オープン、レンダリング後にdecode検査。先行A/B 67320ee別ブランチは読取のみ、取り込みなし。
+
+**Result / Evidence:** reviews/pipeline_20261014/。GP汎用球と追従線の72描画、1レイヤー、360×640、24fps、3秒MP4全decode PASS。別プロセスで再オープンしframe36再描画は画素一致、PNGメタデータによりファイルバイト不一致。GUIウィンドウ起動確認、Quick Setup表示によりGUI編集/再生未検証。72行タイムシート、4時点コンテ、資産管理/外注最小範囲、7グループ背景、3音ステム+mix（各144000sample/ch、48kHz stereo、3秒）を制作。
+
+**Failures / Limitations:** ツール3種は初期環境で未発見。Blenderのみ実導入・実行、Krita/OpenToonzは公式配布確認までで導入/動作未検証。GUI初回起動がLibrary/Application Support/Blender/4.5/config/userpref.blendを自動保存したためworkspace以外の変更なしとは主張しない。Cの顔/浅い回転原画/中割りは未制作。球の線は数式生成、人手の手描きではない。背景は幾何学的ラフ、音聴取と本編合成未検証。制作/QAによる通常速度連続視聴未実施。
+
+**Why / Next:** AI画像切替・局所補修の量産から、修正可能なネイティブデータと依存順の制作へ移行。次はC単一基準顔/浅い3/4/閉瞼/眉/頬/口の作画校正→眼球先行6f→首と髪→中割り→背景音合成→ユーザー通常速度視聴。main/MASTER/原本/旧顔非表示パイロット/過去版変更なし。技術PASS≠作画PASS、未承認の正史・統合・公開は行わない。
