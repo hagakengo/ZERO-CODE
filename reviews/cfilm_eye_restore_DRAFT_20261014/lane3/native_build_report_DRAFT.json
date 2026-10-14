@@ -1,0 +1,16 @@
+{
+  "status": "DRAFT/HOLD",
+  "tool": "4.5.14 LTS",
+  "frame_range": [
+    1,
+    1
+  ],
+  "animation_produced": false,
+  "poses": {
+    "open": {
+      "layers": 44,
+      "strokes": 61,
+      "source_paths": 44
+    }
+  }
+}

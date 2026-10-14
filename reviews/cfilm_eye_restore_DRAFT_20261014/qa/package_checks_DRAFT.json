@@ -1,0 +1,455 @@
+{
+  "status": "DRAFT/HOLD; identity failed",
+  "svg_xml_valid": 8,
+  "svg_image_element_counts": [
+    {
+      "file": "lane1/C_face_vector_ROUGH_DRAFT.svg",
+      "embedded_image_elements": 0
+    },
+    {
+      "file": "lane2/eyelids_open_DRAFT.svg",
+      "embedded_image_elements": 0
+    },
+    {
+      "file": "lane2/face_closed_structure_DRAFT.svg",
+      "embedded_image_elements": 0
+    },
+    {
+      "file": "lane2/eyelids_closed_DRAFT.svg",
+      "embedded_image_elements": 0
+    },
+    {
+      "file": "lane2/face_half_structure_DRAFT.svg",
+      "embedded_image_elements": 0
+    },
+    {
+      "file": "lane2/eyelids_half_DRAFT.svg",
+      "embedded_image_elements": 0
+    },
+    {
+      "file": "lane2/face_open_structure_DRAFT.svg",
+      "embedded_image_elements": 0
+    },
+    {
+      "file": "lane2/three_state_same_face_structure_DRAFT.svg",
+      "embedded_image_elements": 0
+    }
+  ],
+  "reference_copy_sha256": "efac54c2cd52d93611c42d18ff6bc96d1270b92a76a1aad7838d9d0ef6cedb51",
+  "new_video_count": 0,
+  "native_independent_reopen": {
+    "status": "DRAFT/HOLD",
+    "blender_version": "4.5.14 LTS",
+    "frame_range": [
+      1,
+      1
+    ],
+    "images": [],
+    "grease_pencil_objects": [
+      {
+        "name": "C_FULL_FACE_open_DRAFT",
+        "layer_count": 44,
+        "stroke_count": 61,
+        "layers": [
+          {
+            "name": "000_costume",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "001_costume",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "002_costume",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "003_neck",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "004_neck",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "005_neck",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "006_neck",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "007_neck",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "008_face",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "009_face",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "010_face",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "011_face",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "012_face",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "013_face",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "014_face",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "015_ear",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "016_ear",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "017_brows",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "018_brows",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "019_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "020_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "021_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "022_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "023_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "024_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "025_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "026_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "027_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "028_eyes_open",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "029_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 2
+              }
+            ]
+          },
+          {
+            "name": "030_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "031_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "032_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "033_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "034_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "035_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "036_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "037_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "038_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "039_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "040_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "041_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "042_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          },
+          {
+            "name": "043_hair",
+            "frames": [
+              {
+                "frame": 1,
+                "strokes": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "technical_pass": true
+  }
+}

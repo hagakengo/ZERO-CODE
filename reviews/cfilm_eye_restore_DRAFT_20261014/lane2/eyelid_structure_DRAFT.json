@@ -1,0 +1,65 @@
+{
+  "status": "DRAFT / HOLD",
+  "coordinate_space": {
+    "width": 512,
+    "height": 283,
+    "origin": "top-left",
+    "reference": "C_FILM_same_pose_reference_DRAFT.png"
+  },
+  "authorship": "AI explicitly authored cubic Bezier vectors; no human hand drawing; no temporal interpolation",
+  "reference_landmark_uncertainty_px": 3,
+  "eyes": {
+    "left": {
+      "corners": [
+        [
+          204,
+          110
+        ],
+        [
+          234,
+          99
+        ]
+      ],
+      "lower": "M 204 110 C 212 113 225 108 234 99",
+      "open": "M 204 110 C 211 101 224 97 234 99",
+      "half": "M 204 110 C 213 107 226 103 234 99",
+      "closed": "M 204 110 C 213 114 226 108 234 99",
+      "iris": [
+        220,
+        105,
+        3.2,
+        4.0
+      ]
+    },
+    "right": {
+      "corners": [
+        [
+          263,
+          83
+        ],
+        [
+          298,
+          70
+        ]
+      ],
+      "lower": "M 263 83 C 273 88 290 78 298 70",
+      "open": "M 263 83 C 270 74 285 68 298 70",
+      "half": "M 263 83 C 273 81 290 74 298 70",
+      "closed": "M 263 83 C 273 88 290 79 298 70",
+      "iris": [
+        282,
+        77,
+        3.7,
+        4.4
+      ]
+    }
+  },
+  "dependency": "Comparison on full face waits for lane1 newly drawn face. Never composite on original raster.",
+  "forbidden": [
+    "skin patch",
+    "raster base eye cover",
+    "old eye line duplication",
+    "white sclera replacement on original face",
+    "video before user approval"
+  ]
+}

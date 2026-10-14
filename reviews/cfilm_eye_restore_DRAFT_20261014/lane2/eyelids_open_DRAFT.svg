@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="283" viewBox="0 0 512 283"><title>C/FILM open eyelid construction DRAFT HOLD</title><desc>Independent vector drawing candidate; no raster, no skin patch. Native source coordinates. Not identity approved.</desc><g id="new-vector-eyelids-open"><defs><clipPath id="left-aperture"><path d="M 204 110 C 211 101 224 97 234 99 C 225 108 212 113 204 110 Z"/></clipPath></defs>
+<g id="left-eye-interior" clip-path="url(#left-aperture)"><path d="M 204 110 C 211 101 224 97 234 99 C 225 108 212 113 204 110 Z" fill="#b4a39b"/><ellipse cx="220" cy="105" rx="3.2" ry="4.0" fill="#484044"/><ellipse cx="220" cy="105" rx="1.2" ry="3.6" fill="#211f25"/></g>
+<path id="left-lower-lid" d="M 204 110 C 212 113 225 108 234 99" fill="none" stroke="#28242a" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.55"/>
+<path id="left-open-lid" d="M 204 110 C 211 101 224 97 234 99" fill="none" stroke="#28242a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.45"/>
+<defs><clipPath id="right-aperture"><path d="M 263 83 C 270 74 285 68 298 70 C 290 78 273 88 263 83 Z"/></clipPath></defs>
+<g id="right-eye-interior" clip-path="url(#right-aperture)"><path d="M 263 83 C 270 74 285 68 298 70 C 290 78 273 88 263 83 Z" fill="#b4a39b"/><ellipse cx="282" cy="77" rx="3.7" ry="4.4" fill="#484044"/><ellipse cx="282" cy="77" rx="1.2" ry="3.6" fill="#211f25"/></g>
+<path id="right-lower-lid" d="M 263 83 C 273 88 290 78 298 70" fill="none" stroke="#28242a" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.55"/>
+<path id="right-open-lid" d="M 263 83 C 270 74 285 68 298 70" fill="none" stroke="#28242a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.45"/></g></svg>

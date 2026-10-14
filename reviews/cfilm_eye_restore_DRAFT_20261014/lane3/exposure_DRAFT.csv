@@ -1,0 +1,4 @@
+pose,review_item,frame,duration_frames,fps,status,animation_authorized
+open,static_face,1,1,24,DRAFT_HOLD,false
+half,static_structure_only,1,1,24,DRAFT_HOLD,false
+closed,static_structure_only,1,1,24,DRAFT_HOLD,false
