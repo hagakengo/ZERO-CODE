@@ -561,3 +561,37 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **References:** Existing A+B board as identity and outfit source; C/FILM crop for line and shadow only; A1 for clothing construction only. Originals were not changed.
 **Result:** Five views created. Initial visual inspection confirms the requested views are present; identity consistency and drawing repeatability remain pending review.
 **Next action:** Complete the checklist in `reviews/protagonist_A_model_sheet_DRAFT_20261014/REVIEW.md`. Do not use in animation or promote to MASTER before approval.
+
+## 2026-10-14 — AI CITY key visual draft
+
+**Status:** DRAFT / HOLD
+
+**Tool / Model:**
+Codex built-in image generation (one generation call; model identifier not exposed).
+
+**Asset / Version:**
+`reviews/zero_code_ai_city_key_visual_DRAFT_20261014/`
+
+**Goal:**
+Rebuild the early concept's monumental AI CITY scale around the current protagonist silhouette, as one still image.
+
+**What we tried:**
+Used the two user-provided early images for composition and mood and the protagonist A draft model sheet for rear-silhouette cues. Kept the face hidden, backpack blank, character unlit, and left out old ¥0/HUD/logo elements. The sky anomaly remains abstract.
+
+**Result:**
+One portrait key visual, plus a side-by-side comparison and short review. The figure reads as a small anonymous presence against a large city. No text or emblem is present.
+
+**What worked:**
+The upward composition, central blue-white light, and city-to-human scale carry the early concept forward.
+
+**What failed:**
+The skyline, clouds and light rays are visually dense. The background keeps some game-cinematic precision alongside the intended Japanese theatrical animation look. A's identity-specific details cannot be verified from the distant rear view.
+
+**Change:**
+Saved as DRAFT / HOLD on a new review branch. No MASTER or original asset was changed.
+
+**Why:**
+The producer must judge the art direction before adoption; one still cannot establish full character-sheet continuity.
+
+**Next action:**
+Producer review. If accepted, decide whether to retain the current detail density before using the image in further production.
