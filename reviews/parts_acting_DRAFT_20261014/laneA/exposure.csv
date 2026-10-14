@@ -1,0 +1,25 @@
+frame,time_seconds,beat,source,method
+1,0.0,gaze,svg_frames/000.svg,procedural vector path drawing; fixed source silhouette
+2,0.041666666666666664,gaze,svg_frames/001.svg,procedural vector path drawing; fixed source silhouette
+3,0.08333333333333333,gaze,svg_frames/002.svg,procedural vector path drawing; fixed source silhouette
+4,0.125,gaze,svg_frames/003.svg,procedural vector path drawing; fixed source silhouette
+5,0.16666666666666666,gaze,svg_frames/004.svg,procedural vector path drawing; fixed source silhouette
+6,0.20833333333333334,gaze,svg_frames/005.svg,procedural vector path drawing; fixed source silhouette
+7,0.25,blink,svg_frames/006.svg,procedural vector path drawing; fixed source silhouette
+8,0.2916666666666667,blink,svg_frames/007.svg,procedural vector path drawing; fixed source silhouette
+9,0.3333333333333333,blink,svg_frames/008.svg,procedural vector path drawing; fixed source silhouette
+10,0.375,blink,svg_frames/009.svg,procedural vector path drawing; fixed source silhouette
+11,0.4166666666666667,blink,svg_frames/010.svg,procedural vector path drawing; fixed source silhouette
+12,0.4583333333333333,blink,svg_frames/011.svg,procedural vector path drawing; fixed source silhouette
+13,0.5,smile,svg_frames/012.svg,procedural vector path drawing; fixed source silhouette
+14,0.5416666666666666,smile,svg_frames/013.svg,procedural vector path drawing; fixed source silhouette
+15,0.5833333333333334,smile,svg_frames/014.svg,procedural vector path drawing; fixed source silhouette
+16,0.625,smile,svg_frames/015.svg,procedural vector path drawing; fixed source silhouette
+17,0.6666666666666666,smile,svg_frames/016.svg,procedural vector path drawing; fixed source silhouette
+18,0.7083333333333334,smile,svg_frames/017.svg,procedural vector path drawing; fixed source silhouette
+19,0.75,notice,svg_frames/018.svg,procedural vector path drawing; fixed source silhouette
+20,0.7916666666666666,notice,svg_frames/019.svg,procedural vector path drawing; fixed source silhouette
+21,0.8333333333333334,notice,svg_frames/020.svg,procedural vector path drawing; fixed source silhouette
+22,0.875,notice,svg_frames/021.svg,procedural vector path drawing; fixed source silhouette
+23,0.9166666666666666,notice,svg_frames/022.svg,procedural vector path drawing; fixed source silhouette
+24,0.9583333333333334,notice,svg_frames/023.svg,procedural vector path drawing; fixed source silhouette

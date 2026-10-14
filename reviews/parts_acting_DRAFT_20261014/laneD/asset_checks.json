@@ -1,0 +1,86 @@
+{
+  "laneA": {
+    "frames": 24,
+    "unique_file_hashes": 24,
+    "note": "labels vary; uniqueness does not prove independent artwork"
+  },
+  "laneB": {
+    "frames": 24,
+    "unique_file_hashes": 24,
+    "note": "labels vary; uniqueness does not prove independent artwork"
+  },
+  "parts_alpha": [
+    {
+      "name": "base_body_face.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "brows.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "cheeks.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "cheeks_smile.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        46
+      ]
+    },
+    {
+      "name": "eye_whites.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "eyelids.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "foreground_hair.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "irises.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "mouth.png",
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

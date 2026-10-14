@@ -571,3 +571,20 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **Change / Why:** Used explicit diagnostic comparisons instead of claiming natural animation; preserved failed v1 and editable-region limitations so human corrections remain reviewable. No original, prior version, MASTER or old face-hidden pilot overwritten. This face-visible test is confined to the user's approved exploratory scope; no canon changes.
 
 **Next action:** Human correction of C front axis/eye line, linked nose/ear/chin/hair structure across angles, truly separated transparent eyelids/brows/pupils/mouth, and inbetween drawings. User actual-view review required before any approval. See `reviews/model_cleanup_DRAFT_20261014/README.md` and `lane4/QA.md`.
+
+
+## 2026-10-14 — Same-face editable parts and contour inbetween comparison
+
+**Status:** DRAFT / HOLD. Identity, drawing and emotional performance remain unapproved.
+
+**Baseline / Assets:** 2e6147a42f909a4df1f18628a278848329f1b796; reviews/parts_acting_DRAFT_20261014/. Original SHA256 bc3697df6c3c080985b226b285627d449124f1b9b58c9326ea6a316890057fad verified. C/FILM derives from the comparison sheet and is not the original concept image itself.
+
+**Tool / Method:** Script-authored SVG paths, transparent raster mattes, Pillow/CairoSVG and FFmpeg. No new independent AI image generations. A: six vector feature groups plus raster base/hair, 24 procedural composites, zero traditional hand-drawn inbetweens. B: six vector keys, nine explicitly specified intermediate eyelid contours, nine numerical interpolation frames; zero human hand-drawn or full-face redrawn inbetweens.
+
+**Goal / Parallelism:** Same tilted C/FILM face performs gaze, blink, smile, noticing in one second. Four concurrent slots: A parts, B contours, C reference/correction, root D independent QA and integration. Common crop shared first; final comparison/decode follows A/B delivery. C also independently reviewed A/B final stills. This is not four independently finished animation videos running simultaneously.
+
+**Result / Verification:** Same source silhouette retained. Actual independent transparent paths improve editability over prior white-backed raster clips. Eight new MP4s and one bundled prior reference pass 24fps/frame count/duration/full decode. Four normal new videos have 24frames/1second; four half speed have48frames/2seconds. Normal-speed continuous viewing was not performed; extracted still inspection is separate. Comparison art panels share scale; previous blink-only test differs in framing/performance. Technical PASS is not artistic PASS.
+
+**Failures / Corrections:** QA returned eye striping/matte fringe to A and broad mouth patch/iris shrink to B. Those were corrected; B initial rejected closed frame preserved. A still has flat skin bands and duplicated brow/base hair. B retains old eye line/skin paintout defects and static brows. Both lack convincing integrated expression; no corrected true front or cross-angle head design is delivered. All remain HOLD.
+
+**Preservation / Next Action:** Only this new review folder and this log appended. Main, MASTER, original, past versions and old face-hidden pilot untouched. C/FILM remains first candidate, not adopted; no story canon changed. Stop repeating the same paintout method. Human drawing supervision in a layer-aware animation editor must clean the face plate/hair occlusion and approve linked eyelid/brow/cheek/mouth keys before authored inbetweens and playback timing review.
