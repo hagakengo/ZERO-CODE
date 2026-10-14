@@ -1,0 +1,22 @@
+[
+  {
+    "name": "city",
+    "repository_path": "reviews/pipeline_20261014/lane4/AI_CITY_background_DRAFT.png",
+    "local_source": "/Users/hagakengo/Documents/Codex/2026-10-14/referenced-chatgpt-conversation-this-is-an-11/work/repo/reviews/pipeline_20261014/lane4/AI_CITY_background_DRAFT.png",
+    "sha256": "0094d103d2f1a75a7bc31a842209aae11421f7cc1e20ee6114f99362e8aabf7e"
+  },
+  {
+    "name": "back",
+    "repository_path": "reviews/pilot15_S01_independent_DRAFT_20261013/frames/F000.png",
+    "local_source": "/Users/hagakengo/Documents/Codex/2026-10-14/referenced-chatgpt-conversation-this-is-an-11/work/repo/reviews/pilot15_S01_independent_DRAFT_20261013/frames/F000.png",
+    "sha256": "1d30635ba3976ecd97771980c29276912c086d6cdc118a75904f0aca6db2a77d"
+  },
+  {
+    "name": "face_evidence",
+    "repository_path": null,
+    "local_source": "work/provenance/original_C_reference_DRAFT.png",
+    "sha256": "efac54c2cd52d93611c42d18ff6bc96d1270b92a76a1aad7838d9d0ef6cedb51",
+    "status": "low-resolution C/FILM evidence; full-resolution original unconfirmed; PLACEHOLDER/HOLD",
+    "evidence_note": "Existing local crop supplied by provenance lane; repository provenance/parent comparison and crop coordinates recorded by that lane, not independently asserted here."
+  }
+]

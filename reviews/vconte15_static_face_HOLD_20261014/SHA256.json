@@ -1,0 +1,23 @@
+{
+  "ZERO_CODE_VCONTE_DRAFT_HOLD.mp4": "20005a00f6802d74754244ce27941ac39cc14a561df05b487a73e4374f19a92e",
+  "REVIEW_DRAFT_HOLD.md": "bcf942d1ba7144ebec5c51ff01efe1716c1f703fbff0985b15381013d902ea28",
+  "video/render_subset.py": "931107deb4e77e6811d87ddec33572922347c664fdcc207d5fae1305d38699e0",
+  "qa/POLICY_DIFF_DRAFT.md": "2b77c665730c351443a3a0c1d9fe79df9f4fea5ecd798a63600c97129166691a",
+  "qa/QA.md": "c3cce7a60caaf83e8261548adb9e9af44734d40d353d6901e3585d4a204a51b5",
+  "qa/verify_video.py": "fde7acee0f3371dc19718baee5656b0f88528bf74f69b0622d06cbeda58b413f",
+  "qa/technical_checks.json": "06a4caf0eba6898b8e6ead24c56961e5f037c4af7a3b900c9183e123dd0d394b",
+  "audio/audio_measurements.json": "ff4abffbd2f63c90b6623612029c521e0ed05b186d0332702c759817f2c94f24",
+  "audio/zero_code_draft_audio_48k.wav": "1ff79f896006963a9736e145a5b8f2118b3c09525eec8831b05764506f8ac6a6",
+  "audio/synthesize_audio.py": "81afcd03d8680ebb2ab5be2f46f42ea911ac30b1a5ad444c0a5af23bcc18d515",
+  "provenance/user_reference_original.png": "bc3697df6c3c080985b226b285627d449124f1b9b58c9326ea6a316890057fad",
+  "provenance/original_C_reference_DRAFT.png": "efac54c2cd52d93611c42d18ff6bc96d1270b92a76a1aad7838d9d0ef6cedb51",
+  "provenance/A_B_C_comparison_DRAFT.png": "35e61d728ca2c6b9e7c0f3246157167687abe03552b8955ceee2549b99bf5a21",
+  "provenance/PROVENANCE_DRAFT.md": "ae125b020d6c91da1a9292d4df7ac88a00b493f94d62a7f9a2341a08ce3bd188",
+  "video/source/render.py": "01904fae904adf82e841f593ae62f99731bb200cc3677ace65f4815f7a50c23d",
+  "video/source/VIDEO_NOTES.md": "e3b85f1859e017acd1e3ce1e844e9acc3e50fc7124fa7a39606d40becfdd40cd",
+  "video/source/assets.json": "254bed4a4bd4c1b95fb7558b0e2fb0ef08257ded371f34fc4be907f40f6ffac5",
+  "video/source/technical.json": "1136ea06d79c6ce7b4f149c909228fd6b3754e4c0654fa525d03ea85788ba4dd",
+  "video/assets/city.png": "0094d103d2f1a75a7bc31a842209aae11421f7cc1e20ee6114f99362e8aabf7e",
+  "video/assets/face_evidence.png": "efac54c2cd52d93611c42d18ff6bc96d1270b92a76a1aad7838d9d0ef6cedb51",
+  "video/assets/back.png": "1d30635ba3976ecd97771980c29276912c086d6cdc118a75904f0aca6db2a77d"
+}

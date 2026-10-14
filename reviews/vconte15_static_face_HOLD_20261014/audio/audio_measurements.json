@@ -1,0 +1,17 @@
+{
+  "status": "DRAFT/HOLD",
+  "duration_seconds": 15,
+  "sample_rate": 48000,
+  "channels": 2,
+  "samples_per_channel": 720000,
+  "format": "PCM signed 16 bit",
+  "peak_dbfs": -14.067404919958529,
+  "rms_dbfs": -31.003515476731735,
+  "exact_silence_seconds": [
+    6.8,
+    11.0
+  ],
+  "face_shot_silence_verified": true,
+  "source": "Original deterministic procedural synthesis; no external samples, uploads, or generated music services.",
+  "limitations": "Temporary sound design. No mix/master approval. Footsteps are offscreen approach cues; picture must not imply synchronized visible steps."
+}
