@@ -1,0 +1,23 @@
+{
+  "KF_000_DRAFT_HOLD.png": {
+    "size": [
+      941,
+      1672
+    ],
+    "sha256": "8d3998cddb93b31f38c7d98b7b1a4844c07befaa0bafff3e570cedb87d528009"
+  },
+  "KF_015_DRAFT_HOLD.png": {
+    "size": [
+      941,
+      1672
+    ],
+    "sha256": "dd3521115c23a728c970ae735e4e9b03ebb71f9fe662cedccdd2773338b24a4d"
+  },
+  "KF_030_DRAFT_HOLD.png": {
+    "size": [
+      941,
+      1672
+    ],
+    "sha256": "dab456bc01eb273687e0f331271d96ad16f6638d714942514eb55b30ada6996d"
+  }
+}
