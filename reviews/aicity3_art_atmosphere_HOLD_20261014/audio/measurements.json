@@ -1,0 +1,14 @@
+{
+  "status": "DRAFT/HOLD",
+  "duration_s": 3,
+  "sample_rate_hz": 48000,
+  "channels": 2,
+  "samples_per_channel": 144000,
+  "peak_dbfs": -18.111528726602536,
+  "rms_dbfs": -28.52246581903843,
+  "clipped_samples": 0,
+  "source_sha256": "1ff79f896006963a9736e145a5b8f2118b3c09525eec8831b05764506f8ac6a6",
+  "output_sha256": "46af68ce03aa6162c4bb75cbd78ec4b70f91669373603fd2d8d1b7ec209153ba",
+  "listening": "UNVERIFIED — no auditory playback capability used",
+  "reuse": "Entire prior first 3 seconds, filtered/gain adjusted. Added quiet original deterministic wind noise; retained prior distant city 48/71 Hz hum. No music, voice, lore cues, third-party samples or uploads."
+}
