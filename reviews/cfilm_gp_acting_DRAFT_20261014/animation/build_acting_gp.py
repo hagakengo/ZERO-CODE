@@ -71,5 +71,5 @@ rows=[]
 for f in range(1,25):
  k=max(k for k in controls if k<=f);rows.append([f,(f-1)/24,k,*controls[k], 'closed_lid' if controls[k][0]==0 else 'gaze' if f<7 else 'blink' if f<13 else 'notice'])
 with (O/'exposure.csv').open('w') as q:
- w=csv.writer(q);w.writerow(['frame','time_seconds','drawing_key','aperture','gaze_px','notice','beat']);w.writerows(rows)
+ w=csv.writer(q,lineterminator="\n");w.writerow(['frame','time_seconds','drawing_key','aperture','gaze_px','notice','beat']);w.writerows(rows)
 (O/'manifest.json').write_text(json.dumps({'tool':bpy.app.version_string,'status':'DRAFT/HOLD','fps':24,'frames':24,'chosen_feature_poses':len(controls),'GP_layer_drawing_counts':{l.name:len(l.frames) for l in obj.data.layers},'human_hand_drawn_count':0,'procedural_vector_poses':len(controls),'explicit_cubic_contour_pairs':5,'GP_skin_cover_quadrilaterals':len(patch),'interpolated_drawings':0,'held_exposure_frames':24-len(controls),'raster_source':'reference_C_crop.png','closed_lid_frames':[9,10],'head_hair_neck_motion':False},indent=2))
