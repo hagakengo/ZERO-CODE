@@ -1,0 +1,15 @@
+{
+  "status": "DRAFT/HOLD",
+  "source": "work/production/reviews/aicity_style_ab_HOLD_20261014/B_HANDPAINTED_DRAFT_HOLD.png",
+  "source_sha256": "029121b8851ef3daa0de73d5074f68985643124b0c5e676cfc476fe2858b4a67",
+  "output": "outputs/production_DRAFT_HOLD/background_B_grade.png",
+  "output_sha256": "a09171ca2b112a242df61b14b8962906f6cee7109ad485c6867b7571d2d27dc8",
+  "size": [
+    941,
+    1672
+  ],
+  "method": "12% blend of radius 0.55 px gaussian; <=1.8/255 shadow lift",
+  "geometry_change": false,
+  "generation_or_external_upload": false,
+  "artistic_limit": "Conservative technical grade only; cannot certify Japanese anime style transformation."
+}

@@ -1,0 +1,19 @@
+{
+  "status": "DRAFT/HOLD",
+  "duration_seconds": 3,
+  "sample_rate_hz": 48000,
+  "channels": 2,
+  "pcm_bits": 16,
+  "samples_per_channel": 144000,
+  "peak_dbfs": -21.623866573430664,
+  "rms_dbfs": -33.54416402481449,
+  "clipped_samples": 0,
+  "sha256": "dd666cbee908619dea1a253794929ea208089bbad3662e7c89ac13f3b6625ea5",
+  "vehicle_se_seconds": [
+    0.5,
+    2.5
+  ],
+  "listening": "UNVERIFIED: no auditory listening performed",
+  "perceptual_sync": "UNVERIFIED: SE envelope scheduled to 0.5–2.5 s; final picture not auditioned",
+  "provenance": "Original procedural Python standard-library synthesis, fixed seed. No external service, samples, uploads, music or voice."
+}
