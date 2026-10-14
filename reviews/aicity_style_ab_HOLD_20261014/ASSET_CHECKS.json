@@ -1,0 +1,23 @@
+{
+  "A_CINEMATIC_DRAFT_HOLD.png": {
+    "size": [
+      941,
+      1672
+    ],
+    "sha256": "addde77420f8b06d12acef5b7a6a1d508dbd3e0bf26d653037a8d8863dab9b16"
+  },
+  "B_HANDPAINTED_DRAFT_HOLD.png": {
+    "size": [
+      941,
+      1672
+    ],
+    "sha256": "029121b8851ef3daa0de73d5074f68985643124b0c5e676cfc476fe2858b4a67"
+  },
+  "AB_COMPARISON_DRAFT_HOLD.png": {
+    "size": [
+      1882,
+      1752
+    ],
+    "sha256": "6901768cf03e19eb64d71e9c1aa2ee6883203697a48c13d58166b3c461eebd56"
+  }
+}
