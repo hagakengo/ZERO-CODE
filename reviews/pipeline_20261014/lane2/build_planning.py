@@ -22,7 +22,7 @@ for f in range(1,73):
         phase='attention_hold';head='H07';neck=12;hair='T05';eye='E07';mouth='M06';brow='B03'
     rows.append([f,f'{(f-1)/24:.6f}',f'{f/24:.6f}',phase,key,head,hair,eye,mouth,brow,gaze,neck,lag,'LOCKED',cue,'DRAFT/HOLD_PLAN_ONLY'])
 with (base/'timesheet_DRAFT.csv').open('w',newline='') as out:
-    w=csv.writer(out);w.writerow(fields);w.writerows(rows)
+    w=csv.writer(out,lineterminator="\n");w.writerow(fields);w.writerows(rows)
 svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1150" viewBox="0 0 1400 1150">','<rect width="1400" height="1150" fill="#101923"/>','<style>text{font-family:Arial,sans-serif;fill:#e7edf3}.note{font-size:19px}.title{font-size:29px;font-weight:bold}.ink{fill:none;stroke:#d6e0e9;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}</style>','<text x="35" y="44" class="title">TEST_AC01 / 3 s acting storyboard / DRAFT + HOLD</text>','<text x="35" y="75" class="note">ONE locked shot, FOUR moments. Schematic actor: NOT C/FILM likeness or final drawing.</text>']
 notes=[('F001–012 / 0–0.5 s','NEUTRAL','Half-lidded gaze; head and shoulders held.'),('F013–024 / 0.5–1 s','SMALL SMILE','Mouth corner then cheek / lower lid follow.'),('F025–030 / 1–1.25 s','EYES FIRST','Cue at 1.000 s. Eyes right; skull still.'),('F031–072 / 1.25–3 s','NECK → HAIR → HOLD','Shallow turn; tips settle; keep attention.')]
 for i,(time,title,note) in enumerate(notes):
