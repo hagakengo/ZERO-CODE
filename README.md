@@ -470,3 +470,8 @@ git diff --check
 
 The remote endpoint tests verify Bearer authentication and ensure common secret
 names/token values do not appear in the response.
+
+
+## 素材資産管理・再利用
+
+[素材資産管理・再利用規程 v1.0（ZCS-ASSET-001）](docs/regulations/ZCS-ASSET-001_v1.0.md) を適用する。新規生成前に既存素材と権利を確認し、脚本承認と素材MASTER承認を分ける。既存の承認権限・正史管理は変更しない。[初回棚卸しの引継ぎ](docs/regulations/ZCS-ASSET-001_v1.0_inventory-handoff.md)。

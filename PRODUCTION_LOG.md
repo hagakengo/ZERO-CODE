@@ -635,3 +635,16 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **Evidence and limits:** All source/output frames decode. Visual inspection used 4-fps samples and endpoint, not continuous-speed playback or audio listening. Fine rain motion, local flicker and hand occlusion still need director review. Commercial release is not cleared for the free output. No purchase, publication or MASTER change.
 
 **References / next:** [Instruction summary](docs/production/TEASER00-KLING-REVIEW-002/instruction.md), [review](docs/production/TEASER00-KLING-REVIEW-002/review.md), [settings, locations and hashes](docs/production/TEASER00-KLING-REVIEW-002/settings-and-hashes.json), [future prompt — do not execute](docs/production/TEASER00-KLING-REVIEW-002/future-prompt-DRAFT.md). Videos and stills remain outside Git. Director then producer decides adoption; preserve credits until that decision.
+
+
+## 2026-10-22 — ZCS-ASSET-001 v1.0 enacted and registered
+
+**Status:** Production policy enacted by producer; asset adoption unchanged.
+
+**Scope:** Preserve the supplied 13-article asset-management/reuse policy. New-generation work starts with an existing-asset check. Register inventory priorities and producer-only MASTER approval requirements. Script approval is distinct from media approval.
+
+**Records:** [Policy](docs/regulations/ZCS-ASSET-001_v1.0.md), [registration metadata](docs/regulations/ZCS-ASSET-001_v1.0_adoption.json), [inventory handoff](docs/regulations/ZCS-ASSET-001_v1.0_inventory-handoff.md). Prepared for local OS revision 33; local verification records actual save and hashes.
+
+**Preservation:** Existing IDs, asset states, approval evidence and history remain intact. The 68 existing asset records are not a verified file count or completed inventory. No media generation, credit use, payment, public media release, deletion or MASTER promotion.
+
+**Next:** Inventory v01–v03 pilots and v04 original drawings first, then character/background/logo, EP00 teaser materials and other assets. Verify originals, rights, costs, versions and approval sources individually; do not auto-convert legacy labels to MASTER or CANDIDATE.

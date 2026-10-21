@@ -1,0 +1,20 @@
+{
+  "policy_id": "ZCS-ASSET-001",
+  "version": "1.0",
+  "enacted_on": "2026-10-22",
+  "authority": "Producer instruction supplied in this chat",
+  "policy_sha256": "a9bd38c3ab0d3cfabc8a76a757b5f8f801fc70985e9e9da7c5f8e754c630ead4",
+  "os_revision_target": 33,
+  "scope": "Policy registration and inventory handoff only; existing asset states and IDs unchanged.",
+  "existing_registered_asset_records": 68,
+  "full_file_inventory_completed": false,
+  "master_promotions": 0,
+  "priority_order": [
+    "v01–v03 pilot footage",
+    "v04 six original drawings (not yet file-count verified)",
+    "existing character/background/logo references",
+    "EP00 teaser images and Kling TESTs",
+    "other existing production assets and settings"
+  ],
+  "local_evidence": "Exact storage paths, backups, hashes and actual OS revision are recorded in the existing local ZERO CODE OS; no media or personal absolute paths in Git."
+}
