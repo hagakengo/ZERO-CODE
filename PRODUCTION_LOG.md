@@ -595,3 +595,26 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **Evidence:** Detailed observations remain in local production records. No images, story, prompt, account identifiers, credentials or local paths are included in this public record.
 
 **Sources:** [Kling plan comparison and FAQ](https://kling.ai/app/membership/membership-plan), [extension upload setup](https://developers.openai.com/codex/app/chrome-extension#upload-files).
+
+
+## 2026-10-22 — Kling free Image-to-Video trial: generated and received
+
+**Status:** TEST / GENERATED AND SAVED; director review pending. No MASTER promotion.
+
+**Tool/model:** Kling Web / Kling 2.5 Turbo / Keyframes, one 5-second Image-to-Video request.
+
+**Goal / input:** Test an existing producer-approved EP00 reference for a teaser candidate. No media, story, prompt, account identifiers or local paths are included in this public log.
+
+**Result:** One generation completed. Consumed 25 free bonus credits from 66; observed remaining balance 41. No purchase, subscription change, regenerate or publish action. Download received, original retained, production copy SHA-256 verified.
+
+**Measured file:** 5.061950 seconds, 2124 × 972 pixels, 24 fps, 15,518,697 bytes; audio stream present but not listened to for QA. UI generation setting was 1080p; measured dimensions are recorded separately.
+
+**What worked:** Reference upload worked after the owner enabled local-file upload access. Sampled frames broadly preserve hairstyle, clothing, backpack and café layout. KlingAI watermark is visible.
+
+**Limitations / review:** Five samples at one-second intervals and browser preview were inspected. Detailed continuous-motion/audio review remains pending. The paid-subscriber commercial-use and watermark-removal benefits are excluded from Basic in the official plan comparison, so this remains an internal TEST, not commercially cleared publication footage.
+
+**Change / why:** Upload and download blockers are resolved for this attempt. Download event timeout and connection interruption were recovered through the official result page; no additional generation was submitted.
+
+**Next action:** Director reviews motion, character continuity, environment stability and usefulness as a teaser candidate. Keep the video outside Git. No Hailuo fallback is required because the free Kling test succeeded.
+
+**Source:** [Kling plan comparison](https://kling.ai/app/membership/membership-plan).
