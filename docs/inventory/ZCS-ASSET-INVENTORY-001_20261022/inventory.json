@@ -1,0 +1,287 @@
+{
+  "instruction_id": "ZCS-ASSET-INVENTORY-001",
+  "observed_at": "2026-10-22T08:10:43.061656+09:00",
+  "os_revision_before": 33,
+  "os_revision_after_planned": 34,
+  "summary": {
+    "unique_target_files": 9,
+    "all_targets_found": true,
+    "unique_total_bytes": 23259324,
+    "current_os_matched_targets": 1,
+    "current_os_unmatched_targets": 8,
+    "identical_additional_copy_paths": 48,
+    "different_targets_with_identical_hash": false,
+    "source_manifest_matches_6_keyframes": true
+  },
+  "media_root": "ZERO_CODE_MEDIA_ROOT (local media storage, not uploaded)",
+  "state_policy": "Audit classification only; original asset IDs/statuses and approvals preserved. No MASTER promotion.",
+  "assets": [
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/videos/v01/ZERO_CODE_EP01_pilot15_animatic_v01.mp4",
+      "bytes": 4083155,
+      "sha256": "cb2bd71879659dbe043fdb7df1b96052a2a2e338ecd472aeffa531427da207ba",
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "current_os_matches": [
+        "pilot15-ZERO_CODE_EP01_pilot15_animatic_v01"
+      ],
+      "other_os_matches": [
+        "pilot15-ZERO_CODE_EP01_pilot15_animatic_v01"
+      ],
+      "inventory_state": "TEST",
+      "legacy_state": "要修正",
+      "approval": "正式採用・MASTER承認の根拠未取得",
+      "tool": "ローカル作画・合成／Pillow・FFmpeg（制作記録）",
+      "cost": "当時の追加有料サービス費0円との制作記録。背景元動画の取得費不明",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "EP00完成カットへの直接採用は非推奨。0–3秒の雨・都市の配色／3秒の溜めの比較に限り参考。",
+      "issues": "6秒のWARNING、9/10.5秒の斜線・火花、14秒ERRORは旧試作の仮演出。暗い人物と抽象衝突は現在の救助劇を表さない。",
+      "duration": "15.000000",
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "avg_frame_rate": "24/1",
+          "nb_frames": "360",
+          "duration": "15.000000",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "width": null,
+          "height": null,
+          "avg_frame_rate": "0/0",
+          "nb_frames": "705",
+          "duration": "15.000000",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      ],
+      "full_av_decode": {
+        "pass": true,
+        "stderr": ""
+      },
+      "identical_additional_copy_count": 1
+    },
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/videos/v02/ZERO_CODE_EP01_pilot15_animatic_v02.mp4",
+      "bytes": 3118092,
+      "sha256": "10b7a50648f0e69215f3ab1c33730b7dff5b51e5c98c1923d5ad4ed4049b47ee",
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "current_os_matches": [],
+      "other_os_matches": [
+        "pilot15-ZERO_CODE_EP01_pilot15_animatic_v02"
+      ],
+      "inventory_state": "TEST",
+      "legacy_state": "要修正",
+      "approval": "正式採用・MASTER承認の根拠未取得",
+      "tool": "ローカル作画・合成／Pillow・FFmpeg（制作記録）",
+      "cost": "当時の追加有料サービス費0円との制作記録。背景元動画の取得費不明",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "EP00完成カットへの直接採用は非推奨。無音前後・輪郭分離の演出研究用。",
+      "issues": "9/10.5秒で攻防順序が読めるが人物は多角形。体格・バッグの正式整合と滑らかな体重移動は未達（既存レビュー）。",
+      "duration": "15.000000",
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "avg_frame_rate": "24/1",
+          "nb_frames": "360",
+          "duration": "15.000000",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "width": null,
+          "height": null,
+          "avg_frame_rate": "0/0",
+          "nb_frames": "705",
+          "duration": "15.000000",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      ],
+      "full_av_decode": {
+        "pass": true,
+        "stderr": ""
+      },
+      "identical_additional_copy_count": 1
+    },
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/videos/v03/ZERO_CODE_EP01_pilot15_animatic_v03.mp4",
+      "bytes": 2578478,
+      "sha256": "3ccc3a32ac2f7cca81e27a38e81722b2102435c22f0240fc24cae9c1952de189",
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "current_os_matches": [],
+      "other_os_matches": [
+        "pilot15-ZERO_CODE_EP01_pilot15_animatic_v03"
+      ],
+      "inventory_state": "TEST",
+      "legacy_state": "候補（別OSのみ）",
+      "approval": "正式採用・MASTER承認の根拠未取得",
+      "tool": "ローカル作画・合成／Pillow・FFmpeg（制作記録）",
+      "cost": "当時の追加有料サービス費0円との制作記録。背景元動画の取得費不明",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "EP00完成カットへの直接採用は非推奨。攻防タイミング、重心の予備動作を今後必要時の参考にする。",
+      "issues": "3–10.5秒の攻防を拡張した旧試作。簡略関節線と手足の形は完成作画ではない。関節長の伸縮は既存レビューの未解決課題。",
+      "duration": "15.000000",
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 720,
+          "height": 1280,
+          "avg_frame_rate": "24/1",
+          "nb_frames": "360",
+          "duration": "15.000000",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "width": null,
+          "height": null,
+          "avg_frame_rate": "0/0",
+          "nb_frames": "705",
+          "duration": "15.000000",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      ],
+      "full_av_decode": {
+        "pass": true,
+        "stderr": ""
+      },
+      "identical_additional_copy_count": 1
+    },
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/images/v04/keyframes_review_01/final/EP01_pilot_K01_guard_candidate_v04.png",
+      "bytes": 2338049,
+      "sha256": "22ed3bf0f7e4aa9bd5626523d0f1aa2eace3f8421a2ffa827887278e5f8f2b61",
+      "format": "PNG",
+      "current_os_matches": [],
+      "other_os_matches": [],
+      "inventory_state": "INVENTORY",
+      "legacy_state": "CANDIDATE / director-producer review pending（制作時表記。承認証拠ではない）",
+      "approval": "監督・プロデューサー承認未完了（delivery_manifest v04_r01）",
+      "tool": "built-in image_gen／モデル非開示",
+      "cost": "有料API使用なしの制作記録。実請求額未検証。0円と断定しない",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "構えのシルエット研究。現在のレンへそのまま流用しない。",
+      "issues": "K01の相手は遠く小さい。バッグ幅・足への荷重、現在の衣装／体格との差を要確認。",
+      "width": 1024,
+      "height": 1536,
+      "historical_manifest_hash_match": true,
+      "identical_additional_copy_count": 5
+    },
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/images/v04/keyframes_review_01/final/EP01_pilot_K02_step_candidate_v04.png",
+      "bytes": 2199961,
+      "sha256": "80adb8a4d67140c82ee02f3ece90dbae4ffdcc7244849482e928c3f75f92e6c7",
+      "format": "PNG",
+      "current_os_matches": [],
+      "other_os_matches": [],
+      "inventory_state": "INVENTORY",
+      "legacy_state": "CANDIDATE / director-producer review pending（制作時表記。承認証拠ではない）",
+      "approval": "監督・プロデューサー承認未完了（delivery_manifest v04_r01）",
+      "tool": "built-in image_gen／モデル非開示",
+      "cost": "有料API使用なしの制作記録。実請求額未検証。0円と断定しない",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "踏み込み前の荷重・布のしわの参考。",
+      "issues": "K01との人物サイズ・バッグ形状に差。靴底／足首を連続登録していない。",
+      "width": 1024,
+      "height": 1536,
+      "historical_manifest_hash_match": true,
+      "identical_additional_copy_count": 8
+    },
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/images/v04/keyframes_review_01/final/EP01_pilot_K03_evade_candidate_v04.png",
+      "bytes": 2299116,
+      "sha256": "ae04e462f015a8c34d8dc2a44b58ec0381e5794a967718209f8c656207ebebe6",
+      "format": "PNG",
+      "current_os_matches": [],
+      "other_os_matches": [],
+      "inventory_state": "INVENTORY",
+      "legacy_state": "CANDIDATE / director-producer review pending（制作時表記。承認証拠ではない）",
+      "approval": "監督・プロデューサー承認未完了（delivery_manifest v04_r01）",
+      "tool": "built-in image_gen／モデル非開示",
+      "cost": "有料API使用なしの制作記録。実請求額未検証。0円と断定しない",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "回避のネガティブスペース、膝と股関節の曲げ方の参考。",
+      "issues": "敵の腕と頭に隙間がある。敵の大きさ・接地点がK02とつながらず、奥の手指の帰属も要整理。",
+      "width": 1024,
+      "height": 1536,
+      "historical_manifest_hash_match": true,
+      "identical_additional_copy_count": 8
+    },
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/images/v04/keyframes_review_01/final/EP01_pilot_K04_counter_candidate_v04.png",
+      "bytes": 2252857,
+      "sha256": "48065de9376625cade5f955a39e1ebab9494288dca8b5876db04a7d036d5951b",
+      "format": "PNG",
+      "current_os_matches": [],
+      "other_os_matches": [],
+      "inventory_state": "INVENTORY",
+      "legacy_state": "CANDIDATE / director-producer review pending（制作時表記。承認証拠ではない）",
+      "approval": "監督・プロデューサー承認未完了（delivery_manifest v04_r01）",
+      "tool": "built-in image_gen／モデル非開示",
+      "cost": "有料API使用なしの制作記録。実請求額未検証。0円と断定しない",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "接触前と接触後を分ける原画設計の参考。",
+      "issues": "K05とは拳の到達差があるが体幹の回転差が小さい。敵脚との重なり、攻撃側の腕の長さを要確認。",
+      "width": 1024,
+      "height": 1536,
+      "historical_manifest_hash_match": true,
+      "identical_additional_copy_count": 8
+    },
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/images/v04/keyframes_review_01/final/EP01_pilot_K05_contact_candidate_v04.png",
+      "bytes": 2225752,
+      "sha256": "ee5ab8605f54ee1ec1412b6a3e32a1380bb75b5f1f8900aa38c582873905898e",
+      "format": "PNG",
+      "current_os_matches": [],
+      "other_os_matches": [],
+      "inventory_state": "INVENTORY",
+      "legacy_state": "CANDIDATE / director-producer review pending（制作時表記。承認証拠ではない）",
+      "approval": "監督・プロデューサー承認未完了（delivery_manifest v04_r01）",
+      "tool": "built-in image_gen／モデル非開示",
+      "cost": "有料API使用なしの制作記録。実請求額未検証。0円と断定しない",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "打撃の接触位置・衣服圧縮の参考。",
+      "issues": "相手の反りが大きく足の荷重との連続性は未検証。拳・手首の形状と共通モデル比率を要整理。",
+      "width": 1024,
+      "height": 1536,
+      "historical_manifest_hash_match": true,
+      "identical_additional_copy_count": 8
+    },
+    {
+      "media_relative_path": "ZERO_CODE/EP01_pilot/images/v04/keyframes_review_01/final/EP01_pilot_K06_retreat_candidate_v04.png",
+      "bytes": 2163864,
+      "sha256": "fdfac5d5f00320783caa6dc9901de664e5bf44d8d85efc67836f16b6cfe5156a",
+      "format": "PNG",
+      "current_os_matches": [],
+      "other_os_matches": [],
+      "inventory_state": "INVENTORY",
+      "legacy_state": "CANDIDATE / director-producer review pending（制作時表記。承認証拠ではない）",
+      "approval": "監督・プロデューサー承認未完了（delivery_manifest v04_r01）",
+      "tool": "built-in image_gen／モデル非開示",
+      "cost": "有料API使用なしの制作記録。実請求額未検証。0円と断定しない",
+      "rights": "未確認／内部検証限定。制作時ツール記録は利用許諾の証拠ではない。原参照素材と生成時の契約・商用条件を未取得",
+      "reuse_evaluation": "後退・構え直しのシルエット研究。",
+      "issues": "相手が再び小さくなり、一歩の移動として距離・縮尺のつながりが弱い。後続r09是正資料の足点訂正を原画承認に読み替えない。",
+      "width": 1024,
+      "height": 1536,
+      "historical_manifest_hash_match": true,
+      "identical_additional_copy_count": 8
+    }
+  ],
+  "approval_caveat": "r10 derivative approval descriptions do not establish approval of v04 source six. Primary producer approval evidence not obtained."
+}

@@ -648,3 +648,8 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **Preservation:** Existing IDs, asset states, approval evidence and history remain intact. The 68 existing asset records are not a verified file count or completed inventory. No media generation, credit use, payment, public media release, deletion or MASTER promotion.
 
 **Next:** Inventory v01–v03 pilots and v04 original drawings first, then character/background/logo, EP00 teaser materials and other assets. Verify originals, rights, costs, versions and approval sources individually; do not auto-convert legacy labels to MASTER or CANDIDATE.
+
+
+## 2026-10-22 | ZCS-ASSET-INVENTORY-001 | Initial pilot asset inventory
+
+Status: director review pending, no MASTER promotion. Nine files verified (v01-v03 videos and v04 six source keyframes); one current OS asset match and eight unmatched. All original IDs, files and 68 asset records preserved. Inventory/rights/reuse findings: docs/inventory/ZCS-ASSET-INVENTORY-001_20261022/README.md and inventory.json. Target OS revision 34; local save receipt verifies final OS persistence. Media not uploaded; relative paths and SHA-256 only. No generation, payment, or social/media publication.
