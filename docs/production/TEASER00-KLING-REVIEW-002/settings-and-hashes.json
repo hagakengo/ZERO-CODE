@@ -1,0 +1,68 @@
+{
+  "instruction_id": "TEASER00-KLING-REVIEW-002",
+  "state": "TEST / director review pending / not adopted",
+  "source": {
+    "media_root_relative_path": "ZERO_CODE/TEASER00/videos/v01_kling_free_20261022/TEASER00_EP00_BG-A_rain_Kling25_TEST_v01.mp4",
+    "sha256": "0c9c1daa32c05edd629160ae4606de2ec68338f8c89eeb68cb0eeb30b0508b39",
+    "bytes": 15518697,
+    "video_duration_seconds": 5.041667,
+    "container_duration_seconds": 5.06195,
+    "width": 2124,
+    "height": 972,
+    "fps": 24
+  },
+  "outputs": [
+    {
+      "variant": "A",
+      "media_root_relative_path": "ZERO_CODE/TEASER00/videos/v02_9x16_review002_20261022/TEASER00_EP00_BG-A_9x16_A_TEST_v01.mp4",
+      "sha256": "5cb56810e99ce3d78997d552a45b3db42c4cdeb2f711867563070bcc04ba2fdf",
+      "bytes": 3566486,
+      "width": 1080,
+      "height": 1920,
+      "crop": {
+        "x": 700,
+        "y": 6,
+        "w": 540,
+        "h": 960
+      },
+      "watermark_patch": true,
+      "filter_complex": "[0:v]split=2[base][mark];[base]crop=540:960:700:6,scale=1080:1920:flags=lanczos,setsar=1[portrait];[mark]crop=320:96:1804:876[stamp];[portrait][stamp]overlay=760:1824:shortest=1[v]"
+    },
+    {
+      "variant": "B",
+      "media_root_relative_path": "ZERO_CODE/TEASER00/videos/v02_9x16_review002_20261022/TEASER00_EP00_BG-A_9x16_B_TEST_v01.mp4",
+      "sha256": "fc9d7b7b1b26e35fd0627f11ac39a529a4fdbd0d4ee3c30c05640eec57a7593e",
+      "bytes": 4670795,
+      "width": 1080,
+      "height": 1920,
+      "crop": {
+        "x": 1584,
+        "y": 6,
+        "w": 540,
+        "h": 960
+      },
+      "watermark_patch": false,
+      "filter_complex": "[0:v]crop=540:960:1584:6,scale=1080:1920:flags=lanczos,setsar=1[v]"
+    },
+    {
+      "variant": "C",
+      "media_root_relative_path": "ZERO_CODE/TEASER00/videos/v02_9x16_review002_20261022/TEASER00_EP00_BG-A_9x16_C_TEST_v01.mp4",
+      "sha256": "827d5cd66ed600d4e8c1576b4110fc0668d2434c3b6968343f9a522629f47d0f",
+      "bytes": 3620216,
+      "width": 1080,
+      "height": 1920,
+      "crop": {
+        "x": 920,
+        "y": 6,
+        "w": 540,
+        "h": 960
+      },
+      "watermark_patch": true,
+      "filter_complex": "[0:v]split=2[base][mark];[base]crop=540:960:920:6,scale=1080:1920:flags=lanczos,setsar=1[portrait];[mark]crop=320:96:1804:876[stamp];[portrait][stamp]overlay=760:1824:shortest=1[v]"
+    }
+  ],
+  "extra_generation_count": 0,
+  "extra_credits_consumed": 0,
+  "credits_observed": 41,
+  "storage_root_resolution": "Resolve ZERO_CODE_MEDIA_ROOT in the local production environment. Exact absolute paths are in the local ZERO CODE OS, not in this public repository."
+}

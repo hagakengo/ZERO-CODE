@@ -618,3 +618,20 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **Next action:** Director reviews motion, character continuity, environment stability and usefulness as a teaser candidate. Keep the video outside Git. No Hailuo fallback is required because the free Kling test succeeded.
 
 **Source:** [Kling plan comparison](https://kling.ai/app/membership/membership-plan).
+
+
+## 2026-10-22 — TEASER00-KLING-REVIEW-002: portrait crop review
+
+**Status:** TEST / local comparison prepared / director review pending. Source technical PASS was producer-supplied; no adoption or new aesthetic approval is inferred.
+
+**Tool/model and cost:** Local FFmpeg only; source generated previously with Kling 2.5 Turbo. This task: zero generation requests and zero credits consumed. Observed balance remains 41.
+
+**Input:** Preserved prior 5-second TEST. Actual video duration 5.041667 s (121 frames at 24 fps); container/audio duration 5.061950 s. Source unchanged by SHA-256.
+
+**What changed:** Created character A, window B and balanced C, all 1080×1920. Fixed 540×960 crops uniformly scaled 2×; no distortion, new camera motion, color grade or speed change. A/C retain an unretouched source watermark region as a separate layer, B retains it naturally within the crop. No logo erasure, inpainting or redraw.
+
+**Review result:** C is the production team's internal comparison recommendation, A an alternate character introduction, B a background insert only. Only 25.42% of original width remains; full character/backpack and broad city view cannot all fit. A/C watermark-layer seams and B's prominent watermark remain limitations.
+
+**Evidence and limits:** All source/output frames decode. Visual inspection used 4-fps samples and endpoint, not continuous-speed playback or audio listening. Fine rain motion, local flicker and hand occlusion still need director review. Commercial release is not cleared for the free output. No purchase, publication or MASTER change.
+
+**References / next:** [Instruction summary](docs/production/TEASER00-KLING-REVIEW-002/instruction.md), [review](docs/production/TEASER00-KLING-REVIEW-002/review.md), [settings, locations and hashes](docs/production/TEASER00-KLING-REVIEW-002/settings-and-hashes.json), [future prompt — do not execute](docs/production/TEASER00-KLING-REVIEW-002/future-prompt-DRAFT.md). Videos and stills remain outside Git. Director then producer decides adoption; preserve credits until that decision.
