@@ -551,3 +551,28 @@ This preserves mystery and gives the ZERO CODE emblem unique visual authority.
 The earlier episode attempt is not official final canon footage.
 
 It may provide usable material, but official EP.01 should be rebuilt to current quality standards.
+
+
+## 2026-10-22 — EP00 teaser / Kling free Image-to-Video preflight
+
+**Status:** TEST / WAITING FOR OWNER LOGIN — no generation submitted.
+
+**Goal:** Evaluate one approximately 5-second Image-to-Video test for a 15-second teaser, using an existing producer-approved reference.
+
+**Tool/model:** Kling AI Web; current landing page advertises Kling 4.0. Final model and settings are not yet selected.
+
+**Input/reference:** Existing approved EP00 image selected locally. Original image, story text, prompts and local paths are not uploaded to this public repository. No media uploaded to Kling at this stage.
+
+**Result:** Official sign-in screen reached. Account free balance, selected-generation credit charge, watermark and plan-specific commercial-use eligibility remain unverified pending owner login. No credits consumed; no video received.
+
+**What worked:** Official Web route and login handoff are available. Published MCP guide distinguishes paid personal credits from bonus credits available only on official platforms.
+
+**What failed / not verified:** Free-generation feasibility has not been tested. Authentication pending does not mean free generation is unavailable.
+
+**Change / why:** Prioritize Web trial over MCP/API because Web bonus credits cannot be assumed usable through MCP/API.
+
+**Next action:** After owner login, inspect balance and generation cost, watermark, usage conditions and sharing controls. Submit one test only within the free balance and without public sharing. If free generation is unavailable, record the exact reason and evaluate Hailuo. Preserve any resulting video outside Git and verify size, duration and SHA-256 before recording receipt.
+
+**Constraints:** No purchase, subscription change, deployment or media publication. Production test record only; no MASTER promotion.
+
+**Sources:** [Kling Web](https://kling.ai/), [official MCP guide](https://kling.ai/app/mcp/guide), [terms](https://kling.ai/docs/user-policy).
