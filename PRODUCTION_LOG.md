@@ -576,3 +576,22 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 **Constraints:** No purchase, subscription change, deployment or media publication. Production test record only; no MASTER promotion.
 
 **Sources:** [Kling Web](https://kling.ai/), [official MCP guide](https://kling.ai/app/mcp/guide), [terms](https://kling.ai/docs/user-policy).
+
+
+## 2026-10-22 — Kling free-video preflight: signed in, upload blocked
+
+**Status:** TEST / WAITING FOR OWNER FILE-UPLOAD SETUP; no generation submitted.
+
+**Tool/model:** Kling Web / Kling 2.5 Turbo, Keyframes, 1080p, 5 seconds, 16:9, one output.
+
+**Observed result:** Owner login confirmed. Available balance is 66 bonus credits, with zero membership or top-up credits. Before attaching the source image, the prepared prompt shows a 25-credit generation charge; the final Image-to-Video charge still requires verification after attachment. No credits consumed.
+
+**Usage conditions:** Official plan comparison excludes commercial-use and brand-watermark-removal benefits for Basic. This test remains internal review only; no commercial clearance is claimed. Actual output watermark is untested.
+
+**Blocker:** The browser extension cannot attach local files while its file-URL access permission is disabled. Image attachment failed; no reference uploaded. Do not treat this as proof that free generation is unavailable.
+
+**Next action:** Owner enables the documented upload permission or selects the approved image manually. Then verify the final image-based charge and sharing controls before submitting one free test. No purchase, plan change, publication or MASTER change.
+
+**Evidence:** Detailed observations remain in local production records. No images, story, prompt, account identifiers, credentials or local paths are included in this public record.
+
+**Sources:** [Kling plan comparison and FAQ](https://kling.ai/app/membership/membership-plan), [extension upload setup](https://developers.openai.com/codex/app/chrome-extension#upload-files).
