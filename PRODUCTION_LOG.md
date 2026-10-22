@@ -761,3 +761,12 @@ Status: director review pending, no MASTER promotion. Nine files verified (v01-v
 **Rework:** Simulated eyelid and mouth deformation are not authentic hand-drawn expression keys; natural acting is unproven. This native wide frame is not the requested finished 9:16 shot. Official Yuna/BG references and publishing rights remain unverified. No real-time human review.
 
 **Next:** Replace warps with same-character hand-drawn eyelid/iris/mouth difference layers, then make a properly composed portrait frame and conduct full-speed QC. Binary remains in ChatGPT session package, not in GitHub or ZERO CODE OS.
+
+
+## 2026-10-22 — EP00 Yuna acting v05 preflight: exact r03 source unavailable
+
+**Status:** BLOCKED / NOT STARTED / no animation delivery. Required exact r03 source hash from v03 QC was not found in the searched local image libraries. Newly supplied storyboard image is labeled r01 and has a different hash; it was not substituted for r03. Existing compressed test MP4s are not accepted as original source images.
+
+**Decision:** Follow the explicit v05 start gate. No layers, keyframes, inbetweens, render or animation QC performed. v04 is FAIL and prohibited for footage reuse under the latest producer-supplied direction; prior QC history is preserved.
+
+**Evidence / next:** See [v05 preflight](docs/production/EP00_YUNA_ACTING_TEST_V05_PREFLIGHT.md). Obtain original r03 PNG or source-bearing production ZIP; verify hash and inspect before production. No image/video generation, credits, payment, public media upload, MASTER promotion or OS mutation.
