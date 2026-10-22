@@ -724,3 +724,25 @@ Status: director review pending, no MASTER promotion. Nine files verified (v01-v
 
 **Restrictions:** No canon rewrite, MASTER promotion, paid generation, external publication, or unauthorized OS mutation.
 
+---
+
+## 2026-10-22 — EP00 Yuna: recovered approved visual target and rendered acting TEST v02
+
+**Status:** TEST / REWORK; no MASTER, publication, or OS sync.
+
+**Tool / Model:** Files library/conversation image metadata; local OpenCV/Python/FFmpeg; GitHub connector.
+
+**Asset / Version:** `docs/production/EP00_YUNA_ACTING_TEST_V02_QC.md`. Reference generation ID `08ea6239-f852-4e01-a405-15184a5dc7b3`; original image SHA-256 `73a5b21314bb87219948da2f03b48a019d441b35f9ab28c84041ab4747d9fee6`.
+
+**Goal:** Preserve the producer's chosen cinematic anime style and advance beyond the prior rain-only test to intentional character acting.
+
+**What we tried:** Retrieved the exact conversation image, verified generation metadata, reused its final panel, added restrained local eye/mouth warps and a moving rain droplet, and encoded 5-second 24fps portrait/wide review clips.
+
+**Result:** Both MP4s rendered. Portrait SHA-256 `8e649e89d9215c1e6e9cbfcebc8c3d7a204aa1226de9e1dc212c0d6baac3b3e5`; wide SHA-256 `1af1eb0dea2639609c3e529159fbe94aadb7d1acfafeb4632cc24b2b8bff359c`. Code, preview, source, and QC were packaged locally. GitHub records text only.
+
+**What worked:** Exact visual target image recovered and verified; temporal change measured in both eye and mouth regions; reference art preserved without full-frame interpolation.
+
+**What failed:** Changes are subtle and not yet a convincing facial performance; portrait preview uses blurred padding around a wide source crop. Official character/BG references and publication rights remain unverified; no full-speed viewing.
+
+**Next action:** Copy reference original to durable production storage with SHA check; create true portrait key poses and expressive eye/mouth differences; QC against approved Yuna model and original script before video-generation A/B.
+
