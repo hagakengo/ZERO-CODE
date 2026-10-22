@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { COOKIE, MAX_AGE, issueSession, validCredentials } from '../../../../lib/studio-auth';
+import { COOKIE, MAX_AGE, issueSession, validCredentials, localPilotEnabled } from '../../../../lib/studio-auth';
 export const dynamic = 'force-dynamic';
 // Single-process pilot limiter. Shared rate limiting is required before public deployment.
 const attempts = new Map<string, { count: number; until: number }>();
@@ -7,8 +7,9 @@ function sameOrigin(request: NextRequest) {
   return request.headers.get('origin') === request.nextUrl.origin;
 }
 export async function POST(request: NextRequest) {
+  if (!localPilotEnabled()) return new NextResponse(null, { status: 503 });
   if (!sameOrigin(request)) return new NextResponse(null, { status: 403 });
-  if (request.nextUrl.protocol !== 'https:' && !['localhost', '127.0.0.1', '[::1]'].includes(request.nextUrl.hostname)) return new NextResponse(null, { status: 403 });
+  if (!['localhost', '127.0.0.1', '[::1]'].includes(request.nextUrl.hostname)) return new NextResponse(null, { status: 403 });
   if (Number(request.headers.get('content-length') || 0) > 4096) return new NextResponse(null, { status: 413 });
   if (!process.env.STUDIO_VIEWER_USER || !process.env.STUDIO_VIEWER_PASSWORD || (process.env.STUDIO_SESSION_SECRET || '').length < 32)
     return NextResponse.json({ detail: '閲覧用ログインが未設定です' }, { status: 503 });

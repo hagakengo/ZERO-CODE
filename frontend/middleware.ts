@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { COOKIE, validSession } from './lib/studio-auth';
+import { COOKIE, validSession, localPilotEnabled } from './lib/studio-auth';
 export async function middleware(request: NextRequest) {
+  if (!localPilotEnabled() || !['localhost', '127.0.0.1', '[::1]'].includes(request.nextUrl.hostname))
+    return NextResponse.json({ detail: 'ローカル検証専用です。外部公開用認証は未実装です' }, { status: 503, headers: { 'Cache-Control': 'no-store' } });
   const path = request.nextUrl.pathname;
   if (path === '/production/login' || path === '/api/studio/session') return NextResponse.next();
   if (!await validSession(request.cookies.get(COOKIE)?.value)) {

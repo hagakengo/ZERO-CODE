@@ -8,12 +8,11 @@ from pathlib import Path
 
 from fastapi import APIRouter, Depends, FastAPI, Header, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse
+from app.studio_dto import StudioIndex
 
 router = APIRouter(prefix='/api/studio', tags=['studio-readonly'])
 ID = re.compile(r'^[a-zA-Z0-9_-]{1,120}$')
-TYPES = {'.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.mp4': 'video/mp4',
-         '.md': 'text/plain; charset=utf-8', '.txt': 'text/plain; charset=utf-8',
-         '.csv': 'text/plain; charset=utf-8', '.json': 'text/plain; charset=utf-8'}
+TYPES = {'.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.mp4': 'video/mp4'}
 
 
 def require_reader(authorization: str | None = Header(default=None)):
@@ -30,13 +29,19 @@ def load_snapshot():
     if not configured:
         raise HTTPException(503, '制作データは未接続です')
     root = Path(configured).resolve()
+    if root.name.startswith('.studio-import-'):
+        raise HTTPException(503, '取り込み中のデータは配信できません')
     try:
         manifest_path = root / 'manifest.json'
         if manifest_path.is_symlink():
             raise ValueError('symlink manifest')
+        complete = root / 'COMPLETE'
+        if complete.is_symlink() or complete.read_text() != hashlib.sha256(manifest_path.read_bytes()).hexdigest():
+            raise ValueError('incomplete snapshot')
         data = json.loads(manifest_path.read_text())
-        if data.get('schema_version') != 1 or not isinstance(data.get('index'), dict):
+        if data.get('schema_version') != 2 or not isinstance(data.get('index'), dict):
             raise ValueError('schema')
+        data['index'] = StudioIndex.model_validate(data['index']).model_dump()
         if not isinstance(data.get('files'), dict):
             raise ValueError('files')
     except (OSError, ValueError, TypeError):
