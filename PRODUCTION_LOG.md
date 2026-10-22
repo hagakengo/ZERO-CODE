@@ -746,3 +746,18 @@ Status: director review pending, no MASTER promotion. Nine files verified (v01-v
 
 **Next action:** Copy reference original to durable production storage with SHA check; create true portrait key poses and expressive eye/mouth differences; QC against approved Yuna model and original script before video-generation A/B.
 
+---
+
+## 2026-10-22 — r03-reference-locked Yuna 5-second animation TEST v03
+
+**Status:** Rendered TEST / REWORK / no MASTER, no publication, no OS sync.
+
+**Method:** Original r03 café panel kept fixed. OpenCV local eye motion, simulated blink, subtle mouth-corner motion and a sliding raindrop. FFmpeg encoded a real H.264 silent MP4 at 1024×372, 24fps, 120 frames, 5.000s. No new face generation and no paid video generation.
+
+**Evidence:** `docs/production/EP00_YUNA_ACTING_TEST_V03_QC.md`; video SHA-256 `c76fa9872643d2b32d0a5b0f9fc80ac2d6d355c7a0b9adf168e0a7fea97c31e6`; local ZIP SHA-256 `f14af5a091438c1bf11814722f2bd26ed40adad6c102fbb79d4f9b6371b62bc2`.
+
+**Pass:** Actual 5-second encoded motion exists; r03 image continuity and static background preserved; measured local pixel changes.
+
+**Rework:** Simulated eyelid and mouth deformation are not authentic hand-drawn expression keys; natural acting is unproven. This native wide frame is not the requested finished 9:16 shot. Official Yuna/BG references and publishing rights remain unverified. No real-time human review.
+
+**Next:** Replace warps with same-character hand-drawn eyelid/iris/mouth difference layers, then make a properly composed portrait frame and conduct full-speed QC. Binary remains in ChatGPT session package, not in GitHub or ZERO CODE OS.
