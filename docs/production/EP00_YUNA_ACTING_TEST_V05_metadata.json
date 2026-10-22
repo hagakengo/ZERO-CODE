@@ -1,0 +1,48 @@
+{
+  "task": "EP00_YUNA_RAIN_ACTING_v05",
+  "status": "REWORK / INTERNAL TEST / NOT MASTER",
+  "source_authorization": "Producer explicitly authorized the newly attached reference image as r03 production reference, 2026-10-22. Not the historical source binary.",
+  "reference_sha256": "7c8a9a186d92625d46655fac0338a27c1be90eb42665976fcc723e643ef40660",
+  "source_binary_matches_historical_r03": false,
+  "video": {
+    "path_relative_to_media_root": "ZERO_CODE/EP00/videos/v05_yuna_rain_TEST_20261022/EP00_YUNA_RAIN_ACTING_v05b_native_TEST.mp4",
+    "sha256": "c978b50cae3fa7645b010fd62d18095ba702b83da2a17c83eb089e336095bc5d",
+    "bytes": 375026,
+    "width": 920,
+    "height": 340,
+    "fps": 24,
+    "frames": 120,
+    "duration_seconds": 5,
+    "audio_streams": 0
+  },
+  "package_location_relative_to_media_root": "ZERO_CODE/EP00/review_packages/v05_yuna_rain_TEST_20261022",
+  "raw_expression_cells": 16,
+  "composited_key_frames": 16,
+  "final_png_frames": 120,
+  "generation_tool": "built-in image_gen, two calls; exact model undisclosed",
+  "model_billing_verified": false,
+  "paid_api_purchases_or_plan_changes": false,
+  "methods": [
+    "redrawn eyelid/pupil/mouth expression cel atlas",
+    "fixed background plate",
+    "rigid head/body/hair layers with per-frame timing",
+    "no optical flow, face morphing, temporal frame crossfade, separate eyeball scaling"
+  ],
+  "qc": {
+    "encoded_frame_count": 120,
+    "full_av_decode": "PASS",
+    "protruding_eyes": "not observed in 120-frame eye contact sheet inspection; not a guarantee of perfect identity",
+    "fixed_background_roi_delta": 0,
+    "normal_speed_player_test": "Reached 5s at playbackRate 1; continuous human aesthetic viewing not evidenced",
+    "separate_directory_rebuild": "MP4 and all 120 PNG hashes match"
+  },
+  "remaining": [
+    "Some gaze cells open wider than reference and change shape/color at transitions",
+    "Layer masking and anatomical head/neck/shoulder/hair inbetweens need actual drawing cleanup",
+    "Current native wide test is not a finished 9:16 original",
+    "Full human/director continuous playback, official-model/set continuity and publication rights not cleared"
+  ],
+  "v04": "FAIL / footage not reused",
+  "os_mutated": false,
+  "media_uploaded": false
+}

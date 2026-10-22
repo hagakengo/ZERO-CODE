@@ -770,3 +770,8 @@ Status: director review pending, no MASTER promotion. Nine files verified (v01-v
 **Decision:** Follow the explicit v05 start gate. No layers, keyframes, inbetweens, render or animation QC performed. v04 is FAIL and prohibited for footage reuse under the latest producer-supplied direction; prior QC history is preserved.
 
 **Evidence / next:** See [v05 preflight](docs/production/EP00_YUNA_ACTING_TEST_V05_PREFLIGHT.md). Obtain original r03 PNG or source-bearing production ZIP; verify hash and inspect before production. No image/video generation, credits, payment, public media upload, MASTER promotion or OS mutation.
+
+
+## 2026-10-22 - EP00 Yuna acting v05: source authorized, native-wide TEST rendered
+
+Status: REWORK, not completed commercial-quality animation. Producer authorized the new attached reference as r03; historical binary equivalence remains unverified. Generated a 16-cell expression atlas and clean plate using built-in image_gen, then rendered two local attempts; final 920x340 silent H.264 clip is 5s, 24fps, 120 frames. All final eye frames checked; no protrusion observed at inspection resolution. Shape/color transitions and rigid layer acting remain cleanup issues. Fresh-directory rebuild matches MP4 and all 120 PNG hashes. Browser reaches 5s at 1x, not a continuous-human-review claim. See docs/production/EP00_YUNA_ACTING_TEST_V05_QC.md and accompanying metadata. v04 FAIL preserved and not reused. No OS mutation, MASTER promotion, paid API, purchase, media upload or publication.
