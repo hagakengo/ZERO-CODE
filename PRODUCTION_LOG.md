@@ -653,3 +653,28 @@ It may provide usable material, but official EP.01 should be rebuilt to current 
 ## 2026-10-22 | ZCS-ASSET-INVENTORY-001 | Initial pilot asset inventory
 
 Status: director review pending, no MASTER promotion. Nine files verified (v01-v03 videos and v04 six source keyframes); one current OS asset match and eight unmatched. All original IDs, files and 68 asset records preserved. Inventory/rights/reuse findings: docs/inventory/ZCS-ASSET-INVENTORY-001_20261022/README.md and inventory.json. Target OS revision 34; local save receipt verifies final OS persistence. Media not uploaded; relative paths and SHA-256 only. No generation, payment, or social/media publication.
+
+---
+
+## 2026-10-22 — EP00 Yuna rain scene: acting and storyboard specification
+
+**Status:** DRAFT / TEXT-ONLY / NOT RENDERED / OS NOT SYNCED
+
+**Tool / Model:** ChatGPT director review; GitHub connected file edits. No image/video generation.
+
+**Asset / Version:** `docs/production/EP00_ACTING_TEST_5S_DRAFT.md` r02, `docs/production/EP00_YUNA_RAIN_5S_SHOTBOARD_DRAFT.md` r01, `docs/production/EP00_ASSET_INTAKE_DRAFT.md` r01.
+
+**Goal:** Translate the approved novel EP00 v08 rain café scene into a reusable, character-consistent 5-second animation test without unnecessary generation cost.
+
+**What we tried:** Cross-checked Library's EP00 v08 illustration placement review and character settings, then wrote a 3-key-pose / 120-frame shot plan and intake list for BG-A, BG-A2, Yuna references, and Kling C.
+
+**Result:** Text storyboard and reference intake table saved in Git. No rendered key poses, motion, audio, or OS record were created. No spend, publish, or MASTER promotion.
+
+**What worked:** Corrected the earlier cup-centered motion concept to the source scene's raindrop watching, murmured reaction, and small smile. Distinguished the approved novel from the older ¥0/D1 prototype continuity.
+
+**What failed / limitations:** Original BG-A/BG-A2 and Yuna reference binaries were not available for inspection in this session; hashes, dimensions, licensing, and continuity remain unverified. The old repo documents still contain an older concept and must not be treated as current novel canon.
+
+**Change / Why:** Specified P0 at F000, P1 at F040, P2 at F084, hold through F119, so motion can be reviewed before credits are spent.
+
+**Next action:** Retrieve original reference files and verify SHA-256, dimensions, approval and rights; create three pose drafts only from verified references; perform director QC; then choose a video generation method. Keep OS sync as an open item.
+
