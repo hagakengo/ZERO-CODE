@@ -678,3 +678,24 @@ Status: director review pending, no MASTER promotion. Nine files verified (v01-v
 
 **Next action:** Retrieve original reference files and verify SHA-256, dimensions, approval and rights; create three pose drafts only from verified references; perform director QC; then choose a video generation method. Keep OS sync as an open item.
 
+---
+
+## 2026-10-22 — Yuna rain scene: restrained-motion concept r02 and anti-AI A/B test plan
+
+**Status:** CONCEPT TEST / REWORK; text production protocol completed; video NOT RENDERED.
+
+**Tool / Model:** ChatGPT image generation (concept sheet); GitHub connected file edit (production protocol).
+
+**Asset / Version:** `docs/production/EP00_YUNA_ANTI_AI_AB_TEST_PLAN.md` r01; image generation ID `b910a71a-cf8c-4d78-a4ca-301184ad27db` (image not committed).
+
+**Goal:** Reduce AI-looking motion while preserving approved novel EP00 v08 scene, by comparing a reference-locked video-generation method against pose/limited-animation compositing.
+
+**What we tried:** Created a revised storyboard concept image, then specified locked vs movable elements, 120-frame timing, generic motion prompts, prohibited artifacts, two matched A/B methods, and a six-axis 30-point quality rubric.
+
+**Result:** Concept still and production protocol created. No approved reference files were loaded. No P0/P1/P2 official animation frames, 5-second video, audio, OS update, or MASTER promotion occurred. No external publication or paid generation.
+
+**What worked:** New concept emphasizes rain observation and understated smile instead of touching the glass. Production plan prohibits constant ambient character wobble, unmotivated camera moves, face drift and background morphing.
+
+**What failed / limitations:** Concept is multiple illustrated cuts, not a single fixed-camera 5-second performance; character identity and props are not verified against official files. Generated frame labels are not proof of rendered frames. Rights and source hashes remain unknown.
+
+**Next action:** Obtain BG-A/BG-A2 and Yuna's approved reference binaries; verify hashes and rights; build same-layout P0/P1/P2; then produce and compare 5-second A/B clips without unauthorized spend.
