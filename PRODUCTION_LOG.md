@@ -780,3 +780,13 @@ Status: REWORK, not completed commercial-quality animation. Producer authorized 
 ## 2026-10-22 - Yuna v05 skin compositing defect corrected
 
 Producer reported unnatural skin shadow. Replaced skin-bearing eye/mouth patches with a source-matched static skin base and feature-only cels. C04 diagnostic cheek ROI RGB delta reduced to zero; not a whole-face quality score. New 5s/24fps/120-frame wide TEST saved separately; overall REWORK remains. All 120 eye crops checked, full MP4 decode passed. Prior files, OS and MASTER unchanged. See docs/production/EP00_YUNA_ACTING_TEST_V05_SKIN_FIX.md and JSON for hashes/method. One built-in image edit, no paid API or Kling generation; no media uploaded.
+
+## 2026-10-23 — ZERO CODE OS 閲覧専用Web MVP（DRAFT）
+
+- Goal: 実際の制作情報・原画・動画・レビューをスマホ幅／PC幅で安全に閲覧する。
+- Baseline: GitHub main 8db52c6とローカルOSは異なる。ローカル制作JSON revision35、元68＋参考候補3＝71素材、41履歴を読み取り確認。
+- Change: 既存Next.jsへ/production系画面と認証BFF、FastAPIへDB非接続の独立Reader、明示インポート・非公開コピー・論理ID配信・SHA照合・Range配信を追加。既存main.py／SQLiteスキーマ／MASTERを変更しない。
+- Status: DRAFT／監督レビュー待ち。現行ユナ第一原画r03はREWORK。K05/K07/K08は表情作画参考候補のみ。
+- Evidence: 新規Readerの隔離テスト15件とセッション単体テスト8件PASS、TypeScriptチェックとNext.jsビルドPASS。実データ接続のHTTP・保全チェック27件PASS。ブラウザで原画拡大・資料読取・動画1倍速の終端を確認。PC1280pxとスマホ390pxの画面検証。スクリーンショットと私有データの検証レシートはローカルだけに保持。
+- Limitation: 実機スマホ・外出先接続・HTTPS公開・複数ユーザー運用・承認書込みは未実施。既存DBドライバーの環境不適合があるためReader依存を分離。既存の全OSテストを通したという報告ではない。
+- Next: 監督レビュー後、認証／プロキシ／ストレージ／セッション失効／監査の運用設計を承認し、別途本番接続を判断。公開・課金なし。
