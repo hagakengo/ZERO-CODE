@@ -699,3 +699,28 @@ Status: director review pending, no MASTER promotion. Nine files verified (v01-v
 **What failed / limitations:** Concept is multiple illustrated cuts, not a single fixed-camera 5-second performance; character identity and props are not verified against official files. Generated frame labels are not proof of rendered frames. Rights and source hashes remain unknown.
 
 **Next action:** Obtain BG-A/BG-A2 and Yuna's approved reference binaries; verify hashes and rights; build same-layout P0/P1/P2; then produce and compare 5-second A/B clips without unauthorized spend.
+
+---
+
+## 2026-10-22 — Producer-approved anime visual direction recorded as ZCS-VISUAL-001 v1.0
+
+**Status:** VISUAL DIRECTION APPROVED / REFERENCE IMAGE NOT MASTER / OS NOT SYNCED
+
+**Tool / Model:** ChatGPT director review, GitHub connector.
+
+**Asset / Version:** `docs/production/ZCS-VISUAL-001_v1.0.md`; `AGENTS.md` reading requirement.
+
+**Goal:** Preserve the producer's explicit choice of the cinematic Yuna rainy-café concept as the quality target for ZERO CODE's anime version, with AI-looking artifacts minimized.
+
+**Decision:** Pursue refined hand-drawn anime aesthetics, restrained warm/cool lighting, consistent character acting and backgrounds, and original-keyframe-led hybrid production. Existing illustrations are references; do not lower animation quality to match them. Do not confuse style approval with a character-design MASTER approval.
+
+**Reference:** ChatGPT image generation ID `08ea6239-f852-4e01-a405-15184a5dc7b3` (EP00 Yuna rainy-café production board); final-panel working filename `ep00_final_panel_crop.png`. Image bytes and their durable archive location/SHA have not been verified or committed to GitHub.
+
+**What changed:** Created ZCS-VISUAL-001 v1.0 and added it to the mandatory agent reading list in AGENTS.md.
+
+**Verification:** GitHub text files created/updated; reread pending in this log entry. No video or visual assets created in this operation.
+
+**What remains:** Archive source image binary with SHA and rights; compare with formally approved Yuna/BG-A/BG-A2 files; produce stable P0/P1/P2 and 5-second acting test; synchronize ZERO CODE OS only through authorized workflow. Existing 68 asset IDs/states/history unchanged.
+
+**Restrictions:** No canon rewrite, MASTER promotion, paid generation, external publication, or unauthorized OS mutation.
+
