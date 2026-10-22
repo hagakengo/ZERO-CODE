@@ -475,3 +475,10 @@ names/token values do not appear in the response.
 ## 素材資産管理・再利用
 
 [素材資産管理・再利用規程 v1.0（ZCS-ASSET-001）](docs/regulations/ZCS-ASSET-001_v1.0.md) を適用する。新規生成前に既存素材と権利を確認し、脚本承認と素材MASTER承認を分ける。既存の承認権限・正史管理は変更しない。[初回棚卸しの引継ぎ](docs/regulations/ZCS-ASSET-001_v1.0_inventory-handoff.md)。
+
+## 制作管理の閲覧専用Web MVP（DRAFT）
+
+`/production`に、認証付きの制作ダッシュボード・EP00原画／動画・バージョン比較・素材ライブラリ・レビュー閲覧を追加。
+[調査・接続設計・起動・制限](docs/os/ZCS-OS-WEB-MVP_IMPLEMENTATION_DRAFT.md)を参照。
+実データの閲覧用コピーを作成する明示的インポート方式であり、既存制作JSONやSQLiteを自動移行・変更しません。
+公開デプロイ・本番書き込み・MASTER昇格は別承認。素材や認証情報をpublic配下／Gitへ置かないでください。

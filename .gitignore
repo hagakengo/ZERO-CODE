@@ -11,3 +11,10 @@ frontend/.next/
 
 .env.*
 !.env.example
+
+# Private viewer snapshots, operator configs, credentials and QA evidence
+.studio-private/
+studio-snapshot*/
+*.private.json
+
+backend/.venv-reader/

@@ -47,5 +47,7 @@ jobs:
       - run: npm install --no-audit --no-fund
       - name: TypeScript check
         run: npx tsc --noEmit
+      - name: Studio session tests
+        run: npm run test:studio
       - name: Build Next.js
         run: npm run build

@@ -780,3 +780,34 @@ Status: REWORK, not completed commercial-quality animation. Producer authorized 
 ## 2026-10-22 - Yuna v05 skin compositing defect corrected
 
 Producer reported unnatural skin shadow. Replaced skin-bearing eye/mouth patches with a source-matched static skin base and feature-only cels. C04 diagnostic cheek ROI RGB delta reduced to zero; not a whole-face quality score. New 5s/24fps/120-frame wide TEST saved separately; overall REWORK remains. All 120 eye crops checked, full MP4 decode passed. Prior files, OS and MASTER unchanged. See docs/production/EP00_YUNA_ACTING_TEST_V05_SKIN_FIX.md and JSON for hashes/method. One built-in image edit, no paid API or Kling generation; no media uploaded.
+
+## 2026-10-23 — ZERO CODE OS 閲覧専用Web MVP（DRAFT）
+
+- Goal: 実際の制作情報・原画・動画・レビューをスマホ幅／PC幅で安全に閲覧する。
+- Baseline: GitHub main 8db52c6とローカルOSは異なる。ローカル制作JSON revision35、元68＋参考候補3＝71素材、41履歴を読み取り確認。
+- Change: 既存Next.jsへ/production系画面と認証BFF、FastAPIへDB非接続の独立Reader、明示インポート・非公開コピー・論理ID配信・SHA照合・Range配信を追加。既存main.py／SQLiteスキーマ／MASTERを変更しない。
+- Status: DRAFT／監督レビュー待ち。現行ユナ第一原画r03はREWORK。K05/K07/K08は表情作画参考候補のみ。
+- Evidence: 新規Readerの隔離テスト15件とセッション単体テスト8件PASS、TypeScriptチェックとNext.jsビルドPASS。実データ接続のHTTP・保全チェック27件PASS。ブラウザで原画拡大・資料読取・動画1倍速の終端を確認。PC1280pxとスマホ390pxの画面検証。スクリーンショットと私有データの検証レシートはローカルだけに保持。
+- Limitation: 実機スマホ・外出先接続・HTTPS公開・複数ユーザー運用・承認書込みは未実施。既存DBドライバーの環境不適合があるためReader依存を分離。既存の全OSテストを通したという報告ではない。
+- Next: 監督レビュー後、認証／プロキシ／ストレージ／セッション失効／監査の運用設計を承認し、別途本番接続を判断。公開・課金なし。
+
+## 2026-10-23 — ZERO CODE OS Draft PR #8 監督指摘対応 r02
+
+- 判定：実装修正・再提出準備。CONDITIONAL PASS／Draft継続。正式採用・マージ・デプロイは未実施。
+- 原文自由記述の配信を停止し、確認済み値のハッシュ許可と閉じたDTO検証へ変更。テキスト資料閲覧は機密確認・構造化まで保留。
+- 一時領域で取り込み、コピー・元素材・レシート照合後に確定。コピー故障、ENOSPC、元ファイル変更、容量超過、レシート失敗を隔離テストで再現。
+- ローカル単一閲覧者モードを明示。公開向け認証は未実装。共有レート制限・個別失効・HTTPS・監査を公開前必須条件とする。
+- Work自己QC、監督レビュー、採用承認を区別。取得日時・source revisionを表示。PASSからMASTERへの自動昇格なし。
+- 検証：backend26、署名認証9、HTTP27、期限切れ画像・動画GET/HEAD/Range等19件成功。詳細はdocs/os/ZCS-OS-WEB-MVP_IMPLEMENTATION_DRAFT.mdとPR差分を参照。
+- PCとスマホ相当の縦横幅を確認。実機は接続環境なしのため未実施。外出先アクセスは試していない。
+- 原本revision35・71素材ID・41履歴・関連MASTER等13ファイルの同一性を確認。本番3128、旧コピー、原本素材は変更なし。
+- 残課題：自由記述資料の安全な閲覧DTO、画像/動画内容と権利の審査、実機検証、公開認証設計の承認。PR #8はDraft維持。
+
+## 2026-10-23 — Draft PR #8 監督判定r02受領・実装報告書統一
+
+- 監督判定：CONDITIONAL PASS／改善指摘1〜4受理。対象は実装コミットb66a36cとそのCI成功。マージ・本番統合・公開許可ではない。
+- 実装報告書を現行仕様へ一本化。schema v2、完了マーカー、自由記述の個別値許可、画像/動画のみ配信、原文資料閲覧保留、ローカル認証を全節で一致させた。
+- テスト件数はReader26、署名認証9、既存HTTP27、期限切れHTTP19へ統一。過去の件数・ファイル数はGit履歴へ残し、現行報告に混在させない。今回は文書のみの変更で、新規テスト実施とは扱わない。
+- 実機スマホは端末環境なしのため未完了を維持。原文資料再開は構造化DTO・開示範囲審査後とする。
+- 次期設計の優先事項に、レビュー操作性と発信用素材の安全な選別を記載。未実装の設計方針であり、自動投稿・本番DB更新の許可ではない。
+- 本番revision35・71素材・41履歴・MASTERは変更しない。PR #8はDraft継続。
