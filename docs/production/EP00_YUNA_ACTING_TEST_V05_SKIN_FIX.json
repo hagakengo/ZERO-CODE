@@ -1,0 +1,37 @@
+{
+  "status": "TEST / REWORK",
+  "scope": "skin-shadow compositing fix",
+  "video_relative_to_media_root": "ZERO_CODE/EP00/videos/v05c_skinfix_TEST_20261022/EP00_YUNA_RAIN_ACTING_v05c2_native_TEST.mp4",
+  "video_sha256": "2668b1020ca40e1e0c088c4ce7d13067eeced12847c59b6554a4a295abb908b9",
+  "bytes": 373777,
+  "width": 920,
+  "height": 340,
+  "fps": 24,
+  "frames": 120,
+  "duration_seconds": 5,
+  "method": "static source-matched skin base plus feature-only cel masks; imported cheek shadows discarded",
+  "validation_roi_xyxy": [
+    414,
+    122,
+    438,
+    130
+  ],
+  "roi_mean_absolute_rgb_delta_before": [
+    4.364583333333333,
+    3.8177083333333335,
+    2.09375
+  ],
+  "roi_mean_absolute_rgb_delta_after": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "metric_scope": "C04 key before rigid head compositing, not full-frame quality score",
+  "v05b_original_unchanged": true,
+  "OS_mutated": false,
+  "master_promoted": false,
+  "builtin_imagegen_edit_calls": 1,
+  "paid_API_calls": 0,
+  "billing_actual": "unverified",
+  "review": "skin patch artifact reduced; overall acting/model/portrait review remains REWORK"
+}

@@ -775,3 +775,8 @@ Status: director review pending, no MASTER promotion. Nine files verified (v01-v
 ## 2026-10-22 - EP00 Yuna acting v05: source authorized, native-wide TEST rendered
 
 Status: REWORK, not completed commercial-quality animation. Producer authorized the new attached reference as r03; historical binary equivalence remains unverified. Generated a 16-cell expression atlas and clean plate using built-in image_gen, then rendered two local attempts; final 920x340 silent H.264 clip is 5s, 24fps, 120 frames. All final eye frames checked; no protrusion observed at inspection resolution. Shape/color transitions and rigid layer acting remain cleanup issues. Fresh-directory rebuild matches MP4 and all 120 PNG hashes. Browser reaches 5s at 1x, not a continuous-human-review claim. See docs/production/EP00_YUNA_ACTING_TEST_V05_QC.md and accompanying metadata. v04 FAIL preserved and not reused. No OS mutation, MASTER promotion, paid API, purchase, media upload or publication.
+
+
+## 2026-10-22 - Yuna v05 skin compositing defect corrected
+
+Producer reported unnatural skin shadow. Replaced skin-bearing eye/mouth patches with a source-matched static skin base and feature-only cels. C04 diagnostic cheek ROI RGB delta reduced to zero; not a whole-face quality score. New 5s/24fps/120-frame wide TEST saved separately; overall REWORK remains. All 120 eye crops checked, full MP4 decode passed. Prior files, OS and MASTER unchanged. See docs/production/EP00_YUNA_ACTING_TEST_V05_SKIN_FIX.md and JSON for hashes/method. One built-in image edit, no paid API or Kling generation; no media uploaded.
