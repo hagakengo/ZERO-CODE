@@ -4,6 +4,7 @@
 
 1. [理念・行動指針](docs/ZERO_CODE_PHILOSOPHY.md)：事業・開発の判断基準。
 2. [制作ルール](ZERO_CODE_RULES.md)：正史、MASTER、品質、承認の制約。
+   - アニメ版映像を制作・レビューするときは、[映像美の品質基準 ZCS-VISUAL-001 v1.0](docs/production/ZCS-VISUAL-001_v1.0.md) も必ず読む。これはプロデューサー承認済みの画風・品質目標であり、キャラクターMASTERや旧規程の改訂承認ではない。
 3. [プロジェクト背景](PROJECT_CONTEXT.md)：呼称、世界観、役割。
 4. [README](README.md) と対象の仕様・関連コード：現行の操作・検証手順。
 5. 関連する [制作ログ](PRODUCTION_LOG.md) と [ロードマップ](ROADMAP.md)：証拠と計画を区別する。
