@@ -5,6 +5,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from unittest.mock import patch
 
@@ -108,6 +109,21 @@ class MemoryWorkflowTests(unittest.TestCase):
         self.assertNotIn(self.token, log)
         self.assertNotIn('signature"', log)
 
+    def test_concurrent_registration_is_single_commit(self):
+        self._propose()
+        self._submit('DIRECTOR_REVIEWED', 'director')
+        self._submit('PRODUCER_APPROVED', 'producer', approval_status='APPROVED')
+        def attempt(_):
+            try:
+                return memory_workflow.register(self.workflow, self.fields['id'])['id']
+            except ValueError:
+                return 'REJECTED_DUPLICATE'
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            results = list(pool.map(attempt, range(2)))
+        self.assertCountEqual(results, [self.fields['id'], 'REJECTED_DUPLICATE'])
+        events = memory_workflow._events(self.workflow, self.fields['id'])
+        self.assertEqual(sum(x['action'] == 'REGISTERED' for x in events), 1)
+
     def test_offline_cli_propose_packet_apply_register(self):
         fields_path = self.root / 'fields.json'
         fields_path.write_text(json.dumps(self.fields, ensure_ascii=False), encoding='utf-8')
@@ -179,6 +195,24 @@ class MemoryWorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             memory_workflow.register(self.workflow, self.fields['id'])
         self.assertEqual((self.vault / (self.fields['id'] + '.md')).read_bytes(), original)
+
+    def test_registration_crash_after_event_recovers_from_signed_evidence(self):
+        self._propose()
+        self._submit('DIRECTOR_REVIEWED', 'director')
+        self._submit('PRODUCER_APPROVED', 'producer', approval_status='APPROVED')
+        original = memory_workflow._append_event
+        def stop_after_event(root, memory_id, event):
+            original(root, memory_id, event)
+            if event['action'] == 'REGISTERED':
+                raise SystemExit(67)
+        with patch.object(memory_workflow, '_append_event', side_effect=stop_after_event):
+            with self.assertRaises(SystemExit):
+                memory_workflow.register(self.workflow, self.fields['id'])
+        self.assertFalse((self.vault / (self.fields['id'] + '.md')).exists())
+        repaired = memory_workflow.recover_registration(self.workflow, self.fields['id'])
+        self.assertEqual(repaired['state'], 'RECOVERED_REGISTERED')
+        self.assertEqual(memory_workflow.status(self.workflow, self.fields['id'])['workflow_status'], 'REGISTERED')
+        self.assertEqual(memory_workflow.recover_registration(self.workflow, self.fields['id'])['state'], 'ALREADY_PRESENT')
 
     def test_source_and_scope_tampering_denied(self):
         self._propose()

@@ -27,6 +27,10 @@ def main():
     receipt = commands.add_parser('receipt')
     receipt.add_argument('--root', required=True)
     receipt.add_argument('--id', required=True)
+    recover = commands.add_parser('recover')
+    recover.add_argument('--root', required=True)
+    check = commands.add_parser('check')
+    check.add_argument('--root', required=True)
     packet = commands.add_parser('packet')
     packet.add_argument('--root', required=True)
     packet.add_argument('--id', required=True)
@@ -56,6 +60,10 @@ def main():
             result = memory_submission.list_receipts(args.root)
         elif args.command == 'receipt':
             result = memory_submission.receipt_detail(args.root, args.id)
+        elif args.command == 'recover':
+            result = memory_submission.recover(args.root)
+        elif args.command == 'check':
+            result = memory_submission.integrity_check(args.root)
         elif args.command == 'packet':
             packet_data = memory_submission.review_packet(args.root, args.id)
             workflow._new_file(args.out, json.dumps(packet_data, ensure_ascii=False, indent=2).encode())

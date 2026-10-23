@@ -1,5 +1,9 @@
 """Private DRAFT-only intake for Studio Memory; no keys, approval, or Reader writes."""
 import json
+import fcntl
+import os
+import stat
+import secrets
 from pathlib import Path
 
 from app import memory_workflow as workflow
@@ -41,6 +45,19 @@ def _annotations(root, candidate):
 def add(root_path, report_path, fields, *, project='ZERO CODE', unknowns=None):
     root = _root(root_path)
     candidate = workflow.build_candidate(report_path, fields)
+    lock = root / 'candidate.lock'
+    fd = os.open(lock, os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)
+    try:
+        info = os.fstat(fd)
+        if not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid() or info.st_mode & 0o077:
+            raise ValueError('unsafe DRAFT lock')
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        return _add_locked(root, candidate, project=project, unknowns=unknowns)
+    finally:
+        os.close(fd)
+
+
+def _add_locked(root, candidate, *, project, unknowns):
     memory_id = candidate['id']
     vault = workflow._config(root)
     if (vault / (memory_id + '.md')).exists() or (root / 'candidates' / (memory_id + '.json')).exists():
@@ -50,13 +67,24 @@ def add(root_path, report_path, fields, *, project='ZERO CODE', unknowns=None):
         raise ValueError('invalid project')
     if not isinstance(unknowns, list) or not all(isinstance(x, str) and 0 < len(x) <= 500 for x in unknowns):
         raise ValueError('invalid unknowns')
-    workflow._new_file(root / 'candidates' / (memory_id + '.json'), workflow._canonical(candidate))
+    candidate_path = root / 'candidates' / (memory_id + '.json')
+    annotation_path = root / 'annotations' / (memory_id + '.json')
+    annotation = workflow._canonical({'project': project, 'unknowns': unknowns,
+                                      'candidate_sha256': workflow._sha(workflow._canonical(candidate))})
+    created_annotation = False
     try:
-        workflow._new_file(root / 'annotations' / (memory_id + '.json'),
-                           workflow._canonical({'project': project, 'unknowns': unknowns,
-                                                'candidate_sha256': workflow._sha(workflow._canonical(candidate))}))
+        if annotation_path.exists():
+            # No candidate exists under the lock, so this is an interrupted
+            # write. Preserve it for inspection before retrying.
+            orphan = root / 'annotations' / ('.orphan-' + memory_id + '-' + secrets.token_hex(8))
+            os.replace(annotation_path, orphan)
+        workflow._new_file(annotation_path, annotation)
+        created_annotation = True
+        # Candidate is the commit marker: readers never see a missing annotation.
+        workflow._new_file(candidate_path, workflow._canonical(candidate))
     except Exception:
-        (root / 'candidates' / (memory_id + '.json')).unlink()
+        if created_annotation and not candidate_path.exists():
+            annotation_path.unlink(missing_ok=True)
         raise
     return candidate
 

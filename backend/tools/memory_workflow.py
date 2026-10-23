@@ -49,6 +49,8 @@ def main():
     apply_action.add_argument('--signature', required=True)
     register = actions.add_parser('register')
     register.add_argument('--id', required=True)
+    recover = actions.add_parser('recover-registration')
+    recover.add_argument('--id', required=True)
     status = actions.add_parser('status')
     status.add_argument('--id', required=True)
     args = parser.parse_args()
@@ -97,6 +99,8 @@ def main():
             print(workflow.apply_assertion(args.root, assertion, signature))
         elif args.command == 'register':
             print(json.dumps(workflow.register(args.root, args.id)))
+        elif args.command == 'recover-registration':
+            print(json.dumps(workflow.recover_registration(args.root, args.id)))
         elif args.command == 'status':
             print(json.dumps(workflow.status(args.root, args.id), ensure_ascii=False))
     except (OSError, ValueError, UnicodeError, json.JSONDecodeError) as error:

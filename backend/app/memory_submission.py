@@ -17,6 +17,7 @@ from app import memory_drafts, memory_security, memory_workflow as workflow
 
 MAX_BODY = 300_000
 MAX_SOURCE = 262_144
+MAX_TRANSACTION = 400_000
 RECEIPT_ID = re.compile(r'^[a-f0-9]{32}$')
 AUDIENCE = 'studio-memory-draft-submit'
 
@@ -31,7 +32,7 @@ def initialize(root_path, inbox_path):
         raise ValueError('submission root already exists')
     memory_drafts._root(inbox_path)
     root.mkdir(mode=0o700)
-    for name in ('sources', 'receipts'):
+    for name in ('sources', 'receipts', 'transactions'):
         (root / name).mkdir(mode=0o700)
     workflow._new_file(root / 'key', secrets.token_bytes(32))
     workflow._new_file(root / 'state.json', workflow._canonical({'version': 1, 'work02_generation': 1}))
@@ -150,13 +151,22 @@ def _accept_locked(root, payload, work):
     # Validate every source-bound field before writing any candidate or receipt.
     source_path = root / 'sources' / (receipt_id + '.md')
     receipt_path = root / 'receipts' / (receipt_id + '.json')
+    transaction_path = root / 'transactions' / (receipt_id + '.json')
     payload_hash = workflow._sha(workflow._canonical(payload))
     if receipt_path.exists():
         receipt = json.loads(memory_security._private_file(receipt_path))
         if receipt['payload_sha256'] != payload_hash or receipt['work'] != work:
             raise ValueError('receipt ID reused with different content')
+        _verified_receipt(root, receipt_id)
         _audit(root, work, 'IDEMPOTENT_RETRY', receipt_id)
         return receipt
+    if transaction_path.exists():
+        transaction = json.loads(workflow._read_file(transaction_path, MAX_TRANSACTION))
+        if transaction.get('payload_sha256') != payload_hash or transaction.get('work') != work:
+            raise ValueError('unfinished receipt ID reused with different content')
+    else:
+        workflow._new_file(transaction_path, workflow._canonical({'work': work,
+            'payload_sha256': payload_hash, 'payload': payload, 'state': 'SUBMITTED'}))
     _audit(root, work, 'SUBMITTED', receipt_id)
     if source_path.exists():
         # Interrupted attempts are never treated as completed receipts.
@@ -196,6 +206,7 @@ def _accept_locked(root, payload, work):
             'disposition': disposition, 'review_status': detail['review_status']}
         workflow._new_file(receipt_path, workflow._canonical(receipt))
         _audit(root, work, 'READY_FOR_REVIEW', receipt_id)
+        transaction_path.unlink(missing_ok=True)
         return receipt
     except Exception:
         # Roll back a newly created DRAFT when receipt persistence fails.
@@ -217,13 +228,68 @@ def receipt_detail(root_path, receipt_id):
         raise ValueError('invalid receipt ID')
     receipt = json.loads(memory_security._private_file(root / 'receipts' / (receipt_id + '.json')))
     detail = memory_drafts.detail(_inbox(root), receipt['candidate_id'])
+    if (receipt.get('receipt_id') != receipt_id or receipt.get('source_sha256') != detail['candidate']['source_sha256']
+            or receipt.get('candidate_id') != detail['candidate']['id']):
+        raise ValueError('receipt and candidate disagree')
     return {**receipt, 'submission_status': 'REVIEWED' if detail['review_status'] != 'REVIEW_PENDING' else receipt['submission_status'],
             'review_status': detail['review_status'], 'candidate_source_state': detail['source_state']}
+
+
+def _verified_receipt(root_path, receipt_id):
+    receipt = receipt_detail(root_path, receipt_id)
+    if (receipt['approval_status'] != 'DRAFT' or receipt['workflow_status'] != 'DRAFT'
+            or receipt['source_state'] != 'MATCH' or receipt['candidate_source_state'] != 'MATCH'):
+        raise ValueError('receipt or candidate integrity mismatch')
+    return receipt
 
 
 def list_receipts(root_path):
     root = _private_root(root_path)
     return [receipt_detail(root, path.stem) for path in sorted((root / 'receipts').glob('*.json'))]
+
+
+def integrity_check(root_path):
+    root = _private_root(root_path)
+    checked = 0
+    for path in sorted((root / 'receipts').glob('*.json')):
+        if not RECEIPT_ID.fullmatch(path.stem):
+            raise ValueError('invalid receipt name')
+        _verified_receipt(root, path.stem)
+        checked += 1
+    return {'receipts_verified': checked, 'state': 'MATCH'}
+
+
+def recover(root_path):
+    """Resume private unfinished submissions; a conflict stops startup closed."""
+    root = _private_root(root_path)
+    lock = root / 'accept.lock'
+    fd = os.open(lock, os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        output = []
+        for path in sorted((root / 'transactions').glob('*.json')):
+            if not RECEIPT_ID.fullmatch(path.stem):
+                raise ValueError('invalid recovery transaction')
+            transaction = json.loads(workflow._read_file(path, MAX_TRANSACTION))
+            if transaction.get('state') != 'SUBMITTED' or transaction.get('work') != 'work02':
+                raise ValueError('invalid recovery state')
+            payload = transaction.get('payload')
+            if not isinstance(payload, dict) or payload.get('receipt_id') != path.stem:
+                raise ValueError('invalid recovery payload')
+            if workflow._sha(workflow._canonical(payload)) != transaction.get('payload_sha256'):
+                raise ValueError('recovery transaction hash mismatch')
+            if (root / 'receipts' / (path.stem + '.json')).exists():
+                receipt = _verified_receipt(root, path.stem)
+                if receipt['payload_sha256'] != transaction['payload_sha256']:
+                    raise ValueError('receipt and transaction disagree')
+                path.unlink()
+                output.append({'receipt_id': path.stem, 'state': 'VERIFIED_EXISTING'})
+            else:
+                receipt = _accept_locked(root, payload, 'work02')
+                output.append({'receipt_id': path.stem, 'state': receipt['submission_status']})
+        return output
+    finally:
+        os.close(fd)
 
 
 def review_packet(root_path, receipt_id):
@@ -243,6 +309,8 @@ def review_packet(root_path, receipt_id):
 
 def create_app(root_path):
     root = _private_root(root_path)
+    recover(root)
+    integrity_check(root)
     app = FastAPI(title='Studio Memory private DRAFT submission')
 
     @app.post('/submit')
