@@ -25,12 +25,13 @@
 | K07の承認範囲 | `APPROVED`はX02＋K07のSNS公開のみ、本編MASTER含まず |
 | Reader検索と詳細の不一致／approved-only資格情報の誤用 | ブリーフ生成を拒否する単体テストPASS |
 | DRAFTをAPPROVEDとしたreview packet | 監督ブリーフ生成を拒否する単体テストPASS |
+| Readerから別URLへの転送 | ブリーフCLIは転送を拒否する単体テストPASS |
 
 Reader監査は12イベントを確認し、記憶本文とBearer文字列は含まれなかった。資格情報の値はチャット・Gitに出していない。隔離コピー3件のSHAは元ファイルと全件一致。ブリーフは0600。既存の実候補は読取のみで、`source_state=MATCH`、`review_status=REVIEW_PENDING`を再確認した。
 
 ## 回帰と保全
 
-ローカルbackend全体137件PASS（新規ブリーフ7件を含む）。frontend認証9件PASS、TypeScriptチェック、Next.jsビルドPASS。Draft PRのCIは作成後に確認する。本番OS `production.json` の開始時・終了時SHA-256はともに`77a66760d4763aa4cfc138a60eb3794f3655bbc2b9d9ae1176aa11342f30e024`、実候補も両時点で`5d5d2ad535466e3b53cbee4d2fd16f9ebc309b71ac2eb6449e82f42616511886`。試験後に隔離Readerを停止し、隔離環境のWork 01・02資格情報を失効、tokenファイルを削除した。
+ローカルbackend全体138件PASS（新規ブリーフ8件を含む）。frontend認証9件PASS、TypeScriptチェック、Next.jsビルドPASS。Draft PR #15の初回CIはbackend・frontendともPASS（GitHub Actions run `40002850112`）。本番OS `production.json` の開始時・終了時SHA-256はともに`77a66760d4763aa4cfc138a60eb3794f3655bbc2b9d9ae1176aa11342f30e024`、実候補も両時点で`5d5d2ad535466e3b53cbee4d2fd16f9ebc309b71ac2eb6449e82f42616511886`。試験後に隔離Readerを停止し、隔離環境のWork 01・02資格情報を失効、tokenファイルを削除した。
 
 ## 判定
 

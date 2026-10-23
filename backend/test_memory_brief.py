@@ -8,6 +8,7 @@ import unittest
 from pathlib import Path
 
 from app import memory_brief
+from tools.memory_brief import _NoRedirect
 
 
 def note(memory_id, status, scope, body):
@@ -102,6 +103,10 @@ class BriefTests(unittest.TestCase):
                 '--out', str(output)], cwd=Path(__file__).parent, capture_output=True)
             self.assertEqual(result.returncode, 1)
             self.assertFalse(output.exists())
+
+    def test_reader_redirect_is_refused(self):
+        with self.assertRaisesRegex(ValueError, 'redirect refused'):
+            _NoRedirect().redirect_request(None, None, 302, 'redirect', {}, 'https://example.org')
 
 
 if __name__ == '__main__':

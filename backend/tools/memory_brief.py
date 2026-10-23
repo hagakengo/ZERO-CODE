@@ -11,6 +11,11 @@ from app import memory_brief, memory_security, memory_workflow as workflow
 from tools.memory_auth import read_private_token
 
 
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, request, fp, code, msg, headers, newurl):
+        raise ValueError('Reader redirect refused')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--url', required=True)
@@ -28,10 +33,11 @@ def main():
                 or parsed.query or parsed.fragment):
             raise ValueError('loopback Reader required')
         token = read_private_token(args.token_file)
+        opener = urllib.request.build_opener(_NoRedirect)
         def fetch(path):
             request = urllib.request.Request(args.url.rstrip('/') + path,
                                              headers={'Authorization': 'Bearer ' + token})
-            with urllib.request.urlopen(request, timeout=10) as response:
+            with opener.open(request, timeout=10) as response:
                 data = response.read(100_001)
                 if len(data) > 100_000:
                     raise ValueError('Reader response too large')
