@@ -10,6 +10,8 @@ from pathlib import Path
 from threading import Event
 from unittest.mock import patch
 
+from fastapi import HTTPException
+
 from app import memory_backup, memory_drafts, memory_security, memory_submission, memory_workflow as workflow
 from test_memory_submission import setup
 
@@ -160,8 +162,10 @@ memory_submission.accept(Path(sys.argv[1]), json.loads(Path(sys.argv[2]).read_te
     def test_backup_restore_rollback_and_corruption(self):
         root, inbox, client, envelope = self._case('backup')
         memory_submission.accept(root, envelope)
+        old_submission_token = memory_submission.issue(root)
         reader = self.base / 'reader'
         memory_security.initialize(reader)
+        old_reader_token = memory_security.issue(reader, 'work02', 'all')
         workflow_root = self.base / 'workflow'
         workflow_root.mkdir(mode=0o700)
         workflow._new_file(workflow_root / 'synthetic-public-registry.json', b'{"synthetic":true}')
@@ -189,6 +193,19 @@ memory_submission.accept(Path(sys.argv[1]), json.loads(Path(sys.argv[2]).read_te
                          (inbox / 'candidates' / (envelope['fields']['id'] + '.json')).read_bytes())
         self.assertEqual((restored / 'vault' / synthetic_note.name).read_bytes(), synthetic_note.read_bytes())
         self.assertEqual(memory_backup.verify_snapshot(restored)['sequence'], 2)
+        # A restore is unusable until both service keys are rebuilt. Even when
+        # restored authorization state is retained, old tokens must stay dead.
+        with self.assertRaises(OSError):
+            memory_security._key(restored / 'reader_auth')
+        with self.assertRaises(OSError):
+            memory_submission._key(restored / 'submission')
+        workflow._new_file(restored / 'reader_auth' / 'signing.key', os.urandom(32))
+        workflow._new_file(restored / 'submission' / 'key', os.urandom(32))
+        with self.assertRaises(ValueError):
+            memory_security._signed_payload(old_reader_token, memory_security._key(restored / 'reader_auth'))
+        with self.assertRaises(HTTPException) as denied:
+            memory_submission._verify(restored / 'submission', 'Bearer ' + old_submission_token)
+        self.assertEqual(denied.exception.status_code, 401)
         corrupt = second / 'submission' / 'receipts' / (envelope['receipt_id'] + '.json')
         corrupt.write_text('damaged')
         with self.assertRaisesRegex(ValueError, 'hash mismatch'):

@@ -851,3 +851,12 @@ Producer reported unnatural skin shadow. Replaced skin-bearing eye/mouth patches
 - 実機スマホは端末環境なしのため未完了を維持。原文資料再開は構造化DTO・開示範囲審査後とする。
 - 次期設計の優先事項に、レビュー操作性と発信用素材の安全な選別を記載。未実装の設計方針であり、自動投稿・本番DB更新の許可ではない。
 - 本番revision35・71素材・41履歴・MASTERは変更しない。PR #8はDraft継続。
+
+## 2026-10-24 — ZCS-OS-018 Studio Memory v0.1完成判定（隔離検証）
+
+- 判定：機能完成PASS、隔離先行運用CONDITIONAL、正式運用FAIL／開始不可。正式承認やPRマージではない。
+- 実測：元の私有記憶保管庫は0755、3ファイルは0644。0700/0600の隔離コピー3件でハッシュ一致とReaderのDRAFT／SNS限定APPROVED境界を確認。同一macOS UIDは強いWork間分離ではない。
+- 合成復元：通常の旧snapshot・破損snapshotは拒否。anchorを同じUIDが巻き戻すと旧snapshotを受け入れるため、独立した基準保護が正式運用の阻害条件。復元先の署名秘密は欠落し、新鍵後の旧Reader・提出token拒否をテストに追加。
+- 回帰：backend 138件、frontend 9件、TypeScript、Next.jsビルドPASS。Draft PR #8〜#15の既存CIは各backend/frontend成功。既存PRは変更・マージしていない。
+- 保全：本番OSと実DRAFT候補、元の3記憶ノートのSHAは作業前後一致。実制作記憶登録、実鍵発行、元保管庫の権限変更、本番接続はなし。
+- 根拠：[完成判定](docs/os/ZCS-OS-018_READINESS_DRAFT.md)、[隔離運用手順](docs/os/ZCS-OS-018_OPERATION_MANUAL_DRAFT.md)。次はプロデューサーが別OSユーザー・鍵保管・独立anchorを判断し、別主体による拒否試験後に正式運用を再判定する。
