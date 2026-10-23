@@ -13,7 +13,7 @@
 | ゲート2拒否・復元試験 | [ゲート2計画](ZCS-OS-020_GATE2_PLAN_DRAFT.md)。G2-01〜07はいずれも別主体で未実施 |
 | 合成試験 | [合成受領照合テスト](../../backend/test_memory_gate1_witness.py)4件PASS。最新受領一致、作業anchor巻き戻し下の旧版拒否、破損拒否、受領欠落／未受領拒否 |
 | テスト | backend `unittest discover` 142件PASS。frontend `test:studio` 9件PASS、`npx tsc --noEmit` PASS、`npm run build` PASS。最初に汎用`npm test`/`npm run typecheck`を試したが、このrepoにスクリプトがなく不実行。正しいコマンドで再実施した |
-| CI／PR | 既存PR #8〜#17はDraft。作業開始時#17のbackend/frontend CI PASS。新規Draft PRのCIは作成後の結果を別途記録する |
+| CI／PR | 既存PR #8〜#17はDraft。新規[Draft PR #18](https://github.com/hagakengo/ZERO-CODE/pull/18)は#17をbaseにし、最初のコミットでbackend/frontend CIがともにPASS。マージ・デプロイなし |
 
 ## 状態・範囲の再確認
 
@@ -25,6 +25,8 @@
 2. producer秘密鍵、別人のdirector技術署名者、producer管理の受領記録は未設定。実鍵での署名拒否・別主体の受領記録変更拒否は未実測。
 3. 現行backup CLIは独立受領記録を自動照合しない。照合手順は合成テストで検証したが、正式復元の技術的ゲートではない。受領失敗、受領記録紛失時は手動停止。
 4. TCC/Automation・Reader/受付/管理CLIの本番実行主体と、恒常的snapshot/anchor場所は未照合。別所有者rootでの管理CLI運用は未検証。
+
+テスト呼び出しの補足：追加の対象別コマンドで存在しない`test_memory_security`モジュールを誤指定し、その呼び出しだけはERRORだった。対象別結果を成功実績として数えていない。正しい全件discoverは142件PASSし、CIでもbackend/frontendが通過した。
 
 ## 次の判断
 
