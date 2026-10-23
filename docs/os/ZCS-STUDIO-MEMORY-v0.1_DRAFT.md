@@ -21,7 +21,7 @@ Studio Memoryは[閲覧専用MVP](ZCS-OS-WEB-MVP_IMPLEMENTATION_DRAFT.md)の独�
 | 記憶詳細 | `/api/studio/memory/K07-PUBLICATION-001` |
 | 正式判断の詳細 | `/api/studio/memory/K07-PUBLICATION-001?approved_only=true` |
 
-検索結果はID、種別、出典、承認状態・範囲、更新日、関連ID、素材IDを返す。詳細は本文も返す。検索は全角半角を正規化し、空白区切り語のAND検索。ノートは最大32 KiB、未知のfrontmatterキー・壊れた形式・シンボリックリンクを拒否する。ノート本文は認証済みの内部利用に限る。生成AI用の一般公開エンドポイントやMCPサーバーは提供しない。
+検索結果はID、種別、出典、承認状態・範囲、更新日、関連ID、素材IDを返す。詳細は本文も返す。検索は全角半角を正規化し、日本語の文字種と英数字IDを分けたキーワードAND検索。自然文の意味解析や同義語検索ではない。ノートは最大32 KiB、未知のfrontmatterキー・壊れた形式・シンボリックリンクを拒否する。ノート本文は認証済みの内部利用に限る。生成AI用の一般公開エンドポイントやMCPサーバーは提供しない。
 
 Work 01・02の作業開始時には対象語で検索し、詳細の`approval_status`と`approval_scope`、`sources`を確認する運用を想定する。**別チャットのWork 01・02から実際に取得したことは未検証**。利用には両Workの実行環境からローカルReaderへ安全に接続する設定が必要。認証情報をチャットやGitに記載しない。
 

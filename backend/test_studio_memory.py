@@ -56,6 +56,9 @@ class StudioMemoryTests(unittest.TestCase):
             self.assertIn(key, detail)
         self.assertEqual(detail['approval_status'], 'DRAFT')
         self.assertIn('K07-PUBLICATION-001', detail['related'])
+        natural = self.client.get('/api/studio/memory/search?q=ユナのr03目元について、どんな判断があるか',
+                                  headers=self.auth)
+        self.assertEqual([x['id'] for x in natural.json()['results']], ['YUNA-EYE-001'])
 
     def test_approved_only_does_not_promote_draft(self):
         result = self.client.get('/api/studio/memory/search?approved_only=true', headers=self.auth)

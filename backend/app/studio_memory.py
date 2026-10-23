@@ -87,13 +87,22 @@ def _normal(text):
     return unicodedata.normalize('NFKC', text).casefold()
 
 
+def _terms(query):
+    normalized = _normal(query)
+    # Separate Japanese script runs and Latin IDs; particles stay out of an
+    # otherwise meaningful mixed-script query. This is keyword search, not NLP.
+    pieces = re.findall(r'[a-z0-9]+|[一-龯々〆ヵヶ]+|[ァ-ヴー]+|[ぁ-ん]+', normalized)
+    content = [p for p in pieces if not re.fullmatch(r'[ぁ-ん]+', p)]
+    return content or normalized.split()
+
+
 def _response(data):
     return JSONResponse(data, headers={'Cache-Control': 'private, no-store'})
 
 
 @router.get('/search')
 def search(q: str = Query(default='', max_length=120), approved_only: bool = False):
-    words = _normal(q).split()
+    words = _terms(q)
     result = []
     for note in _load_all().values():
         if approved_only and note['approval_status'] != 'APPROVED':
