@@ -102,3 +102,7 @@ async def private_responses(request: Request, call_next):
 
 
 app.include_router(router)
+
+# The memory vault is independent of the production snapshot and has no write route.
+from app.studio_memory import router as memory_router
+app.include_router(memory_router)

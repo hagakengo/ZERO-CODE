@@ -4,7 +4,9 @@ export const dynamic = 'force-dynamic';
 async function proxy(request: NextRequest, context: { params: Promise<{ path: string[] }> }) {
   if (!await validSession(request.cookies.get(COOKIE)?.value)) return new NextResponse(null, { status: 401 });
   const { path } = await context.params;
-  if (!(path.length === 1 && path[0] === 'index') && !(path.length === 2 && path[0] === 'media' && /^[a-zA-Z0-9_-]{1,120}$/.test(path[1]))) return new NextResponse(null, { status: 404 });
+  const memory = path.length === 2 && path[0] === 'memory' && path[1] === 'search';
+  const memoryDetail = path.length === 2 && path[0] === 'memory' && /^[A-Z][A-Z0-9-]{2,79}$/.test(path[1]);
+  if (!(path.length === 1 && path[0] === 'index') && !(path.length === 2 && path[0] === 'media' && /^[a-zA-Z0-9_-]{1,120}$/.test(path[1])) && !memory && !memoryDetail) return new NextResponse(null, { status: 404 });
   const token = process.env.STUDIO_READER_TOKEN;
   if (!token || token.length < 32) return NextResponse.json({ detail: '制作データは未接続です' }, { status: 503 });
   const base = new URL(process.env.STUDIO_READER_URL || 'http://127.0.0.1:8135');
@@ -12,7 +14,14 @@ async function proxy(request: NextRequest, context: { params: Promise<{ path: st
   const headers = new Headers({ Authorization: `Bearer ${token}` });
   const range = request.headers.get('range'); if (range) headers.set('Range', range);
   try {
-    const upstream = await fetch(new URL(`/api/studio/${path.join('/')}`, base), { method: request.method, headers, cache: 'no-store', signal: AbortSignal.timeout(20_000), redirect: 'error' });
+    const target = new URL(`/api/studio/${path.join('/')}`, base);
+    if (memory || memoryDetail) {
+      for (const key of ['q', 'approved_only']) {
+        const value = request.nextUrl.searchParams.get(key);
+        if (value !== null) target.searchParams.set(key, value);
+      }
+    }
+    const upstream = await fetch(target, { method: request.method, headers, cache: 'no-store', signal: AbortSignal.timeout(20_000), redirect: 'error' });
     const output = new Headers({ 'Cache-Control': 'private, no-store', 'X-Content-Type-Options': 'nosniff', 'Content-Security-Policy': "default-src 'none'; frame-ancestors 'self'" });
     for (const name of ['content-type', 'content-length', 'content-range', 'accept-ranges', 'x-asset-sha256']) {
       const value = upstream.headers.get(name); if (value) output.set(name, value);
