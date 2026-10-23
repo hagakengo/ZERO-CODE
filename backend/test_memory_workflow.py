@@ -142,6 +142,18 @@ class MemoryWorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             memory_workflow.apply_assertion(self.workflow, assertion, self._sign(assertion, 'producer'))
 
+    def test_event_action_tampering_is_rejected(self):
+        self._propose()
+        self._submit('DIRECTOR_REVIEWED', 'director')
+        path = self.workflow / 'events' / (self.fields['id'] + '.jsonl')
+        event = json.loads(path.read_text())
+        event['action'] = 'PRODUCER_APPROVED'
+        path.write_text(json.dumps(event) + '\n')
+        assertion = memory_workflow.prepare_assertion(self.workflow, self.fields['id'], 'PRODUCER_APPROVED', 'producer',
+                                                      approval_status='APPROVED')
+        with self.assertRaises(ValueError):
+            memory_workflow.apply_assertion(self.workflow, assertion, self._sign(assertion, 'producer'))
+
     def test_duplicate_and_no_overwrite(self):
         self._propose()
         with self.assertRaises(ValueError):

@@ -223,10 +223,14 @@ def prepare_assertion(root_path, memory_id, action, actor, *, approval_status=No
 
 def _verify_event(root, candidate, event):
     payload = event['assertion']
+    if event['action'] != payload.get('action'):
+        raise ValueError('approval event changed')
     role = 'director' if payload['action'] == 'DIRECTOR_REVIEWED' else 'producer'
     if payload['action'] == 'REJECTED':
         role = event['role']
-    if role != event['role'] or payload['candidate_sha256'] != _sha(_canonical(candidate)):
+    if (role != event['role'] or payload.get('candidate_id') != candidate['id']
+            or payload.get('approval_scope') != candidate['approval_scope']
+            or payload['candidate_sha256'] != _sha(_canonical(candidate))):
         raise ValueError('approval target mismatch')
     proof_name = event['proof_name']
     if not isinstance(proof_name, str) or not re.fullmatch(r'[A-Z0-9-]+\.[a-f0-9]{16}\.sig', proof_name):
