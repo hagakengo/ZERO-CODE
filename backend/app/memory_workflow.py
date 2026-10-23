@@ -72,6 +72,44 @@ def _new_file(path, data):
         raise
 
 
+def _replace_private_file(path, data):
+    path = Path(path)
+    temporary = path.with_name('.' + path.name + '.' + secrets.token_hex(8))
+    _new_file(temporary, data)
+    os.replace(temporary, path)
+
+
+def _key_id(role, key):
+    return role + '-' + _sha(key)[:24]
+
+
+def _registry(root):
+    data = json.loads(_read_file(root / 'keys' / 'registry.json', 32768))
+    if data.get('version') != 1 or not isinstance(data.get('keys'), dict):
+        raise ValueError('invalid key registry')
+    for key_id, entry in data['keys'].items():
+        if not re.fullmatch(r'(director|producer)-[a-f0-9]{24}', key_id):
+            raise ValueError('invalid key ID')
+        if (entry.get('role') not in ROLES or entry.get('state') not in {'active', 'revoked'}
+                or entry.get('role') != key_id.split('-')[0]):
+            raise ValueError('invalid key entry')
+        key = _read_file(root / 'keys' / (key_id + '.pem'), 8192)
+        if _key_id(entry['role'], key) != key_id or _sha(key) != entry.get('sha256'):
+            raise ValueError('approval public key changed')
+    for role in ROLES:
+        if sum(item['role'] == role and item['state'] == 'active' for item in data['keys'].values()) > 1:
+            raise ValueError('multiple active approval keys')
+    return data
+
+
+def _active_key(root, role):
+    matches = [key_id for key_id, item in _registry(root)['keys'].items()
+               if item['role'] == role and item['state'] == 'active']
+    if len(matches) != 1:
+        raise ValueError('active approval key unavailable')
+    return matches[0]
+
+
 def initialize(root_path, vault_path, director_public, producer_public):
     root = Path(root_path)
     vault = Path(vault_path).resolve(strict=True)
@@ -84,8 +122,12 @@ def initialize(root_path, vault_path, director_public, producer_public):
     root.mkdir(mode=0o700)
     for name in ('candidates', 'events', 'diffs', 'archive', 'proofs', 'keys'):
         (root / name).mkdir(mode=0o700)
+    entries = {}
     for role, key in keys.items():
-        _new_file(root / 'keys' / (role + '.pem'), key)
+        key_id = _key_id(role, key)
+        _new_file(root / 'keys' / (key_id + '.pem'), key)
+        entries[key_id] = {'role': role, 'state': 'active', 'sha256': _sha(key)}
+    _new_file(root / 'keys' / 'registry.json', _canonical({'version': 1, 'keys': entries}))
     _new_file(root / 'config.json', _canonical({'version': 1, 'vault': str(vault)}))
     return root
 
@@ -119,6 +161,10 @@ def _events(root, memory_id):
 
 def _append_event(root, memory_id, event):
     path = root / 'events' / (memory_id + '.jsonl')
+    _append_jsonl(path, event)
+
+
+def _append_jsonl(path, event):
     fd = os.open(path, os.O_WRONLY | os.O_APPEND | os.O_CREAT | os.O_NOFOLLOW, 0o600)
     try:
         info = os.fstat(fd)
@@ -131,16 +177,22 @@ def _append_event(root, memory_id, event):
         os.close(fd)
 
 
-def _verify_signature(root, role, payload, signature):
+def _verify_signature(root, role, payload, signature, *, require_active=True):
     if role not in ROLES or len(signature) > 1024:
         raise ValueError('invalid approval signature')
+    key_id = payload.get('key_id')
+    if not isinstance(key_id, str):
+        raise ValueError('invalid approval key ID')
+    entry = _registry(root)['keys'].get(key_id)
+    if not entry or entry['role'] != role or (require_active and entry['state'] != 'active'):
+        raise ValueError('approval key unavailable or revoked')
     with tempfile.TemporaryDirectory() as temporary:
         message = Path(temporary) / 'message'
         signed = Path(temporary) / 'signature'
         message.write_bytes(_canonical(payload))
         signed.write_bytes(signature)
         result = subprocess.run([_openssl(), 'pkeyutl', '-verify', '-pubin', '-inkey',
-                                 str(root / 'keys' / (role + '.pem')), '-rawin',
+                                 str(root / 'keys' / (key_id + '.pem')), '-rawin',
                                  '-in', str(message), '-sigfile', str(signed)],
                                 capture_output=True, timeout=10, check=False)
         if result.returncode != 0:
@@ -214,11 +266,175 @@ def prepare_assertion(root_path, memory_id, action, actor, *, approval_status=No
     candidate = _candidate(root, memory_id)
     if action not in REVIEW_ACTIONS or not isinstance(actor, str) or not actor.strip():
         raise ValueError('invalid approval action')
+    role = 'director' if action == 'DIRECTOR_REVIEWED' else 'producer'
     return {'candidate_id': memory_id, 'candidate_sha256': _sha(_canonical(candidate)),
+            'source_sha256': candidate['source_sha256'],
+            'body_sha256': _body_digest(candidate), 'key_id': _active_key(root, role),
+            'nonce': secrets.token_hex(16),
             'action': action, 'actor': actor, 'at': _now(), 'reason': reason or '',
             'approval_scope': candidate['approval_scope'],
             'approval_status': approval_status or candidate['approval_status'],
             'accepted_conflicts': accepted_conflicts or []}
+
+
+def _body_digest(candidate):
+    """Digest the substantive text independently of registration timestamp/metadata."""
+    return _sha(_canonical({name: candidate[name] for name in
+                           ('title', 'decision_excerpt', 'reason_excerpt', 'characters',
+                            'episodes', 'assets', 'related', 'approval_scope')}))
+
+
+def _check_assertion_target(candidate, payload):
+    if (payload.get('candidate_id') != candidate['id']
+            or payload.get('candidate_sha256') != _sha(_canonical(candidate))
+            or payload.get('source_sha256') != candidate['source_sha256']
+            or payload.get('body_sha256') != _body_digest(candidate)
+            or payload.get('approval_scope') != candidate['approval_scope']):
+        raise ValueError('approval target mismatch')
+
+
+def _check_time(value):
+    if not isinstance(value, str):
+        raise ValueError('approval time required')
+    try:
+        signed_at = datetime.fromisoformat(value)
+    except ValueError:
+        raise ValueError('invalid approval time') from None
+    current_time = datetime.now(timezone.utc)
+    if (signed_at.tzinfo is None or signed_at < current_time - timedelta(hours=24)
+            or signed_at > current_time + timedelta(minutes=5)):
+        raise ValueError('approval assertion expired')
+
+
+def _nonce_used(root, nonce):
+    if not re.fullmatch(r'[a-f0-9]{32}', nonce):
+        raise ValueError('invalid assertion nonce')
+    for path in (root / 'events').glob('*.jsonl'):
+        for line in _read_file(path).splitlines():
+            event = json.loads(line)
+            if event.get('assertion', {}).get('nonce') == nonce:
+                return True
+    return False
+
+
+def prepare_key_change(root_path, role, action, actor, *, new_public=None, reason=''):
+    """Create a producer-signed management request; never handles private keys."""
+    root = _private_root(root_path)
+    if role not in ROLES or action not in {'ROTATE', 'REVOKE'} or not actor.strip() or not reason.strip():
+        raise ValueError('invalid key management request')
+    if action == 'REVOKE' and (role == 'producer' or new_public):
+        raise ValueError('producer key requires replacement; revoke accepts no replacement')
+    if action == 'ROTATE' and not new_public:
+        raise ValueError('replacement public key required')
+    key = _read_file(new_public, 8192) if new_public else None
+    if key is not None and b'PUBLIC KEY' not in key:
+        raise ValueError('invalid replacement public key')
+    registry = _registry(root)
+    old_id = _active_key(root, role)
+    new_id = _key_id(role, key) if key else None
+    if new_id in registry['keys']:
+        raise ValueError('replacement key already registered')
+    return {'action': action, 'role': role, 'old_key_id': old_id,
+            'new_key_id': new_id, 'new_key_sha256': _sha(key) if key else None,
+            'registry_sha256': _sha(_canonical(registry)),
+            'key_id': _active_key(root, 'producer'), 'nonce': secrets.token_hex(16),
+            'actor': actor, 'at': _now(), 'reason': reason}
+
+
+def apply_key_change(root_path, assertion, signature, *, new_public=None):
+    root = _private_root(root_path)
+    if set(assertion) != {'action', 'role', 'old_key_id', 'new_key_id', 'new_key_sha256',
+                          'registry_sha256', 'key_id', 'nonce', 'actor', 'at', 'reason'}:
+        raise ValueError('invalid key management assertion')
+    role, action = assertion['role'], assertion['action']
+    if role not in ROLES or action not in {'ROTATE', 'REVOKE'} or not assertion['reason'].strip():
+        raise ValueError('invalid key management action')
+    if role == 'producer' and action == 'REVOKE':
+        raise ValueError('producer key requires replacement')
+    _check_time(assertion['at'])
+    if not re.fullmatch(r'[a-f0-9]{32}', assertion['nonce']):
+        raise ValueError('invalid management nonce')
+    registry = _registry(root)
+    if (assertion['registry_sha256'] != _sha(_canonical(registry))
+            or assertion['old_key_id'] != _active_key(root, role)
+            or assertion['key_id'] != _active_key(root, 'producer')):
+        raise ValueError('key registry changed or signer inactive')
+    key = _read_file(new_public, 8192) if new_public else None
+    if action == 'ROTATE':
+        if (not key or b'PUBLIC KEY' not in key or _key_id(role, key) != assertion['new_key_id']
+                or _sha(key) != assertion['new_key_sha256']
+                or assertion['new_key_id'] in registry['keys']):
+            raise ValueError('replacement public key mismatch')
+    elif key or assertion['new_key_id'] is not None or assertion['new_key_sha256'] is not None:
+        raise ValueError('revocation must not add a key')
+    events_path = root / 'keys' / 'events.jsonl'
+    if events_path.exists():
+        for line in _read_file(events_path).splitlines():
+            if json.loads(line)['assertion']['nonce'] == assertion['nonce']:
+                raise ValueError('management assertion already used')
+    _verify_signature(root, 'producer', assertion, signature)
+    if key:
+        _new_file(root / 'keys' / (assertion['new_key_id'] + '.pem'), key)
+        registry['keys'][assertion['new_key_id']] = {'role': role, 'state': 'active', 'sha256': _sha(key)}
+    registry['keys'][assertion['old_key_id']]['state'] = 'revoked'
+    registry['keys'][assertion['old_key_id']]['revoked_at'] = _now()
+    registry['keys'][assertion['old_key_id']]['reason'] = assertion['reason']
+    proof_name = 'key-change.' + assertion['nonce'] + '.sig'
+    _new_file(root / 'proofs' / proof_name, signature)
+    # An AUTHORIZED event before replacement fails closed if a crash occurs.
+    _append_jsonl(root / 'keys' / 'events.jsonl', {'assertion': assertion,
+                  'proof_name': proof_name, 'signature_sha256': _sha(signature), 'result': 'AUTHORIZED'})
+    _replace_private_file(root / 'keys' / 'registry.json', _canonical(registry))
+    return {'old_key_id': assertion['old_key_id'], 'new_key_id': assertion['new_key_id'],
+            'state': 'rotated' if key else 'revoked'}
+
+
+def key_audit(root_path):
+    """Verify archived management proofs without returning private key material."""
+    root = _private_root(root_path)
+    _registry(root)
+    path = root / 'keys' / 'events.jsonl'
+    if not path.exists():
+        return []
+    output = []
+    for line in _read_file(path).splitlines():
+        event = json.loads(line)
+        assertion = event['assertion']
+        proof_name = event['proof_name']
+        if not re.fullmatch(r'key-change\.[a-f0-9]{32}\.sig', proof_name):
+            raise ValueError('invalid management proof reference')
+        signature = _read_file(root / 'proofs' / proof_name, 1024)
+        if _sha(signature) != event['signature_sha256']:
+            raise ValueError('management proof changed')
+        _verify_signature(root, 'producer', assertion, signature, require_active=False)
+        output.append({'action': assertion['action'], 'role': assertion['role'],
+                       'old_key_id': assertion['old_key_id'], 'new_key_id': assertion['new_key_id'],
+                       'at': assertion['at'], 'result': event['result']})
+    return output
+
+
+def review_packet(root_path, memory_id, action, actor, **kwargs):
+    root = _private_root(root_path)
+    candidate = _candidate(root, memory_id)
+    assertion = prepare_assertion(root, memory_id, action, actor, **kwargs)
+    return review_details(root, candidate, assertion)
+
+
+def review_details(root, candidate, assertion):
+    """Display the exact canonical assertion that the signer must sign."""
+    vault = _config(root)
+    return {'unsigned': True, 'workflow_status': _state(_events(root, candidate['id'])),
+            'id': candidate['id'], 'title': candidate['title'],
+            'decision': candidate['decision_excerpt'], 'reason': candidate['reason_excerpt'],
+            'source_id': candidate['source_id'], 'source_path': candidate['source_path'],
+            'source_sha256': candidate['source_sha256'],
+            'body_sha256': assertion['body_sha256'],
+            'approval_scope': assertion['approval_scope'],
+            'approval_status': assertion['approval_status'],
+            'existing_memory_conflicts': _conflicts(vault, candidate),
+            'assertion': assertion,
+            'canonical_assertion_sha256': _sha(_canonical(assertion)),
+            'notice': 'AI監督の内容判断と人間の技術的署名は別操作。署名・登録は未実施。'}
 
 
 def _verify_event(root, candidate, event):
@@ -228,29 +444,30 @@ def _verify_event(root, candidate, event):
     role = 'director' if payload['action'] == 'DIRECTOR_REVIEWED' else 'producer'
     if payload['action'] == 'REJECTED':
         role = event['role']
-    if (role != event['role'] or payload.get('candidate_id') != candidate['id']
-            or payload.get('approval_scope') != candidate['approval_scope']
-            or payload['candidate_sha256'] != _sha(_canonical(candidate))):
+    if role != event['role']:
         raise ValueError('approval target mismatch')
+    _check_assertion_target(candidate, payload)
     proof_name = event['proof_name']
     if not isinstance(proof_name, str) or not re.fullmatch(r'[A-Z0-9-]+\.[a-f0-9]{16}\.sig', proof_name):
         raise ValueError('invalid approval proof reference')
     signature = _read_file(root / 'proofs' / proof_name, 1024)
     if _sha(signature) != event['signature_sha256']:
         raise ValueError('approval proof changed')
-    _verify_signature(root, role, payload, signature)
+    _verify_signature(root, role, payload, signature, require_active=False)
 
 
 def apply_assertion(root_path, assertion, signature):
     root = _private_root(root_path)
     memory_id = assertion.get('candidate_id')
     candidate = _candidate(root, memory_id)
-    if set(assertion) != {'candidate_id', 'candidate_sha256', 'action', 'actor', 'at', 'reason',
+    if set(assertion) != {'candidate_id', 'candidate_sha256', 'source_sha256', 'body_sha256',
+                          'key_id', 'nonce', 'action', 'actor', 'at', 'reason',
                           'approval_scope', 'approval_status', 'accepted_conflicts'}:
         raise ValueError('invalid assertion')
     action = assertion['action']
-    if action not in REVIEW_ACTIONS or assertion['candidate_sha256'] != _sha(_canonical(candidate)):
-        raise ValueError('approval target mismatch')
+    if action not in REVIEW_ACTIONS:
+        raise ValueError('invalid action')
+    _check_assertion_target(candidate, assertion)
     if action in {'REJECTED', 'REVOKED'} and not isinstance(assertion['reason'], str):
         raise ValueError('rejection reason required')
     if action in {'REJECTED', 'REVOKED'} and not assertion['reason'].strip():
@@ -263,16 +480,9 @@ def apply_assertion(root_path, assertion, signature):
         raise ValueError('invalid conflict acknowledgement')
     if not isinstance(assertion['actor'], str) or not assertion['actor'].strip():
         raise ValueError('actor required')
-    if not isinstance(assertion['at'], str):
-        raise ValueError('approval time required')
-    try:
-        signed_at = datetime.fromisoformat(assertion['at'])
-    except ValueError:
-        raise ValueError('invalid approval time') from None
-    current_time = datetime.now(timezone.utc)
-    if (signed_at.tzinfo is None or signed_at < current_time - timedelta(hours=24)
-            or signed_at > current_time + timedelta(minutes=5)):
-        raise ValueError('approval assertion expired')
+    _check_time(assertion['at'])
+    if _nonce_used(root, assertion['nonce']):
+        raise ValueError('approval assertion already used')
     role = 'director' if action == 'DIRECTOR_REVIEWED' else 'producer'
     _verify_signature(root, role, assertion, signature)
     events = _events(root, memory_id)
@@ -360,6 +570,9 @@ def register(root_path, memory_id):
     if _state(events) != 'PRODUCER_APPROVED':
         raise ValueError('producer approval is required')
     approval = events[-1]['assertion']
+    if _registry(root)['keys'][approval['key_id']]['state'] != 'active':
+        raise ValueError('producer approval key revoked before registration')
+    _check_assertion_target(candidate, approval)
     _source_check(candidate)
     for related_id in candidate['related']:
         if not (vault / (related_id + '.md')).is_file():
