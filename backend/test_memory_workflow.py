@@ -71,6 +71,16 @@ class MemoryWorkflowTests(unittest.TestCase):
     def _propose(self):
         return memory_workflow.propose(self.workflow, self.report, self.fields)
 
+    def _new_key(self, role, suffix):
+        private = self.keys / f'{role}-{suffix}.private.pem'
+        public = self.keys / f'{role}-{suffix}.public.pem'
+        subprocess.run([memory_workflow._openssl(), 'genpkey', '-algorithm', 'Ed25519', '-out', str(private)],
+                       check=True, capture_output=True)
+        subprocess.run([memory_workflow._openssl(), 'pkey', '-in', str(private), '-pubout', '-out', str(public)],
+                       check=True, capture_output=True)
+        private.chmod(0o600)
+        return private, public
+
     def test_full_flow_and_reader_search(self):
         proposed = self._propose()
         self.assertEqual(proposed['workflow_status'], 'DRAFT')
@@ -113,6 +123,10 @@ class MemoryWorkflowTests(unittest.TestCase):
             cli('packet', '--id', self.fields['id'], '--action', action, '--actor', role,
                 *extra, '--out', str(packet))
             assertion = json.loads(packet.read_text())
+            review = json.loads(Path(str(packet) + '.review.json').read_text())
+            self.assertEqual(review['assertion'], assertion)
+            self.assertEqual(review['canonical_assertion_sha256'],
+                             memory_workflow._sha(packet.read_bytes()))
             signature = self.root / (action + '.sig')
             signature.write_bytes(self._sign(assertion, role))
             cli('apply', '--assertion', str(packet), '--signature', str(signature))
@@ -244,6 +258,99 @@ class MemoryWorkflowTests(unittest.TestCase):
         self.assertTrue((self.workflow / 'events' / (self.fields['id'] + '.jsonl')).read_text().startswith(before))
         auth = {'Authorization': 'Bearer ' + self.token}
         self.assertEqual(self.client.get('/api/studio/memory/' + self.fields['id'], headers=auth).status_code, 404)
+
+    def test_review_packet_binds_source_body_and_scope(self):
+        self._propose()
+        review = memory_workflow.review_packet(self.workflow, self.fields['id'], 'DIRECTOR_REVIEWED', 'human-reviewer')
+        self.assertTrue(review['unsigned'])
+        self.assertEqual(review['source_sha256'], memory_workflow._sha(self.report.read_bytes()))
+        self.assertEqual(review['approval_scope'], self.fields['approval_scope'])
+        self.assertEqual(review['body_sha256'], review['assertion']['body_sha256'])
+        self.assertEqual(memory_workflow.status(self.workflow, self.fields['id'])['workflow_status'], 'DRAFT')
+
+    def test_signed_body_change_and_wrong_key_rejected(self):
+        self._propose()
+        assertion = memory_workflow.prepare_assertion(self.workflow, self.fields['id'], 'DIRECTOR_REVIEWED', 'reviewer')
+        assertion['body_sha256'] = '0' * 64
+        with self.assertRaises(ValueError):
+            memory_workflow.apply_assertion(self.workflow, assertion, self._sign(assertion, 'director'))
+        assertion = memory_workflow.prepare_assertion(self.workflow, self.fields['id'], 'DIRECTOR_REVIEWED', 'reviewer')
+        with self.assertRaises(ValueError):
+            memory_workflow.apply_assertion(self.workflow, assertion, self._sign(assertion, 'producer'))
+
+    def test_reused_signature_and_nonce_rejected(self):
+        self._propose()
+        assertion = self._submit('DIRECTOR_REVIEWED', 'director')
+        with self.assertRaisesRegex(ValueError, 'already used'):
+            memory_workflow.apply_assertion(self.workflow, assertion, self._sign(assertion, 'director'))
+
+    def test_director_rotation_preserves_history_and_rejects_old_key(self):
+        self._propose()
+        self._submit('DIRECTOR_REVIEWED', 'director')
+        private, public = self._new_key('director', 'new')
+        packet = memory_workflow.prepare_key_change(self.workflow, 'director', 'ROTATE', 'producer-human',
+                                                    new_public=public, reason='planned rotation')
+        result = memory_workflow.apply_key_change(self.workflow, packet, self._sign(packet, 'producer'),
+                                                  new_public=public)
+        self.assertEqual(result['state'], 'rotated')
+        self.assertEqual(memory_workflow.key_audit(self.workflow)[0]['action'], 'ROTATE')
+        self.assertEqual(memory_workflow.status(self.workflow, self.fields['id'])['workflow_status'], 'DIRECTOR_REVIEWED')
+        with self.assertRaises(ValueError):
+            memory_workflow.apply_key_change(self.workflow, packet, self._sign(packet, 'producer'), new_public=public)
+        new_packet = memory_workflow.prepare_assertion(self.workflow, self.fields['id'], 'PRODUCER_APPROVED', 'producer',
+                                                       approval_status='APPROVED')
+        memory_workflow.apply_assertion(self.workflow, new_packet, self._sign(new_packet, 'producer'))
+        memory_workflow.register(self.workflow, self.fields['id'])
+        self.assertTrue(private.exists())  # only synthetic test key outside workflow root
+        self.assertFalse(list(self.workflow.rglob('*.private.pem')))
+
+    def test_revoked_producer_key_blocks_pending_registration(self):
+        self._propose()
+        self._submit('DIRECTOR_REVIEWED', 'director')
+        self._submit('PRODUCER_APPROVED', 'producer', approval_status='APPROVED')
+        _, public = self._new_key('producer', 'new')
+        packet = memory_workflow.prepare_key_change(self.workflow, 'producer', 'ROTATE', 'producer-human',
+                                                    new_public=public, reason='planned rotation')
+        memory_workflow.apply_key_change(self.workflow, packet, self._sign(packet, 'producer'), new_public=public)
+        with self.assertRaisesRegex(ValueError, 'revoked'):
+            memory_workflow.register(self.workflow, self.fields['id'])
+        self.assertFalse((self.vault / (self.fields['id'] + '.md')).exists())
+
+    def test_key_management_requires_current_producer_signature(self):
+        _, public = self._new_key('director', 'new')
+        packet = memory_workflow.prepare_key_change(self.workflow, 'director', 'ROTATE', 'producer-human',
+                                                    new_public=public, reason='planned rotation')
+        with self.assertRaises(ValueError):
+            memory_workflow.apply_key_change(self.workflow, packet, self._sign(packet, 'director'), new_public=public)
+        public.write_text('changed', encoding='utf-8')
+        with self.assertRaises(ValueError):
+            memory_workflow.apply_key_change(self.workflow, packet, self._sign(packet, 'producer'), new_public=public)
+
+    def test_work_reader_token_cannot_manage_keys(self):
+        _, public = self._new_key('director', 'new')
+        packet = memory_workflow.prepare_key_change(self.workflow, 'director', 'ROTATE', 'producer-human',
+                                                    new_public=public, reason='planned rotation')
+        with self.assertRaises(ValueError):
+            memory_workflow.apply_key_change(self.workflow, packet, self.token.encode(), new_public=public)
+
+    def test_director_revocation_blocks_new_reviews_and_preserves_audit(self):
+        self._propose()
+        packet = memory_workflow.prepare_key_change(self.workflow, 'director', 'REVOKE', 'producer-human',
+                                                    reason='synthetic compromise')
+        memory_workflow.apply_key_change(self.workflow, packet, self._sign(packet, 'producer'))
+        self.assertEqual(memory_workflow.key_audit(self.workflow)[0]['action'], 'REVOKE')
+        with self.assertRaisesRegex(ValueError, 'unavailable'):
+            memory_workflow.prepare_assertion(self.workflow, self.fields['id'], 'DIRECTOR_REVIEWED', 'reviewer')
+
+    def test_management_proof_tampering_detected(self):
+        _, public = self._new_key('director', 'new')
+        packet = memory_workflow.prepare_key_change(self.workflow, 'director', 'ROTATE', 'producer-human',
+                                                    new_public=public, reason='planned rotation')
+        memory_workflow.apply_key_change(self.workflow, packet, self._sign(packet, 'producer'), new_public=public)
+        proof = next((self.workflow / 'proofs').glob('key-change.*.sig'))
+        proof.write_bytes(b'changed')
+        with self.assertRaisesRegex(ValueError, 'proof changed'):
+            memory_workflow.key_audit(self.workflow)
 
 
 if __name__ == '__main__':
