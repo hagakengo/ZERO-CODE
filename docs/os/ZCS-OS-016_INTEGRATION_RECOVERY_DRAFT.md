@@ -51,7 +51,7 @@ Reader token --> 読み取り専用Reader --> 私有正式Markdown保管庫
 
 ## 回帰・保全
 
-隔離したバックエンドの`unittest discover`は130件PASS。フロントエンドの認証テストは9件PASS、TypeScriptチェックとNext.jsビルドもPASS。CIはDraft PR作成後に別途確認する。本番OS `production.json` の作業前後SHA-256はともに`77a66760d4763aa4cfc138a60eb3794f3655bbc2b9d9ae1176aa11342f30e024`。実候補の作業前後SHA-256も同じ`5d5d2ad535466e3b53cbee4d2fd16f9ebc309b71ac2eb6449e82f42616511886`。
+隔離したバックエンドの`unittest discover`は130件PASS。フロントエンドの認証テストは9件PASS、TypeScriptチェックとNext.jsビルドもPASS。Draft PR #14の初回CIではbackend・frontendともPASS（GitHub Actions run `39999350633`）。本番OS `production.json` の作業前後SHA-256はともに`77a66760d4763aa4cfc138a60eb3794f3655bbc2b9d9ae1176aa11342f30e024`。実候補の作業前後SHA-256も同じ`5d5d2ad535466e3b53cbee4d2fd16f9ebc309b71ac2eb6449e82f42616511886`。
 
 ## 残存リスクと判定根拠
 
