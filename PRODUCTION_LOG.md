@@ -860,3 +860,11 @@ Producer reported unnatural skin shadow. Replaced skin-bearing eye/mouth patches
 - 回帰：backend 138件、frontend 9件、TypeScript、Next.jsビルドPASS。Draft PR #8〜#15の既存CIは各backend/frontend成功。既存PRは変更・マージしていない。
 - 保全：本番OSと実DRAFT候補、元の3記憶ノートのSHAは作業前後一致。実制作記憶登録、実鍵発行、元保管庫の権限変更、本番接続はなし。
 - 根拠：[完成判定](docs/os/ZCS-OS-018_READINESS_DRAFT.md)、[隔離運用手順](docs/os/ZCS-OS-018_OPERATION_MANUAL_DRAFT.md)。次はプロデューサーが別OSユーザー・鍵保管・独立anchorを判断し、別主体による拒否試験後に正式運用を再判定する。
+
+## 2026-10-24 — ZCS-OS-019 Studio Memory運用開始ゲート準備
+
+- 対象：新機能なし。現行macOS主体と元保管庫を読取調査し、producer鍵・元記憶・backup基準をWorkから分離する候補、PR #8〜#16の統合順、4つの承認ゲートをDRAFT文書へ整理。
+- 実測：WorkのUID 501は`admin`グループ所属、非対話sudoはパスワード要求。元記憶保管庫0755／3ファイル0644は不変。別OS主体、TCC・画面操作、producer実鍵への拒否は未実施。
+- 検証：backend 138件、frontend認証9件、TypeScript、Next.jsビルドPASS。PR #8〜#16はDraft・各CI成功。追跡ファイルの限定的な秘密パターン検査に候補なし。実DRAFT候補とブリーフのID・出典・承認範囲一致を再確認。
+- 判定：資料はproducerのゲート1判断に提出可能。正式運用はFAIL／開始不可のまま。OSユーザー／権限の変更、実鍵発行、元保管庫移設、PRマージ、実記憶登録、本番接続はなし。
+- 詳細：[運用環境設計](docs/os/ZCS-OS-019_OPERATION_ENV_DRAFT.md)、[統合承認ゲート](docs/os/ZCS-OS-019_INTEGRATION_GATE_DRAFT.md)、[安全性検証](docs/os/ZCS-OS-019_SECURITY_VALIDATION_DRAFT.md)。
