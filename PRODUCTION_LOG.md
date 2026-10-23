@@ -868,3 +868,10 @@ Producer reported unnatural skin shadow. Replaced skin-bearing eye/mouth patches
 - 検証：backend 138件、frontend認証9件、TypeScript、Next.jsビルドPASS。PR #8〜#16はDraft・各CI成功。追跡ファイルの限定的な秘密パターン検査に候補なし。実DRAFT候補とブリーフのID・出典・承認範囲一致を再確認。
 - 判定：資料はproducerのゲート1判断に提出可能。正式運用はFAIL／開始不可のまま。OSユーザー／権限の変更、実鍵発行、元保管庫移設、PRマージ、実記憶登録、本番接続はなし。
 - 詳細：[運用環境設計](docs/os/ZCS-OS-019_OPERATION_ENV_DRAFT.md)、[統合承認ゲート](docs/os/ZCS-OS-019_INTEGRATION_GATE_DRAFT.md)、[安全性検証](docs/os/ZCS-OS-019_SECURITY_VALIDATION_DRAFT.md)。
+
+## 2026-10-24 — ZCS-OS-020 Gate 1環境整備準備
+
+- 承認範囲は環境分離の方針のみ。現行UID 501はadmin所属、元記憶庫は0755／3ノート0644のまま。TCC、別主体の拒否、本番Readerの実行主体は未照合。
+- 専用標準macOSユーザー、元庫を保持するコピー、別人director技術署名、producer鍵と独立backup受領記録の人間操作手順・停止点をDRAFT化。OSユーザー・権限・実庫・実鍵・本番データは変更していない。
+- 合成snapshotと独立受領形式の照合4件PASS。backend全142件、frontend9件、TypeScript、build PASS。ただし実際の別主体保護や復元ゲート組込みは未実施。
+- 本番OS・実候補・元記憶3件の作業前後SHA一致。詳細は[ゲート1報告](docs/os/ZCS-OS-020_GATE1_REPORT_DRAFT.md)。正式運用は開始不可。次は具体的なOS操作ごとのproducer判断とゲート2別主体実測。
