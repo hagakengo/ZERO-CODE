@@ -6,6 +6,26 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-23 — Studio Memory候補・承認・登録ワークフロー隔離検証
+
+**Status:** DRAFT / ISOLATED TEST
+
+**Tool / Model:** Work 01、Python標準ライブラリ、OpenSSL 3、既存FastAPI Reader。
+
+**Asset / Version:** ZCS-OS-012。既存PR #8・#9から分岐した隔離実装。
+
+**Goal:** Workの制作報告を出典付きDRAFT候補にし、人間の監督レビューとプロデューサー承認を経た場合だけ記憶へ登録する。
+
+**What we tried:** 合成報告・テスト専用鍵・一時保管庫で候補から登録、Reader再取得、却下・取消、異常系を検証。Work 02の実報告を別途DRAFT候補化した。
+
+**Result:** [隔離検証報告](docs/os/ZCS-OS-012_VALIDATION_DRAFT.md)に実測結果を記載。既存OS、MASTER、正式記憶保管庫には未登録。
+
+**Limitations:** 人間の実運用鍵は未準備。意味上の矛盾と出典報告の真偽は自動判定できない。正式採用・本番接続は未実施。
+
+**Next action:** 監督レビューと、秘密鍵の人間管理・障害時運用の設計。
+
+---
+
 ## Log template
 
 ### YYYY-MM-DD — TITLE
