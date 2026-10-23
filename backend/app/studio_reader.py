@@ -9,6 +9,7 @@ from pathlib import Path
 from fastapi import APIRouter, Depends, FastAPI, Header, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse
 from app.studio_dto import StudioIndex
+from app.memory_security import audit as audit_memory
 
 router = APIRouter(prefix='/api/studio', tags=['studio-readonly'])
 ID = re.compile(r'^[a-zA-Z0-9_-]{1,120}$')
@@ -101,4 +102,22 @@ async def private_responses(request: Request, call_next):
     return response
 
 
+@app.middleware('http')
+async def memory_read_audit(request: Request, call_next):
+    path = request.url.path
+    if not path.startswith('/api/studio/memory/'):
+        return await call_next(request)
+    response = await call_next(request)
+    operation = 'search' if path == '/api/studio/memory/search' else 'detail'
+    try:
+        audit_memory(getattr(request.state, 'memory_work_id', 'unknown'), operation, response.status_code)
+    except (OSError, ValueError):
+        return JSONResponse({'detail': '閲覧監査を記録できません'}, status_code=503)
+    return response
+
+
 app.include_router(router)
+
+# The memory vault is independent of the production snapshot and has no write route.
+from app.studio_memory import router as memory_router
+app.include_router(memory_router)

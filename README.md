@@ -1,5 +1,9 @@
 # ZERO CODE
 
+## Studio Memory v0.1（隔離DRAFT）
+
+AI制作チーム向けのMarkdown長期記憶と閲覧専用APIの仕様は[Studio Memory v0.1](docs/os/ZCS-STUDIO-MEMORY-v0.1_DRAFT.md)を参照。既存OS・MASTERには未接続。
+
 AI Agent Studio / Original Cinematic IP Production Repository.
 
 ## 理念とAI社員の共通指針
