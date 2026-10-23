@@ -4,6 +4,8 @@
 
 AI制作チーム向けのMarkdown長期記憶と閲覧専用APIの仕様は[Studio Memory v0.1](docs/os/ZCS-STUDIO-MEMORY-v0.1_DRAFT.md)を参照。既存OS・MASTERには未接続。
 
+完了報告からのDRAFT候補作成と、人間の署名を要する隔離登録ワークフローは[ZCS-OS-012](docs/os/ZCS-OS-012_WORKFLOW_DRAFT.md)を参照。正式保管庫への実データ登録は未実施。
+
 AI Agent Studio / Original Cinematic IP Production Repository.
 
 ## 理念とAI社員の共通指針
