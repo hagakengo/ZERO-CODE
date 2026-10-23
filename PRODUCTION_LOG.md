@@ -6,6 +6,26 @@ Do not record only successful work.
 
 ---
 
+## 2026-10-24 — Studio Memory制作連携パイロット
+
+**Status:** DRAFT / ISOLATED TEST
+
+**Tool / Model:** Work 01・Work 02独立チャット、既存認証済みReader、制作・監督用ブリーフCLI。
+
+**Goal:** Work 02が制作前に判断と承認範囲を取得し、監督が実候補を同じ根拠で確認する。
+
+**What we tried:** 実記憶3件の読取専用コピーと新規の短命資格情報を隔離した。Work 02が別チャットから`YUNA-EYE-001`を検索・詳細取得し、制作開始ブリーフを作成。Work 01は既存DRAFT packetと照合して監督用ブリーフを作成した。
+
+**Result:** Work 02の検索2回・詳細1回は全てHTTP 200、CLI1回・約2.40秒（Work 02報告）。目元判断はDRAFT、承認済み該当記憶は0件。技術QC PASS、演出・作画QC REWORK、監督内容レビューはREVIEW_HOLD提案のみ。詳細は[隔離検証報告](docs/os/ZCS-OS-017_VALIDATION_DRAFT.md)。
+
+**What worked:** 出典・memory ID・承認範囲を同じブリーフに保持し、SNS公開承認を本編MASTER承認と区別できた。
+
+**What failed / limitations:** 同条件の手動引継ぎ時間は測定しておらず、手戻り減少は未実証。元保管庫の権限は0755で、今回のReaderには私有コピーを使用。同一macOSユーザーでWork間の秘密隔離はできない。
+
+**Next action:** 別ユーザーによるアクセス拒否、復元後再結線、正式台帳との照合、同条件の引継ぎ比較を実施。正式運用開始はプロデューサー判断。
+
+---
+
 ## 2026-10-23 — Studio Memory候補・承認・登録ワークフロー隔離検証
 
 **Status:** DRAFT / ISOLATED TEST
