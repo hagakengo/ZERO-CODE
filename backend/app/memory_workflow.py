@@ -61,15 +61,25 @@ def _read_file(path, limit=262144):
 
 
 def _new_file(path, data):
-    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+    """Publish a complete private file atomically without replacing an existing one."""
+    path = Path(path)
+    temporary = path.with_name('.pending-' + secrets.token_hex(16))
+    fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
     try:
         with os.fdopen(fd, 'wb') as stream:
             stream.write(data)
             stream.flush()
             os.fsync(stream.fileno())
+        os.link(temporary, path, follow_symlinks=False)
+        directory_fd = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory_fd)
+        finally:
+            os.close(directory_fd)
     except Exception:
-        Path(path).unlink(missing_ok=True)
         raise
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def _replace_private_file(path, data):
@@ -548,11 +558,11 @@ def _conflicts(vault, candidate):
     return sorted(found)
 
 
-def _markdown(candidate, approval_status):
+def _markdown(candidate, approval_status, updated_at=None):
     meta = {'id': candidate['id'], 'title': candidate['title'], 'kind': candidate['kind'],
             'approval_status': approval_status, 'approval_scope': candidate['approval_scope'],
             'source': candidate['source_id'], 'sources': [candidate['source_id']],
-            'updated_at': _now()[:10], 'related': candidate['related'], 'assets': candidate['assets']}
+            'updated_at': updated_at or _now()[:10], 'related': candidate['related'], 'assets': candidate['assets']}
     front = '\n'.join(f'{key}: {json.dumps(value, ensure_ascii=False)}' for key, value in meta.items())
     targets = []
     if candidate['characters']:
@@ -568,6 +578,19 @@ def _markdown(candidate, approval_status):
 
 def register(root_path, memory_id):
     root = _private_root(root_path)
+    lock = root / 'registration.lock'
+    fd = os.open(lock, os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)
+    try:
+        info = os.fstat(fd)
+        if not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid() or info.st_mode & 0o077:
+            raise ValueError('unsafe registration lock')
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        return _register_locked(root, memory_id)
+    finally:
+        os.close(fd)
+
+
+def _register_locked(root, memory_id):
     vault = _config(root)
     candidate = _candidate(root, memory_id)
     events = _events(root, memory_id)
@@ -590,7 +613,7 @@ def register(root_path, memory_id):
     target = vault / (memory_id + '.md')
     if target.exists():
         raise ValueError('existing memory cannot be overwritten')
-    content = _markdown(candidate, approval['approval_status'])
+    content = _markdown(candidate, approval['approval_status'], approval['at'][:10])
     if len(content) > 32768:
         raise ValueError('memory exceeds Reader limit')
     # Validate exactly the same parser used by the Reader before publishing.
@@ -601,7 +624,15 @@ def register(root_path, memory_id):
     diff = {'before_sha256': None, 'after_sha256': _sha(content),
             'before': None, 'after': content.decode('utf-8')}
     diff_path = root / 'diffs' / (memory_id + '.json')
-    _new_file(diff_path, _canonical(diff))
+    if diff_path.exists():
+        if _read_file(diff_path, 65536) != _canonical(diff):
+            raise ValueError('existing registration diff changed')
+    else:
+        _new_file(diff_path, _canonical(diff))
+    for stale in vault.glob('.staging-' + memory_id + '-*'):
+        if _read_file(stale, 32768) != content:
+            raise ValueError('stale registration staging differs')
+        os.replace(stale, root / 'archive' / ('unfinished-' + memory_id + '-' + secrets.token_hex(8)))
     staging = vault / ('.staging-' + memory_id + '-' + secrets.token_hex(8))
     try:
         _new_file(staging, content)
@@ -617,6 +648,45 @@ def register(root_path, memory_id):
             staging.unlink()
         raise
     return {'id': memory_id, 'memory_sha256': _sha(content), 'conflicts': conflicts}
+
+
+def recover_registration(root_path, memory_id):
+    """Repair only the post-REGISTERED/pre-publish crash window of signed synthetic workflows."""
+    root = _private_root(root_path)
+    lock = root / 'registration.lock'
+    fd = os.open(lock, os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        vault = _config(root)
+        candidate = _candidate(root, memory_id)
+        events = _events(root, memory_id)
+        for event in events:
+            if event['action'] != 'REGISTERED':
+                _verify_event(root, candidate, event)
+        if _state(events) != 'REGISTERED':
+            raise ValueError('no registered event to recover')
+        event = events[-1]
+        diff = json.loads(_read_file(root / 'diffs' / (memory_id + '.json'), 65536))
+        content = diff['after'].encode('utf-8')
+        if (_sha(content) != event['memory_sha256'] or _sha(_canonical(diff)) != event['diff_sha256']):
+            raise ValueError('registration evidence mismatch')
+        target = vault / (memory_id + '.md')
+        if target.exists():
+            if _read_file(target, 32768) != content:
+                raise ValueError('registered memory changed')
+            return {'id': memory_id, 'state': 'ALREADY_PRESENT'}
+        staging = list(vault.glob('.staging-' + memory_id + '-*'))
+        if len(staging) != 1 or _read_file(staging[0], 32768) != content:
+            raise ValueError('registration staging unavailable')
+        with tempfile.TemporaryDirectory() as temporary:
+            probe = Path(temporary) / target.name
+            probe.write_bytes(content)
+            _parse(probe)
+        os.link(staging[0], target, follow_symlinks=False)
+        staging[0].unlink()
+        return {'id': memory_id, 'state': 'RECOVERED_REGISTERED'}
+    finally:
+        os.close(fd)
 
 
 def status(root_path, memory_id):
