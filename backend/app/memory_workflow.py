@@ -227,13 +227,21 @@ def _state(events):
 def propose(root_path, report_path, fields):
     root = _private_root(root_path)
     vault = _config(root)
+    candidate = build_candidate(report_path, fields)
+    memory_id = candidate['id']
+    if (vault / (memory_id + '.md')).exists() or (root / 'candidates' / (memory_id + '.json')).exists():
+        raise ValueError('duplicate memory ID')
+    _new_file(root / 'candidates' / (memory_id + '.json'), _canonical(candidate))
+    return candidate
+
+
+def build_candidate(report_path, fields):
+    """Shared source-bound candidate construction for formal and DRAFT-only intake."""
     if not isinstance(fields, dict) or set(fields) != REQUIRED:
         raise ValueError('missing or unknown proposal fields')
     memory_id = fields['id']
     if not isinstance(memory_id, str) or not ID.fullmatch(memory_id):
         raise ValueError('invalid memory ID')
-    if (vault / (memory_id + '.md')).exists() or (root / 'candidates' / (memory_id + '.json')).exists():
-        raise ValueError('duplicate memory ID')
     if fields['proposed_by'] not in {'work01', 'work02'}:
         raise ValueError('invalid proposing Work')
     if not SOURCE_ID.fullmatch(fields['source_id']):
@@ -256,7 +264,6 @@ def propose(root_path, report_path, fields):
                  'source_sha256': _sha(report),
                  'unknown_fields': [name for name in ('decision_excerpt', 'reason_excerpt', 'approval_scope')
                                     if fields[name] == UNKNOWN]}
-    _new_file(root / 'candidates' / (memory_id + '.json'), _canonical(candidate))
     return candidate
 
 
