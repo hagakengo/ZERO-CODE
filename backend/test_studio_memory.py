@@ -7,6 +7,7 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 from app.studio_reader import app
+from app import memory_security
 
 
 def note(memory_id, status, body):
@@ -35,8 +36,10 @@ class StudioMemoryTests(unittest.TestCase):
             note('K07-PUBLICATION-001', 'APPROVED', 'K07 SNS公開承認。本編DRAFT。'), encoding='utf-8')
         (self.root / 'YUNA-EYE-001.md').write_text(
             note('YUNA-EYE-001', 'DRAFT', 'ユナの目元 r03不採用判断。'), encoding='utf-8')
-        self.token = 'synthetic-reader-token-longer-than-32-characters'
-        self.env = patch.dict(os.environ, {'STUDIO_READER_TOKEN': self.token,
+        self.auth_root = self.root / 'auth'
+        memory_security.initialize(self.auth_root)
+        self.token = memory_security.issue(self.auth_root, 'work02', 'all')
+        self.env = patch.dict(os.environ, {'STUDIO_MEMORY_AUTH_DIR': str(self.auth_root),
                                          'STUDIO_MEMORY_DIR': str(self.root)})
         self.env.start()
         self.client = TestClient(app)
@@ -98,6 +101,56 @@ class StudioMemoryTests(unittest.TestCase):
         self.assertEqual([x['id'] for x in result.json()['results']], ['STUDIO-WORKFLOW-001'])
         approved = self.client.get('/api/studio/memory/search?approved_only=true', headers=self.auth)
         self.assertEqual([x['id'] for x in approved.json()['results']], ['K07-PUBLICATION-001'])
+
+    def test_work_isolation_and_scope(self):
+        work01 = memory_security.issue(self.auth_root, 'work01', 'approved')
+        auth = {'Authorization': 'Bearer ' + work01}
+        result = self.client.get('/api/studio/memory/search', headers=auth)
+        self.assertEqual(result.status_code, 200)
+        self.assertEqual([x['id'] for x in result.json()['results']], ['K07-PUBLICATION-001'])
+        self.assertTrue(result.json()['approved_only'])
+        self.assertEqual(self.client.get('/api/studio/memory/YUNA-EYE-001', headers=auth).status_code, 404)
+        self.assertEqual(self.client.get('/api/studio/memory/K07-PUBLICATION-001', headers=auth).status_code, 200)
+        with self.assertRaises(ValueError):
+            memory_security.issue(self.auth_root, 'work01', 'all')
+
+    def test_expiry_reissue_and_individual_revocation(self):
+        expired = memory_security.issue(self.auth_root, 'work01', 'approved', now=1)
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers={'Authorization': 'Bearer ' + expired}).status_code, 401)
+        work01 = memory_security.issue(self.auth_root, 'work01', 'approved')
+        work01_auth = {'Authorization': 'Bearer ' + work01}
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers=work01_auth).status_code, 200)
+        memory_security.revoke_token(self.auth_root, work01)
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers=work01_auth).status_code, 401)
+        renewed = memory_security.issue(self.auth_root, 'work01', 'approved')
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers={'Authorization': 'Bearer ' + renewed}).status_code, 200)
+        memory_security.revoke_work(self.auth_root, 'work01')
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers={'Authorization': 'Bearer ' + renewed}).status_code, 401)
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers=self.auth).status_code, 200)
+
+    def test_least_privilege_and_audit_redaction(self):
+        search_only = memory_security.issue(self.auth_root, 'work02', 'all', operations=('search',))
+        headers = {'Authorization': 'Bearer ' + search_only}
+        self.assertEqual(self.client.get('/api/studio/memory/search?q=private-query-sentinel', headers=headers).status_code, 200)
+        self.assertEqual(self.client.get('/api/studio/memory/K07-PUBLICATION-001', headers=headers).status_code, 403)
+        audit = (self.auth_root / 'audit.jsonl').read_text()
+        events = [__import__('json').loads(line) for line in audit.splitlines()]
+        self.assertTrue(events)
+        self.assertEqual(set(events[-1]), {'at', 'work_id', 'operation', 'result'})
+        self.assertEqual(events[-1]['work_id'], 'work02')
+        self.assertEqual(events[-1]['result'], '403')
+        for secret in [search_only, self.token, 'private-query-sentinel', 'K07-PUBLICATION-001', 'SNS公開承認']:
+            self.assertNotIn(secret, audit)
+
+    def test_auth_state_failure_is_closed(self):
+        (self.auth_root / 'state.json').chmod(0o644)
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers=self.auth).status_code, 503)
+
+    def test_corrupt_token_and_audit_failure_are_closed(self):
+        invalid = {'Authorization': 'Bearer not-base64.%%%%'}
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers=invalid).status_code, 401)
+        (self.auth_root / 'audit.jsonl').chmod(0o644)
+        self.assertEqual(self.client.get('/api/studio/memory/search', headers=self.auth).status_code, 503)
 
 
 if __name__ == '__main__':

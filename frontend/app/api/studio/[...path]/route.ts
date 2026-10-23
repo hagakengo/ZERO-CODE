@@ -7,7 +7,7 @@ async function proxy(request: NextRequest, context: { params: Promise<{ path: st
   const memory = path.length === 2 && path[0] === 'memory' && path[1] === 'search';
   const memoryDetail = path.length === 2 && path[0] === 'memory' && /^[A-Z][A-Z0-9-]{2,79}$/.test(path[1]);
   if (!(path.length === 1 && path[0] === 'index') && !(path.length === 2 && path[0] === 'media' && /^[a-zA-Z0-9_-]{1,120}$/.test(path[1])) && !memory && !memoryDetail) return new NextResponse(null, { status: 404 });
-  const token = process.env.STUDIO_READER_TOKEN;
+  const token = memory || memoryDetail ? process.env.STUDIO_MEMORY_WEB_TOKEN : process.env.STUDIO_READER_TOKEN;
   if (!token || token.length < 32) return NextResponse.json({ detail: '制作データは未接続です' }, { status: 503 });
   const base = new URL(process.env.STUDIO_READER_URL || 'http://127.0.0.1:8135');
   if (base.protocol !== 'https:' && !(['127.0.0.1', 'localhost', '[::1]'].includes(base.hostname) && base.protocol === 'http:')) return new NextResponse(null, { status: 503 });

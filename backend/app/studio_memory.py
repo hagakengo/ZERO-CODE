@@ -9,13 +9,12 @@ import re
 import unicodedata
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Header, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
 
-from app.studio_reader import require_reader
+from app.memory_security import verify
 
-router = APIRouter(prefix='/api/studio/memory', tags=['studio-memory-readonly'],
-                   dependencies=[Depends(require_reader)])
+router = APIRouter(prefix='/api/studio/memory', tags=['studio-memory-readonly'])
 ID = re.compile(r'^[A-Z][A-Z0-9-]{2,79}$')
 FIELDS = {'id', 'title', 'kind', 'approval_status', 'source', 'updated_at',
           'related', 'assets', 'sources', 'approval_scope'}
@@ -101,7 +100,10 @@ def _response(data):
 
 
 @router.get('/search')
-def search(q: str = Query(default='', max_length=120), approved_only: bool = False):
+def search(request: Request, q: str = Query(default='', max_length=120), approved_only: bool = False,
+           authorization: str | None = Header(default=None)):
+    access = verify(request, 'search', authorization)
+    approved_only = approved_only or access == 'approved'
     words = _terms(q)
     result = []
     for note in _load_all().values():
@@ -115,7 +117,10 @@ def search(q: str = Query(default='', max_length=120), approved_only: bool = Fal
 
 
 @router.get('/{memory_id}')
-def detail(memory_id: str, approved_only: bool = False):
+def detail(request: Request, memory_id: str, approved_only: bool = False,
+           authorization: str | None = Header(default=None)):
+    access = verify(request, 'detail', authorization)
+    approved_only = approved_only or access == 'approved'
     if not ID.fullmatch(memory_id):
         raise HTTPException(404, '記憶が見つかりません')
     note = _load_all().get(memory_id)
