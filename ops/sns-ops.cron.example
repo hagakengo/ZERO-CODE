@@ -1,0 +1,5 @@
+# Example only. Do not install until the production deployment and secret store are approved.
+# CRON_TZ is supported by many cron implementations; verify it on the chosen runner.
+CRON_TZ=Asia/Tokyo
+0 9 * * * cd /APP/backend && /APP/.venv/bin/python tools/sns_ops.py run-detect
+15 20 * * 1,3,5 cd /APP/backend && /APP/.venv/bin/python tools/sns_ops.py run-refresh

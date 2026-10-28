@@ -16,6 +16,7 @@ class BufferTests(unittest.TestCase):
         self.calls = []
         self.service = "twitter"
         self.failure = None
+        self.posts = []
         self.mock = patch.object(buffer.httpx, "post", side_effect=self.respond)
         self.mock.start()
 
@@ -35,8 +36,11 @@ class BufferTests(unittest.TestCase):
             data = {"errors": [{"message": "test-secret"}]}
         elif "organizations" in q:
             data = {"data": {"account": {"organizations": [{"id": "org"}]}}}
-        elif "channels" in q:
+        elif "channels(input" in q:
             data = {"data": {"channels": [{"id": "channel", "service": self.service}]}}
+        elif "posts(" in q:
+            data = {"data": {"posts": {"edges": [{"node": value} for value in self.posts],
+                                       "pageInfo": {"hasNextPage": False, "endCursor": None}}}}
         elif self.failure == "mutation":
             data = {"data": {"createPost": {"message": "test-secret"}}}
         else:
@@ -83,6 +87,22 @@ class BufferTests(unittest.TestCase):
         self.assertIn("schedulingType: automatic", query)
         self.assertNotIn("thread", query)
         self.assertNotIn("shareNow", query)
+
+    def test_duplicate_is_not_created(self):
+        self.posts = [{"id": "already", "text": 'Hello "X"',
+                       "dueAt": "2099-01-01T03:00:00Z", "channelId": "channel",
+                       "externalLink": None}]
+        result = self.schedule(dry_run=False)
+        self.assertEqual(result.json()["post_id"], "already")
+        self.assertTrue(result.json()["duplicate"])
+        self.assertFalse(any("mutation" in q for q in self.calls))
+
+    def test_posts_filter_is_scoped(self):
+        buffer.posts("channel", ("scheduled", "sent"))
+        query = self.calls[-1]
+        self.assertIn("status: [scheduled, sent]", query)
+        self.assertIn('channelIds: ["channel"]', query)
+        self.assertIn("externalLink", query)
 
     def test_errors_are_safe(self):
         for failure in ("graphql", "mutation"):

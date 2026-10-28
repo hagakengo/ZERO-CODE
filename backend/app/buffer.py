@@ -39,12 +39,23 @@ def graphql(query):
         raise BufferError("Buffer is unavailable or returned an invalid response.") from None
 
 
+def organizations():
+    try:
+        values = graphql("query { account { organizations { id } } }")["account"]["organizations"]
+        if not values or any(not isinstance(value.get("id"), str) for value in values):
+            raise ValueError()
+        return [value["id"] for value in values]
+    except BufferError:
+        raise
+    except Exception:
+        raise BufferError("Buffer returned an invalid organization response.") from None
+
+
 def channels():
     try:
-        organizations = graphql("query { account { organizations { id } } }")["account"]["organizations"]
         result = {}
-        for org in organizations:
-            query = "query { channels(input: { organizationId: " + json.dumps(org["id"]) + " }) { id service } }"
+        for organization_id in organizations():
+            query = "query { channels(input: { organizationId: " + json.dumps(organization_id) + " }) { id service } }"
             for channel in graphql(query)["channels"]:
                 if not isinstance(channel["id"], str) or not isinstance(channel["service"], str):
                     raise ValueError()
@@ -54,6 +65,64 @@ def channels():
         raise
     except Exception:
         raise BufferError("Buffer returned an invalid channel response.") from None
+
+
+def posts(channel_id, statuses=("scheduled", "sent"), first=100):
+    """Read posts for duplicate detection and delivery reconciliation."""
+    if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", channel_id):
+        raise BufferError("Invalid Buffer channel.")
+    if not statuses or any(status not in {"scheduled", "sent", "failed"} for status in statuses):
+        raise BufferError("Invalid Buffer post status filter.")
+    organization_id = organizations()[0]
+    status_list = ", ".join(statuses)
+    query = (
+        "query { posts(first: " + str(min(max(first, 1), 100)) +
+        ", input: { organizationId: " + json.dumps(organization_id) +
+        ", filter: { status: [" + status_list + "], channelIds: [" + json.dumps(channel_id) +
+        "] } }) { edges { node { id text dueAt channelId externalLink } } pageInfo { hasNextPage endCursor } } }"
+    )
+    try:
+        result = graphql(query)["posts"]
+        values = [edge["node"] for edge in result["edges"]]
+        if any(not isinstance(value.get("id"), str) or not isinstance(value.get("text"), str)
+               for value in values):
+            raise ValueError()
+        return values
+    except BufferError:
+        raise
+    except Exception:
+        raise BufferError("Buffer returned an invalid posts response.") from None
+
+
+def find_duplicate(items, text, due):
+    normalized = text.strip()
+    for item in items:
+        if item.get("text", "").strip() != normalized:
+            continue
+        if due is None or item.get("dueAt") == due:
+            return item
+    return None
+
+
+def schedule_post(text, scheduled_at, channel_id=None):
+    """Idempotent create: inspect Buffer before every write or retry."""
+    due = scheduled_at.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+    channel = channel_id or resolve_x(channels())
+    existing = find_duplicate(posts(channel), text, due)
+    if existing:
+        return {"duplicate": True, "post_id": existing["id"],
+                "scheduled_at": existing.get("dueAt") or due}
+    query = ("mutation { createPost(input: { text: " + json.dumps(text) +
+             ", channelId: " + json.dumps(channel) +
+             ", schedulingType: automatic, mode: customScheduled, dueAt: " + json.dumps(due) +
+             " }) { ... on PostActionSuccess { post { id } } ... on MutationError { message } } }")
+    action = graphql(query).get("createPost")
+    if not isinstance(action, dict) or not isinstance(action.get("post"), dict):
+        raise BufferError("Buffer scheduling failed. Check Buffer before retrying.")
+    post_id = action["post"].get("id")
+    if not isinstance(post_id, str) or not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", post_id):
+        raise BufferError("Buffer returned an invalid post result. Check Buffer before retrying.")
+    return {"duplicate": False, "post_id": post_id, "scheduled_at": due}
 
 
 def resolve_x(items):
@@ -127,19 +196,12 @@ def schedule(payload: ScheduleInput, request: Request):
     try:
         channel = resolve_x(channels())
         if payload.dry_run:
+            existing = find_duplicate(posts(channel), text, due)
+            if existing:
+                return dict(dry_run=True, duplicate=True,
+                            post_id=existing["id"], scheduled_at=existing.get("dueAt") or due)
             return dict(dry_run=True, channel_id=channel, scheduled_at=due)
-        # JSON string encoding avoids injection while retaining the documented
-        # GraphQL enum literals. No metadata/thread or immediate-sharing mode.
-        query = ("mutation { createPost(input: { text: " + json.dumps(text) +
-                 ", channelId: " + json.dumps(channel) +
-                 ", schedulingType: automatic, mode: customScheduled, dueAt: " + json.dumps(due) +
-                 " }) { ... on PostActionSuccess { post { id } } ... on MutationError { message } } }")
-        action = graphql(query).get("createPost")
-        if not isinstance(action, dict) or not isinstance(action.get("post"), dict):
-            raise BufferError("Buffer scheduling failed. Check Buffer before retrying.")
-        post_id = action["post"].get("id")
-        if not isinstance(post_id, str) or not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", post_id):
-            raise BufferError("Buffer returned an invalid post result. Check Buffer before retrying.")
-        return dict(dry_run=False, post_id=post_id, scheduled_at=due)
+        result = schedule_post(text, datetime.fromisoformat(due.replace("Z", "+00:00")), channel)
+        return dict(dry_run=False, **result)
     except BufferError as error:
         raise HTTPException(502, str(error)) from None
