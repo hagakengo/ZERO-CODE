@@ -20,6 +20,7 @@ class BufferTests(unittest.TestCase):
         self.service = "twitter"
         self.failure = None
         self.posts = []
+        self.post_pages = None
         self.mock = patch.object(buffer.httpx, "post", side_effect=self.respond)
         self.mock.start()
 
@@ -42,8 +43,12 @@ class BufferTests(unittest.TestCase):
         elif "channels(input" in q:
             data = {"data": {"channels": [{"id": "channel", "service": self.service}]}}
         elif "posts(" in q:
-            data = {"data": {"posts": {"edges": [{"node": value} for value in self.posts],
-                                       "pageInfo": {"hasNextPage": False, "endCursor": None}}}}
+            if self.post_pages:
+                values, page_info = self.post_pages.pop(0)
+            else:
+                values, page_info = self.posts, {"hasNextPage": False, "endCursor": None}
+            data = {"data": {"posts": {"edges": [{"node": value} for value in values],
+                                       "pageInfo": page_info}}}
         elif self.failure == "mutation":
             data = {"data": {"createPost": {"message": "test-secret"}}}
         else:
@@ -122,6 +127,22 @@ class BufferTests(unittest.TestCase):
         self.assertIn("status: [scheduled, sent]", query)
         self.assertIn('channelIds: ["channel"]', query)
         self.assertIn("externalLink", query)
+
+    def test_posts_paginates_for_complete_duplicate_detection(self):
+        first = {"id": "first", "text": "old", "dueAt": None,
+                 "channelId": "channel", "externalLink": None}
+        second = {"id": "second", "text": "target", "dueAt": None,
+                  "channelId": "channel", "externalLink": None}
+        self.post_pages = [
+            ([first], {"hasNextPage": True, "endCursor": "cursor-1"}),
+            ([second], {"hasNextPage": False, "endCursor": None}),
+        ]
+        values = buffer.posts("channel")
+        self.assertEqual([value["id"] for value in values], ["first", "second"])
+        queries = [query for query in self.calls if "posts(" in query]
+        self.assertEqual(len(queries), 2)
+        self.assertNotIn("after:", queries[0])
+        self.assertIn('after: "cursor-1"', queries[1])
 
     def test_errors_are_safe(self):
         for failure in ("graphql", "mutation"):

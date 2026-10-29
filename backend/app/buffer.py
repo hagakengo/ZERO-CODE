@@ -69,7 +69,7 @@ def channels():
         raise BufferError("Buffer returned an invalid channel response.") from None
 
 
-def posts(channel_id, statuses=("scheduled", "sent"), first=100):
+def posts(channel_id, statuses=("scheduled", "sent"), first=100, max_pages=20):
     """Read posts for duplicate detection and delivery reconciliation."""
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", channel_id):
         raise BufferError("Invalid Buffer channel.")
@@ -77,19 +77,31 @@ def posts(channel_id, statuses=("scheduled", "sent"), first=100):
         raise BufferError("Invalid Buffer post status filter.")
     organization_id = organizations()[0]
     status_list = ", ".join(statuses)
-    query = (
-        "query { posts(first: " + str(min(max(first, 1), 100)) +
-        ", input: { organizationId: " + json.dumps(organization_id) +
-        ", filter: { status: [" + status_list + "], channelIds: [" + json.dumps(channel_id) +
-        "] } }) { edges { node { id text dueAt channelId externalLink } } pageInfo { hasNextPage endCursor } } }"
-    )
     try:
-        result = graphql(query)["posts"]
-        values = [edge["node"] for edge in result["edges"]]
-        if any(not isinstance(value.get("id"), str) or not isinstance(value.get("text"), str)
-               for value in values):
-            raise ValueError()
-        return values
+        values = []
+        cursor = None
+        for _ in range(max_pages):
+            after = "" if cursor is None else ", after: " + json.dumps(cursor)
+            query = (
+                "query { posts(first: " + str(min(max(first, 1), 100)) + after +
+                ", input: { organizationId: " + json.dumps(organization_id) +
+                ", filter: { status: [" + status_list + "], channelIds: [" + json.dumps(channel_id) +
+                "] } }) { edges { node { id text dueAt channelId externalLink } } "
+                "pageInfo { hasNextPage endCursor } } }"
+            )
+            result = graphql(query)["posts"]
+            page = [edge["node"] for edge in result["edges"]]
+            if any(not isinstance(value.get("id"), str) or not isinstance(value.get("text"), str)
+                   for value in page):
+                raise ValueError()
+            values.extend(page)
+            page_info = result["pageInfo"]
+            if not page_info.get("hasNextPage"):
+                return values
+            cursor = page_info.get("endCursor")
+            if not isinstance(cursor, str) or not cursor:
+                raise ValueError()
+        raise BufferError("Buffer post history exceeds the safe pagination limit.")
     except BufferError:
         raise
     except Exception:

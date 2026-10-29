@@ -11,6 +11,20 @@
 
 SNS用テーブルはSQLAlchemyの `CREATE TABLE IF NOT EXISTS` 相当で追加される。既存列の変更や削除は行わない。
 
+### PostgreSQLバックアップ・復元ゲート
+
+Neonの管理スナップショットが利用可能ならそれを第一選択とする。手動取得では、秘密値をコマンド引数・ログ・報告書へ出さず、権限を`0700`にした作業ディレクトリと`0600`の`PGPASSFILE`を使用する。
+
+1. 自動処理を停止し、対象project/branch/databaseを識別値で再確認する。
+2. `pg_dump --format=custom`で全DBを取得し、SHA-256、サイズ、取得日時、対象識別子を別manifestへ記録する。
+3. Productionとは別の隔離DBを新規作成する。
+4. `pg_restore --clean --if-exists`で隔離DBへ復元する。
+5. source/restoreのpublic table数、`social_posts`、`social_post_attempts`、既存主要テーブルの件数を比較する。
+6. 復元DBに対して全回帰試験とSNS dry-runを行う。
+7. 検証用資格情報と復元DBを破棄し、バックアップはアクセス制御された保存先へ移す。
+
+接続先、資格情報、バックアップのいずれかを確認できない場合は本番移行をHOLDする。復元未検証のバックアップを復旧可能とは報告しない。
+
 ## 限定検証
 
 1. `tools/sns_ops.py detect` で候補だけを確認する。
