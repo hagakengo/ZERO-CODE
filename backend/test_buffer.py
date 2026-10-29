@@ -10,7 +10,10 @@ from app import buffer
 
 class BufferTests(unittest.TestCase):
     def setUp(self):
-        self.env = patch.dict(os.environ, {"BUFFER_API_KEY": "test-secret", "BUFFER_X_CHANNEL_ID": ""})
+        self.env = patch.dict(os.environ, {
+            "BUFFER_API_KEY": "test-secret", "BUFFER_X_CHANNEL_ID": "",
+            "SNS_WRITE_TOKEN": "sns-test-token",
+        })
         self.env.start()
         self.client = TestClient(app)
         self.calls = []
@@ -48,8 +51,24 @@ class BufferTests(unittest.TestCase):
         return httpx.Response(200, request=httpx.Request("POST", url), json=data)
 
     def schedule(self, **changes):
-        return self.client.post("/api/integrations/buffer/schedule", json={
+        return self.client.post("/api/integrations/buffer/schedule",
+                                headers={"X-ZCS-SNS-Token": "sns-test-token"}, json={
             "text": 'Hello "X"', "scheduled_at": "2099-01-01T12:00:00+09:00", **changes})
+
+    def test_missing_and_invalid_token_are_rejected_without_buffer_writes(self):
+        payload = {"text": "hi", "scheduled_at": "2099-01-01T00:00:00Z", "dry_run": False}
+        missing = self.client.post("/api/integrations/buffer/schedule", json=payload)
+        invalid = self.client.post("/api/integrations/buffer/schedule",
+                                   headers={"X-ZCS-SNS-Token": "wrong-token"}, json=payload)
+        self.assertEqual(missing.status_code, 401)
+        self.assertEqual(invalid.status_code, 401)
+        self.assertEqual(self.calls, [])
+
+    def test_valid_token_dry_run_does_not_write(self):
+        result = self.schedule(dry_run=True)
+        self.assertEqual(result.status_code, 200)
+        self.assertTrue(result.json()["dry_run"])
+        self.assertFalse(any("mutation" in query for query in self.calls))
 
     def test_unconfigured(self):
         os.environ["BUFFER_API_KEY"] = ""
@@ -129,7 +148,10 @@ class BufferTests(unittest.TestCase):
             buffer.resolve_x([{"id": "b", "service": "instagram"}])
 
     def test_origin(self):
-        result = self.client.post("/api/integrations/buffer/schedule", headers={"Origin": "https://evil.example"},
-                                  json={"text": "hi", "scheduled_at": "2099-01-01T00:00:00Z", "dry_run": False})
+        result = self.client.post("/api/integrations/buffer/schedule",
+                                  json={"text": "hi", "scheduled_at": "2099-01-01T00:00:00Z",
+                                        "dry_run": False},
+                                  headers={"Origin": "https://evil.example",
+                                           "X-ZCS-SNS-Token": "sns-test-token"})
         self.assertEqual(result.status_code, 403)
         self.assertEqual(self.calls, [])

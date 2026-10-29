@@ -4,8 +4,10 @@ import os
 import re
 from datetime import datetime, timezone
 import httpx
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, Header, HTTPException, Request
 from pydantic import BaseModel, ConfigDict, StrictBool
+
+from .sns_auth import require_sns_write_token
 
 router = APIRouter(prefix="/api/integrations/buffer")
 ENDPOINT = "https://api.buffer.com"
@@ -186,7 +188,9 @@ def validate(payload):
 
 
 @router.post("/schedule")
-def schedule(payload: ScheduleInput, request: Request):
+def schedule(payload: ScheduleInput, request: Request,
+             x_zcs_sns_token: str | None = Header(default=None)):
+    require_sns_write_token(x_zcs_sns_token)
     allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
     if request.headers.get("origin") and request.headers["origin"] not in allowed:
         raise HTTPException(403, "Origin not allowed")

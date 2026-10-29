@@ -12,6 +12,7 @@ from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
 from . import youtube, buffer, sns_ops
+from .sns_auth import require_sns_write_token
 from threading import Lock
 
 load_dotenv(youtube.ENV_PATH)
@@ -422,14 +423,6 @@ def require_local_origin(request: Request):
     allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
     if request.headers.get("origin") and request.headers["origin"] not in allowed:
         raise HTTPException(403, "Origin not allowed")
-
-
-def require_sns_write_token(supplied: str | None):
-    expected = os.getenv("SNS_WRITE_TOKEN", "").strip()
-    if not expected:
-        raise HTTPException(503, "SNS write access is not configured.")
-    if not supplied or not secrets.compare_digest(supplied, expected):
-        raise HTTPException(401, "Unauthorized")
 
 
 @app.get("/api/sns/posts")
