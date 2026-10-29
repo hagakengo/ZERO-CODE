@@ -441,46 +441,6 @@ def social_posts(request: Request, x_zcs_sns_token: str | None = Header(default=
             db.scalars(select(SocialPost).order_by(SocialPost.created_at.desc()))]
 
 
-@app.post("/api/sns/preview-persistence-probe")
-def preview_persistence_probe(
-    action: str,
-    request: Request,
-    x_zcs_sns_token: str | None = Header(default=None),
-    db: Session = Depends(get_db),
-):
-    """Temporary, authenticated Preview-only persistence verification hook."""
-    if os.getenv("VERCEL_ENV") != "preview":
-        raise HTTPException(404, "Not found")
-    require_local_origin(request)
-    require_sns_write_token(x_zcs_sns_token)
-    probe_id = "ZCS-SNS-OPS-007-PROBE-20261029"
-    probe_url = "https://example.invalid/zcs-sns-ops-007-probe-20261029"
-    if action == "create":
-        db.query(SocialPostAttempt).filter(SocialPostAttempt.post_id == probe_id).delete()
-        db.query(SocialPost).filter(SocialPost.post_id == probe_id).delete()
-        db.add(SocialPost(
-            post_id=probe_id,
-            platform="x",
-            note_title="Preview persistence probe",
-            note_url=probe_url,
-            post_text="dry-run probe only",
-            status="HOLD",
-            retry_count=0,
-        ))
-        db.commit()
-        engine.dispose()
-        return {"created": True, "connection_disposed": True}
-    if action == "verify_cleanup":
-        row = db.scalar(select(SocialPost).where(SocialPost.post_id == probe_id))
-        matched = bool(row and row.status == "HOLD" and row.note_title == "Preview persistence probe")
-        db.query(SocialPostAttempt).filter(SocialPostAttempt.post_id == probe_id).delete()
-        deleted = db.query(SocialPost).filter(SocialPost.post_id == probe_id).delete()
-        db.commit()
-        engine.dispose()
-        return {"readback": matched, "deleted": deleted == 1, "connection_disposed": True}
-    raise HTTPException(400, "Unsupported probe action")
-
-
 class SnsReconcileInput(BaseModel):
     model_config = ConfigDict(extra="forbid")
     dry_run: StrictBool = True
