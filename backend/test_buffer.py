@@ -10,12 +10,17 @@ from app import buffer
 
 class BufferTests(unittest.TestCase):
     def setUp(self):
-        self.env = patch.dict(os.environ, {"BUFFER_API_KEY": "test-secret", "BUFFER_X_CHANNEL_ID": ""})
+        self.env = patch.dict(os.environ, {
+            "BUFFER_API_KEY": "test-secret", "BUFFER_X_CHANNEL_ID": "",
+            "SNS_WRITE_TOKEN": "sns-test-token",
+        })
         self.env.start()
         self.client = TestClient(app)
         self.calls = []
         self.service = "twitter"
         self.failure = None
+        self.posts = []
+        self.post_pages = None
         self.mock = patch.object(buffer.httpx, "post", side_effect=self.respond)
         self.mock.start()
 
@@ -35,8 +40,15 @@ class BufferTests(unittest.TestCase):
             data = {"errors": [{"message": "test-secret"}]}
         elif "organizations" in q:
             data = {"data": {"account": {"organizations": [{"id": "org"}]}}}
-        elif "channels" in q:
+        elif "channels(input" in q:
             data = {"data": {"channels": [{"id": "channel", "service": self.service}]}}
+        elif "posts(" in q:
+            if self.post_pages:
+                values, page_info = self.post_pages.pop(0)
+            else:
+                values, page_info = self.posts, {"hasNextPage": False, "endCursor": None}
+            data = {"data": {"posts": {"edges": [{"node": value} for value in values],
+                                       "pageInfo": page_info}}}
         elif self.failure == "mutation":
             data = {"data": {"createPost": {"message": "test-secret"}}}
         else:
@@ -44,8 +56,24 @@ class BufferTests(unittest.TestCase):
         return httpx.Response(200, request=httpx.Request("POST", url), json=data)
 
     def schedule(self, **changes):
-        return self.client.post("/api/integrations/buffer/schedule", json={
+        return self.client.post("/api/integrations/buffer/schedule",
+                                headers={"X-ZCS-SNS-Token": "sns-test-token"}, json={
             "text": 'Hello "X"', "scheduled_at": "2099-01-01T12:00:00+09:00", **changes})
+
+    def test_missing_and_invalid_token_are_rejected_without_buffer_writes(self):
+        payload = {"text": "hi", "scheduled_at": "2099-01-01T00:00:00Z", "dry_run": False}
+        missing = self.client.post("/api/integrations/buffer/schedule", json=payload)
+        invalid = self.client.post("/api/integrations/buffer/schedule",
+                                   headers={"X-ZCS-SNS-Token": "wrong-token"}, json=payload)
+        self.assertEqual(missing.status_code, 401)
+        self.assertEqual(invalid.status_code, 401)
+        self.assertEqual(self.calls, [])
+
+    def test_valid_token_dry_run_does_not_write(self):
+        result = self.schedule(dry_run=True)
+        self.assertEqual(result.status_code, 200)
+        self.assertTrue(result.json()["dry_run"])
+        self.assertFalse(any("mutation" in query for query in self.calls))
 
     def test_unconfigured(self):
         os.environ["BUFFER_API_KEY"] = ""
@@ -84,6 +112,38 @@ class BufferTests(unittest.TestCase):
         self.assertNotIn("thread", query)
         self.assertNotIn("shareNow", query)
 
+    def test_duplicate_is_not_created(self):
+        self.posts = [{"id": "already", "text": 'Hello "X"',
+                       "dueAt": "2099-01-01T03:00:00Z", "channelId": "channel",
+                       "externalLink": None}]
+        result = self.schedule(dry_run=False)
+        self.assertEqual(result.json()["post_id"], "already")
+        self.assertTrue(result.json()["duplicate"])
+        self.assertFalse(any("mutation" in q for q in self.calls))
+
+    def test_posts_filter_is_scoped(self):
+        buffer.posts("channel", ("scheduled", "sent"))
+        query = self.calls[-1]
+        self.assertIn("status: [scheduled, sent]", query)
+        self.assertIn('channelIds: ["channel"]', query)
+        self.assertIn("externalLink", query)
+
+    def test_posts_paginates_for_complete_duplicate_detection(self):
+        first = {"id": "first", "text": "old", "dueAt": None,
+                 "channelId": "channel", "externalLink": None}
+        second = {"id": "second", "text": "target", "dueAt": None,
+                  "channelId": "channel", "externalLink": None}
+        self.post_pages = [
+            ([first], {"hasNextPage": True, "endCursor": "cursor-1"}),
+            ([second], {"hasNextPage": False, "endCursor": None}),
+        ]
+        values = buffer.posts("channel")
+        self.assertEqual([value["id"] for value in values], ["first", "second"])
+        queries = [query for query in self.calls if "posts(" in query]
+        self.assertEqual(len(queries), 2)
+        self.assertNotIn("after:", queries[0])
+        self.assertIn('after: "cursor-1"', queries[1])
+
     def test_errors_are_safe(self):
         for failure in ("graphql", "mutation"):
             self.failure = failure
@@ -109,7 +169,10 @@ class BufferTests(unittest.TestCase):
             buffer.resolve_x([{"id": "b", "service": "instagram"}])
 
     def test_origin(self):
-        result = self.client.post("/api/integrations/buffer/schedule", headers={"Origin": "https://evil.example"},
-                                  json={"text": "hi", "scheduled_at": "2099-01-01T00:00:00Z", "dry_run": False})
+        result = self.client.post("/api/integrations/buffer/schedule",
+                                  json={"text": "hi", "scheduled_at": "2099-01-01T00:00:00Z",
+                                        "dry_run": False},
+                                  headers={"Origin": "https://evil.example",
+                                           "X-ZCS-SNS-Token": "sns-test-token"})
         self.assertEqual(result.status_code, 403)
         self.assertEqual(self.calls, [])

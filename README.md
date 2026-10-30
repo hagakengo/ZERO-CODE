@@ -472,6 +472,10 @@ The remote endpoint tests verify Bearer authentication and ensure common secret
 names/token values do not appear in the response.
 
 
+### note → Buffer → X 告知台帳（DRAFT）
+
+公開済みnote記事の検出、月・水・金20:00（JST）のBuffer予約、X公開URLの照合を行う隔離実装を追加しています。予約と公開を別状態で管理し、未公開・機密情報はHOLD、同一note URLは重複予約しません。本番スケジューラーと本番DBへの反映は未実施です。設定、操作、復旧は [ZCS-SNS-OPS-002 運用手順](docs/os/ZCS-SNS-OPS-002_RUNBOOK.md) を参照してください。
+
 ## 素材資産管理・再利用
 
 [素材資産管理・再利用規程 v1.0（ZCS-ASSET-001）](docs/regulations/ZCS-ASSET-001_v1.0.md) を適用する。新規生成前に既存素材と権利を確認し、脚本承認と素材MASTER承認を分ける。既存の承認権限・正史管理は変更しない。[初回棚卸しの引継ぎ](docs/regulations/ZCS-ASSET-001_v1.0_inventory-handoff.md)。

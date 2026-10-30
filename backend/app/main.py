@@ -1,16 +1,18 @@
 import os
+import re
 import secrets
 from datetime import date, datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 from typing import Annotated
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, model_validator
 from pathlib import Path
 
 from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
-from . import youtube, buffer
+from . import youtube, buffer, sns_ops
+from .sns_auth import require_sns_write_token
 from threading import Lock
 
 load_dotenv(youtube.ENV_PATH)
@@ -95,6 +97,36 @@ class YouTubeIntegration(Base):
     error: Mapped[str | None] = mapped_column(String(255), nullable=True)
     warning: Mapped[str | None] = mapped_column(String(255), nullable=True)
     last_synced_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+
+
+class SocialPost(Base):
+    __tablename__ = "social_posts"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    post_id: Mapped[str] = mapped_column(String(96), unique=True, index=True)
+    platform: Mapped[str] = mapped_column(String(24), default="x")
+    note_title: Mapped[str] = mapped_column(String(500))
+    note_url: Mapped[str] = mapped_column(String(500), unique=True, index=True)
+    post_text: Mapped[str] = mapped_column(String(1000))
+    status: Mapped[str] = mapped_column(String(24), default="DRAFT", index=True)
+    scheduled_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    buffer_post_id: Mapped[str | None] = mapped_column(String(128), nullable=True, unique=True)
+    x_public_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    published_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    last_checked_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    error: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    retry_count: Mapped[int] = mapped_column(Integer, default=0)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+
+class SocialPostAttempt(Base):
+    __tablename__ = "social_post_attempts"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    post_id: Mapped[str] = mapped_column(String(96), index=True)
+    attempted_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc))
+    outcome: Mapped[str] = mapped_column(String(32))
+    error: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    buffer_post_id: Mapped[str | None] = mapped_column(String(128), nullable=True)
 
 
 def metrics_today() -> date:
@@ -363,6 +395,231 @@ def public_status(
         "delta": current["delta"],
         "last_updated_at": metrics.updated_at,
     }
+
+
+SNS_STATUSES = {"DRAFT", "READY", "SCHEDULED", "PUBLISHED", "FAILED", "HOLD"}
+X_STATUS_URL = re.compile(r"https://x\.com/sora1993xny/status/\d+")
+
+
+def record_social_attempt(db: Session, row: SocialPost, outcome: str,
+                          error: str | None = None, buffer_post_id: str | None = None):
+    db.add(SocialPostAttempt(post_id=row.post_id, outcome=outcome, error=error,
+                             buffer_post_id=buffer_post_id))
+
+
+def serialize_social_post(row: SocialPost):
+    return {
+        "post_id": row.post_id, "platform": row.platform,
+        "note_title": row.note_title, "note_url": row.note_url,
+        "post_text": row.post_text, "status": row.status,
+        "scheduled_at": row.scheduled_at, "buffer_post_id": row.buffer_post_id,
+        "x_public_url": row.x_public_url, "published_at": row.published_at,
+        "last_checked_at": row.last_checked_at, "error": row.error,
+        "retry_count": row.retry_count,
+    }
+
+
+def require_local_origin(request: Request):
+    allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
+    if request.headers.get("origin") and request.headers["origin"] not in allowed:
+        raise HTTPException(403, "Origin not allowed")
+
+
+@app.get("/api/sns/posts")
+def social_posts(request: Request, x_zcs_sns_token: str | None = Header(default=None),
+                 db: Session = Depends(get_db)):
+    require_local_origin(request)
+    require_sns_write_token(x_zcs_sns_token)
+    return [serialize_social_post(row) for row in
+            db.scalars(select(SocialPost).order_by(SocialPost.created_at.desc()))]
+
+
+class SnsReconcileInput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    dry_run: StrictBool = True
+    automation: StrictBool = False
+    now: datetime | None = None
+
+
+@app.post("/api/sns/reconcile")
+def reconcile_social_posts(payload: SnsReconcileInput, request: Request,
+                           x_zcs_sns_token: str | None = Header(default=None),
+                           db: Session = Depends(get_db)):
+    """Detect note entries and, only when explicitly enabled, persist/schedule them."""
+    require_local_origin(request)
+    require_sns_write_token(x_zcs_sns_token)
+    rss_url = os.getenv("NOTE_RSS_URL", "").strip()
+    if not rss_url:
+        raise HTTPException(409, "note RSS is not configured.")
+    try:
+        entries = sns_ops.fetch_note_rss(rss_url)
+    except sns_ops.FeedError as error:
+        raise HTTPException(502, str(error)) from None
+    now = (payload.now or datetime.now(timezone.utc)).astimezone(sns_ops.JST)
+    automation_enabled = os.getenv("SNS_AUTO_SCHEDULE_ENABLED", "0") == "1"
+    dry_run = payload.dry_run or (payload.automation and not automation_enabled)
+    if not dry_run:
+        begin_write(db)
+    occupied = {
+        row.scheduled_at.replace(tzinfo=timezone.utc).astimezone(sns_ops.JST)
+        if row.scheduled_at and row.scheduled_at.tzinfo is None else row.scheduled_at.astimezone(sns_ops.JST)
+        for row in db.scalars(select(SocialPost).where(SocialPost.scheduled_at.is_not(None)))
+    }
+    actions = []
+    for entry in entries:
+        existing = db.scalar(select(SocialPost).where(SocialPost.note_url == entry["url"]))
+        if existing:
+            actions.append({"note_url": entry["url"], "action": "existing",
+                            "status": existing.status})
+            continue
+        safe = sns_ops.normal_announcement(entry["title"], entry["summary"])
+        status = "READY" if safe else "HOLD"
+        body = sns_ops.draft_text(entry["title"], entry["url"])
+        slot = sns_ops.next_slot(now, occupied) if safe else None
+        action = {"note_url": entry["url"], "action": "detected", "status": status,
+                  "scheduled_at": slot}
+        if dry_run:
+            actions.append(action)
+            if slot:
+                occupied.add(slot)
+            continue
+        post_id = "NOTE-" + entry["url"].rsplit("/", 1)[-1]
+        row = SocialPost(post_id=post_id, note_title=entry["title"],
+                         note_url=entry["url"], post_text=body, status=status,
+                         scheduled_at=slot.astimezone(timezone.utc).replace(tzinfo=None) if slot else None,
+                         retry_count=0)
+        db.add(row)
+        if status == "READY":
+            if not buffer.configured():
+                row.status, row.error = "HOLD", "Buffer is not configured."
+                action.update(status="HOLD", error=row.error)
+            else:
+                try:
+                    result = buffer.schedule_post(body, slot)
+                    row.buffer_post_id = result["post_id"]
+                    row.status = "SCHEDULED"
+                    row.error = None
+                    record_social_attempt(db, row, "SCHEDULED", buffer_post_id=row.buffer_post_id)
+                    action.update(status="SCHEDULED", buffer_post_id=row.buffer_post_id,
+                                  duplicate=result["duplicate"])
+                    occupied.add(slot)
+                except buffer.BufferError as error:
+                    row.status, row.error = "FAILED", str(error)
+                    row.retry_count = (row.retry_count or 0) + 1
+                    record_social_attempt(db, row, "FAILED", error=str(error))
+                    action.update(status="FAILED", error=str(error))
+        actions.append(action)
+    if not dry_run:
+        db.commit()
+    return {"dry_run": dry_run, "automation": payload.automation,
+            "auto_schedule_enabled": automation_enabled, "actions": actions}
+
+
+@app.post("/api/sns/refresh")
+def refresh_social_posts(request: Request, automation: StrictBool = Query(default=False),
+                         x_zcs_sns_token: str | None = Header(default=None),
+                         db: Session = Depends(get_db)):
+    """Reconcile Buffer state. Sent is not PUBLISHED until an X URL is verified."""
+    require_local_origin(request)
+    require_sns_write_token(x_zcs_sns_token)
+    if automation and os.getenv("SNS_AUTO_REFRESH_ENABLED", "0") != "1":
+        return {"skipped": True, "reason": "automatic refresh is disabled", "posts": []}
+    if not buffer.configured():
+        raise HTTPException(409, "Buffer is not configured.")
+    try:
+        channel = buffer.resolve_x(buffer.channels())
+        by_status = {
+            status: {item["id"]: item for item in buffer.posts(channel, (status,))}
+            for status in ("scheduled", "sent", "failed")
+        }
+    except buffer.BufferError as error:
+        raise HTTPException(502, str(error)) from None
+    begin_write(db)
+    changed = []
+    now = datetime.now(timezone.utc)
+    for row in db.scalars(select(SocialPost).where(SocialPost.buffer_post_id.is_not(None))):
+        row.last_checked_at = now
+        if row.buffer_post_id in by_status["failed"]:
+            row.status, row.error = "FAILED", "Buffer reports delivery failure."
+        elif row.buffer_post_id in by_status["sent"] and row.status != "PUBLISHED":
+            sent = by_status["sent"][row.buffer_post_id]
+            public_url = sent.get("externalLink")
+            if isinstance(public_url, str) and X_STATUS_URL.fullmatch(public_url):
+                row.status = "PUBLISHED"
+                row.x_public_url = public_url
+                row.published_at = now
+                row.error = None
+                record_social_attempt(db, row, "PUBLISHED", buffer_post_id=row.buffer_post_id)
+            else:
+                row.error = "Buffer sent; verified @sora1993xny X URL is unavailable."
+        elif row.buffer_post_id in by_status["scheduled"]:
+            row.status, row.error = "SCHEDULED", None
+        row.updated_at = now
+        changed.append(serialize_social_post(row))
+    db.commit()
+    return {"posts": changed}
+
+
+@app.post("/api/sns/posts/{post_id}/retry")
+def retry_social_post(post_id: str, request: Request,
+                      x_zcs_sns_token: str | None = Header(default=None),
+                      db: Session = Depends(get_db)):
+    require_local_origin(request)
+    require_sns_write_token(x_zcs_sns_token)
+    if not buffer.configured():
+        raise HTTPException(409, "Buffer is not configured.")
+    begin_write(db)
+    row = db.scalar(select(SocialPost).where(SocialPost.post_id == post_id))
+    if not row:
+        raise HTTPException(404, "SNS post not found.")
+    if row.status != "FAILED" or not row.scheduled_at:
+        raise HTTPException(409, "Only FAILED scheduled posts can be retried.")
+    scheduled = row.scheduled_at.replace(tzinfo=timezone.utc)
+    try:
+        result = buffer.schedule_post(row.post_text, scheduled)
+    except buffer.BufferError as error:
+        row.retry_count += 1
+        row.error = str(error)
+        record_social_attempt(db, row, "FAILED", error=str(error))
+        db.commit()
+        raise HTTPException(502, str(error)) from None
+    row.buffer_post_id = result["post_id"]
+    row.status, row.error = "SCHEDULED", None
+    row.retry_count += 1
+    row.updated_at = datetime.now(timezone.utc)
+    record_social_attempt(db, row, "SCHEDULED", buffer_post_id=row.buffer_post_id)
+    db.commit()
+    return {**serialize_social_post(row), "duplicate": result["duplicate"]}
+
+
+class PublishConfirmation(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    x_public_url: str
+    published_at: datetime
+
+
+@app.post("/api/sns/posts/{post_id}/confirm-published")
+def confirm_social_post(post_id: str, payload: PublishConfirmation, request: Request,
+                        x_zcs_sns_token: str | None = Header(default=None),
+                        db: Session = Depends(get_db)):
+    """Record X evidence; Buffer sent state alone never promotes to PUBLISHED."""
+    require_local_origin(request)
+    require_sns_write_token(x_zcs_sns_token)
+    if not X_STATUS_URL.fullmatch(payload.x_public_url):
+        raise HTTPException(422, "A verified @sora1993xny X status URL is required.")
+    begin_write(db)
+    row = db.scalar(select(SocialPost).where(SocialPost.post_id == post_id))
+    if not row:
+        raise HTTPException(404, "SNS post not found.")
+    row.status = "PUBLISHED"
+    row.x_public_url = payload.x_public_url
+    row.published_at = payload.published_at
+    row.last_checked_at = datetime.now(timezone.utc)
+    row.error = None
+    row.updated_at = datetime.now(timezone.utc)
+    record_social_attempt(db, row, "PUBLISHED", buffer_post_id=row.buffer_post_id)
+    db.commit()
+    return serialize_social_post(row)
 
 
 @app.get("/api/metrics/latest")
