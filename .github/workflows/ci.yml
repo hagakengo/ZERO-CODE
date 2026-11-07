@@ -44,8 +44,46 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --no-audit --no-fund
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Run Production Canvas tests
+        run: npm run test:canvas
       - name: TypeScript check
         run: npx tsc --noEmit
       - name: Build Next.js
         run: npm run build
+
+  dependency-audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Run npm audit
+        id: npm-audit
+        shell: bash
+        run: |
+          set +e
+          npm audit --json > npm-audit.json
+          audit_exit_code=$?
+          set -e
+          echo "$audit_exit_code" > npm-audit-exit-code.txt
+          echo "npm audit exit code: $audit_exit_code"
+          exit "$audit_exit_code"
+      - name: Upload npm audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit
+          path: |
+            frontend/npm-audit.json
+            frontend/npm-audit-exit-code.txt
+          if-no-files-found: error
