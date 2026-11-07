@@ -131,7 +131,7 @@ the backend. Defaults allow localhost and 127.0.0.1 on frontend port 3000.
 
 ## ZERO CODE OS Phase 3 — YouTube sync
 
-Requires Python **3.11 or 3.12** and Node.js 20+. Install updated backend dependencies.
+Requires Python **3.11 or 3.12** and Node.js 20.9+ (CI uses Node.js 22). Install updated backend dependencies.
 This remains a **localhost, single-user app**: bind Uvicorn to `127.0.0.1`, use one
 worker, and do not expose these unauthenticated endpoints on a public network.
 The backend allows localhost hosts and rejects foreign browser origins on sync.
@@ -282,7 +282,7 @@ mission status. No historical counters, observations, or blank days are invented
 
 ### Local verification
 
-Back up your SQLite database before upgrading. Use Python 3.11/3.12 and Node 20+.
+Back up your SQLite database before upgrading. Use Python 3.11/3.12 and Node.js 20.9+ (CI uses Node.js 22).
 
 ```bash
 cd backend
