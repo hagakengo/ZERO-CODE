@@ -2,7 +2,36 @@ export type CanvasStatus = "DRAFT" | "APPROVED" | "HOLD" | "NOT_FOUND" | "UNVERI
 export type CanvasNodeKind = "SCRIPT" | "SCENE" | "CUT" | "CHARACTER" | "ASSET";
 export type Point = { x: number; y: number };
 
+// Separate evidence states prevent a script approval from implying MASTER or video approval.
+export type ProjectScope = "CURRENT_ANIME" | "LEGACY_YEN_ZERO" | "OS" | "UNVERIFIED";
+export type ApprovalEvidenceStatus = "UNVERIFIED" | "DRAFT" | "REVIEWED" | "APPROVED" | "NOT_APPLICABLE";
+export type ApprovalEvidence = {
+  status: ApprovalEvidenceStatus;
+  evidenceId?: string;
+  approvalScope?: string;
+};
+export type CanvasApprovalEvidence = {
+  scriptContent?: ApprovalEvidence;
+  integratedFile?: ApprovalEvidence;
+  masterAdoption?: ApprovalEvidence;
+  videoQc?: ApprovalEvidence;
+};
+
+export type CutBoundaryState = {
+  characterPosition?: string;
+  pose?: string;
+  facing?: string;
+  props?: string;
+  camera?: string;
+  evidenceId?: string;
+};
+
 export type CutDetails = {
+  startState?: CutBoundaryState;
+  endState?: CutBoundaryState;
+  // Explicit predecessor reference only. Never infer approved chronology from display order.
+  previousCutId?: string;
+  sequenceEvidenceId?: string;
   sceneId: string;
   scriptId: string;
   purpose: string;
@@ -20,6 +49,8 @@ export type CanvasNode = {
   title: string;
   status: CanvasStatus;
   sourceId: string;
+  projectScope?: ProjectScope;
+  approvalEvidence?: CanvasApprovalEvidence;
   sourceVersion?: string;
   sourcePath?: string;
   approvalScope?: string;
