@@ -62,3 +62,11 @@ test("project scope distinguishes current anime from legacy project", () => {
   }
   assert.match(details, /selected\.projectScope \?\? "UNVERIFIED"/);
 });
+
+test("APPROVED display requires both evidence ID and approval scope", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /evidence\.status === "APPROVED"/);
+  assert.match(details, /!evidence\.evidenceId\?\.trim\(\)/);
+  assert.match(details, /!evidence\.approvalScope\?\.trim\(\)/);
+  assert.match(details, /UNVERIFIED（APPROVED根拠不足）/);
+});
