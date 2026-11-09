@@ -60,13 +60,14 @@ export function hasInconsistentPredecessorContext(startId: string, nodes: readon
 }
 
 /**
- * Duplicate node IDs make lookup ambiguous across node kinds. Block continuity
- * comparisons rather than silently choosing a duplicate ID.
+ * Duplicate or noncanonical node IDs make lookup ambiguous across node kinds.
+ * Predecessor references are trimmed during traversal, so reject whitespace-
+ * padded IDs rather than silently resolving to a different node.
  */
 export function hasAmbiguousNodeIds(nodes: readonly CanvasNode[]): boolean {
   const seen = new Set<string>();
   for (const node of nodes) {
-    if (!node.id.trim() || seen.has(node.id)) return true;
+    if (!node.id.trim() || node.id !== node.id.trim() || seen.has(node.id)) return true;
     seen.add(node.id);
   }
   return false;
