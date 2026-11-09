@@ -57,3 +57,13 @@ CONDITIONAL。自動テストはPASS、正式導入ゲートは未充足。
 - プレビュー作成・本番デプロイ・マージは行っていない。G-03はBLOCKED、総合CONDITIONALを維持。
 - 次の解消条件: 本番と隔離されたPR HEADのプレビュー/ローカル検証環境を確保し、BQA-059に実操作の証拠を記録する。
 - この追記コミットのCIは別途確認が必要。
+
+
+## Vercel設定照合：既存プロジェクトの用途不一致（2026-11-10）
+- GitHub Actions: HEAD b4c10f90311d97e181656621043069bd719ff1c3、run 42668077796、frontend/backend/dependency-audit成功。
+- Vercelの既存 zero-code プロジェクト（prj_utTJYuir1sRkAQmcrFqXkJAATCsM）をread-only照会。framework=fastapi、nodeVersion=24.x、最新デプロイtarget=production/READY、SSO保護有効。
+- 対してPR #24のProduction Canvas画面は frontend/ 配下のNext.jsアプリ（frontend/package.json: next 16.4.5、scripts dev/build/start）。既存VercelプロジェクトをそのままPRプレビューに使っても、対象Next.js画面を検証できると確認できない。
+- したがって既存zero-codeプロジェクトに対する手動プレビューデプロイは実行しない。FastAPI本番設定や環境変数、ルートディレクトリを変更しない。
+- BQA-01〜08の解消手段は、隔離ローカルのfrontend Next.js起動、または専用の隔離Next.jsプレビュー環境の準備。環境の課金・公開範囲・認証・保存系APIの分離を確認してから実施する。
+- 現時点でBQAはBLOCKED。プレビューのURL、実画面操作、ブラウザQA PASSは未確認。
+- 本追記HEADのCIは別途確認する。
