@@ -5,7 +5,8 @@ import type { PointerEvent as ReactPointerEvent } from "react";
 import { CanvasEdges } from "./CanvasEdges";
 import { CanvasNodeCard } from "./CanvasNodeCard";
 import { NodeDetails } from "./NodeDetails";
-import { CANVAS_HEIGHT, CANVAS_WIDTH, kindLabels, sampleEdges, sampleNodes } from "./test-data";
+import { clampNodePosition } from "./node-bounds";
+import { CANVAS_HEIGHT, CANVAS_WIDTH, NODE_HEIGHT, NODE_WIDTH, kindLabels, sampleEdges, sampleNodes } from "./test-data";
 import type { CanvasNode, Point } from "./types";
 
 const MIN_ZOOM = 0.5;
@@ -58,7 +59,13 @@ export function ProductionCanvas() {
     const dx = event.clientX - active.startClient.x;
     const dy = event.clientY - active.startClient.y;
     if (active.kind === "node") {
-      setPositions((current) => ({ ...current, [active.nodeId]: { x: active.startPosition.x + dx / zoom, y: active.startPosition.y + dy / zoom } }));
+      setPositions((current) => ({
+        ...current,
+        [active.nodeId]: clampNodePosition(
+          { x: active.startPosition.x + dx / zoom, y: active.startPosition.y + dy / zoom },
+          CANVAS_WIDTH, CANVAS_HEIGHT, NODE_WIDTH, NODE_HEIGHT,
+        ),
+      }));
     } else {
       setPan({ x: active.startPan.x + dx, y: active.startPan.y + dy });
     }
