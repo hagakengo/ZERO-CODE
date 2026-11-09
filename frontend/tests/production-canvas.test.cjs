@@ -95,8 +95,8 @@ test("CUT boundary comparator never treats missing information as a match", () =
 test("CUT comparison UI labels synthetic order and does not assert canonical continuity", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /compareCutBoundaries\(previousCut\.cutDetails\?\.endState, cut\.startState\)/);
-  assert.match(details, /検証データ配列順/);
-  assert.match(details, /正式CUT順序のいずれかが未確認/);
+  assert.match(details, /明示された前CUT参照のみ/);
+  assert.match(details, /前CUT参照・順序根拠・資料適用範囲のいずれかが未確認/);
 });
 
 test("CUT comparator runtime: match, mismatch, missing and partial states", () => {
@@ -128,4 +128,17 @@ test("CUT comparison is blocked unless project scopes are known and identical", 
   assert.match(details, /previousCut\.projectScope === selected\.projectScope/);
   assert.match(details, /previousCut\.projectScope !== "UNVERIFIED"/);
   assert.match(details, /sameVerifiedScope && previousCut && cut/);
+});
+
+test("CUT sequence is never inferred from sample array order", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  const types = fs.readFileSync(path.join(canvasDir, "types.ts"), "utf8");
+  assert.match(types, /previousCutId\?: string/);
+  assert.match(types, /sequenceEvidenceId\?: string/);
+  assert.match(details, /cut\?\.previousCutId/);
+  assert.match(details, /cut\?\.sequenceEvidenceId\?\.trim\(\)/);
+  assert.match(details, /previousCut\.id !== selected\.id/);
+  assert.match(details, /previousCut\.cutDetails\?\.sceneId === cut\.sceneId/);
+  assert.match(details, /sequenceVerified && sameVerifiedScope/);
+  assert.doesNotMatch(details, /sameSceneCuts|cutIndex/);
 });
