@@ -58,3 +58,17 @@ export function hasInconsistentPredecessorContext(startId: string, nodes: readon
   }
   return false;
 }
+
+/**
+ * Duplicate CUT IDs make predecessor resolution ambiguous (Map would silently
+ * keep the last entry). Block comparisons rather than choosing one implicitly.
+ */
+export function hasAmbiguousCutIds(nodes: readonly CanvasNode[]): boolean {
+  const seen = new Set<string>();
+  for (const node of nodes) {
+    if (node.kind !== "CUT") continue;
+    if (!node.id.trim() || seen.has(node.id)) return true;
+    seen.add(node.id);
+  }
+  return false;
+}
