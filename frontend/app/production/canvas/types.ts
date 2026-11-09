@@ -2,6 +2,21 @@ export type CanvasStatus = "DRAFT" | "APPROVED" | "HOLD" | "NOT_FOUND" | "UNVERI
 export type CanvasNodeKind = "SCRIPT" | "SCENE" | "CUT" | "CHARACTER" | "ASSET";
 export type Point = { x: number; y: number };
 
+// Separate evidence states prevent a script approval from implying MASTER or video approval.
+export type ProjectScope = "CURRENT_ANIME" | "LEGACY_YEN_ZERO" | "OS" | "UNVERIFIED";
+export type ApprovalEvidenceStatus = "UNVERIFIED" | "DRAFT" | "REVIEWED" | "APPROVED" | "NOT_APPLICABLE";
+export type ApprovalEvidence = {
+  status: ApprovalEvidenceStatus;
+  evidenceId?: string;
+  approvalScope?: string;
+};
+export type CanvasApprovalEvidence = {
+  scriptContent?: ApprovalEvidence;
+  integratedFile?: ApprovalEvidence;
+  masterAdoption?: ApprovalEvidence;
+  videoQc?: ApprovalEvidence;
+};
+
 export type CutDetails = {
   sceneId: string;
   scriptId: string;
@@ -20,6 +35,8 @@ export type CanvasNode = {
   title: string;
   status: CanvasStatus;
   sourceId: string;
+  projectScope?: ProjectScope;
+  approvalEvidence?: CanvasApprovalEvidence;
   sourceVersion?: string;
   sourcePath?: string;
   approvalScope?: string;
