@@ -29,6 +29,9 @@ export type CutBoundaryState = {
 export type CutDetails = {
   startState?: CutBoundaryState;
   endState?: CutBoundaryState;
+  // Explicit predecessor reference only. Never infer approved chronology from display order.
+  previousCutId?: string;
+  sequenceEvidenceId?: string;
   sceneId: string;
   scriptId: string;
   purpose: string;
