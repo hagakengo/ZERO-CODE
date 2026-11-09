@@ -114,6 +114,11 @@ test("CUT comparator runtime: match, mismatch, missing and partial states", () =
   assert.equal(compare({ ...complete, evidenceId: undefined }, { ...complete }).status, "UNVERIFIED");
   assert.equal(compare({ ...complete }, { ...complete, evidenceId: " " }).status, "UNVERIFIED");
   assert.equal(compare(complete, { ...complete, facing: "左" }).status, "MISMATCH");
+  const mismatchWithoutEvidence = compare({ ...complete, evidenceId: undefined }, { ...complete, facing: "左" });
+  assert.equal(mismatchWithoutEvidence.status, "MISMATCH");
+  assert.ok(mismatchWithoutEvidence.reasons.some((reason) => reason.includes("根拠IDが未記録")));
+  assert.ok(mismatchWithoutEvidence.reasons.some((reason) => reason.includes("向き")));
+  assert.equal(compare({ ...complete, pose: " 立つ " }, complete).status, "MATCH");
   assert.equal(compare(undefined, complete).status, "UNVERIFIED");
   assert.equal(compare({ pose: "立つ" }, { pose: "立つ" }).status, "UNVERIFIED");
   assert.equal(compare({ pose: "立つ" }, { pose: "座る" }).status, "MISMATCH");
