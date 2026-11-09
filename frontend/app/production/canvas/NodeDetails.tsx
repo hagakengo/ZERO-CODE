@@ -1,4 +1,5 @@
 import { statusClasses } from "./test-data";
+import { compareCutBoundaries } from "./continuity";
 import type { ApprovalEvidence, CanvasEdge, CanvasNode, CutBoundaryState } from "./types";
 
 type Props = {
@@ -43,6 +44,11 @@ function boundaryText(state?: CutBoundaryState): string {
 
 export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
   const cut = selected.cutDetails;
+  // Synthetic sample order only: never infer canonical CUT order from node IDs.
+  const sameSceneCuts = cut ? nodes.filter((node) => node.kind === "CUT" && node.cutDetails?.sceneId === cut.sceneId) : [];
+  const cutIndex = sameSceneCuts.findIndex((node) => node.id === selected.id);
+  const previousCut = cutIndex > 0 ? sameSceneCuts[cutIndex - 1] : undefined;
+  const continuityCheck = previousCut && cut ? compareCutBoundaries(previousCut.cutDetails?.endState, cut.startState) : undefined;
   return (
     <aside aria-live="polite" aria-label="選択ノードの詳細" className="rounded-xl border border-white/10 bg-[#10151c] p-4">
       <h2 className="mb-4 text-sm font-semibold">ノード詳細</h2>
@@ -71,6 +77,7 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
           <Detail label="連続性" value={cut.continuity} />
           <Detail label="CUT開始状態" value={boundaryText(cut.startState)} />
           <Detail label="CUT終了状態" value={boundaryText(cut.endState)} />
+          <Detail label="前CUTとの自動比較（検証データ配列順）" value={continuityCheck ? `${continuityCheck.status} · ${continuityCheck.reasons.join(" / ") || "5項目一致"}` : "UNVERIFIED（前CUT未指定・正式なCUT順序は未確認）"} />
           <Detail label="尺" value={cut.timing} />
           <div><dt className="text-xs text-slate-400">QC</dt><dd className={`mt-1 inline-block rounded border px-2 py-1 text-xs ${statusClasses[cut.qc]}`}>{cut.qc}</dd></div>
         </dl>
