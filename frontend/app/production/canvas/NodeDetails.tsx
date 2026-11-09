@@ -46,7 +46,7 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
   const cut = selected.cutDetails;
   // Only explicitly sourced predecessor links can establish a comparison candidate.
   const previousCut = cut?.previousCutId ? nodes.find((node) => node.id === cut.previousCutId && node.kind === "CUT") : undefined;
-  const sequenceVerified = Boolean(cut?.sequenceEvidenceId?.trim() && previousCut && previousCut.id !== selected.id && previousCut.cutDetails?.sceneId === cut.sceneId && previousCut.cutDetails?.scriptId === cut.scriptId);
+  const sequenceVerified = Boolean(cut?.sequenceEvidenceId?.trim() && previousCut && previousCut.id !== selected.id && previousCut.cutDetails?.previousCutId !== selected.id && previousCut.cutDetails?.sceneId === cut.sceneId && previousCut.cutDetails?.scriptId === cut.scriptId);
   const sameVerifiedScope = previousCut?.projectScope && selected.projectScope && previousCut.projectScope === selected.projectScope && previousCut.projectScope !== "UNVERIFIED";
   const continuityCheck = sequenceVerified && sameVerifiedScope && previousCut && cut ? compareCutBoundaries(previousCut.cutDetails?.endState, cut.startState) : undefined;
   return (
