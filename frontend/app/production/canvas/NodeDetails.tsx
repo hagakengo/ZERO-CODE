@@ -1,6 +1,6 @@
 import { statusClasses } from "./test-data";
 import { compareCutBoundaries } from "./continuity";
-import { hasPredecessorCycle } from "./cut-sequence";
+import { hasBrokenPredecessorReference, hasPredecessorCycle } from "./cut-sequence";
 import type { ApprovalEvidence, CanvasEdge, CanvasNode, CutBoundaryState } from "./types";
 
 type Props = {
@@ -48,7 +48,8 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
   // Only explicitly sourced predecessor links can establish a comparison candidate.
   const previousCut = cut?.previousCutId ? nodes.find((node) => node.id === cut.previousCutId && node.kind === "CUT") : undefined;
   const cycleDetected = cut ? hasPredecessorCycle(selected.id, nodes) : false;
-  const sequenceVerified = Boolean(!cycleDetected && cut?.sequenceEvidenceId?.trim() && previousCut && previousCut.id !== selected.id && previousCut.cutDetails?.previousCutId !== selected.id && previousCut.cutDetails?.sceneId === cut.sceneId && previousCut.cutDetails?.scriptId === cut.scriptId);
+  const brokenPredecessor = cut ? hasBrokenPredecessorReference(selected.id, nodes) : false;
+  const sequenceVerified = Boolean(!cycleDetected && !brokenPredecessor && cut?.sequenceEvidenceId?.trim() && previousCut && previousCut.id !== selected.id && previousCut.cutDetails?.previousCutId !== selected.id && previousCut.cutDetails?.sceneId === cut.sceneId && previousCut.cutDetails?.scriptId === cut.scriptId);
   const sameVerifiedScope = previousCut?.projectScope && selected.projectScope && previousCut.projectScope === selected.projectScope && previousCut.projectScope !== "UNVERIFIED";
   const continuityCheck = sequenceVerified && sameVerifiedScope && previousCut && cut ? compareCutBoundaries(previousCut.cutDetails?.endState, cut.startState) : undefined;
   return (
@@ -79,6 +80,7 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
           <Detail label="連続性" value={cut.continuity} />
           <Detail label="前CUT参照ID" value={cut.previousCutId?.trim() || "UNVERIFIED（未指定）"} />
           <Detail label="CUT順序の根拠ID" value={cut.sequenceEvidenceId?.trim() ? `${cut.sequenceEvidenceId.trim()}（参照先未検証）` : "UNVERIFIED（未指定）"} />
+          <Detail label="CUT前参照の欠落検査" value={brokenPredecessor ? "UNVERIFIED（参照先CUTが見つからない・比較停止）" : "欠落参照未検出（根拠の実在性は未検証）"} />
           <Detail label="CUT順序の循環検査" value={cycleDetected ? "MISMATCH（前CUT参照に循環あり・比較停止）" : "循環未検出（順序の正当性は未検証）"} />
           <Detail label="CUT開始状態" value={boundaryText(cut.startState)} />
           <Detail label="CUT終了状態" value={boundaryText(cut.endState)} />
