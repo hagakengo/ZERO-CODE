@@ -91,3 +91,10 @@ test("CUT boundary comparator never treats missing information as a match", () =
   assert.match(comparator, /if \(mismatches\.length\)/);
   assert.match(comparator, /if \(missing\.length\)/);
 });
+
+test("CUT comparison UI labels synthetic order and does not assert canonical continuity", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /compareCutBoundaries\(previousCut\.cutDetails\?\.endState, cut\.startState\)/);
+  assert.match(details, /検証データ配列順/);
+  assert.match(details, /正式なCUT順序は未確認/);
+});
