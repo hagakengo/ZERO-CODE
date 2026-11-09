@@ -44,12 +44,11 @@ function boundaryText(state?: CutBoundaryState): string {
 
 export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
   const cut = selected.cutDetails;
-  // Synthetic sample order only: never infer canonical CUT order from node IDs.
-  const sameSceneCuts = cut ? nodes.filter((node) => node.kind === "CUT" && node.cutDetails?.sceneId === cut.sceneId) : [];
-  const cutIndex = sameSceneCuts.findIndex((node) => node.id === selected.id);
-  const previousCut = cutIndex > 0 ? sameSceneCuts[cutIndex - 1] : undefined;
+  // Only explicitly sourced predecessor links can establish a comparison candidate.
+  const previousCut = cut?.previousCutId ? nodes.find((node) => node.id === cut.previousCutId && node.kind === "CUT") : undefined;
+  const sequenceVerified = Boolean(cut?.sequenceEvidenceId?.trim() && previousCut && previousCut.id !== selected.id && previousCut.cutDetails?.sceneId === cut.sceneId);
   const sameVerifiedScope = previousCut?.projectScope && selected.projectScope && previousCut.projectScope === selected.projectScope && previousCut.projectScope !== "UNVERIFIED";
-  const continuityCheck = sameVerifiedScope && previousCut && cut ? compareCutBoundaries(previousCut.cutDetails?.endState, cut.startState) : undefined;
+  const continuityCheck = sequenceVerified && sameVerifiedScope && previousCut && cut ? compareCutBoundaries(previousCut.cutDetails?.endState, cut.startState) : undefined;
   return (
     <aside aria-live="polite" aria-label="選択ノードの詳細" className="rounded-xl border border-white/10 bg-[#10151c] p-4">
       <h2 className="mb-4 text-sm font-semibold">ノード詳細</h2>
@@ -78,7 +77,7 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
           <Detail label="連続性" value={cut.continuity} />
           <Detail label="CUT開始状態" value={boundaryText(cut.startState)} />
           <Detail label="CUT終了状態" value={boundaryText(cut.endState)} />
-          <Detail label="前CUTとの自動比較（検証データ配列順）" value={continuityCheck ? `${continuityCheck.status} · ${continuityCheck.reasons.join(" / ") || "5項目の文字列一致（映像QC未実施）"}` : "UNVERIFIED（前CUT・資料適用範囲・正式CUT順序のいずれかが未確認）"} />
+          <Detail label="前CUTとの自動比較（明示された前CUT参照のみ）" value={continuityCheck ? `${continuityCheck.status} · ${continuityCheck.reasons.join(" / ") || "5項目の文字列一致（映像QC未実施）"}` : "UNVERIFIED（前CUT参照・順序根拠・資料適用範囲のいずれかが未確認）"} />
           <Detail label="尺" value={cut.timing} />
           <div><dt className="text-xs text-slate-400">QC</dt><dd className={`mt-1 inline-block rounded border px-2 py-1 text-xs ${statusClasses[cut.qc]}`}>{cut.qc}</dd></div>
         </dl>
