@@ -21,6 +21,9 @@ const approvalFields = [
 
 function evidenceText(evidence?: ApprovalEvidence): string {
   if (!evidence) return "UNVERIFIED（根拠未取得）";
+  if (evidence.status === "APPROVED" && (!evidence.evidenceId?.trim() || !evidence.approvalScope?.trim())) {
+    return "UNVERIFIED（APPROVED根拠不足）";
+  }
   const details = [evidence.evidenceId, evidence.approvalScope].filter(Boolean);
   return details.length ? `${evidence.status} · ${details.join(" · ")}` : evidence.status;
 }
