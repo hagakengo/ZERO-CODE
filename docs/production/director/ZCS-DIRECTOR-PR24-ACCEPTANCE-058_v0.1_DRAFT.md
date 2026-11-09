@@ -68,3 +68,14 @@
 - チェーン全体で作品scope・SCENE・SCRIPTを確認し、不一致または選択CUTの文脈不足があれば比較を停止するガードと回帰テストを追加。
 - これは正式な時系列や根拠資料の存在を検証する機能ではない。異なるSCENEをまたぐ正当なCUT接続を正式に扱うには別仕様とプロデューサー承認が必要。
 - 追加後の最新HEADのCIと実ブラウザ試験は未確認。Draft維持。
+
+
+## 監督再検証・受入判断用チェックポイント（2026-11-10）
+- 検証済みHEAD: 03faeecbbb563e7037911230427d50846cdbef94。
+- CI run 42658018430: frontend/backend/dependency-audit 全て completed success。
+- frontendのProduction Canvas testsは23件中23件成功、失敗0。TypeScript check、Next.js buildも成功。
+- PR #24: Draft / mergeable。レビュー提出0、レビューthread 0（照会時点）。mergeableは承認済みを意味しない。
+- 差分は11ファイル。監督文書7ファイル、Canvas実装3ファイル、Canvasテスト1ファイル。
+- 未解決ゲート: ブラウザ8ケース未実施、承認根拠IDの実在性未検証、映像QC未実施、独立レビュー未提出。
+- 次の担当者への依頼: 拡張機能を接続したブラウザで隔離プレビューを開き、BQA-01〜08の証拠を記録する。実行前にHEADを照合する。承認やマージは別途プロデューサー判断。
+- 本書の追記は新しいコミットとなるため、上記CI PASSは追記前HEADの検証結果であり、新HEADのCI成功を意味しない。
