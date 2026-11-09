@@ -109,8 +109,10 @@ test("CUT comparator runtime: match, mismatch, missing and partial states", () =
   const exports = {};
   vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
   const compare = exports.compareCutBoundaries;
-  const complete = { characterPosition: "左", pose: "立つ", facing: "右", props: "なし", camera: "固定" };
+  const complete = { characterPosition: "左", pose: "立つ", facing: "右", props: "なし", camera: "固定", evidenceId: "TEST-EVIDENCE-001" };
   assert.equal(compare(complete, { ...complete }).status, "MATCH");
+  assert.equal(compare({ ...complete, evidenceId: undefined }, { ...complete }).status, "UNVERIFIED");
+  assert.equal(compare({ ...complete }, { ...complete, evidenceId: " " }).status, "UNVERIFIED");
   assert.equal(compare(complete, { ...complete, facing: "左" }).status, "MISMATCH");
   assert.equal(compare(undefined, complete).status, "UNVERIFIED");
   assert.equal(compare({ pose: "立つ" }, { pose: "立つ" }).status, "UNVERIFIED");
