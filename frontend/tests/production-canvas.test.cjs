@@ -186,7 +186,7 @@ test("CUT predecessor cycle detector handles self, reciprocal, long cycles and b
 test("CUT detail blocks cyclic predecessors and does not equate no-cycle with approval", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasPredecessorCycle\(selected\.id, nodes\)/);
-  assert.match(details, /!cycleDetected && !brokenPredecessor && !inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
+  assert.match(details, /!ambiguousCutIds && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
   assert.match(details, /循環未検出（順序の正当性は未検証）/);
   assert.match(details, /INVALID（前CUT参照に循環あり・比較停止）/);
 });
@@ -213,7 +213,7 @@ test("CUT predecessor chain reports missing CUT references at any depth", () => 
 test("CUT detail blocks missing predecessor links and labels uncertainty", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasBrokenPredecessorReference\(selected\.id, nodes\)/);
-  assert.match(details, /!cycleDetected && !brokenPredecessor && !inconsistentPredecessor/);
+  assert.match(details, /!ambiguousCutIds && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor/);
   assert.match(details, /参照先CUTが見つからない・比較停止/);
   assert.match(details, /欠落参照未検出（根拠の実在性は未検証）/);
 });
@@ -250,4 +250,25 @@ test("CUT detail blocks cross-context predecessor chains", () => {
   assert.match(details, /hasInconsistentPredecessorContext\(selected\.id, nodes\)/);
   assert.match(details, /!inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
   assert.match(details, /参照チェーンの作品scope・SCENE・SCRIPT不一致・比較停止/);
+});
+
+test("duplicate CUT IDs and blank IDs block continuity resolution", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "cut-sequence.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const ambiguous = exports.hasAmbiguousCutIds;
+  const cut = (id) => ({ id, kind: "CUT" });
+  assert.equal(ambiguous([cut("a"), cut("b")]), false);
+  assert.equal(ambiguous([cut("a"), cut("a")]), true);
+  assert.equal(ambiguous([cut("a"), cut(" ")]), true);
+  assert.equal(ambiguous([cut("a"), { id: "a", kind: "SCENE" }]), false);
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /hasAmbiguousCutIds\(nodes\)/);
+  assert.match(details, /!ambiguousCutIds && !cycleDetected/);
+  assert.match(details, /CUT ID重複または空欄・比較停止/);
 });
