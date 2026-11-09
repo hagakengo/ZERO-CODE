@@ -39,6 +39,8 @@
 ## 判定
 
 - Browser QA: BLOCKED（実ブラウザ検証環境へのアクセス未確保）
-- Code/CI: commit 7e0fb5c24f58e0d8fb417819660863487fe07886、GitHub Actions run 42634834730。frontend / backend / dependency-audit は全て completed success。これはブラウザ実操作のPASSを意味しない。
+- Code/CI（最新検証済みHEAD）: commit ccb68ea5d742b4793a15541b6c35b184dcb63932、GitHub Actions run 42652462213。frontend / backend / dependency-audit は全て completed success。これはブラウザ実操作のPASSを意味しない。
+- CI失敗・修正履歴: run 42636347180 は古い静的テスト検査条件によりfrontend失敗。修正commit 2e21458cc9d4e4331b6d5477d53034e46e29649a、検証記録更新commit ccb68ea5。再実行CIは上記runで成功。
+- 追加検証対象: CUTの循環参照（自己/2ノード/3ノード以上）、途中の参照先欠落、参照先が非CUTの場合。いずれも比較停止とUNVERIFIED表示の確認が必要。架空データを使う場合は正式正史と混同しない。
 - PR #24: open / Draft / mergeable、review threads 0件・review submissions 0件（2026-11-09照会時点）。レビュー未提出を承認済みと扱わない。
 - Overall: CONDITIONAL。PRはDraft維持。
