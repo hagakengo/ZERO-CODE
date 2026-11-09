@@ -160,3 +160,33 @@ test("CUT detail exposes predecessor and sequence evidence without claiming sour
   assert.match(details, /cut\.sequenceEvidenceId\?\.trim\(\)/);
   assert.match(details, /参照先未検証/);
 });
+
+test("CUT predecessor cycle detector handles self, reciprocal, long cycles and broken links", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "cut-sequence.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const detect = exports.hasPredecessorCycle;
+  const cut = (id, previousCutId) => ({
+    id, kind: "CUT", cutDetails: { previousCutId },
+  });
+  assert.equal(detect("a", [cut("a", "a")]), true);
+  assert.equal(detect("a", [cut("a", "b"), cut("b", "a")]), true);
+  assert.equal(detect("a", [cut("a", "b"), cut("b", "c"), cut("c", "a")]), true);
+  assert.equal(detect("a", [cut("a", "b"), cut("b", "c"), cut("c", "d"), cut("d", "b")]), true);
+  assert.equal(detect("a", [cut("a", "b"), cut("b", "c"), cut("c", undefined)]), false);
+  assert.equal(detect("a", [cut("a", "missing")]), false);
+  assert.equal(detect("a", [cut("a", "b"), { id: "b", kind: "SCENE" }]), false);
+});
+
+test("CUT detail blocks cyclic predecessors and does not equate no-cycle with approval", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /hasPredecessorCycle\(selected\.id, nodes\)/);
+  assert.match(details, /!cycleDetected && cut\?\.sequenceEvidenceId/);
+  assert.match(details, /循環未検出（順序の正当性は未検証）/);
+  assert.match(details, /循環あり・比較停止/);
+});
