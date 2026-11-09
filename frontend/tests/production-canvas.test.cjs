@@ -145,6 +145,7 @@ test("CUT sequence is never inferred from sample array order", () => {
   assert.match(details, /cut\?\.previousCutId/);
   assert.match(details, /cut\?\.sequenceEvidenceId\?\.trim\(\)/);
   assert.match(details, /previousCut\.id !== selected\.id/);
+  assert.match(details, /previousCut\.cutDetails\?\.previousCutId !== selected\.id/);
   assert.match(details, /previousCut\.cutDetails\?\.sceneId === cut\.sceneId/);
   assert.match(details, /previousCut\.cutDetails\?\.scriptId === cut\.scriptId/);
   assert.match(details, /sequenceVerified && sameVerifiedScope/);
