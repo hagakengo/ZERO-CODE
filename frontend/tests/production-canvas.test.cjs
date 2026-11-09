@@ -217,3 +217,9 @@ test("CUT detail blocks missing predecessor links and labels uncertainty", () =>
   assert.match(details, /参照先CUTが見つからない・比較停止/);
   assert.match(details, /欠落参照未検出（根拠の実在性は未検証）/);
 });
+
+test("approval evidence display never implies that an APPROVED ID was independently verified", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /APPROVED（参照先・承認権限未検証）/);
+  assert.match(details, /UNVERIFIED（APPROVED根拠不足）/);
+});
