@@ -28,7 +28,7 @@
 
 ## 判定
 
-- Code CI: PASS（HEAD d7f9b8e9、run 42655404649）
+- Code CI: PASS（HEAD 36161ce4c7d6b7bd100c265bfc177ab685074278、run 42655630532。frontend/backend/dependency-audit completed success）
 - Browser QA: BLOCKED / NOT RUN
 - Canon / MASTER: 変更なし（今回の監督操作範囲）
 - Approval: NOT APPROVED
@@ -39,3 +39,10 @@
 1. 本書追加後の新HEADのCI結果を再確認する。
 2. 隔離ブラウザ環境でBQA-01〜08を実行し証拠を記録する。
 3. R-01〜R-05を再評価し、承認判断はプロデューサーへ提出する。
+
+
+## ブラウザアクセス再試行（2026-11-10）
+- 監督AIがBrowser接続のタブ一覧取得を実行したが、`Browser access requires the originating browser context. Open ChatGPT in the browser with the connected extension and try again.` により失敗。
+- これはブラウザ操作未実施の証拠であり、画面不具合の証拠ではない。BQA-01〜08は全件NOT RUNのまま。
+- 解除手順: 接続拡張のあるブラウザからChatGPTを開き、対象の隔離プレビューまたはローカル検証画面を同じブラウザコンテキストで開いてから再試行する。実施時に操作者、日時、URL、ブラウザ、390px表示、HEAD SHAを記録する。
+- 接続が確立しない限り実画面PASSを申告しない。本番デプロイ・マージはしない。
