@@ -186,7 +186,7 @@ test("CUT predecessor cycle detector handles self, reciprocal, long cycles and b
 test("CUT detail blocks cyclic predecessors and does not equate no-cycle with approval", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasPredecessorCycle\(selected\.id, nodes\)/);
-  assert.match(details, /!cycleDetected && !brokenPredecessor && cut\?\.sequenceEvidenceId/);
+  assert.match(details, /!cycleDetected && !brokenPredecessor && !inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
   assert.match(details, /循環未検出（順序の正当性は未検証）/);
   assert.match(details, /INVALID（前CUT参照に循環あり・比較停止）/);
 });
@@ -213,7 +213,7 @@ test("CUT predecessor chain reports missing CUT references at any depth", () => 
 test("CUT detail blocks missing predecessor links and labels uncertainty", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasBrokenPredecessorReference\(selected\.id, nodes\)/);
-  assert.match(details, /!cycleDetected && !brokenPredecessor/);
+  assert.match(details, /!cycleDetected && !brokenPredecessor && !inconsistentPredecessor/);
   assert.match(details, /参照先CUTが見つからない・比較停止/);
   assert.match(details, /欠落参照未検出（根拠の実在性は未検証）/);
 });
@@ -222,4 +222,32 @@ test("approval evidence display never implies that an APPROVED ID was independen
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /APPROVED（参照先・承認権限未検証）/);
   assert.match(details, /UNVERIFIED（APPROVED根拠不足）/);
+});
+
+test("CUT predecessor chain rejects cross-project, scene and script context at any depth", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "cut-sequence.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const inconsistent = exports.hasInconsistentPredecessorContext;
+  const cut = (id, previousCutId, scope = "CURRENT_ANIME", scene = "s1", script = "p1") => ({
+    id, kind: "CUT", projectScope: scope, cutDetails: { previousCutId, sceneId: scene, scriptId: script },
+  });
+  assert.equal(inconsistent("a", [cut("a", "b"), cut("b", "c"), cut("c", undefined)]), false);
+  assert.equal(inconsistent("a", [cut("a", "b"), cut("b", "c"), cut("c", undefined, "LEGACY_YEN_ZERO")]), true);
+  assert.equal(inconsistent("a", [cut("a", "b"), cut("b", "c"), cut("c", undefined, "CURRENT_ANIME", "s2")]), true);
+  assert.equal(inconsistent("a", [cut("a", "b"), cut("b", "c"), cut("c", undefined, "CURRENT_ANIME", "s1", "p2")]), true);
+  assert.equal(inconsistent("a", [cut("a", undefined, "UNVERIFIED")]), true);
+  assert.equal(inconsistent("missing", []), true);
+});
+
+test("CUT detail blocks cross-context predecessor chains", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /hasInconsistentPredecessorContext\(selected\.id, nodes\)/);
+  assert.match(details, /!inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
+  assert.match(details, /参照チェーンの作品scope・SCENE・SCRIPT不一致・比較停止/);
 });
