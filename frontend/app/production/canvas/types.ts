@@ -17,7 +17,18 @@ export type CanvasApprovalEvidence = {
   videoQc?: ApprovalEvidence;
 };
 
+export type CutBoundaryState = {
+  characterPosition?: string;
+  pose?: string;
+  facing?: string;
+  props?: string;
+  camera?: string;
+  evidenceId?: string;
+};
+
 export type CutDetails = {
+  startState?: CutBoundaryState;
+  endState?: CutBoundaryState;
   sceneId: string;
   scriptId: string;
   purpose: string;
