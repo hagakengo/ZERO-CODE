@@ -60,13 +60,12 @@ export function hasInconsistentPredecessorContext(startId: string, nodes: readon
 }
 
 /**
- * Duplicate CUT IDs make predecessor resolution ambiguous (Map would silently
- * keep the last entry). Block comparisons rather than choosing one implicitly.
+ * Duplicate node IDs make lookup ambiguous across node kinds. Block continuity
+ * comparisons rather than silently choosing a duplicate ID.
  */
-export function hasAmbiguousCutIds(nodes: readonly CanvasNode[]): boolean {
+export function hasAmbiguousNodeIds(nodes: readonly CanvasNode[]): boolean {
   const seen = new Set<string>();
   for (const node of nodes) {
-    if (node.kind !== "CUT") continue;
     if (!node.id.trim() || seen.has(node.id)) return true;
     seen.add(node.id);
   }
