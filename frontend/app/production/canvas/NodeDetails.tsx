@@ -1,5 +1,5 @@
 import { statusClasses } from "./test-data";
-import type { ApprovalEvidence, CanvasEdge, CanvasNode } from "./types";
+import type { ApprovalEvidence, CanvasEdge, CanvasNode, CutBoundaryState } from "./types";
 
 type Props = {
   selected: CanvasNode;
@@ -26,6 +26,19 @@ function evidenceText(evidence?: ApprovalEvidence): string {
   }
   const details = [evidence.evidenceId, evidence.approvalScope].filter(Boolean);
   return details.length ? `${evidence.status} · ${details.join(" · ")}` : evidence.status;
+}
+
+function boundaryText(state?: CutBoundaryState): string {
+  if (!state) return "UNVERIFIED（状態未記録）";
+  const fields = [
+    ["位置", state.characterPosition],
+    ["姿勢", state.pose],
+    ["向き", state.facing],
+    ["小道具", state.props],
+    ["カメラ", state.camera],
+    ["根拠", state.evidenceId],
+  ].filter((entry) => Boolean(entry[1]?.trim()));
+  return fields.length ? fields.map(([label, value]) => `${label}: ${value}`).join(" / ") : "UNVERIFIED（状態未記録）";
 }
 
 export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
@@ -56,6 +69,8 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
           <Detail label="カメラ" value={cut.camera} />
           <Detail label="音響" value={cut.sound} />
           <Detail label="連続性" value={cut.continuity} />
+          <Detail label="CUT開始状態" value={boundaryText(cut.startState)} />
+          <Detail label="CUT終了状態" value={boundaryText(cut.endState)} />
           <Detail label="尺" value={cut.timing} />
           <div><dt className="text-xs text-slate-400">QC</dt><dd className={`mt-1 inline-block rounded border px-2 py-1 text-xs ${statusClasses[cut.qc]}`}>{cut.qc}</dd></div>
         </dl>
