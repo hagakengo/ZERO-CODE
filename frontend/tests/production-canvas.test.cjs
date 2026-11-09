@@ -96,7 +96,7 @@ test("CUT comparison UI labels synthetic order and does not assert canonical con
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /compareCutBoundaries\(previousCut\.cutDetails\?\.endState, cut\.startState\)/);
   assert.match(details, /検証データ配列順/);
-  assert.match(details, /正式なCUT順序は未確認/);
+  assert.match(details, /正式CUT順序のいずれかが未確認/);
 });
 
 test("CUT comparator runtime: match, mismatch, missing and partial states", () => {
@@ -120,4 +120,12 @@ test("CUT comparator runtime: match, mismatch, missing and partial states", () =
 test("CUT MATCH display never claims video QC approval", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /5項目の文字列一致（映像QC未実施）/);
+});
+
+test("CUT comparison is blocked unless project scopes are known and identical", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /previousCut\?\.projectScope && selected\.projectScope/);
+  assert.match(details, /previousCut\.projectScope === selected\.projectScope/);
+  assert.match(details, /previousCut\.projectScope !== "UNVERIFIED"/);
+  assert.match(details, /sameVerifiedScope && previousCut && cut/);
 });
