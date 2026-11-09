@@ -190,3 +190,30 @@ test("CUT detail blocks cyclic predecessors and does not equate no-cycle with ap
   assert.match(details, /循環未検出（順序の正当性は未検証）/);
   assert.match(details, /循環あり・比較停止/);
 });
+
+test("CUT predecessor chain reports missing CUT references at any depth", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "cut-sequence.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const broken = exports.hasBrokenPredecessorReference;
+  const cut = (id, previousCutId) => ({ id, kind: "CUT", cutDetails: { previousCutId } });
+  assert.equal(broken("a", [cut("a", "missing")]), true);
+  assert.equal(broken("a", [cut("a", "b"), cut("b", "missing")]), true);
+  assert.equal(broken("a", [cut("a", "b"), { id: "b", kind: "SCENE" }]), true);
+  assert.equal(broken("a", [cut("a", "b"), cut("b", undefined)]), false);
+  assert.equal(broken("a", [cut("a", "b"), cut("b", "a")]), false);
+  assert.equal(broken("missing", []), true);
+});
+
+test("CUT detail blocks missing predecessor links and labels uncertainty", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /hasBrokenPredecessorReference\(selected\.id, nodes\)/);
+  assert.match(details, /!cycleDetected && !brokenPredecessor/);
+  assert.match(details, /参照先CUTが見つからない・比較停止/);
+  assert.match(details, /欠落参照未検出（根拠の実在性は未検証）/);
+});
