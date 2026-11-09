@@ -98,3 +98,21 @@ test("CUT comparison UI labels synthetic order and does not assert canonical con
   assert.match(details, /検証データ配列順/);
   assert.match(details, /正式なCUT順序は未確認/);
 });
+
+test("CUT comparator runtime: match, mismatch, missing and partial states", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "continuity.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const compare = exports.compareCutBoundaries;
+  const complete = { characterPosition: "左", pose: "立つ", facing: "右", props: "なし", camera: "固定" };
+  assert.equal(compare(complete, { ...complete }).status, "MATCH");
+  assert.equal(compare(complete, { ...complete, facing: "左" }).status, "MISMATCH");
+  assert.equal(compare(undefined, complete).status, "UNVERIFIED");
+  assert.equal(compare({ pose: "立つ" }, { pose: "立つ" }).status, "UNVERIFIED");
+  assert.equal(compare({ pose: "立つ" }, { pose: "座る" }).status, "MISMATCH");
+});
