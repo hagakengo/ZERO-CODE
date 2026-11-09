@@ -38,3 +38,10 @@
 - 新HEADのCIジョブ内訳を確認。
 - 実ブラウザで検証用CUT選択、未記録表示、スマートフォン幅、ノード操作を検証。
 - 正式なCUT順序を導入する場合は出典とscopeを必須とする。
+
+
+## CI失敗・修正記録（2026-11-10）
+- 失敗HEAD: ccfde39419932725f2e1835aeffba460e008cf88、run 42636347180。frontend の Production Canvas tests が失敗、backend / dependency-audit は成功。
+- 失敗原因: 20テスト中1件、CUT循環ガードの静的テストが古い `!cycleDetected && cut?.sequenceEvidenceId` を要求。欠落参照ガード導入後の実装は `!cycleDetected && !brokenPredecessor && cut?.sequenceEvidenceId`。実装の不具合と混同しない。
+- 修正HEAD: 2e21458cc9d4e4331b6d5477d53034e46e29649a。テストの検査条件を現行ガードへ更新。最新HEADのCI成功は未確認。
+- ブラウザ受入試験は未実施。正史・MASTER・本番への変更なし。
