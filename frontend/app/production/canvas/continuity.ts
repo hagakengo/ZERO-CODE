@@ -35,10 +35,10 @@ export function compareCutBoundaries(
       mismatches.push(`${labels[field]}: 前「${before}」→ 次「${after}」`);
     }
   }
-  if (mismatches.length) return { status: "MISMATCH", reasons: [...mismatches, ...missing] };
   if (!previousEnd.evidenceId?.trim() || !nextStart.evidenceId?.trim()) {
     missing.push("前後CUT境界状態の根拠IDが未記録");
   }
+  if (mismatches.length) return { status: "MISMATCH", reasons: [...mismatches, ...missing] };
   if (missing.length) return { status: "UNVERIFIED", reasons: missing };
   return { status: "MATCH", reasons: [] };
 }
