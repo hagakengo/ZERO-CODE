@@ -75,9 +75,11 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
           <Detail label="カメラ" value={cut.camera} />
           <Detail label="音響" value={cut.sound} />
           <Detail label="連続性" value={cut.continuity} />
+          <Detail label="前CUT参照ID" value={cut.previousCutId?.trim() || "UNVERIFIED（未指定）"} />
+          <Detail label="CUT順序の根拠ID" value={cut.sequenceEvidenceId?.trim() ? `${cut.sequenceEvidenceId.trim()}（参照先未検証）` : "UNVERIFIED（未指定）"} />
           <Detail label="CUT開始状態" value={boundaryText(cut.startState)} />
           <Detail label="CUT終了状態" value={boundaryText(cut.endState)} />
-          <Detail label="前CUTとの自動比較（明示された前CUT参照のみ）" value={continuityCheck ? `${continuityCheck.status} · ${continuityCheck.reasons.join(" / ") || "5項目の文字列一致（映像QC未実施）"}` : "UNVERIFIED（前CUT参照・順序根拠・資料適用範囲のいずれかが未確認）"} />
+          <Detail label="前CUTとの自動比較（明示された前CUT参照のみ）" value={continuityCheck ? `${continuityCheck.status} · ${continuityCheck.reasons.join(" / ") || "5項目の文字列一致（根拠IDの実在性・映像QCは未検証）"}` : "UNVERIFIED（前CUT参照・順序根拠・資料適用範囲のいずれかが未確認）"} />
           <Detail label="尺" value={cut.timing} />
           <div><dt className="text-xs text-slate-400">QC</dt><dd className={`mt-1 inline-block rounded border px-2 py-1 text-xs ${statusClasses[cut.qc]}`}>{cut.qc}</dd></div>
         </dl>
