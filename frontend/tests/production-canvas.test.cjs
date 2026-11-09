@@ -186,7 +186,7 @@ test("CUT predecessor cycle detector handles self, reciprocal, long cycles and b
 test("CUT detail blocks cyclic predecessors and does not equate no-cycle with approval", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasPredecessorCycle\(selected\.id, nodes\)/);
-  assert.match(details, /!cycleDetected && cut\?\.sequenceEvidenceId/);
+  assert.match(details, /!cycleDetected && !brokenPredecessor && cut\?\.sequenceEvidenceId/);
   assert.match(details, /循環未検出（順序の正当性は未検証）/);
   assert.match(details, /循環あり・比較停止/);
 });
