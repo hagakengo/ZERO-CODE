@@ -116,3 +116,8 @@ test("CUT comparator runtime: match, mismatch, missing and partial states", () =
   assert.equal(compare({ pose: "立つ" }, { pose: "立つ" }).status, "UNVERIFIED");
   assert.equal(compare({ pose: "立つ" }, { pose: "座る" }).status, "MISMATCH");
 });
+
+test("CUT MATCH display never claims video QC approval", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /5項目の文字列一致（映像QC未実施）/);
+});
