@@ -27,7 +27,9 @@ function evidenceText(evidence?: ApprovalEvidence): string {
     return "UNVERIFIED（APPROVED根拠不足）";
   }
   const details = [evidence.evidenceId, evidence.approvalScope].filter(Boolean);
-  return details.length ? `${evidence.status} · ${details.join(" · ")}` : evidence.status;
+  return evidence.status === "APPROVED"
+    ? `APPROVED（参照先・承認権限未検証） · ${details.join(" · ")}`
+    : details.length ? `${evidence.status} · ${details.join(" · ")}` : evidence.status;
 }
 
 function boundaryText(state?: CutBoundaryState): string {
