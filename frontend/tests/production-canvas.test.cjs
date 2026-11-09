@@ -70,3 +70,13 @@ test("APPROVED display requires both evidence ID and approval scope", () => {
   assert.match(details, /!evidence\.approvalScope\?\.trim\(\)/);
   assert.match(details, /UNVERIFIED（APPROVED根拠不足）/);
 });
+
+test("CUT boundary states are optional and unknown states remain UNVERIFIED", () => {
+  const types = fs.readFileSync(path.join(canvasDir, "types.ts"), "utf8");
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(types, /startState\?: CutBoundaryState/);
+  assert.match(types, /endState\?: CutBoundaryState/);
+  assert.match(details, /boundaryText\(cut\.startState\)/);
+  assert.match(details, /boundaryText\(cut\.endState\)/);
+  assert.match(details, /UNVERIFIED（状態未記録）/);
+});
