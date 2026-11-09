@@ -35,3 +35,10 @@ test("canvas stays isolated from APIs, databases and external writes", () => {
   assert.doesNotMatch(allSource, /XMLHttpRequest|axios|DATABASE_URL|NEXT_PUBLIC_API_URL/);
   assert.match(allSource, /READ ONLY · TEST DATA/);
 });
+
+
+test("missing approval scope is shown as unverified, never as a denial", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /selected\.approvalScope\?\.trim\(\) \|\| "未確認（承認根拠未取得）"/);
+  assert.doesNotMatch(details, /未確認（承認なし）/);
+});
