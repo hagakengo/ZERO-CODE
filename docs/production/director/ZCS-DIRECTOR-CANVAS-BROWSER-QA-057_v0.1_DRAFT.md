@@ -39,5 +39,6 @@
 ## 判定
 
 - Browser QA: BLOCKED（実ブラウザ検証環境へのアクセス未確保）
-- Code/CI: 最新HEADのCI結果を別途記録する。
+- Code/CI: commit 7e0fb5c24f58e0d8fb417819660863487fe07886、GitHub Actions run 42634834730。frontend / backend / dependency-audit は全て completed success。これはブラウザ実操作のPASSを意味しない。
+- PR #24: open / Draft / mergeable、review threads 0件・review submissions 0件（2026-11-09照会時点）。レビュー未提出を承認済みと扱わない。
 - Overall: CONDITIONAL。PRはDraft維持。
