@@ -24,7 +24,7 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
         <Detail label="参照ID" value={selected.sourceId} />
         <Detail label="版数" value={selected.sourceVersion ?? "未設定"} />
         <Detail label="参照パス" value={selected.sourcePath ?? "未設定（検証用）"} />
-        <Detail label="承認scope" value={selected.approvalScope ?? "未確認（承認なし）"} />
+        <Detail label="承認scope" value={selected.approvalScope?.trim() || "未確認（承認根拠未取得）"} />
         <div><dt className="text-xs text-slate-400">状態</dt><dd className={`mt-1 inline-block rounded border px-2 py-1 text-xs ${statusClasses[selected.status]}`}>{selected.status}</dd></div>
         <Detail label="説明" value={selected.description} />
       </dl>
