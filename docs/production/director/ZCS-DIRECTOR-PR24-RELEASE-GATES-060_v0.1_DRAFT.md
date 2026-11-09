@@ -47,3 +47,13 @@
 ## 総合判定
 
 CONDITIONAL。自動テストはPASS、正式導入ゲートは未充足。
+
+
+## 接続先実査（2026-11-10、監督追記）
+- 最新検証済みHEAD: a0eea76478af527c5f2aeac3bf471257199f5e04、GitHub Actions run 42667864262。frontend/backend/dependency-audit 3ジョブ成功。
+- Vercel接続先のread-only照会で、GitHub hagakengo/ZERO-CODE にリンクしたプロジェクト zero-code（project ID prj_utTJYuir1sRkAQmcrFqXkJAATCsM）を確認。
+- 対象PRブランチ docs/director-canvas-gates-053-20261109 に絞った Vercel deployments検索は0件。対象HEADの隔離プレビューURLは確認できず、実ブラウザ試験の実行環境未確保。
+- プロジェクトの直近デプロイにはmainのproduction READYが存在するが、これはPR #24の検証用デプロイではない。誤って本番をBQA対象にしない。
+- プレビュー作成・本番デプロイ・マージは行っていない。G-03はBLOCKED、総合CONDITIONALを維持。
+- 次の解消条件: 本番と隔離されたPR HEADのプレビュー/ローカル検証環境を確保し、BQA-059に実操作の証拠を記録する。
+- この追記コミットのCIは別途確認が必要。
