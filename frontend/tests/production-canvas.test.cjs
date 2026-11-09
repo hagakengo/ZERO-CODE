@@ -80,3 +80,14 @@ test("CUT boundary states are optional and unknown states remain UNVERIFIED", ()
   assert.match(details, /boundaryText\(cut\.endState\)/);
   assert.match(details, /UNVERIFIED（状態未記録）/);
 });
+
+test("CUT boundary comparator never treats missing information as a match", () => {
+  const comparator = fs.readFileSync(path.join(canvasDir, "continuity.ts"), "utf8");
+  assert.match(comparator, /status: "UNVERIFIED"/);
+  assert.match(comparator, /status: "MISMATCH"/);
+  assert.match(comparator, /status: "MATCH"/);
+  assert.match(comparator, /if \(!previousEnd \|\| !nextStart\)/);
+  assert.match(comparator, /if \(!before \|\| !after\)/);
+  assert.match(comparator, /if \(mismatches\.length\)/);
+  assert.match(comparator, /if \(missing\.length\)/);
+});
