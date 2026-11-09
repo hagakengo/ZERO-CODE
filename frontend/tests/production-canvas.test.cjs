@@ -126,7 +126,7 @@ test("CUT comparator runtime: match, mismatch, missing and partial states", () =
 
 test("CUT MATCH display never claims video QC approval", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
-  assert.match(details, /5項目の文字列一致（映像QC未実施）/);
+  assert.match(details, /5項目の文字列一致（根拠IDの実在性・映像QCは未検証）/);
 });
 
 test("CUT comparison is blocked unless project scopes are known and identical", () => {
@@ -149,4 +149,13 @@ test("CUT sequence is never inferred from sample array order", () => {
   assert.match(details, /previousCut\.cutDetails\?\.scriptId === cut\.scriptId/);
   assert.match(details, /sequenceVerified && sameVerifiedScope/);
   assert.doesNotMatch(details, /sameSceneCuts|cutIndex/);
+});
+
+test("CUT detail exposes predecessor and sequence evidence without claiming source verification", () => {
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /前CUT参照ID/);
+  assert.match(details, /CUT順序の根拠ID/);
+  assert.match(details, /cut\.previousCutId\?\.trim\(\)/);
+  assert.match(details, /cut\.sequenceEvidenceId\?\.trim\(\)/);
+  assert.match(details, /参照先未検証/);
 });
