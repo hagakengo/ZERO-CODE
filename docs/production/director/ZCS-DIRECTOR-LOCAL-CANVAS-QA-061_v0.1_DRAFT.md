@@ -38,3 +38,12 @@
 - 実行: NOT EXECUTED（手順の文書化のみ）。
 - 検証済みCI: HEAD 2f79dbff11c9a3c3b12260cd1eb39073cc67875a、run 42668465335、frontend/backend/dependency-audit 成功。
 - Browser QA: BLOCKED、総合 CONDITIONAL。プロデューサーの正式承認未取得。
+
+
+## 監督実査追記（2026-11-10）
+- HEAD 2813ca378b0258ef00d58e312094226b3bcfaba5 のGitHub Actions run 42668686400を確認。frontend / backend / dependency-audit すべてcompleted success。
+- PR #24はDraft / mergeable、独立レビュー0、レビューthread 0。mergeableは正式承認や実画面PASSを意味しない。
+- 接続ブラウザのタブ取得を再試行したが、originating browser contextが必要というエラーで失敗。ブラウザ操作・実画面確認は未実施。
+- 解消には、接続拡張が有効なブラウザでChatGPTを開き直してタブ読取を再試行するか、隔離ローカル環境の実操作を担当者が実施しBQA-059に証拠を記録する必要がある。
+- 現在利用可能なBrowser連携はタブ一覧とページ文脈読取のみ。仮に接続が回復しても、ドラッグ・ズーム等の操作試験を実施したとは扱わない。
+- 本追記は手順書のみ。CIの新HEAD検証が別途必要。BQA-01〜08はNOT RUN、総合CONDITIONAL。
