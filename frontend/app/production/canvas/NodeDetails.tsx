@@ -77,7 +77,7 @@ export function NodeDetails({ selected, nodes, related, onSelect }: Props) {
           <Detail label="連続性" value={cut.continuity} />
           <Detail label="CUT開始状態" value={boundaryText(cut.startState)} />
           <Detail label="CUT終了状態" value={boundaryText(cut.endState)} />
-          <Detail label="前CUTとの自動比較（検証データ配列順）" value={continuityCheck ? `${continuityCheck.status} · ${continuityCheck.reasons.join(" / ") || "5項目一致"}` : "UNVERIFIED（前CUT未指定・正式なCUT順序は未確認）"} />
+          <Detail label="前CUTとの自動比較（検証データ配列順）" value={continuityCheck ? `${continuityCheck.status} · ${continuityCheck.reasons.join(" / ") || "5項目の文字列一致（映像QC未実施）"}` : "UNVERIFIED（前CUT未指定・正式なCUT順序は未確認）"} />
           <Detail label="尺" value={cut.timing} />
           <div><dt className="text-xs text-slate-400">QC</dt><dd className={`mt-1 inline-block rounded border px-2 py-1 text-xs ${statusClasses[cut.qc]}`}>{cut.qc}</dd></div>
         </dl>
