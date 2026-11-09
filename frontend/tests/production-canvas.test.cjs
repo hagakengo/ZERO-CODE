@@ -42,3 +42,23 @@ test("missing approval scope is shown as unverified, never as a denial", () => {
   assert.match(details, /selected\.approvalScope\?\.trim\(\) \|\| "未確認（承認根拠未取得）"/);
   assert.doesNotMatch(details, /未確認（承認なし）/);
 });
+
+test("approval evidence is independent for script, integration, MASTER and video QC", () => {
+  const types = fs.readFileSync(path.join(canvasDir, "types.ts"), "utf8");
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  for (const key of ["scriptContent", "integratedFile", "masterAdoption", "videoQc"]) {
+    assert.match(types, new RegExp(`\\b${key}\\?: ApprovalEvidence`));
+    assert.match(details, new RegExp(`"${key}"`));
+  }
+  assert.match(details, /UNVERIFIED（根拠未取得）/);
+  assert.match(details, /selected\.approvalEvidence\?\.\[key\]/);
+});
+
+test("project scope distinguishes current anime from legacy project", () => {
+  const types = fs.readFileSync(path.join(canvasDir, "types.ts"), "utf8");
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  for (const scope of ["CURRENT_ANIME", "LEGACY_YEN_ZERO", "OS", "UNVERIFIED"]) {
+    assert.ok(types.includes(`"${scope}"`), scope);
+  }
+  assert.match(details, /selected\.projectScope \?\? "UNVERIFIED"/);
+});
