@@ -186,6 +186,7 @@ export function ProductionCanvas() {
           onPointerMove={moveInteraction}
           onPointerUp={endInteraction}
           onPointerCancel={endInteraction}
+          onLostPointerCapture={endInteraction}
         >
           <div className="pointer-events-none absolute left-0 top-0" style={{ width: CANVAS_WIDTH, height: CANVAS_HEIGHT, transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: "0 0" }}>
             <CanvasEdges edges={sampleEdges} nodes={sampleNodes} positions={positions} />
