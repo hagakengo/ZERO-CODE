@@ -36,6 +36,8 @@ export function ProductionCanvas() {
   const related = useMemo(() => sampleEdges.filter((edge) => edge.source === selected.id || edge.target === selected.id), [selected.id]);
 
   function beginNodeDrag(event: ReactPointerEvent<HTMLButtonElement>, node: CanvasNode) {
+    // Do not let a second pointer or non-primary mouse button steal an active drag.
+    if (!event.isPrimary || event.button !== 0 || interaction.current) return;
     event.stopPropagation();
     event.currentTarget.setPointerCapture(event.pointerId);
     setSelectedId(node.id);
@@ -49,7 +51,7 @@ export function ProductionCanvas() {
   }
 
   function beginPan(event: ReactPointerEvent<HTMLDivElement>) {
-    if (event.target !== event.currentTarget) return;
+    if (event.target !== event.currentTarget || !event.isPrimary || event.button !== 0 || interaction.current) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     interaction.current = { kind: "pan", pointerId: event.pointerId, startClient: { x: event.clientX, y: event.clientY }, startPan: pan };
   }
