@@ -273,7 +273,7 @@ test("duplicate CUT IDs and blank IDs block continuity resolution", () => {
   assert.equal(ambiguous([{ id: "a", kind: "SCENE" }, { id: "a", kind: "ASSET" }]), true);
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasAmbiguousNodeIds\(nodes\)/);
-  assert.match(details, /!ambiguousNodeIds && !cycleDetected/);
+  assert.match(details, /!ambiguousNodeIds && !noncanonicalPredecessor && !cycleDetected/);
   assert.match(details, /ノードID重複または空欄・比較停止/);
 });
 
