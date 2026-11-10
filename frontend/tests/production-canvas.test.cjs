@@ -456,3 +456,26 @@ test("Canvas verification route cannot silently gain persistence or external nav
   assert.match(dataSource, /TEST-CUT-001/);
   assert.doesNotMatch(dataSource, /(?:https?:\/\/|\/api\/)/);
 });
+
+
+test("node bounds runtime clamps extreme positions and undersized canvas safely", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "node-bounds.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const clamp = exports.clampNodePosition;
+  for (const [input, expected] of [
+    [{ x: -999, y: -100 }, { x: 0, y: 0 }],
+    [{ x: 9999, y: 9999 }, { x: 544, y: 528 }],
+    [{ x: 160, y: 200 }, { x: 160, y: 200 }],
+  ]) {
+    const actual = clamp(input, 720, 620, 176, 92);
+    assert.deepEqual({ x: actual.x, y: actual.y }, expected);
+  }
+  const tiny = clamp({ x: 100, y: 100 }, 100, 80, 176, 92);
+  assert.deepEqual({ x: tiny.x, y: tiny.y }, { x: 0, y: 0 });
+});
