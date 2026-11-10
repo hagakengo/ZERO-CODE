@@ -429,3 +429,12 @@ test("pointer start guards reject secondary pointers, right clicks and concurren
   assert.match(panStart, /setPointerCapture\(event\.pointerId\)/);
   assert.match(canvas, /active\.pointerId !== event\.pointerId/);
 });
+
+test("unexpected loss of pointer capture clears the matching active interaction", () => {
+  const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
+  assert.match(canvas, /onLostPointerCapture=\{endInteraction\}/);
+  assert.match(canvas, /onPointerCancel=\{endInteraction\}/);
+  const end = canvas.match(/function endInteraction\([\s\S]*?\n  \}/)?.[0] ?? "";
+  assert.match(end, /interaction\.current\?\.pointerId === event\.pointerId/);
+  assert.match(end, /interaction\.current = null/);
+});
