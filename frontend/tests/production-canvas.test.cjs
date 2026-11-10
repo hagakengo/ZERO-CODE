@@ -527,3 +527,33 @@ test("zoom runtime: bounded finite values, rounding and invalid input fallback",
   assert.match(canvas, /clampZoom\(value - ZOOM_STEP\)/);
   assert.match(canvas, /clampZoom\(value \+ ZOOM_STEP\)/);
 });
+
+
+test("node bounds runtime: malformed coordinates and dimensions remain finite", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "node-bounds.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const clamp = exports.clampNodePosition;
+  for (const position of [
+    { x: NaN, y: Infinity }, { x: -Infinity, y: NaN },
+    { x: Infinity, y: -Infinity },
+  ]) {
+    const result = clamp(position, 800, 600, 200, 72);
+    assert.equal(result.x, 0);
+    assert.equal(result.y, 0);
+  }
+  for (const dims of [
+    [NaN, Infinity, 200, 72], [800, 600, NaN, Infinity],
+    [-800, -600, 200, 72], [800, 600, -200, -72],
+  ]) {
+    const result = clamp({ x: 999, y: 999 }, ...dims);
+    assert.equal(Number.isFinite(result.x), true);
+    assert.equal(Number.isFinite(result.y), true);
+    assert.equal(result.x >= 0 && result.y >= 0, true);
+  }
+});
