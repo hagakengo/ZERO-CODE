@@ -6,7 +6,7 @@ export default function ProductionCanvasPage() {
       <div className="mx-auto max-w-7xl">
         <header className="mb-6 flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-5">
           <div>
-            <a className="text-sm text-cyan-300 underline underline-offset-4" href="/">← Dashboard</a>
+            <span className="text-sm text-slate-400">独立した検証用画面 · Dashboardへの移動リンクなし</span>
             <h1 className="mt-3 text-2xl font-semibold">制作キャンバス / MVP v2</h1>
             <p className="mt-2 text-sm text-slate-400">脚本・シーン・CUT・人物・素材を移動・拡大して参照関係を確認する試作画面</p>
           </div>
