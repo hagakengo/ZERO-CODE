@@ -348,3 +348,17 @@ test("predecessor references reject whitespace and blank IDs without inferring c
   assert.match(details, /!ambiguousNodeIds && !noncanonicalPredecessor && !cycleDetected/);
   assert.match(details, /前CUT参照IDに空白・空欄あり・比較停止/);
 });
+
+test("keyboard canvas controls preserve native arrows and clamp moved nodes", () => {
+  const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
+  const card = fs.readFileSync(path.join(canvasDir, "CanvasNodeCard.tsx"), "utf8");
+  assert.match(canvas, /!event\.altKey \|\| event\.ctrlKey \|\| event\.metaKey \|\| event\.shiftKey/);
+  assert.match(canvas, /event\.target !== event\.currentTarget/);
+  assert.match(canvas, /onKeyDown=\{panByKeyboard\}/);
+  assert.match(canvas, /onKeyboardMove=\{moveNodeByKeyboard\}/);
+  assert.match(canvas, /\[node\.id\]: clampNodePosition\(/);
+  assert.match(canvas, /tabIndex=\{0\}/);
+  assert.match(canvas, /位置変更は保存されません/);
+  assert.match(card, /onKeyDown=\{\(event\) => onKeyboardMove\(event, node\)\}/);
+  assert.match(card, /aria-keyshortcuts="Alt\+ArrowUp/);
+});
