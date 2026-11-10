@@ -125,6 +125,8 @@ export function ProductionCanvas() {
   }
 
   function resetView() {
+    // A captured pointer must not overwrite RESET on a later move event.
+    interaction.current = null;
     setPositions({ ...initialPositions });
     setPan({ x: 18, y: 18 });
     setZoom(1);
