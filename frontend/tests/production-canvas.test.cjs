@@ -352,7 +352,7 @@ test("predecessor references reject whitespace and blank IDs without inferring c
 test("keyboard canvas controls preserve native arrows and clamp moved nodes", () => {
   const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
   const card = fs.readFileSync(path.join(canvasDir, "CanvasNodeCard.tsx"), "utf8");
-  assert.match(canvas, /!event\.altKey \|\| event\.ctrlKey \|\| event\.metaKey \|\| event\.shiftKey/);
+  assert.match(canvas, /keyboardMoveDelta\(event\.key, event\.altKey, event\.ctrlKey, event\.metaKey, event\.shiftKey\)/);
   assert.match(canvas, /event\.target !== event\.currentTarget/);
   assert.match(canvas, /onKeyDown=\{panByKeyboard\}/);
   assert.match(canvas, /onKeyboardMove=\{moveNodeByKeyboard\}/);
@@ -361,4 +361,27 @@ test("keyboard canvas controls preserve native arrows and clamp moved nodes", ()
   assert.match(canvas, /位置変更は保存されません/);
   assert.match(card, /onKeyDown=\{\(event\) => onKeyboardMove\(event, node\)\}/);
   assert.match(card, /aria-keyshortcuts="Alt\+ArrowUp/);
+});
+
+test("keyboard move delta runtime: modifiers, arrows and native keys", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "keyboard-controls.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const move = exports.keyboardMoveDelta;
+  const plain = (key) => move(key, false, false, false, false);
+  assert.equal(plain("ArrowLeft"), null);
+  assert.equal(move("ArrowLeft", true, true, false, false), null);
+  assert.equal(move("ArrowLeft", true, false, true, false), null);
+  assert.equal(move("ArrowLeft", true, false, false, true), null);
+  assert.equal(move("Enter", true, false, false, false), null);
+  for (const [key, x, y] of [["ArrowLeft", -16, 0], ["ArrowRight", 16, 0], ["ArrowUp", 0, -16], ["ArrowDown", 0, 16]]) {
+    const result = move(key, true, false, false, false);
+    assert.equal(result.x, x);
+    assert.equal(result.y, y);
+  }
 });
