@@ -6,6 +6,7 @@ import { CanvasEdges } from "./CanvasEdges";
 import { CanvasNodeCard } from "./CanvasNodeCard";
 import { NodeDetails } from "./NodeDetails";
 import { clampNodePosition } from "./node-bounds";
+import { keyboardMoveDelta } from "./keyboard-controls";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, NODE_HEIGHT, NODE_WIDTH, kindLabels, sampleEdges, sampleNodes } from "./test-data";
 import type { CanvasNode, Point } from "./types";
 
@@ -75,20 +76,8 @@ export function ProductionCanvas() {
     if (interaction.current?.pointerId === event.pointerId) interaction.current = null;
   }
 
-  // Alt+arrow shortcuts are deliberate: unmodified arrows retain native page navigation.
-  function keyboardDelta(key: string): Point | null {
-    switch (key) {
-      case "ArrowLeft": return { x: -16, y: 0 };
-      case "ArrowRight": return { x: 16, y: 0 };
-      case "ArrowUp": return { x: 0, y: -16 };
-      case "ArrowDown": return { x: 0, y: 16 };
-      default: return null;
-    }
-  }
-
   function moveNodeByKeyboard(event: ReactKeyboardEvent<HTMLButtonElement>, node: CanvasNode) {
-    if (!event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
-    const delta = keyboardDelta(event.key);
+    const delta = keyboardMoveDelta(event.key, event.altKey, event.ctrlKey, event.metaKey, event.shiftKey);
     if (!delta) return;
     event.preventDefault();
     event.stopPropagation();
@@ -106,8 +95,8 @@ export function ProductionCanvas() {
   }
 
   function panByKeyboard(event: ReactKeyboardEvent<HTMLDivElement>) {
-    if (event.target !== event.currentTarget || !event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
-    const delta = keyboardDelta(event.key);
+    if (event.target !== event.currentTarget) return;
+    const delta = keyboardMoveDelta(event.key, event.altKey, event.ctrlKey, event.metaKey, event.shiftKey);
     if (!delta) return;
     event.preventDefault();
     setPan((current) => ({ x: current.x + delta.x, y: current.y + delta.y }));
