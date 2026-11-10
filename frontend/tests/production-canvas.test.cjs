@@ -398,3 +398,12 @@ test("direction buttons offer a shortcut-independent accessible fallback", () =>
     assert.match(canvas, new RegExp('onClick=\\{\\(\\) => panWithButton\\("' + direction + '"\\)\\}'));
   }
 });
+
+test("read-only Canvas route has no direct link into live Dashboard", () => {
+  const page = fs.readFileSync(path.join(canvasDir, "page.tsx"), "utf8");
+  assert.doesNotMatch(page, /href=["']\/["']/);
+  assert.doesNotMatch(page, /<a\b/);
+  assert.match(page, /Dashboardへの移動リンクなし/);
+  assert.match(page, /READ ONLY · TEST DATA/);
+  assert.match(page, /位置変更は保存されず/);
+});
