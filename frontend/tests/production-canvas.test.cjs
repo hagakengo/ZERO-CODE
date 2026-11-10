@@ -407,3 +407,14 @@ test("read-only Canvas route has no direct link into live Dashboard", () => {
   assert.match(page, /READ ONLY · TEST DATA/);
   assert.match(page, /位置変更は保存されず/);
 });
+
+test("RESET cancels an in-flight pointer drag before restoring the view", () => {
+  const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
+  const reset = canvas.match(/function resetView\(\) \{([\s\S]*?)\n  \}/)?.[1] ?? "";
+  assert.ok(reset, "resetView must exist");
+  const cancelIndex = reset.indexOf("interaction.current = null");
+  const restoreIndex = reset.indexOf("setPositions({ ...initialPositions })");
+  assert.ok(cancelIndex >= 0 && restoreIndex > cancelIndex, "cancel pointer capture state before restoring positions");
+  assert.match(reset, /setPan\(\{ x: 18, y: 18 \}\)/);
+  assert.match(reset, /setZoom\(1\)/);
+});
