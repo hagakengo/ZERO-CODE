@@ -186,7 +186,7 @@ test("CUT predecessor cycle detector handles self, reciprocal, long cycles and b
 test("CUT detail blocks cyclic predecessors and does not equate no-cycle with approval", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasPredecessorCycle\(selected\.id, nodes\)/);
-  assert.match(details, /!ambiguousNodeIds && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
+  assert.match(details, /!ambiguousNodeIds && !noncanonicalPredecessor && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
   assert.match(details, /循環未検出（順序の正当性は未検証）/);
   assert.match(details, /INVALID（前CUT参照に循環あり・比較停止）/);
 });
@@ -213,7 +213,7 @@ test("CUT predecessor chain reports missing CUT references at any depth", () => 
 test("CUT detail blocks missing predecessor links and labels uncertainty", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasBrokenPredecessorReference\(selected\.id, nodes\)/);
-  assert.match(details, /!ambiguousNodeIds && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor/);
+  assert.match(details, /!ambiguousNodeIds && !noncanonicalPredecessor && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor/);
   assert.match(details, /参照先CUTが見つからない・比較停止/);
   assert.match(details, /欠落参照未検出（根拠の実在性は未検証）/);
 });
