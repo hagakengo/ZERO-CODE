@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import type { PointerEvent as ReactPointerEvent } from "react";
+import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
 import { CanvasEdges } from "./CanvasEdges";
 import { CanvasNodeCard } from "./CanvasNodeCard";
 import { NodeDetails } from "./NodeDetails";
@@ -75,6 +75,44 @@ export function ProductionCanvas() {
     if (interaction.current?.pointerId === event.pointerId) interaction.current = null;
   }
 
+  // Alt+arrow shortcuts are deliberate: unmodified arrows retain native page navigation.
+  function keyboardDelta(key: string): Point | null {
+    switch (key) {
+      case "ArrowLeft": return { x: -16, y: 0 };
+      case "ArrowRight": return { x: 16, y: 0 };
+      case "ArrowUp": return { x: 0, y: -16 };
+      case "ArrowDown": return { x: 0, y: 16 };
+      default: return null;
+    }
+  }
+
+  function moveNodeByKeyboard(event: ReactKeyboardEvent<HTMLButtonElement>, node: CanvasNode) {
+    if (!event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    const delta = keyboardDelta(event.key);
+    if (!delta) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setSelectedId(node.id);
+    setPositions((current) => {
+      const position = current[node.id] ?? node.initialPosition;
+      return {
+        ...current,
+        [node.id]: clampNodePosition(
+          { x: position.x + delta.x, y: position.y + delta.y },
+          CANVAS_WIDTH, CANVAS_HEIGHT, NODE_WIDTH, NODE_HEIGHT,
+        ),
+      };
+    });
+  }
+
+  function panByKeyboard(event: ReactKeyboardEvent<HTMLDivElement>) {
+    if (event.target !== event.currentTarget || !event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    const delta = keyboardDelta(event.key);
+    if (!delta) return;
+    event.preventDefault();
+    setPan((current) => ({ x: current.x + delta.x, y: current.y + delta.y }));
+  }
+
   function resetView() {
     setPositions({ ...initialPositions });
     setPan({ x: 18, y: 18 });
@@ -97,7 +135,7 @@ export function ProductionCanvas() {
 
       <section aria-label="検証用関係キャンバス" className="min-w-0 rounded-xl border border-white/10 bg-[#10151c] p-3">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-          <div><h2 className="text-sm font-semibold">参照グラフ</h2><p className="mt-1 text-xs text-slate-400">ノードをドラッグ／背景をパン。位置変更は保存されません。</p></div>
+          <div><h2 className="text-sm font-semibold">参照グラフ</h2><p className="mt-1 text-xs text-slate-400">ノードをドラッグ／背景をパン。キーボードは対象にフォーカスしてAlt＋矢印（16px刻み）。位置変更は保存されません。</p></div>
           <div className="flex items-center gap-2" aria-label="キャンバス表示倍率">
             <button type="button" aria-label="縮小" onClick={() => setZoom((value) => clampZoom(value - ZOOM_STEP))} className="rounded border border-white/15 px-3 py-2 text-sm hover:border-cyan-400">−</button>
             <output className="min-w-14 text-center text-xs text-slate-300">{Math.round(zoom * 100)}%</output>
@@ -107,6 +145,10 @@ export function ProductionCanvas() {
         </div>
         <div
           data-canvas-background
+          tabIndex={0}
+          aria-label="キャンバス背景。Altと矢印キーで表示位置を移動"
+          aria-keyshortcuts="Alt+ArrowUp Alt+ArrowDown Alt+ArrowLeft Alt+ArrowRight"
+          onKeyDown={panByKeyboard}
           className="relative h-[560px] w-full cursor-move overflow-hidden rounded-lg border border-white/10 bg-[#080c12] [background-image:radial-gradient(circle,rgba(148,163,184,0.2)_1px,transparent_1px)] [background-size:22px_22px]"
           style={{ touchAction: "none" }}
           onPointerDown={beginPan}
@@ -116,7 +158,7 @@ export function ProductionCanvas() {
         >
           <div className="pointer-events-none absolute left-0 top-0" style={{ width: CANVAS_WIDTH, height: CANVAS_HEIGHT, transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: "0 0" }}>
             <CanvasEdges edges={sampleEdges} nodes={sampleNodes} positions={positions} />
-            {sampleNodes.map((node) => <div key={node.id} className="pointer-events-auto"><CanvasNodeCard node={node} position={positions[node.id] ?? node.initialPosition} selected={selected.id === node.id} onPointerDown={beginNodeDrag} onSelect={setSelectedId} /></div>)}
+            {sampleNodes.map((node) => <div key={node.id} className="pointer-events-auto"><CanvasNodeCard node={node} position={positions[node.id] ?? node.initialPosition} selected={selected.id === node.id} onPointerDown={beginNodeDrag} onSelect={setSelectedId} onKeyboardMove={moveNodeByKeyboard} /></div>)}
           </div>
         </div>
       </section>
