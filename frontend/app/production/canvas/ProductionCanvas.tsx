@@ -149,7 +149,7 @@ export function ProductionCanvas() {
           aria-label="キャンバス背景。Altと矢印キーで表示位置を移動"
           aria-keyshortcuts="Alt+ArrowUp Alt+ArrowDown Alt+ArrowLeft Alt+ArrowRight"
           onKeyDown={panByKeyboard}
-          className="relative h-[560px] w-full cursor-move overflow-hidden rounded-lg border border-white/10 bg-[#080c12] [background-image:radial-gradient(circle,rgba(148,163,184,0.2)_1px,transparent_1px)] [background-size:22px_22px]"
+          className="relative h-[560px] w-full cursor-move overflow-hidden rounded-lg border border-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300 bg-[#080c12] [background-image:radial-gradient(circle,rgba(148,163,184,0.2)_1px,transparent_1px)] [background-size:22px_22px]"
           style={{ touchAction: "none" }}
           onPointerDown={beginPan}
           onPointerMove={moveInteraction}
