@@ -301,7 +301,7 @@ test("node drag bounds keep cards within logical canvas for extreme pointer delt
   assert.equal(interior.x, 500);
   assert.equal(interior.y, 300);
   // Assert against the actual dimensions used by the Canvas, not only synthetic fixtures.
-  const actual = dataSource.match(/CANVAS_WIDTH = (\\d+);[\\s\\S]*?CANVAS_HEIGHT = (\\d+);[\\s\\S]*?NODE_WIDTH = (\\d+);[\\s\\S]*?NODE_HEIGHT = (\\d+);/);
+  const actual = dataSource.match(/CANVAS_WIDTH = (\d+);[\s\S]*?CANVAS_HEIGHT = (\d+);[\s\S]*?NODE_WIDTH = (\d+);[\s\S]*?NODE_HEIGHT = (\d+);/);
   assert.ok(actual, "Canvas logical dimensions must be explicitly declared");
   const [canvasW, canvasH, nodeW, nodeH] = actual.slice(1).map(Number);
   const actualBottomRight = clamp({ x: 99999, y: 99999 }, canvasW, canvasH, nodeW, nodeH);
