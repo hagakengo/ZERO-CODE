@@ -423,11 +423,11 @@ test("pointer start guards reject secondary pointers, right clicks and concurren
   const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
   const nodeStart = canvas.match(/function beginNodeDrag\([\s\S]*?\n  \}/)?.[0] ?? "";
   const panStart = canvas.match(/function beginPan\([\s\S]*?\n  \}/)?.[0] ?? "";
-  assert.match(nodeStart, /!event\.isPrimary \|\| event\.button !== 0 \|\| interaction\.current/);
-  assert.match(panStart, /!event\.isPrimary \|\| event\.button !== 0 \|\| interaction\.current/);
+  assert.match(nodeStart, /!canBeginPointerInteraction\(event\.isPrimary, event\.button, Boolean\(interaction\.current\)\)/);
+  assert.match(panStart, /!canBeginPointerInteraction\(event\.isPrimary, event\.button, Boolean\(interaction\.current\)\)/);
   assert.match(nodeStart, /setPointerCapture\(event\.pointerId\)/);
   assert.match(panStart, /setPointerCapture\(event\.pointerId\)/);
-  assert.match(canvas, /active\.pointerId !== event\.pointerId/);
+  assert.match(canvas, /!isActivePointer\(active\.pointerId, event\.pointerId\)/);
 });
 
 test("unexpected loss of pointer capture clears the matching active interaction", () => {
@@ -435,7 +435,7 @@ test("unexpected loss of pointer capture clears the matching active interaction"
   assert.match(canvas, /onLostPointerCapture=\{endInteraction\}/);
   assert.match(canvas, /onPointerCancel=\{endInteraction\}/);
   const end = canvas.match(/function endInteraction\([\s\S]*?\n  \}/)?.[0] ?? "";
-  assert.match(end, /interaction\.current\?\.pointerId === event\.pointerId/);
+  assert.match(end, /isActivePointer\(interaction\.current\?\.pointerId \?\? null, event\.pointerId\)/);
   assert.match(end, /interaction\.current = null/);
 });
 
@@ -478,4 +478,27 @@ test("node bounds runtime clamps extreme positions and undersized canvas safely"
   }
   const tiny = clamp({ x: 100, y: 100 }, 100, 80, 176, 92);
   assert.deepEqual({ x: tiny.x, y: tiny.y }, { x: 0, y: 0 });
+});
+
+
+test("pointer ownership runtime: reject secondary, right-button and competing interactions", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "pointer-guards.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const canBegin = exports.canBeginPointerInteraction;
+  const owns = exports.isActivePointer;
+  assert.equal(canBegin(true, 0, false), true);
+  for (const [primary, button, active] of [
+    [false, 0, false], [true, 2, false], [true, 1, false],
+    [true, 0, true], [false, 2, true],
+  ]) assert.equal(canBegin(primary, button, active), false);
+  assert.equal(owns(5, 5), true);
+  assert.equal(owns(5, 6), false);
+  assert.equal(owns(null, 5), false);
+  assert.equal(owns(0, 0), true);
 });
