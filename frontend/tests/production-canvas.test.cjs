@@ -438,3 +438,21 @@ test("unexpected loss of pointer capture clears the matching active interaction"
   assert.match(end, /interaction\.current\?\.pointerId === event\.pointerId/);
   assert.match(end, /interaction\.current = null/);
 });
+
+test("Canvas verification route cannot silently gain persistence or external navigation", () => {
+  const source = fs.readdirSync(canvasDir)
+    .filter((name) => /\.(ts|tsx)$/.test(name))
+    .map((name) => fs.readFileSync(path.join(canvasDir, name), "utf8"))
+    .join("\n");
+  for (const pattern of [
+    /\b(?:localStorage|sessionStorage|indexedDB)\b/,
+    /\b(?:WebSocket|EventSource|sendBeacon)\b/,
+    /\b(?:useRouter|redirect|router\.push|router\.replace|window\.location)\b/,
+    /\b(?:serverAction|use server)\b/,
+  ]) {
+    assert.doesNotMatch(source, pattern, "read-only test Canvas must not persist or navigate");
+  }
+  assert.match(dataSource, /TEST-SCRIPT-001/);
+  assert.match(dataSource, /TEST-CUT-001/);
+  assert.doesNotMatch(dataSource, /(?:https?:\/\/|\/api\/)/);
+});
