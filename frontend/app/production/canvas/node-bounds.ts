@@ -8,10 +8,13 @@ export function clampNodePosition(
   nodeWidth: number,
   nodeHeight: number,
 ): Point {
-  const maxX = Math.max(0, canvasWidth - nodeWidth);
-  const maxY = Math.max(0, canvasHeight - nodeHeight);
+  const safeDimension = (value: number) => Number.isFinite(value) ? Math.max(0, value) : 0;
+  const maxX = Math.max(0, safeDimension(canvasWidth) - safeDimension(nodeWidth));
+  const maxY = Math.max(0, safeDimension(canvasHeight) - safeDimension(nodeHeight));
+  const x = Number.isFinite(position.x) ? position.x : 0;
+  const y = Number.isFinite(position.y) ? position.y : 0;
   return {
-    x: Math.min(maxX, Math.max(0, position.x)),
-    y: Math.min(maxY, Math.max(0, position.y)),
+    x: Math.min(maxX, Math.max(0, x)),
+    y: Math.min(maxY, Math.max(0, y)),
   };
 }
