@@ -102,6 +102,28 @@ export function ProductionCanvas() {
     setPan((current) => ({ x: current.x + delta.x, y: current.y + delta.y }));
   }
 
+  // Explicit buttons work when browser or OS reserves Alt+arrow shortcuts.
+  function moveSelectedNode(direction: "ArrowLeft" | "ArrowRight" | "ArrowUp" | "ArrowDown") {
+    const delta = keyboardMoveDelta(direction, true, false, false, false);
+    if (!delta) return;
+    setPositions((current) => {
+      const position = current[selected.id] ?? selected.initialPosition;
+      return {
+        ...current,
+        [selected.id]: clampNodePosition(
+          { x: position.x + delta.x, y: position.y + delta.y },
+          CANVAS_WIDTH, CANVAS_HEIGHT, NODE_WIDTH, NODE_HEIGHT,
+        ),
+      };
+    });
+  }
+
+  function panWithButton(direction: "ArrowLeft" | "ArrowRight" | "ArrowUp" | "ArrowDown") {
+    const delta = keyboardMoveDelta(direction, true, false, false, false);
+    if (!delta) return;
+    setPan((current) => ({ x: current.x + delta.x, y: current.y + delta.y }));
+  }
+
   function resetView() {
     setPositions({ ...initialPositions });
     setPan({ x: 18, y: 18 });
@@ -130,6 +152,22 @@ export function ProductionCanvas() {
             <output className="min-w-14 text-center text-xs text-slate-300">{Math.round(zoom * 100)}%</output>
             <button type="button" aria-label="拡大" onClick={() => setZoom((value) => clampZoom(value + ZOOM_STEP))} className="rounded border border-white/15 px-3 py-2 text-sm hover:border-cyan-400">＋</button>
             <button type="button" onClick={resetView} className="rounded border border-white/15 px-3 py-2 text-xs hover:border-cyan-400">RESET</button>
+          </div>
+        </div>
+        <div className="mb-3 flex flex-wrap gap-3 text-xs">
+          <div role="group" aria-label="選択中のノードを移動" className="flex flex-wrap items-center gap-1">
+            <span className="mr-1 text-slate-300">選択ノードを移動</span>
+            <button type="button" aria-label="選択ノードを左へ16px移動" onClick={() => moveSelectedNode("ArrowLeft")} className="rounded border border-white/20 px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300">←</button>
+            <button type="button" aria-label="選択ノードを上へ16px移動" onClick={() => moveSelectedNode("ArrowUp")} className="rounded border border-white/20 px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300">↑</button>
+            <button type="button" aria-label="選択ノードを下へ16px移動" onClick={() => moveSelectedNode("ArrowDown")} className="rounded border border-white/20 px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300">↓</button>
+            <button type="button" aria-label="選択ノードを右へ16px移動" onClick={() => moveSelectedNode("ArrowRight")} className="rounded border border-white/20 px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300">→</button>
+          </div>
+          <div role="group" aria-label="キャンバス表示位置を移動" className="flex flex-wrap items-center gap-1">
+            <span className="mr-1 text-slate-300">表示位置を移動</span>
+            <button type="button" aria-label="表示位置を左へ16px移動" onClick={() => panWithButton("ArrowLeft")} className="rounded border border-white/20 px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300">←</button>
+            <button type="button" aria-label="表示位置を上へ16px移動" onClick={() => panWithButton("ArrowUp")} className="rounded border border-white/20 px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300">↑</button>
+            <button type="button" aria-label="表示位置を下へ16px移動" onClick={() => panWithButton("ArrowDown")} className="rounded border border-white/20 px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300">↓</button>
+            <button type="button" aria-label="表示位置を右へ16px移動" onClick={() => panWithButton("ArrowRight")} className="rounded border border-white/20 px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300">→</button>
           </div>
         </div>
         <div
