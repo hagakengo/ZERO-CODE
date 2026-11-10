@@ -8,12 +8,9 @@ import { NodeDetails } from "./NodeDetails";
 import { clampNodePosition } from "./node-bounds";
 import { keyboardMoveDelta } from "./keyboard-controls";
 import { canBeginPointerInteraction, isActivePointer } from "./pointer-guards";
+import { clampZoom, ZOOM_STEP } from "./zoom-controls";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, NODE_HEIGHT, NODE_WIDTH, kindLabels, sampleEdges, sampleNodes } from "./test-data";
 import type { CanvasNode, Point } from "./types";
-
-const MIN_ZOOM = 0.5;
-const MAX_ZOOM = 2;
-const ZOOM_STEP = 0.2;
 
 type Interaction =
   | { kind: "node"; pointerId: number; nodeId: string; startClient: Point; startPosition: Point }
@@ -21,10 +18,6 @@ type Interaction =
   | null;
 
 const initialPositions = Object.fromEntries(sampleNodes.map((node) => [node.id, node.initialPosition])) as Record<string, Point>;
-
-function clampZoom(value: number) {
-  return Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Number(value.toFixed(2))));
-}
 
 export function ProductionCanvas() {
   const [selectedId, setSelectedId] = useState(sampleNodes[0].id);
