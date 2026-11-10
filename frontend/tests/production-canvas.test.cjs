@@ -276,3 +276,45 @@ test("duplicate CUT IDs and blank IDs block continuity resolution", () => {
   assert.match(details, /!ambiguousNodeIds && !cycleDetected/);
   assert.match(details, /ノードID重複または空欄・比較停止/);
 });
+
+
+test("node drag bounds keep cards within logical canvas for extreme pointer deltas", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "node-bounds.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const clamp = exports.clampNodePosition;
+  const at = (x, y) => clamp({ x, y }, 1200, 800, 200, 120);
+  for (const zoom of [0.5, 1, 2]) {
+    const leftTop = at(100 + (-9999 / zoom), 100 + (-9999 / zoom));
+    assert.equal(leftTop.x, 0);
+    assert.equal(leftTop.y, 0);
+    const rightBottom = at(100 + (9999 / zoom), 100 + (9999 / zoom));
+    assert.equal(rightBottom.x, 1000);
+    assert.equal(rightBottom.y, 680);
+  }
+  const interior = at(500, 300);
+  assert.equal(interior.x, 500);
+  assert.equal(interior.y, 300);
+  // Assert against the actual dimensions used by the Canvas, not only synthetic fixtures.
+  const actual = dataSource.match(/CANVAS_WIDTH = (\d+);[\s\S]*?CANVAS_HEIGHT = (\d+);[\s\S]*?NODE_WIDTH = (\d+);[\s\S]*?NODE_HEIGHT = (\d+);/);
+  assert.ok(actual, "Canvas logical dimensions must be explicitly declared");
+  const [canvasW, canvasH, nodeW, nodeH] = actual.slice(1).map(Number);
+  const actualBottomRight = clamp({ x: 99999, y: 99999 }, canvasW, canvasH, nodeW, nodeH);
+  assert.equal(actualBottomRight.x, canvasW - nodeW);
+  assert.equal(actualBottomRight.y, canvasH - nodeH);
+  const actualTopLeft = clamp({ x: -99999, y: -99999 }, canvasW, canvasH, nodeW, nodeH);
+  assert.equal(actualTopLeft.x, 0);
+  assert.equal(actualTopLeft.y, 0);
+  const tinyCanvas = clamp({ x: 10, y: 10 }, 100, 100, 200, 120);
+  assert.equal(tinyCanvas.x, 0);
+  assert.equal(tinyCanvas.y, 0);
+  const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
+  assert.match(canvas, /clampNodePosition\(/);
+  assert.match(canvas, /CANVAS_WIDTH, CANVAS_HEIGHT, NODE_WIDTH, NODE_HEIGHT/);
+  assert.match(canvas, /setPositions\(\{ \.\.\.initialPositions \}\)/);
+});
