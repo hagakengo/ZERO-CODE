@@ -186,7 +186,7 @@ test("CUT predecessor cycle detector handles self, reciprocal, long cycles and b
 test("CUT detail blocks cyclic predecessors and does not equate no-cycle with approval", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasPredecessorCycle\(selected\.id, nodes\)/);
-  assert.match(details, /!ambiguousNodeIds && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
+  assert.match(details, /!ambiguousNodeIds && !noncanonicalPredecessor && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor && cut\?\.sequenceEvidenceId/);
   assert.match(details, /循環未検出（順序の正当性は未検証）/);
   assert.match(details, /INVALID（前CUT参照に循環あり・比較停止）/);
 });
@@ -213,7 +213,7 @@ test("CUT predecessor chain reports missing CUT references at any depth", () => 
 test("CUT detail blocks missing predecessor links and labels uncertainty", () => {
   const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
   assert.match(details, /hasBrokenPredecessorReference\(selected\.id, nodes\)/);
-  assert.match(details, /!ambiguousNodeIds && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor/);
+  assert.match(details, /!ambiguousNodeIds && !noncanonicalPredecessor && !cycleDetected && !brokenPredecessor && !inconsistentPredecessor/);
   assert.match(details, /参照先CUTが見つからない・比較停止/);
   assert.match(details, /欠落参照未検出（根拠の実在性は未検証）/);
 });
@@ -317,4 +317,34 @@ test("node drag bounds keep cards within logical canvas for extreme pointer delt
   assert.match(canvas, /clampNodePosition\(/);
   assert.match(canvas, /CANVAS_WIDTH, CANVAS_HEIGHT, NODE_WIDTH, NODE_HEIGHT/);
   assert.match(canvas, /setPositions\(\{ \.\.\.initialPositions \}\)/);
+});
+
+test("predecessor references reject whitespace and blank IDs without inferring chronology", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "cut-sequence.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const invalid = exports.hasNoncanonicalPredecessorReference;
+  const cut = (id, predecessor) => ({
+    id, kind: "CUT", projectScope: "CURRENT_ANIME",
+    cutDetails: { sceneId: "s", scriptId: "p", previousCutId: predecessor },
+  });
+  const check = (ref) => invalid("b", [cut("a", undefined), cut("b", ref)]);
+  assert.equal(check("a"), false);
+  assert.equal(check(" a"), true);
+  assert.equal(check("a "), true);
+  assert.equal(check(" a "), true);
+  assert.equal(check(" "), true);
+  assert.equal(check(""), true);
+  assert.equal(check("missing"), false); // Broken reference has a separate diagnostic.
+  assert.equal(check("b"), false); // Cycle has a separate diagnostic.
+  assert.equal(invalid("b", [cut("a", " b "), cut("b", "a")]), true);
+  const details = fs.readFileSync(path.join(canvasDir, "NodeDetails.tsx"), "utf8");
+  assert.match(details, /hasNoncanonicalPredecessorReference\(selected.id, nodes\)/);
+  assert.match(details, /!ambiguousNodeIds && !noncanonicalPredecessor && !cycleDetected/);
+  assert.match(details, /前CUT参照IDに空白・空欄あり・比較停止/);
 });
