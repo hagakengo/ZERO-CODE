@@ -419,6 +419,13 @@ test("RESET cancels an in-flight pointer drag before restoring the view", () => 
   assert.match(reset, /setZoom\(1\)/);
 });
 
+test("RESET restores the scroll origin of the focusable canvas viewport", () => {
+  const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
+  const reset = canvas.match(/function resetView\(\) \{([\s\S]*?)\n  \}/)?.[1] ?? "";
+  assert.match(canvas, /ref=\{viewportRef\}\s+data-canvas-background/);
+  assert.match(reset, /viewportRef\.current\?\.scrollTo\(\{ left: 0, top: 0, behavior: "instant" \}\)/);
+});
+
 test("pointer start guards reject secondary pointers, right clicks and concurrent drags", () => {
   const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
   const nodeStart = canvas.match(/function beginNodeDrag\([\s\S]*?\n  \}/)?.[0] ?? "";

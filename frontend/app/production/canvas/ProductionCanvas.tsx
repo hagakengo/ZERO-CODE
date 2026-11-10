@@ -25,6 +25,7 @@ export function ProductionCanvas() {
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState<Point>({ x: 18, y: 18 });
   const interaction = useRef<Interaction>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
 
   const selected = sampleNodes.find((node) => node.id === selectedId) ?? sampleNodes[0];
   const related = useMemo(() => sampleEdges.filter((edge) => edge.source === selected.id || edge.target === selected.id), [selected.id]);
@@ -123,6 +124,8 @@ export function ProductionCanvas() {
   function resetView() {
     // A captured pointer must not overwrite RESET on a later move event.
     interaction.current = null;
+    // Keyboard focus can scroll this overflow-hidden viewport independently of pan.
+    viewportRef.current?.scrollTo({ left: 0, top: 0, behavior: "instant" });
     setPositions({ ...initialPositions });
     setPan({ x: 18, y: 18 });
     setZoom(1);
@@ -169,6 +172,7 @@ export function ProductionCanvas() {
           </div>
         </div>
         <div
+          ref={viewportRef}
           data-canvas-background
           tabIndex={0}
           aria-label="キャンバス背景。Altと矢印キーで表示位置を移動"
