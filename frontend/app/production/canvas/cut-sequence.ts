@@ -2,6 +2,26 @@ import type { CanvasNode } from "./types";
 
 // Follow only explicit CUT predecessor references; never infer order from array position.
 // A missing reference is not proof of a valid sequence and is handled by the caller.
+/**
+ * Reject noncanonical explicit predecessor references rather than silently
+ * trimming and accepting a different sequence reference.
+ */
+export function hasNoncanonicalPredecessorReference(startId: string, nodes: readonly CanvasNode[]): boolean {
+  const byId = new Map(nodes.filter((node) => node.kind === "CUT").map((node) => [node.id, node]));
+  const visited = new Set<string>();
+  let currentId: string | undefined = startId;
+  while (currentId) {
+    if (visited.has(currentId)) return false; // Cycle is reported separately.
+    visited.add(currentId);
+    const node = byId.get(currentId);
+    if (!node) return false; // Missing references are reported separately.
+    const predecessorId = node.cutDetails?.previousCutId;
+    if (predecessorId !== undefined && (!predecessorId.trim() || predecessorId !== predecessorId.trim())) return true;
+    currentId = predecessorId || undefined;
+  }
+  return false;
+}
+
 export function hasPredecessorCycle(startId: string, nodes: readonly CanvasNode[]): boolean {
   const byId = new Map(nodes.filter((node) => node.kind === "CUT").map((node) => [node.id, node]));
   const visited = new Set<string>();
