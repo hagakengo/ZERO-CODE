@@ -418,3 +418,14 @@ test("RESET cancels an in-flight pointer drag before restoring the view", () => 
   assert.match(reset, /setPan\(\{ x: 18, y: 18 \}\)/);
   assert.match(reset, /setZoom\(1\)/);
 });
+
+test("pointer start guards reject secondary pointers, right clicks and concurrent drags", () => {
+  const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
+  const nodeStart = canvas.match(/function beginNodeDrag\([\s\S]*?\n  \}/)?.[0] ?? "";
+  const panStart = canvas.match(/function beginPan\([\s\S]*?\n  \}/)?.[0] ?? "";
+  assert.match(nodeStart, /!event\.isPrimary \|\| event\.button !== 0 \|\| interaction\.current/);
+  assert.match(panStart, /!event\.isPrimary \|\| event\.button !== 0 \|\| interaction\.current/);
+  assert.match(nodeStart, /setPointerCapture\(event\.pointerId\)/);
+  assert.match(panStart, /setPointerCapture\(event\.pointerId\)/);
+  assert.match(canvas, /active\.pointerId !== event\.pointerId/);
+});
