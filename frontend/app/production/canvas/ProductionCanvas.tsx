@@ -7,6 +7,7 @@ import { CanvasNodeCard } from "./CanvasNodeCard";
 import { NodeDetails } from "./NodeDetails";
 import { clampNodePosition } from "./node-bounds";
 import { keyboardMoveDelta } from "./keyboard-controls";
+import { canBeginPointerInteraction, isActivePointer } from "./pointer-guards";
 import { CANVAS_HEIGHT, CANVAS_WIDTH, NODE_HEIGHT, NODE_WIDTH, kindLabels, sampleEdges, sampleNodes } from "./test-data";
 import type { CanvasNode, Point } from "./types";
 
@@ -37,7 +38,7 @@ export function ProductionCanvas() {
 
   function beginNodeDrag(event: ReactPointerEvent<HTMLButtonElement>, node: CanvasNode) {
     // Do not let a second pointer or non-primary mouse button steal an active drag.
-    if (!event.isPrimary || event.button !== 0 || interaction.current) return;
+    if (!canBeginPointerInteraction(event.isPrimary, event.button, Boolean(interaction.current))) return;
     event.stopPropagation();
     event.currentTarget.setPointerCapture(event.pointerId);
     setSelectedId(node.id);
@@ -51,14 +52,14 @@ export function ProductionCanvas() {
   }
 
   function beginPan(event: ReactPointerEvent<HTMLDivElement>) {
-    if (event.target !== event.currentTarget || !event.isPrimary || event.button !== 0 || interaction.current) return;
+    if (event.target !== event.currentTarget || !canBeginPointerInteraction(event.isPrimary, event.button, Boolean(interaction.current))) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     interaction.current = { kind: "pan", pointerId: event.pointerId, startClient: { x: event.clientX, y: event.clientY }, startPan: pan };
   }
 
   function moveInteraction(event: ReactPointerEvent<HTMLDivElement>) {
     const active = interaction.current;
-    if (!active || active.pointerId !== event.pointerId) return;
+    if (!active || !isActivePointer(active.pointerId, event.pointerId)) return;
     const dx = event.clientX - active.startClient.x;
     const dy = event.clientY - active.startClient.y;
     if (active.kind === "node") {
@@ -75,7 +76,7 @@ export function ProductionCanvas() {
   }
 
   function endInteraction(event: ReactPointerEvent<HTMLDivElement>) {
-    if (interaction.current?.pointerId === event.pointerId) interaction.current = null;
+    if (isActivePointer(interaction.current?.pointerId ?? null, event.pointerId)) interaction.current = null;
   }
 
   function moveNodeByKeyboard(event: ReactKeyboardEvent<HTMLButtonElement>, node: CanvasNode) {
