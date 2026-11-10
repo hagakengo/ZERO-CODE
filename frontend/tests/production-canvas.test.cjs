@@ -502,3 +502,28 @@ test("pointer ownership runtime: reject secondary, right-button and competing in
   assert.equal(owns(null, 5), false);
   assert.equal(owns(0, 0), true);
 });
+
+
+test("zoom runtime: bounded finite values, rounding and invalid input fallback", () => {
+  const ts = require("typescript");
+  const vm = require("node:vm");
+  const source = fs.readFileSync(path.join(canvasDir, "zoom-controls.ts"), "utf8");
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  }).outputText;
+  const exports = {};
+  vm.runInNewContext(compiled, { exports }, { timeout: 1000 });
+  const clamp = exports.clampZoom;
+  assert.equal(exports.MIN_ZOOM, 0.5);
+  assert.equal(exports.MAX_ZOOM, 2);
+  assert.equal(exports.ZOOM_STEP, 0.2);
+  assert.equal(clamp(-100), 0.5);
+  assert.equal(clamp(100), 2);
+  assert.equal(clamp(1.234), 1.23);
+  assert.equal(clamp(1), 1);
+  for (const value of [NaN, Infinity, -Infinity]) assert.equal(clamp(value), 1);
+  const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
+  assert.match(canvas, /import \{ clampZoom, ZOOM_STEP \} from "\.\/zoom-controls"/);
+  assert.match(canvas, /clampZoom\(value - ZOOM_STEP\)/);
+  assert.match(canvas, /clampZoom\(value \+ ZOOM_STEP\)/);
+});
