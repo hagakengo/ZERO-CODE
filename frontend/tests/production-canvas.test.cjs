@@ -385,3 +385,16 @@ test("keyboard move delta runtime: modifiers, arrows and native keys", () => {
     assert.equal(result.y, y);
   }
 });
+
+test("direction buttons offer a shortcut-independent accessible fallback", () => {
+  const canvas = fs.readFileSync(path.join(canvasDir, "ProductionCanvas.tsx"), "utf8");
+  assert.match(canvas, /function moveSelectedNode\(/);
+  assert.match(canvas, /function panWithButton\(/);
+  assert.match(canvas, /\[selected\.id\]: clampNodePosition\(/);
+  assert.match(canvas, /role="group" aria-label="選択中のノードを移動"/);
+  assert.match(canvas, /role="group" aria-label="キャンバス表示位置を移動"/);
+  for (const direction of ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"]) {
+    assert.match(canvas, new RegExp('onClick=\\{\\(\\) => moveSelectedNode\\("' + direction + '"\\)\\}'));
+    assert.match(canvas, new RegExp('onClick=\\{\\(\\) => panWithButton\\("' + direction + '"\\)\\}'));
+  }
+});
