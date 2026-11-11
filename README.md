@@ -479,3 +479,46 @@ names/token values do not appear in the response.
 ## 素材資産管理・再利用
 
 [素材資産管理・再利用規程 v1.0（ZCS-ASSET-001）](docs/regulations/ZCS-ASSET-001_v1.0.md) を適用する。新規生成前に既存素材と権利を確認し、脚本承認と素材MASTER承認を分ける。既存の承認権限・正史管理は変更しない。[初回棚卸しの引継ぎ](docs/regulations/ZCS-ASSET-001_v1.0_inventory-handoff.md)。
+
+### 素材登録 API（ZCS-ASSET-REG-001 r02）
+
+登録・個別読取・履歴読取には、サーバーの `ZERO_CODE_ASSET_REGISTRY_TOKEN` と
+同じ値を `X-ZCS-Asset-Token` に指定する。トークン未設定は `503`、欠落・不一致は
+`401`。Origin がある場合は `CORS_ORIGINS` と完全一致する値だけを許可し、
+禁止 Origin は `403`。Origin がない CLI やサーバー間通信にもトークン認証が適用される。
+プロキシは HTTPS を使用し、Origin と認証ヘッダーをアプリに転送する。トークンは
+サーバー側の秘密管理に置き、ブラウザ配布物・URL・アクセスログ・トレースへの記録を避ける。
+共有トークンによる認証から個人の操作者は特定できない。
+
+- `POST /api/assets` は `asset_id`、`version`、`episode`、`cut`、`sha256`、
+  `dropbox_file_id`、`dropbox_path`、`status`（`DRAFT`）を受け取る。
+  運用手順では `size_bytes` と `provenance` も添付する。
+- 新規登録は `201`、同一内容の再送は `200`。同一素材ID・版数の変更、
+  同一 Dropbox ID・SHA-256 の別レコードへの登録は `409`。
+- `GET /api/assets/{asset_id}/{version}` は個別レコードを返す。未登録は `404`。
+  `GET /api/assets/{asset_id}` は版ごとの履歴を版識別子順に返す。未登録は空配列。
+- 新規行の `registered_at` はサーバーが UTC で記録する。再送時も初回値を返す。
+  r01 由来の不明な日時・サイズ・来歴は `null`。r01 の入力形式も引き続き受理する。
+  履歴は版単位の追加型で、各版の更新・削除・承認操作は API に存在しない。
+  この履歴の対象は成功した新規登録。アクセス試行や直接 DB を操作した変更は対象外。
+
+#### Dropbox 実体照合と証跡
+
+制作担当が提出する候補 JSON を、登録担当が照合する。候補には上記の必須項目、
+期待する `size_bytes`、ファイル全体の小文字 SHA-256 を含める。登録担当は
+読み取り専用の Dropbox トークンを秘密管理から `DROPBOX_READ_TOKEN` に設定し、
+登録 API と独立した照合を実行する。
+
+```bash
+python backend/tools/verify_dropbox_asset.py candidate.json receipt.json --verifier operator-id
+```
+
+照合ツールは候補の ID で Dropbox から実ファイルを読み、応答メタデータの ID・パス・サイズと、
+受信バイト数・SHA-256 を突き合わせる。ID 不存在、権限エラー、サイズやハッシュの不一致では
+非ゼロで終了する。失敗時は登録を中断し、理由を運用記録に残す。成功時は検証者・UTC 検証時刻・
+Dropbox の revision・候補メタデータを含む証跡 JSON を、アクセスを制限した保管先に保存する。
+標準出力の JSON を候補の `provenance` に追加し、登録後に GET で版・メタデータ・証跡の
+SHA-256 が一致することを確認する。証跡は同じ SHA-256 で検索・再照合できるよう管理する。
+
+API は送信されたメタデータと証跡の参照を保存する。Dropbox との通信・照合や証跡の真正性確認は
+登録担当の責任範囲。EP01 CUT02 は本番 OS 未登録。DRAFT の登録は素材の承認を伴わない。
