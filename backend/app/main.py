@@ -5,7 +5,7 @@ from datetime import date, datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, model_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator, model_validator
 from pathlib import Path
 
 from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header, Response
@@ -18,7 +18,7 @@ from threading import Lock
 load_dotenv(youtube.ENV_PATH)
 sync_lock = Lock()
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy import CheckConstraint, UniqueConstraint, Date, DateTime, Integer, String, create_engine, select, inspect, text
+from sqlalchemy import BigInteger, JSON, CheckConstraint, UniqueConstraint, Date, DateTime, Integer, String, create_engine, select, inspect, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{Path(__file__).resolve().parent.parent / 'zero_code.db'}")
@@ -64,6 +64,9 @@ class AssetRegistration(Base):
     dropbox_file_id: Mapped[str] = mapped_column(String(128))
     dropbox_path: Mapped[str] = mapped_column(String(1024))
     status: Mapped[str] = mapped_column(String(5))
+    size_bytes: Mapped[int | None] = mapped_column(BigInteger)
+    provenance: Mapped[dict | None] = mapped_column(JSON)
+    registered_at: Mapped[datetime | None] = mapped_column(DateTime)
 
 
 class Mission(Base):
@@ -154,6 +157,9 @@ def migrate() -> None:
     """Additive migration for existing SQLite/PostgreSQL databases."""
     timestamp_type = "DATETIME" if IS_SQLITE else "TIMESTAMP"
     additions = {
+        "asset_registrations": {
+            "size_bytes": "BIGINT", "provenance": "JSON", "registered_at": timestamp_type,
+        },
         "missions": {"metric_type": "VARCHAR(32) NOT NULL DEFAULT 'revenue'",
                      "target_value": "INTEGER NOT NULL DEFAULT 1",
                      "completed_at": timestamp_type, "completed_recorded_on": "DATE"},
@@ -438,8 +444,15 @@ def serialize_social_post(row: SocialPost):
 
 def require_local_origin(request: Request):
     allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
-    if request.headers.get("origin") and request.headers["origin"] not in allowed:
+    if any(origin not in allowed for origin in request.headers.getlist("origin")):
         raise HTTPException(403, "Origin not allowed")
+
+
+class AssetProvenance(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    verifier: str = Field(min_length=1, max_length=128)
+    evidence_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
 
 
 class AssetDraft(BaseModel):
@@ -453,6 +466,23 @@ class AssetDraft(BaseModel):
     dropbox_file_id: str = Field(max_length=128, pattern=r"^id:[A-Za-z0-9_-]+$")
     dropbox_path: str = Field(max_length=1024, pattern=r"^/[^/].*$")
     status: Literal["DRAFT"]
+    size_bytes: int | None = Field(default=None, strict=True, ge=0, le=2**63 - 1)
+    provenance: AssetProvenance | None = None
+
+    @model_validator(mode="after")
+    def require_size_for_provenance(self):
+        if self.provenance is not None and self.size_bytes is None:
+            raise ValueError("size_bytes is required with provenance")
+        return self
+
+
+class AssetRecord(AssetDraft):
+    registered_at: datetime | None = None
+
+    @field_validator("registered_at")
+    @classmethod
+    def mark_utc(cls, value):
+        return value.replace(tzinfo=timezone.utc) if value is not None else None
 
 
 def require_asset_registry_token(
@@ -469,8 +499,8 @@ def require_asset_registry_token(
 
 
 @app.post(
-    "/api/assets", response_model=AssetDraft, status_code=201,
-    responses={200: {"model": AssetDraft, "description": "Identical registration already exists"}},
+    "/api/assets", response_model=AssetRecord, status_code=201,
+    responses={200: {"model": AssetRecord, "description": "Identical registration already exists"}},
     dependencies=[Depends(require_asset_registry_token)],
 )
 def register_asset(payload: AssetDraft, response: Response, db: Session = Depends(get_db)):
@@ -489,13 +519,17 @@ def register_asset(payload: AssetDraft, response: Response, db: Session = Depend
     if duplicate is not None:
         raise HTTPException(409, "Dropbox file content already registered.")
 
-    db.add(AssetRegistration(**payload.model_dump()))
+    asset = AssetRegistration(
+        **payload.model_dump(),
+        registered_at=datetime.now(timezone.utc).replace(tzinfo=None),
+    )
+    db.add(asset)
     db.commit()
-    return payload
+    return asset
 
 
 @app.get(
-    "/api/assets/{asset_id}/{version}", response_model=AssetDraft,
+    "/api/assets/{asset_id}/{version}", response_model=AssetRecord,
     dependencies=[Depends(require_asset_registry_token)],
 )
 def read_asset(asset_id: str, version: str, db: Session = Depends(get_db)):
@@ -503,6 +537,16 @@ def read_asset(asset_id: str, version: str, db: Session = Depends(get_db)):
     if asset is None:
         raise HTTPException(404, "Asset version not found.")
     return asset
+
+
+@app.get(
+    "/api/assets/{asset_id}", response_model=list[AssetRecord],
+    dependencies=[Depends(require_asset_registry_token)],
+)
+def read_asset_history(asset_id: str, db: Session = Depends(get_db)):
+    return list(db.scalars(select(AssetRegistration).where(
+        AssetRegistration.asset_id == asset_id,
+    ).order_by(AssetRegistration.version)))
 
 
 @app.get("/api/sns/posts")
