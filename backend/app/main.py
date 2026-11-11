@@ -3,12 +3,12 @@ import re
 import secrets
 from datetime import date, datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
-from typing import Annotated
+from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, model_validator
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header
+from fastapi import Depends, FastAPI, Query, HTTPException, Request, Header, Response
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
 from . import youtube, buffer, sns_ops
@@ -18,7 +18,7 @@ from threading import Lock
 load_dotenv(youtube.ENV_PATH)
 sync_lock = Lock()
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy import Date, DateTime, Integer, String, create_engine, select, inspect, text
+from sqlalchemy import CheckConstraint, UniqueConstraint, Date, DateTime, Integer, String, create_engine, select, inspect, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{Path(__file__).resolve().parent.parent / 'zero_code.db'}")
@@ -47,6 +47,23 @@ def begin_write(db: Session) -> None:
 
 class Base(DeclarativeBase):
     pass
+
+
+class AssetRegistration(Base):
+    __tablename__ = "asset_registrations"
+    __table_args__ = (
+        CheckConstraint("status = 'DRAFT'", name="asset_registration_draft_only"),
+        UniqueConstraint("dropbox_file_id", "sha256", name="asset_registration_file_content"),
+    )
+
+    asset_id: Mapped[str] = mapped_column(String(128), primary_key=True)
+    version: Mapped[str] = mapped_column(String(16), primary_key=True)
+    episode: Mapped[str] = mapped_column(String(16))
+    cut: Mapped[str] = mapped_column(String(16))
+    sha256: Mapped[str] = mapped_column(String(64))
+    dropbox_file_id: Mapped[str] = mapped_column(String(128))
+    dropbox_path: Mapped[str] = mapped_column(String(1024))
+    status: Mapped[str] = mapped_column(String(5))
 
 
 class Mission(Base):
@@ -423,6 +440,69 @@ def require_local_origin(request: Request):
     allowed = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
     if request.headers.get("origin") and request.headers["origin"] not in allowed:
         raise HTTPException(403, "Origin not allowed")
+
+
+class AssetDraft(BaseModel):
+    model_config = ConfigDict(extra="forbid", from_attributes=True)
+
+    asset_id: str = Field(max_length=128, pattern=r"^[A-Z0-9]+(?:[-_][A-Z0-9]+)*$")
+    version: str = Field(max_length=16, pattern=r"^r[0-9]{2,}$")
+    episode: str = Field(max_length=16, pattern=r"^EP[0-9]{2,}$")
+    cut: str = Field(max_length=16, pattern=r"^CUT-?[0-9]{2,}$")
+    sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    dropbox_file_id: str = Field(max_length=128, pattern=r"^id:[A-Za-z0-9_-]+$")
+    dropbox_path: str = Field(max_length=1024, pattern=r"^/[^/].*$")
+    status: Literal["DRAFT"]
+
+
+def require_asset_registry_token(
+    request: Request, x_zcs_asset_token: str | None = Header(default=None),
+) -> None:
+    require_local_origin(request)
+    expected = os.getenv("ZERO_CODE_ASSET_REGISTRY_TOKEN", "").strip()
+    if not expected:
+        raise HTTPException(503, "Asset registry access is not configured.")
+    if not x_zcs_asset_token or not secrets.compare_digest(
+        x_zcs_asset_token.encode(), expected.encode()
+    ):
+        raise HTTPException(401, "Unauthorized")
+
+
+@app.post(
+    "/api/assets", response_model=AssetDraft, status_code=201,
+    responses={200: {"model": AssetDraft, "description": "Identical registration already exists"}},
+    dependencies=[Depends(require_asset_registry_token)],
+)
+def register_asset(payload: AssetDraft, response: Response, db: Session = Depends(get_db)):
+    begin_write(db)
+    existing = db.get(AssetRegistration, (payload.asset_id, payload.version))
+    if existing is not None:
+        if AssetDraft.model_validate(existing) != payload:
+            raise HTTPException(409, "Asset version already exists with different metadata.")
+        response.status_code = 200
+        return existing
+
+    duplicate = db.scalar(select(AssetRegistration.asset_id).where(
+        AssetRegistration.dropbox_file_id == payload.dropbox_file_id,
+        AssetRegistration.sha256 == payload.sha256,
+    ))
+    if duplicate is not None:
+        raise HTTPException(409, "Dropbox file content already registered.")
+
+    db.add(AssetRegistration(**payload.model_dump()))
+    db.commit()
+    return payload
+
+
+@app.get(
+    "/api/assets/{asset_id}/{version}", response_model=AssetDraft,
+    dependencies=[Depends(require_asset_registry_token)],
+)
+def read_asset(asset_id: str, version: str, db: Session = Depends(get_db)):
+    asset = db.get(AssetRegistration, (asset_id, version))
+    if asset is None:
+        raise HTTPException(404, "Asset version not found.")
+    return asset
 
 
 @app.get("/api/sns/posts")

@@ -479,3 +479,17 @@ names/token values do not appear in the response.
 ## 素材資産管理・再利用
 
 [素材資産管理・再利用規程 v1.0（ZCS-ASSET-001）](docs/regulations/ZCS-ASSET-001_v1.0.md) を適用する。新規生成前に既存素材と権利を確認し、脚本承認と素材MASTER承認を分ける。既存の承認権限・正史管理は変更しない。[初回棚卸しの引継ぎ](docs/regulations/ZCS-ASSET-001_v1.0_inventory-handoff.md)。
+
+### 素材登録 API（ZCS-ASSET-REG-001 r01）
+
+`ZERO_CODE_ASSET_REGISTRY_TOKEN` を設定し、登録・読取リクエストの
+`X-ZCS-Asset-Token` ヘッダーで指定する。
+
+- `POST /api/assets` に `asset_id`、`version`、`episode`、`cut`、`sha256`、
+  `dropbox_file_id`、`dropbox_path`、`status` を JSON で送る。状態は `DRAFT`、
+  SHA-256 はファイル全体の小文字16進ダイジェストを指定する。
+- 新規登録は `201`、同一内容の再送は `200`。同一素材ID・版数の内容変更や、
+  同一 Dropbox ID・SHA-256 の別レコードへの登録は `409`。
+- `GET /api/assets/{asset_id}/{version}` で登録内容を取得する。未登録は `404`。
+
+台帳には送信されたメタデータを記録する。ファイル実体と Dropbox メタデータの照合は登録前に行う。
