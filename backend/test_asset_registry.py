@@ -87,6 +87,12 @@ class AssetRegistryTests(unittest.TestCase):
                 self.assertEqual(self.client.get(self.url, headers=headers).status_code, expected)
                 self.assertEqual(self.client.post("/api/assets", json=self.asset, headers=headers).status_code,
                                  expected)
+        for headers, expected in (
+            ({"X-ZCS-Asset-Token": "incorrect"}, 401),
+            ({"Origin": "https://untrusted.invalid"}, 403),
+        ):
+            self.assertEqual(self.client.get(self.url.rsplit("/", 1)[0], headers=headers).status_code,
+                             expected)
         with patch.dict(os.environ, {"ZERO_CODE_ASSET_REGISTRY_TOKEN": ""}):
             self.assertEqual(self.client.get(self.url).status_code, 503)
             self.assertEqual(self.client.post("/api/assets", json=self.asset).status_code, 503)
@@ -111,7 +117,7 @@ class AssetRegistryTests(unittest.TestCase):
         for changes in (
             {"sha256": "c" * 64},
             {"asset_id": "ALIAS"},
-            {"asset_id": "OTHER", "sha256": "c" * 64, "status": "MASTER"},
+            {"asset_id": "OTHER", "sha256": "c" * 64, "status": "READY"},
         ):
             with self.subTest(changes=changes), SessionLocal() as db:
                 db.add(AssetRegistration(**dict(self.asset, **changes)))
