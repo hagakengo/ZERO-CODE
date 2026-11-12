@@ -1,0 +1,94 @@
+import type { CanvasNode } from "./types";
+
+// Follow only explicit CUT predecessor references; never infer order from array position.
+// A missing reference is not proof of a valid sequence and is handled by the caller.
+/**
+ * Reject noncanonical explicit predecessor references rather than silently
+ * trimming and accepting a different sequence reference.
+ */
+export function hasNoncanonicalPredecessorReference(startId: string, nodes: readonly CanvasNode[]): boolean {
+  const byId = new Map(nodes.filter((node) => node.kind === "CUT").map((node) => [node.id, node]));
+  const visited = new Set<string>();
+  let currentId: string | undefined = startId;
+  while (currentId) {
+    if (visited.has(currentId)) return false; // Cycle is reported separately.
+    visited.add(currentId);
+    const node = byId.get(currentId);
+    if (!node) return false; // Missing references are reported separately.
+    const predecessorId = node.cutDetails?.previousCutId;
+    if (predecessorId !== undefined && (!predecessorId.trim() || predecessorId !== predecessorId.trim())) return true;
+    currentId = predecessorId || undefined;
+  }
+  return false;
+}
+
+export function hasPredecessorCycle(startId: string, nodes: readonly CanvasNode[]): boolean {
+  const byId = new Map(nodes.filter((node) => node.kind === "CUT").map((node) => [node.id, node]));
+  const visited = new Set<string>();
+  let currentId: string | undefined = startId;
+  while (currentId) {
+    if (visited.has(currentId)) return true;
+    visited.add(currentId);
+    const node = byId.get(currentId);
+    if (!node) return false;
+    currentId = node.cutDetails?.previousCutId?.trim() || undefined;
+  }
+  return false;
+}
+
+/**
+ * A predecessor ID that does not resolve to a CUT is a broken reference.
+ * A cycle is handled independently by hasPredecessorCycle.
+ */
+export function hasBrokenPredecessorReference(startId: string, nodes: readonly CanvasNode[]): boolean {
+  const byId = new Map(nodes.filter((node) => node.kind === "CUT").map((node) => [node.id, node]));
+  const visited = new Set<string>();
+  let currentId: string | undefined = startId;
+  while (currentId) {
+    if (visited.has(currentId)) return false;
+    visited.add(currentId);
+    const node = byId.get(currentId);
+    if (!node) return true;
+    currentId = node.cutDetails?.previousCutId?.trim() || undefined;
+  }
+  return false;
+}
+
+/**
+ * Every reachable predecessor must belong to the selected CUT's scope,
+ * scene and script. Missing references and cycles are separate blockers.
+ */
+export function hasInconsistentPredecessorContext(startId: string, nodes: readonly CanvasNode[]): boolean {
+  const byId = new Map(nodes.filter((node) => node.kind === "CUT").map((node) => [node.id, node]));
+  const selected = byId.get(startId);
+  if (!selected) return true;
+  const scope = selected.projectScope;
+  const scene = selected.cutDetails?.sceneId;
+  const script = selected.cutDetails?.scriptId;
+  if (!scope || scope === "UNVERIFIED" || !scene?.trim() || !script?.trim()) return true;
+  const visited = new Set<string>();
+  let currentId: string | undefined = startId;
+  while (currentId) {
+    if (visited.has(currentId)) return false;
+    visited.add(currentId);
+    const node = byId.get(currentId);
+    if (!node) return false;
+    if (node.projectScope !== scope || node.cutDetails?.sceneId !== scene || node.cutDetails?.scriptId !== script) return true;
+    currentId = node.cutDetails?.previousCutId?.trim() || undefined;
+  }
+  return false;
+}
+
+/**
+ * Duplicate or noncanonical node IDs make lookup ambiguous across node kinds.
+ * Predecessor references are trimmed during traversal, so reject whitespace-
+ * padded IDs rather than silently resolving to a different node.
+ */
+export function hasAmbiguousNodeIds(nodes: readonly CanvasNode[]): boolean {
+  const seen = new Set<string>();
+  for (const node of nodes) {
+    if (!node.id.trim() || node.id !== node.id.trim() || seen.has(node.id)) return true;
+    seen.add(node.id);
+  }
+  return false;
+}

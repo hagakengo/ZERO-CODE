@@ -25,6 +25,33 @@ function Delta({ value, yen = false }: { value: number | null; yen?: boolean }) 
 }
 
 export default function Dashboard() {
+  const [sessionMessage, setSessionMessage] = useState("");
+  const [sessionPending, setSessionPending] = useState(false);
+  async function changeSession(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formElement = event.currentTarget;
+    const credential = new FormData(formElement).get("credential");
+    const signingIn = (event.nativeEvent as SubmitEvent).submitter?.getAttribute("value") !== "logout";
+    formElement.reset();
+    setSessionPending(true);
+    try {
+      const response = await fetch("/api/dashboard/session", signingIn ? {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ credential }),
+      } : { method: "DELETE" });
+      if (!response.ok) {
+        setSessionMessage(response.status === 429 ? "試行回数の上限に達しました。5分後に再試行してください。" : "セッションを更新できませんでした。");
+        return;
+      }
+      if (!signingIn) {
+        setSessionMessage("ログアウトしました。");
+        return;
+      }
+      const access = await fetch("/api/dashboard/session", { cache: "no-store" });
+      if (!access.ok) throw new Error();
+      setSessionMessage((await access.json()).canWrite ? "書込権限でログインしました。" : "読取専用でログインしました。");
+    } catch { setSessionMessage("セッションを確認できませんでした。"); }
+    finally { setSessionPending(false); }
+  }
   const [bufferStatus, setBufferStatus] = useState<{ configured: boolean; connected: boolean; x_channel_available: boolean; error: string | null } | null>(null);
   const [bufferError, setBufferError] = useState(false);
   const [history, setHistory] = useState<HistoryRow[]>([]);
@@ -66,8 +93,9 @@ export default function Dashboard() {
     if (savingRef.current) return;
     savingRef.current = true; setSyncing(true); setSyncError(""); setSyncMessage("");
     try {
-      const response = await fetch(`${base}/api/integrations/youtube/sync`, { method: "POST" });
+      const response = await fetch(`/api/dashboard/write/youtube`, { method: "POST" });
       const result = await response.json();
+      if (response.status === 401 || response.status === 403) throw new Error("書込権限でログインしてください。");
       if (!response.ok) throw new Error(result.detail || "YouTube同期に失敗しました。");
       setStatus(result.status); setIntegration(result.integration); setError(false);
       setSyncMessage("YouTubeの実測値を保存しました。");
@@ -97,9 +125,12 @@ export default function Dashboard() {
     if (!Object.keys(payload).length) { setSaveError("更新する項目を1つ以上入力してください。"); return; }
     savingRef.current = true; setSaving(true);
     try {
-      const response = await fetch(`${base}/api/metrics/manual`, {
+      const response = await fetch(`/api/dashboard/write/manual`, {
         method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
       });
+      if (response.status === 401 || response.status === 403) {
+        setSaveError("書込権限でログインしてください。"); return;
+      }
       if (!response.ok) throw new Error("Update failed");
       const updated: Status = await response.json();
       setStatus(updated); setForm(emptyForm); setError(false);
@@ -118,6 +149,12 @@ export default function Dashboard() {
       <div><p className="text-xs tracking-[0.35em] text-cyan-300">ZERO CODE OS / 0.4</p><h1 className="mt-2 text-3xl font-semibold tracking-tight">Dashboard</h1></div>
       <span role="status" className={`rounded-full border px-3 py-1 text-xs ${status ? "border-cyan-400/40 text-cyan-300" : "border-white/20 text-white/50"}`}>{status ? "SYSTEM ONLINE" : error ? "UNAVAILABLE" : "CONNECTING"}</span>
     </header>
+    <form onSubmit={changeSession} className="mx-auto mt-4 flex max-w-6xl flex-wrap items-end gap-3">
+      <label className="text-sm text-white/80">ダッシュボード認証<input name="credential" type="password" autoComplete="current-password" maxLength={256} className="mt-1 block rounded border border-cyan-300/25 bg-black/30 px-3 py-2" /></label>
+      <button disabled={sessionPending} type="submit" className="rounded border border-cyan-300/50 px-3 py-2 text-sm">ログイン</button>
+      <button disabled={sessionPending} type="submit" value="logout" className="rounded border border-cyan-300/50 px-3 py-2 text-sm">ログアウト</button>
+      <p role="status" className="text-sm text-cyan-200">{sessionMessage}</p>
+    </form>
     <p role="status" className="mx-auto mt-4 max-w-6xl text-xs text-cyan-200/70">Buffer / X: {bufferError ? "状態を取得できません" : !bufferStatus ? "確認中…" : !bufferStatus.configured ? "未設定" : !bufferStatus.connected ? "接続失敗" : bufferStatus.x_channel_available ? "X接続あり" : "X未接続"}{bufferStatus?.error && <span className="ml-2">{bufferStatus.error}</span>}</p>
     {error && <p role="alert" className="mx-auto mt-8 max-w-6xl text-white/70">データを取得できませんでした。APIの起動を確認してページを再読み込みしてください。</p>}
     {status && <>

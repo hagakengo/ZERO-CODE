@@ -131,7 +131,7 @@ the backend. Defaults allow localhost and 127.0.0.1 on frontend port 3000.
 
 ## ZERO CODE OS Phase 3 — YouTube sync
 
-Requires Python **3.11 or 3.12** and Node.js 20+. Install updated backend dependencies.
+Requires Python **3.11 or 3.12** and Node.js 20.9+ (CI uses Node.js 22). Install updated backend dependencies.
 This remains a **localhost, single-user app**: bind Uvicorn to `127.0.0.1`, use one
 worker, and do not expose these unauthenticated endpoints on a public network.
 The backend allows localhost hosts and rejects foreign browser origins on sync.
@@ -282,7 +282,7 @@ mission status. No historical counters, observations, or blank days are invented
 
 ### Local verification
 
-Back up your SQLite database before upgrading. Use Python 3.11/3.12 and Node 20+.
+Back up your SQLite database before upgrading. Use Python 3.11/3.12 and Node.js 20.9+ (CI uses Node.js 22).
 
 ```bash
 cd backend
@@ -364,6 +364,36 @@ If a real key was ever committed in an example file, revoke it and issue a new
 one: removing its value from the current file does not remove Git history.
 
 ## ZERO CODE OS Phase 4.5 — remote dashboard + PostgreSQL
+
+
+### Dashboard write access
+
+The dashboard sends manual metrics updates and YouTube sync through its own origin.
+Configure `ZCS_DASHBOARD_ORIGIN` and `ZCS_DASHBOARD_API_ORIGIN` on Next.js as exact
+origins without trailing slashes. Allow the dashboard origin in backend `CORS_ORIGINS`.
+Use HTTPS outside loopback development.
+
+- Set a randomly generated 32-byte hex `ZCS_DASHBOARD_SESSION_KEY` on Next.js.
+- Share an independent 32-byte hex `ZCS_DASHBOARD_SESSION_SERVICE_TOKEN` between
+  Next.js and FastAPI. Share a separate high-entropy `ZERO_CODE_METRICS_WRITE_TOKEN`
+  between both services. Keep these values in server environments.
+- Set `ZCS_DASHBOARD_LOGIN_SHA256` (read only) and
+  `ZCS_DASHBOARD_WRITE_LOGIN_SHA256` (write) on FastAPI to SHA-256 hashes of
+  distinct high-entropy login credentials. An unset write verifier disables
+  writer login. Changing a verifier invalidates sessions under that role.
+- Sessions expire after 15 minutes. The logout endpoint revokes the current
+  session in shared storage. Login attempts share a five-attempt limit per
+  five-minute window. This is a shared credential per role.
+
+FastAPI needs the additive `dashboard_sessions` and `dashboard_login_limit` tables
+through its existing schema initialization. Confirm authorization for any
+production schema change and verify the server-to-server path through deployment
+protection before enabling the writer credential. Existing dashboard read requests
+keep their current API behavior.
+
+With backend requirements installed and the frontend built, run
+`python frontend/tests/dashboard-write.py` from the repository root for the isolated
+SQLite and mocked YouTube write flow.
 
 Phase 4.5 makes the dashboard deployable and adds a protected read-only endpoint for trusted remote clients such as ChatGPT/agents.
 
@@ -479,3 +509,51 @@ names/token values do not appear in the response.
 ## 素材資産管理・再利用
 
 [素材資産管理・再利用規程 v1.0（ZCS-ASSET-001）](docs/regulations/ZCS-ASSET-001_v1.0.md) を適用する。新規生成前に既存素材と権利を確認し、脚本承認と素材MASTER承認を分ける。既存の承認権限・正史管理は変更しない。[初回棚卸しの引継ぎ](docs/regulations/ZCS-ASSET-001_v1.0_inventory-handoff.md)。
+
+### 素材登録 API（ZCS-ASSET-REG-001 r02）
+
+登録・個別読取・履歴読取には、サーバーの `ZERO_CODE_ASSET_REGISTRY_TOKEN` と
+同じ値を `X-ZCS-Asset-Token` に指定する。トークン未設定は `503`、欠落・不一致は
+`401`。Origin がある場合は `CORS_ORIGINS` と完全一致する値だけを許可し、
+禁止 Origin は `403`。Origin がない CLI やサーバー間通信にもトークン認証が適用される。
+プロキシは HTTPS を使用し、Origin と認証ヘッダーをアプリに転送する。トークンは
+サーバー側の秘密管理に置き、ブラウザ配布物・URL・アクセスログ・トレースへの記録を避ける。
+共有トークンによる認証から個人の操作者は特定できない。
+
+- `POST /api/assets` は `asset_id`、`version`、`episode`、`cut`、`sha256`、
+  `dropbox_file_id`、`dropbox_path`、`status`（`DRAFT`）を受け取る。
+  本番では `size_bytes`、`provenance`、`X-ZCS-Receipt-Signature` も必須。
+- 新規登録は `201`、同一内容の再送は `200`。同一素材ID・版数の変更、
+  同一 Dropbox ID・SHA-256 の別レコードへの登録は `409`。
+- `GET /api/assets/{asset_id}/{version}` は個別レコードを返す。未登録は `404`。
+  `GET /api/assets/{asset_id}` は版ごとの履歴を版識別子順に返す。未登録は空配列。
+- 新規行の `registered_at` はサーバーが UTC で記録する。再送時も初回値を返す。
+  r01 由来の不明な日時・サイズ・来歴は `null`。旧形式の既存行はそのまま読める。本番での旧形式の POST は拒否する。
+  履歴は版単位の追加型で、各版の更新・削除・承認操作は API に存在しない。
+  この履歴の対象は成功した新規登録。アクセス試行や直接 DB を操作した変更は対象外。
+
+#### Dropbox 実体照合と証跡
+
+制作担当が提出する候補 JSON を、登録担当が照合する。候補には上記の必須項目、
+期待する `size_bytes`、ファイル全体の小文字 SHA-256 を含める。登録担当は
+読み取り専用の Dropbox トークンを秘密管理から `DROPBOX_READ_TOKEN` に設定し、
+登録 API と独立した照合を実行する。
+
+```bash
+cd backend
+python -m tools.verify_dropbox_asset /path/to/candidate.json /path/to/receipt.json --verifier operator-id
+```
+
+照合ツールは候補の ID で Dropbox から実ファイルを読み、応答メタデータの ID・パス・サイズと、
+受信バイト数・SHA-256 を突き合わせる。ID 不存在、権限エラー、サイズやハッシュの不一致では
+非ゼロで終了する。失敗時は登録を中断し、理由を運用記録に残す。成功時は検証者・UTC 検証時刻・
+Dropbox の revision・候補メタデータを含む証跡 JSON を、アクセスを制限した保管先に保存する。
+本番では検証者と API の秘密管理に、登録トークンとは別のランダムな
+`ZERO_CODE_ASSET_RECEIPT_KEY`（32文字以上）を設定する。検証者は署名付き出力の
+`provenance` を候補に追加し、`receipt_signature` を登録リクエストの
+`X-ZCS-Receipt-Signature` ヘッダーとして渡す。署名は証跡の SHA-256 と素材の
+ID、版、パス、サイズ、ハッシュを含む登録内容全体に結びつく。
+登録後は GET で内容と証跡の SHA-256 を照合する。証跡はハッシュで検索できる形で保管する。
+
+API は検証者の署名を確認する。Dropbox 実体の照合と証跡保管は検証者が担当する。
+EP01 CUT02 は本番 OS 未登録。DRAFT の登録は素材の承認を伴わない。
