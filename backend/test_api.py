@@ -35,6 +35,33 @@ class ApiTests(unittest.TestCase):
     def test_health(self):
         self.assertEqual(self.client.get('/health').json(), {'status': 'ok'})
 
+    def test_manual_updates_reject_disallowed_browser_origins(self):
+        for method in ("POST", "PATCH"):
+            with self.subTest(method=method):
+                response = self.client.request(
+                    method, "/api/metrics/manual", json={"tiktok_views": 10},
+                    headers={"Origin": "https://untrusted.example"},
+                )
+                self.assertEqual(response.status_code, 403)
+        self.assertEqual(self.client.get("/api/status").json()["tiktok"]["views"], 0)
+
+    def test_production_metrics_writes_require_operator_token(self):
+        routes = (
+            ("POST", "/api/metrics/manual"),
+            ("PATCH", "/api/metrics/manual"),
+            ("POST", "/api/integrations/youtube/sync"),
+        )
+        with patch.dict(os.environ, {"VERCEL_ENV": "production", "ZERO_CODE_METRICS_WRITE_TOKEN": ""}):
+            for method, route in routes:
+                self.assertEqual(self.client.request(method, route).status_code, 503)
+        with patch.dict(os.environ, {"VERCEL_ENV": "production", "ZERO_CODE_METRICS_WRITE_TOKEN": "test-operator"}):
+            for method, route in routes:
+                self.assertEqual(self.client.request(method, route).status_code, 401)
+            headers = {"X-ZCS-Metrics-Write-Token": "test-operator"}
+            response = self.client.patch("/api/metrics/manual", json={"tiktok_views": 10}, headers=headers)
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(self.client.get("/api/status").json()["tiktok"]["views"], 10)
+
     def test_initial_status_and_idempotent_seed(self):
         seed()
         data = self.client.get('/api/status').json()
